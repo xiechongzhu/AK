@@ -26,7 +26,7 @@ namespace RadarProcess
         public void NewFile()
         {
             logWriter?.Close();
-            logWriter = new StreamWriter(ProgramParamers.GetInstance().strLogFile);
+            logWriter = new StreamWriter(TestInfo.GetInstance().strLogFile);
         }
 
         private MainForm mainForm;

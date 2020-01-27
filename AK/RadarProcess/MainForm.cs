@@ -1,8 +1,11 @@
-﻿using System;
+﻿using DataModels;
+using System;
 using System.Drawing;
 using System.Net;
 using System.Net.Sockets;
 using System.Windows.Forms;
+using System.Linq;
+using LinqToDB;
 
 namespace RadarProcess
 {
@@ -30,7 +33,13 @@ namespace RadarProcess
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            ProgramParamers.GetInstance().New();
+            TestInfoForm testInfoForm = new TestInfoForm();
+            if(testInfoForm.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+            TestInfo.GetInstance().New();
+            testInfoForm.GetTestInfo(out TestInfo.GetInstance().strTestName, out TestInfo.GetInstance().strOperator, out TestInfo.GetInstance().strComment);
             Logger.GetInstance().NewFile();
             String errMsg;
             if(!Config.GetInstance().LoadConfigFile(out errMsg))
@@ -80,9 +89,12 @@ namespace RadarProcess
         private void btnStop_Click(object sender, EventArgs e)
         {
             udpClient?.DropMulticastGroup(IPAddress.Parse(Config.GetInstance().strMultiCastIpAddr));
+            Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, "退出组播组成功");
             udpClient?.Close();
+            Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, "关闭套接字成功");
             dataParser.Stop();
             dataLogger.Stop();
+            SaveTestInfo();
             btnSetting.Enabled = true;
             btnStop.Enabled = false;
             btnStart.Enabled = true;
@@ -132,6 +144,33 @@ namespace RadarProcess
             {
                 btnStop_Click(sender, e);
             }
+        }
+
+        private void SaveTestInfo()
+        {
+            try
+            {
+                var db = new DatabaseDB();
+                db.Insert<DataModels.TestInfo>(new DataModels.TestInfo
+                {
+
+                    TestName = TestInfo.GetInstance().strTestName,
+                    Operator = TestInfo.GetInstance().strOperator,
+                    Comment = TestInfo.GetInstance().strComment,
+                    Time = TestInfo.GetInstance().dateTime
+                }) ;
+                db.CommitTransaction();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("保存试验信息失败:" + ex.Message);
+            }
+        }
+
+        private void btnHistory_Click(object sender, EventArgs e)
+        {
+            HistoryForm historyForm = new HistoryForm();
+            historyForm.ShowDialog();
         }
     }
 }

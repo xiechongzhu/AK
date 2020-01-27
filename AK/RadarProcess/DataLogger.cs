@@ -25,7 +25,7 @@ namespace RadarProcess
         {
             while (queue.TryDequeue(out byte[] dropBuffer)) ;
             logWriter?.Close();
-            logWriter = new StreamWriter(ProgramParamers.GetInstance().strDataFile);
+            logWriter = new StreamWriter(TestInfo.GetInstance().strDataFile);
             isRuning = true;
             thread = new Thread(new ThreadStart(ThreadFunction));
             thread.Start();

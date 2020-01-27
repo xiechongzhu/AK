@@ -56,8 +56,13 @@ namespace RadarProcess
 
         private void ParseData(byte[] buffer)
         {
-            MemoryStream stream = new MemoryStream(buffer);
-            BinaryReader br = new BinaryReader(stream);
+            using(MemoryStream stream = new MemoryStream(buffer))
+            {
+                using(BinaryReader br = new BinaryReader(stream))
+                {
+
+                }
+            }
         }
     }
 }
