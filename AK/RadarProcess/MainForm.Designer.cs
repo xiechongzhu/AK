@@ -290,6 +290,7 @@
             this.layoutControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl3.Location = new System.Drawing.Point(0, 100);
             this.layoutControl3.Name = "layoutControl3";
+            this.layoutControl3.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(2540, 327, 1300, 800);
             this.layoutControl3.Root = this.layoutControlGroup2;
             this.layoutControl3.Size = new System.Drawing.Size(2175, 752);
             this.layoutControl3.TabIndex = 2;
@@ -376,7 +377,7 @@
             this.layoutControlGroup2.GroupBordersVisible = false;
             this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1});
-            this.layoutControlGroup2.Name = "layoutControlGroup2";
+            this.layoutControlGroup2.Name = "Root";
             this.layoutControlGroup2.Size = new System.Drawing.Size(2175, 752);
             this.layoutControlGroup2.TextVisible = false;
             // 

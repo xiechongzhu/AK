@@ -35,9 +35,9 @@
             this.colOperator = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTime = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colComment = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
@@ -139,6 +139,14 @@
             this.colComment.VisibleIndex = 3;
             this.colComment.Width = 150;
             // 
+            // colId
+            // 
+            this.colId.Caption = "id";
+            this.colId.FieldName = "Id";
+            this.colId.MinWidth = 40;
+            this.colId.Name = "colId";
+            this.colId.Width = 150;
+            // 
             // Root
             // 
             this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -158,14 +166,6 @@
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
-            // colId
-            // 
-            this.colId.Caption = "id";
-            this.colId.FieldName = "Id";
-            this.colId.MinWidth = 40;
-            this.colId.Name = "colId";
-            this.colId.Width = 150;
-            // 
             // HistoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
@@ -173,6 +173,7 @@
             this.ClientSize = new System.Drawing.Size(1518, 877);
             this.Controls.Add(this.layoutControl1);
             this.Name = "HistoryForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "历史数据";
             this.Load += new System.EventHandler(this.HistoryForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
