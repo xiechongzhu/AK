@@ -7,6 +7,15 @@ using System.Threading.Tasks;
 
 namespace RadarProcess
 {
+    [Serializable]
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    struct PACK_HEAD
+    {
+        public byte Station;
+        public byte Type;
+    }
+
+    [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     struct S_HEAD
     {
@@ -19,10 +28,11 @@ namespace RadarProcess
         public byte    FF;
         public byte    Num;
         public byte    C;
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 10)]
-        public byte[]  S;
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 43)]
+        public byte[] S;
     }
 
+    [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     struct S_OBJECT
     {

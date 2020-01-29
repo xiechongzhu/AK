@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -23,7 +24,7 @@ namespace RadarProcess
             String errMsg;
             if(!Config.GetInstance().LoadConfigFile(out errMsg))
             {
-                MessageBox.Show("加载配置文件失败," + errMsg);
+                MessageBox.Show("加载配置文件失败," + errMsg, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             editLongitudeInit.Text = Config.GetInstance().longitudeInit.ToString();
@@ -79,16 +80,15 @@ namespace RadarProcess
             }
             catch(Exception ex)
             {
-                MessageBox.Show("输入错误," + ex.Message, "错误");
+                MessageBox.Show("输入错误," + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 return;
             }
             String errMsg;
             if(!Config.GetInstance().SaveConfig(out errMsg))
             {
-                MessageBox.Show("保存配置文件失败," + errMsg);
+                MessageBox.Show("保存配置文件失败," + errMsg, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            DialogResult = DialogResult.OK;
             Close();
         }
 

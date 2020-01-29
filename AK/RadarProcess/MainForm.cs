@@ -6,29 +6,51 @@ using System.Net.Sockets;
 using System.Windows.Forms;
 using System.Linq;
 using LinqToDB;
+using System.Runtime.InteropServices;
+using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using GMap.NET.MapProviders;
+using GMap.NET;
+using DevExpress.XtraCharts;
 
 namespace RadarProcess
 {
     public partial class MainForm : Form
     {
+        private int CHART_ITEM_INDEX = 0;
+        private const int WM_USER = 0x400;
+        public const int WM_RADAR_DATA = WM_USER + 100;
+
         private UdpClient udpClient;
         private DataParser dataParser;
         private DataLogger dataLogger = new DataLogger();
+        private List<S_OBJECT> listSObject = new List<S_OBJECT>();
         public MainForm()
         {
-            dataParser = new DataParser(this);
+            dataParser = new DataParser(Handle);
             InitializeComponent();
             btnStop.Enabled = false;
             Logger.GetInstance().SetMainForm(this);
+            InitGMap();
+            /*SwiftPlotDiagramAxisX axisX = ((SwiftPlotDiagram)chartControl.Diagram).AxisX;
+            axisX.VisualRange.SetMinMaxValues((double)axisX.WholeRange.MaxValue - 50, (double)axisX.WholeRange.MaxValue);*/
+        }
+
+        private void InitGMap()
+        {
+            GMaps.Instance.Mode = AccessMode.ServerAndCache;
+            gMapControl.MapProvider = GoogleChinaMapProvider.Instance;
+            gMapControl.MinZoom = 1;
+            gMapControl.MaxZoom = 13;
+            gMapControl.Zoom = 9;
+            gMapControl.ShowCenter = false;
         }
 
         private void btnSetting_Click(object sender, EventArgs e)
         {
             SettingForm settingForm = new SettingForm();
-            if(DialogResult.OK == settingForm.ShowDialog())
-            {
-
-            }
+            settingForm.ShowDialog();
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -45,7 +67,7 @@ namespace RadarProcess
             if(!Config.GetInstance().LoadConfigFile(out errMsg))
             {
                 Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_ERROR, "加载配置文件失败," + errMsg);
-                MessageBox.Show("加载配置文件失败," + errMsg, "错误");
+                MessageBox.Show("加载配置文件失败," + errMsg, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, "加载配置文件成功");
@@ -60,11 +82,16 @@ namespace RadarProcess
             catch(Exception ex)
             {
                 Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_ERROR, "加入组播组失败，" + ex.Message);
-                MessageBox.Show("加入组播组失败，" + ex.Message);
+                MessageBox.Show("加入组播组失败，" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 udpClient.Close();
                 dataParser.Stop();
                 dataLogger.Stop();
                 return;
+            }
+            CHART_ITEM_INDEX = 0;
+            foreach(DevExpress.XtraCharts.Series sery in positionChart.Series)
+            {
+                sery.Points.Clear();
             }
             udpClient.BeginReceive(EndReceive, null);
             btnSetting.Enabled = false;
@@ -95,6 +122,19 @@ namespace RadarProcess
             dataParser.Stop();
             dataLogger.Stop();
             SaveTestInfo();
+            try
+            {
+                using (FileStream fs = new FileStream(TestInfo.GetInstance().strHistoryFile, FileMode.Create))
+                {
+                    BinaryFormatter formatter = new BinaryFormatter();
+                    formatter.Serialize(fs, listSObject);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("保存历史数据失败:" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            listSObject.Clear();
             btnSetting.Enabled = true;
             btnStop.Enabled = false;
             btnStart.Enabled = true;
@@ -109,6 +149,10 @@ namespace RadarProcess
             }
             else
             {
+                if(LogListView.Items.Count == 100)
+                {
+                    LogListView.Items.RemoveAt(0);
+                }
                 ListViewItem item = new ListViewItem
                 {
                     Text = time.ToString("G")
@@ -163,7 +207,7 @@ namespace RadarProcess
             }
             catch(Exception ex)
             {
-                MessageBox.Show("保存试验信息失败:" + ex.Message);
+                MessageBox.Show("保存试验信息失败:" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -171,6 +215,43 @@ namespace RadarProcess
         {
             HistoryForm historyForm = new HistoryForm();
             historyForm.ShowDialog();
+        }
+
+        protected override void DefWndProc(ref Message m)
+        {
+            switch(m.Msg)
+            {
+                case WM_RADAR_DATA:
+                    S_OBJECT sObject = (S_OBJECT)m.GetLParam(typeof(S_OBJECT));
+                    listSObject.Add(sObject);
+                    AddPosition(sObject.X, sObject.Y, sObject.Z);
+                    AddSpeed(sObject.VX, sObject.VY, sObject.VZ);
+                    CHART_ITEM_INDEX++;
+                    break;
+            }
+            base.DefWndProc(ref m);
+        }
+
+        private void AddPosition(double x, double y, double z)
+        {
+            Random random = new Random();
+            x = random.Next(10, 20);
+            y = random.Next(10, 20);
+            z = random.Next(10, 20);
+            positionChart.Series["位置X"].Points.Add(new DevExpress.XtraCharts.SeriesPoint(CHART_ITEM_INDEX, x));
+            positionChart.Series["位置Y"].Points.Add(new DevExpress.XtraCharts.SeriesPoint(CHART_ITEM_INDEX, y));
+            positionChart.Series["位置Z"].Points.Add(new DevExpress.XtraCharts.SeriesPoint(CHART_ITEM_INDEX, z));
+        }
+
+        private void AddSpeed(double vx, double vy, double vz)
+        {
+            Random random = new Random();
+            vx = random.Next(100, 1000);
+            vy = random.Next(100, 1000);
+            vz = random.Next(100, 1000);
+            speedChart.Series["速度X"].Points.Add(new DevExpress.XtraCharts.SeriesPoint(CHART_ITEM_INDEX, vx));
+            speedChart.Series["速度Y"].Points.Add(new DevExpress.XtraCharts.SeriesPoint(CHART_ITEM_INDEX, vy));
+            speedChart.Series["速度Z"].Points.Add(new DevExpress.XtraCharts.SeriesPoint(CHART_ITEM_INDEX, vz));
         }
     }
 }

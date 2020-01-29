@@ -21,7 +21,7 @@ namespace RadarProcess
         {
             if(editTestName.Text.Trim().Length == 0 || editOperator.Text.Trim().Length == 0)
             {
-                MessageBox.Show("试验名称和操作人员不能为空", "错误");
+                MessageBox.Show("试验名称和操作人员不能为空", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             DialogResult = DialogResult.OK;
