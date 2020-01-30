@@ -75,6 +75,7 @@
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.alertControl = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
+            this.chartUpateTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
@@ -469,6 +470,11 @@
             this.alertControl.AutoFormDelay = 1000;
             this.alertControl.ShowPinButton = false;
             // 
+            // chartUpateTimer
+            // 
+            this.chartUpateTimer.Interval = 1000;
+            this.chartUpateTimer.Tick += new System.EventHandler(this.chartUpateTimer_Tick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
@@ -555,6 +561,7 @@
         private DevExpress.XtraCharts.ChartControl positionChart;
         private DevExpress.XtraCharts.ChartControl speedChart;
         private DevExpress.XtraBars.Alerter.AlertControl alertControl;
+        private System.Windows.Forms.Timer chartUpateTimer;
     }
 }
 

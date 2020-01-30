@@ -22,6 +22,12 @@ namespace RadarProcess
         private int CHART_ITEM_INDEX = 0;
         private const int WM_USER = 0x400;
         public const int WM_RADAR_DATA = WM_USER + 100;
+        private List<SeriesPoint> positionXBuffer = new List<SeriesPoint>();
+        private List<SeriesPoint> positionYBuffer = new List<SeriesPoint>();
+        private List<SeriesPoint> positionZBuffer = new List<SeriesPoint>();
+        private List<SeriesPoint> speedVxBuffer = new List<SeriesPoint>();
+        private List<SeriesPoint> speedVyBuffer = new List<SeriesPoint>();
+        private List<SeriesPoint> speedVzBuffer = new List<SeriesPoint>();
 
         private UdpClient udpClient;
         private DataParser dataParser;
@@ -102,6 +108,7 @@ namespace RadarProcess
             btnSetting.Enabled = false;
             btnStop.Enabled = true;
             btnStart.Enabled = false;
+            chartUpateTimer.Start();
             udpClient.BeginReceive(EndReceive, null);
         }
 
@@ -121,6 +128,7 @@ namespace RadarProcess
 
         private void btnStop_Click(object sender, EventArgs e)
         {
+            chartUpateTimer.Stop();
             udpClient?.Close();
             dataParser.Stop();
             dataLogger.Stop();
@@ -143,6 +151,12 @@ namespace RadarProcess
             btnSetting.Enabled = true;
             btnStop.Enabled = false;
             btnStart.Enabled = true;
+            positionXBuffer.Clear();
+            positionYBuffer.Clear();
+            positionZBuffer.Clear();
+            speedVxBuffer.Clear();
+            speedVyBuffer.Clear();
+            speedVzBuffer.Clear();
         }
 
         delegate void LogDelegate(DateTime time, Logger.LOG_LEVEL level, String msg);
@@ -246,16 +260,22 @@ namespace RadarProcess
 
         private void AddPosition(double x, double y, double z)
         {
-            positionChart.Series["位置X"].Points.Add(new SeriesPoint(CHART_ITEM_INDEX, x));
+            /*positionChart.Series["位置X"].Points.Add(new SeriesPoint(CHART_ITEM_INDEX, x));
             positionChart.Series["位置Y"].Points.Add(new SeriesPoint(CHART_ITEM_INDEX, y));
-            positionChart.Series["位置Z"].Points.Add(new SeriesPoint(CHART_ITEM_INDEX, z));
+            positionChart.Series["位置Z"].Points.Add(new SeriesPoint(CHART_ITEM_INDEX, z));*/
+            positionXBuffer.Add(new SeriesPoint(CHART_ITEM_INDEX, x));
+            positionYBuffer.Add(new SeriesPoint(CHART_ITEM_INDEX, y));
+            positionZBuffer.Add(new SeriesPoint(CHART_ITEM_INDEX, z));
         }
 
         private void AddSpeed(double vx, double vy, double vz)
         {
-            speedChart.Series["速度X"].Points.Add(new SeriesPoint(CHART_ITEM_INDEX, vx));
+            /*speedChart.Series["速度X"].Points.Add(new SeriesPoint(CHART_ITEM_INDEX, vx));
             speedChart.Series["速度Y"].Points.Add(new SeriesPoint(CHART_ITEM_INDEX, vy));
-            speedChart.Series["速度Z"].Points.Add(new SeriesPoint(CHART_ITEM_INDEX, vz));
+            speedChart.Series["速度Z"].Points.Add(new SeriesPoint(CHART_ITEM_INDEX, vz));*/
+            speedVxBuffer.Add(new SeriesPoint(CHART_ITEM_INDEX, vx));
+            speedVyBuffer.Add(new SeriesPoint(CHART_ITEM_INDEX, vy));
+            speedVzBuffer.Add(new SeriesPoint(CHART_ITEM_INDEX, vz));
         }
 
         private void CheckPosition(double x, double y, double z)
@@ -280,6 +300,22 @@ namespace RadarProcess
                 Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "位置Z超出范围:\n" + z.ToString());
             }
             positionAlertTime = DateTime.Now;
+        }
+
+        private void chartUpateTimer_Tick(object sender, EventArgs e)
+        {
+            positionChart.Series["位置X"].Points.AddRange(positionXBuffer.ToArray());
+            positionChart.Series["位置Y"].Points.AddRange(positionYBuffer.ToArray());
+            positionChart.Series["位置Z"].Points.AddRange(positionZBuffer.ToArray());
+            speedChart.Series["速度X"].Points.AddRange(speedVxBuffer.ToArray());
+            speedChart.Series["速度Y"].Points.AddRange(speedVyBuffer.ToArray());
+            speedChart.Series["速度Z"].Points.AddRange(speedVzBuffer.ToArray());
+            positionXBuffer.Clear();
+            positionYBuffer.Clear();
+            positionZBuffer.Clear();
+            speedVxBuffer.Clear();
+            speedVyBuffer.Clear();
+            speedVzBuffer.Clear();
         }
 
         private void CheckSpeed(double vx, double vy, double vz)

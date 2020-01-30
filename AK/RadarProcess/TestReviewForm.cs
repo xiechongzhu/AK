@@ -65,16 +65,28 @@ namespace RadarProcess
                 }
                 if(objectList != null)
                 {
+                    List<SeriesPoint> positionXBuffer = new List<SeriesPoint>();
+                    List<SeriesPoint> positionYBuffer = new List<SeriesPoint>();
+                    List<SeriesPoint> positionZBuffer = new List<SeriesPoint>();
+                    List<SeriesPoint> speedVxBuffer = new List<SeriesPoint>();
+                    List<SeriesPoint> speedVyBuffer = new List<SeriesPoint>();
+                    List<SeriesPoint> speedVzBuffer = new List<SeriesPoint>();
                     foreach(S_OBJECT obj in objectList)
                     {
-                        positionChart.Series["位置X"].Points.Add(new SeriesPoint(CHART_ITEM_INDEX, obj.X));
-                        positionChart.Series["位置Y"].Points.Add(new SeriesPoint(CHART_ITEM_INDEX, obj.Y));
-                        positionChart.Series["位置Z"].Points.Add(new SeriesPoint(CHART_ITEM_INDEX, obj.Z));
-                        speedChart.Series["速度X"].Points.Add(new SeriesPoint(CHART_ITEM_INDEX, obj.VX));
-                        speedChart.Series["速度Y"].Points.Add(new SeriesPoint(CHART_ITEM_INDEX, obj.VY));
-                        speedChart.Series["速度Z"].Points.Add(new SeriesPoint(CHART_ITEM_INDEX, obj.VZ));
+                        positionXBuffer.Add(new SeriesPoint(CHART_ITEM_INDEX, obj.X));
+                        positionYBuffer.Add(new SeriesPoint(CHART_ITEM_INDEX, obj.Y));
+                        positionZBuffer.Add(new SeriesPoint(CHART_ITEM_INDEX, obj.Z));
+                        speedVxBuffer.Add(new SeriesPoint(CHART_ITEM_INDEX, obj.VX));
+                        speedVyBuffer.Add(new SeriesPoint(CHART_ITEM_INDEX, obj.VY));
+                        speedVzBuffer.Add(new SeriesPoint(CHART_ITEM_INDEX, obj.VZ));
                         CHART_ITEM_INDEX++;
                     }
+                    positionChart.Series["位置X"].Points.AddRange(positionXBuffer.ToArray());
+                    positionChart.Series["位置Y"].Points.AddRange(positionYBuffer.ToArray());
+                    positionChart.Series["位置Z"].Points.AddRange(positionZBuffer.ToArray());
+                    speedChart.Series["速度X"].Points.AddRange(speedVxBuffer.ToArray());
+                    speedChart.Series["速度Y"].Points.AddRange(speedVyBuffer.ToArray());
+                    speedChart.Series["速度Z"].Points.AddRange(speedVzBuffer.ToArray());
                 }
             }
         }
