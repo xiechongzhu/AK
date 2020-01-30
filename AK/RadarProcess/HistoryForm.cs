@@ -45,6 +45,8 @@ namespace RadarProcess
             {
                 int selectedRow = gridView.GetSelectedRows()[0];
                 long id = (long)gridView.GetRowCellValue(selectedRow, "Id");
+                TestReviewForm testReviewForm = new TestReviewForm(id);
+                testReviewForm.ShowDialog();
             }
         }
     }

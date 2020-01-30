@@ -13,6 +13,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using GMap.NET.MapProviders;
 using GMap.NET;
 using DevExpress.XtraCharts;
+using DevExpress.XtraEditors;
 
 namespace RadarProcess
 {
@@ -26,6 +27,7 @@ namespace RadarProcess
         private DataParser dataParser;
         private DataLogger dataLogger = new DataLogger();
         private List<S_OBJECT> listSObject = new List<S_OBJECT>();
+        private DateTime positionAlertTime, speedAlertTime;
         public MainForm()
         {
             dataParser = new DataParser(Handle);
@@ -33,8 +35,8 @@ namespace RadarProcess
             btnStop.Enabled = false;
             Logger.GetInstance().SetMainForm(this);
             InitGMap();
-            /*SwiftPlotDiagramAxisX axisX = ((SwiftPlotDiagram)chartControl.Diagram).AxisX;
-            axisX.VisualRange.SetMinMaxValues((double)axisX.WholeRange.MaxValue - 50, (double)axisX.WholeRange.MaxValue);*/
+            positionAlertTime = DateTime.Now;
+            speedAlertTime = DateTime.Now;
         }
 
         private void InitGMap()
@@ -67,7 +69,7 @@ namespace RadarProcess
             if(!Config.GetInstance().LoadConfigFile(out errMsg))
             {
                 Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_ERROR, "加载配置文件失败," + errMsg);
-                MessageBox.Show("加载配置文件失败," + errMsg, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show("加载配置文件失败," + errMsg, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, "加载配置文件成功");
@@ -82,21 +84,25 @@ namespace RadarProcess
             catch(Exception ex)
             {
                 Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_ERROR, "加入组播组失败，" + ex.Message);
-                MessageBox.Show("加入组播组失败，" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show("加入组播组失败，" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 udpClient.Close();
                 dataParser.Stop();
                 dataLogger.Stop();
                 return;
             }
             CHART_ITEM_INDEX = 0;
-            foreach(DevExpress.XtraCharts.Series sery in positionChart.Series)
+            foreach(Series sery in positionChart.Series)
             {
                 sery.Points.Clear();
             }
-            udpClient.BeginReceive(EndReceive, null);
+            foreach(Series sery in speedChart.Series)
+            {
+                sery.Points.Clear();
+            }
             btnSetting.Enabled = false;
             btnStop.Enabled = true;
             btnStart.Enabled = false;
+            udpClient.BeginReceive(EndReceive, null);
         }
 
         private void EndReceive(IAsyncResult ar)
@@ -115,12 +121,11 @@ namespace RadarProcess
 
         private void btnStop_Click(object sender, EventArgs e)
         {
-            udpClient?.DropMulticastGroup(IPAddress.Parse(Config.GetInstance().strMultiCastIpAddr));
-            Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, "退出组播组成功");
             udpClient?.Close();
-            Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, "关闭套接字成功");
             dataParser.Stop();
             dataLogger.Stop();
+            Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, "退出组播组成功");
+            Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, "关闭套接字成功");
             SaveTestInfo();
             try
             {
@@ -132,7 +137,7 @@ namespace RadarProcess
             }
             catch(Exception ex)
             {
-                MessageBox.Show("保存历史数据失败:" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show("保存历史数据失败:" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             listSObject.Clear();
             btnSetting.Enabled = true;
@@ -207,7 +212,7 @@ namespace RadarProcess
             }
             catch(Exception ex)
             {
-                MessageBox.Show("保存试验信息失败:" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show("保存试验信息失败:" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -222,11 +227,18 @@ namespace RadarProcess
             switch(m.Msg)
             {
                 case WM_RADAR_DATA:
-                    S_OBJECT sObject = (S_OBJECT)m.GetLParam(typeof(S_OBJECT));
-                    listSObject.Add(sObject);
-                    AddPosition(sObject.X, sObject.Y, sObject.Z);
-                    AddSpeed(sObject.VX, sObject.VY, sObject.VZ);
-                    CHART_ITEM_INDEX++;
+                    try
+                    {
+                        S_OBJECT sObject = (S_OBJECT)m.GetLParam(typeof(S_OBJECT));
+                        listSObject.Add(sObject);
+                        AddPosition(sObject.X, sObject.Y, sObject.Z);
+                        AddSpeed(sObject.VX, sObject.VY, sObject.VZ);
+                        CHART_ITEM_INDEX++;
+                        CheckPosition(sObject.X, sObject.Y, sObject.Z);
+                        CheckSpeed(sObject.VX, sObject.VY, sObject.VZ);
+                    }
+                    catch (Exception)
+                    { }
                     break;
             }
             base.DefWndProc(ref m);
@@ -234,24 +246,64 @@ namespace RadarProcess
 
         private void AddPosition(double x, double y, double z)
         {
-            Random random = new Random();
-            x = random.Next(10, 20);
-            y = random.Next(10, 20);
-            z = random.Next(10, 20);
-            positionChart.Series["位置X"].Points.Add(new DevExpress.XtraCharts.SeriesPoint(CHART_ITEM_INDEX, x));
-            positionChart.Series["位置Y"].Points.Add(new DevExpress.XtraCharts.SeriesPoint(CHART_ITEM_INDEX, y));
-            positionChart.Series["位置Z"].Points.Add(new DevExpress.XtraCharts.SeriesPoint(CHART_ITEM_INDEX, z));
+            positionChart.Series["位置X"].Points.Add(new SeriesPoint(CHART_ITEM_INDEX, x));
+            positionChart.Series["位置Y"].Points.Add(new SeriesPoint(CHART_ITEM_INDEX, y));
+            positionChart.Series["位置Z"].Points.Add(new SeriesPoint(CHART_ITEM_INDEX, z));
         }
 
         private void AddSpeed(double vx, double vy, double vz)
         {
-            Random random = new Random();
-            vx = random.Next(100, 1000);
-            vy = random.Next(100, 1000);
-            vz = random.Next(100, 1000);
-            speedChart.Series["速度X"].Points.Add(new DevExpress.XtraCharts.SeriesPoint(CHART_ITEM_INDEX, vx));
-            speedChart.Series["速度Y"].Points.Add(new DevExpress.XtraCharts.SeriesPoint(CHART_ITEM_INDEX, vy));
-            speedChart.Series["速度Z"].Points.Add(new DevExpress.XtraCharts.SeriesPoint(CHART_ITEM_INDEX, vz));
+            speedChart.Series["速度X"].Points.Add(new SeriesPoint(CHART_ITEM_INDEX, vx));
+            speedChart.Series["速度Y"].Points.Add(new SeriesPoint(CHART_ITEM_INDEX, vy));
+            speedChart.Series["速度Z"].Points.Add(new SeriesPoint(CHART_ITEM_INDEX, vz));
+        }
+
+        private void CheckPosition(double x, double y, double z)
+        {
+            if(DateTime.Now < positionAlertTime.AddSeconds(10))
+            {
+                return;
+            }
+            if(x > Config.GetInstance().locMaxX || x < Config.GetInstance().locMinX)
+            {
+                alertControl.Show(this, "提示", "位置X超出范围:\n" + x.ToString());
+                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "位置X超出范围:\n" + x.ToString());
+            }
+            if (y > Config.GetInstance().locMaxY || y < Config.GetInstance().locMinY)
+            {
+                alertControl.Show(this, "提示", "位置Y超出范围:\n" + y.ToString());
+                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "位置Y超出范围:\n" + y.ToString());
+            }
+            if (z > Config.GetInstance().locMaxZ || z < Config.GetInstance().locMinZ)
+            {
+                alertControl.Show(this, "提示", "位置X超出范围:\n" + z.ToString());
+                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "位置Z超出范围:\n" + z.ToString());
+            }
+            positionAlertTime = DateTime.Now;
+        }
+
+        private void CheckSpeed(double vx, double vy, double vz)
+        {
+            if (DateTime.Now < speedAlertTime.AddSeconds(10))
+            {
+                return;
+            }
+            if (vx > Config.GetInstance().speedMaxX || vx < Config.GetInstance().speedMinX)
+            {
+                alertControl.Show(this, "提示", "速度VX超出范围:\n" + vx.ToString());
+                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "速度VX超出范围:\n" + vx.ToString());
+            }
+            if (vy > Config.GetInstance().speedMaxY || vy < Config.GetInstance().speedMinY)
+            {
+                alertControl.Show(this, "提示", "速度VY超出范围:\n" + vy.ToString());
+                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "速度VY超出范围:\n" + vy.ToString());
+            }
+            if (vz > Config.GetInstance().speedMaxZ || vz < Config.GetInstance().speedMinZ)
+            {
+                alertControl.Show(this, "提示", "速度VZ超出范围:\n" + vz.ToString());
+                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "速度VZ超出范围:\n" + vz.ToString());
+            }
+            speedAlertTime = DateTime.Now;
         }
     }
 }
