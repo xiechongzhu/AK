@@ -1,19 +1,15 @@
 ﻿using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace RadarProcess
 {
     public class DataParser
     {
         [DllImport("User32.dll", EntryPoint = "PostMessage")]
-        private static extern int PostMessage(IntPtr hwnd, int Msg, int wParam, ref S_OBJECT lParam);
+        private static extern int PostMessage(IntPtr hwnd, int Msg, int wParam, IntPtr lParam);
 
         public DataParser(IntPtr mainFormHandle)
         {
@@ -108,7 +104,9 @@ namespace RadarProcess
                             VF = br.ReadByte(),
                             Reserve = br.ReadBytes(5)
                         };
-                        PostMessage(mainFormHandle, MainForm.WM_RADAR_DATA, 0, ref sObject);
+                        IntPtr ptr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(S_OBJECT)));
+                        Marshal.StructureToPtr(sObject, ptr, true);
+                        PostMessage(mainFormHandle, MainForm.WM_RADAR_DATA, 0, ptr);
                     }
                 }
             }

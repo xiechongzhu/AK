@@ -4,7 +4,6 @@ using System.Drawing;
 using System.Net;
 using System.Net.Sockets;
 using System.Windows.Forms;
-using System.Linq;
 using LinqToDB;
 using System.Runtime.InteropServices;
 using System.Collections.Generic;
@@ -110,6 +109,11 @@ namespace RadarProcess
             btnStart.Enabled = false;
             chartUpateTimer.Start();
             udpClient.BeginReceive(EndReceive, null);
+            positionChart.Titles[0].Text = String.Format("X范围:{0}-{1}, Y范围{2}-{3}, Z范围{4}-{5}", Config.GetInstance().locMinX, Config.GetInstance().locMaxX,
+                Config.GetInstance().locMinY, Config.GetInstance().locMaxY, Config.GetInstance().locMinZ, Config.GetInstance().locMaxZ);
+            speedChart.Titles[0].Text = String.Format("Vx范围:{0}-{1}, Vy范围{2}-{3}, Vz范围{4}-{5}", Config.GetInstance().speedMinX, Config.GetInstance().speedMaxX,
+                Config.GetInstance().speedMinY, Config.GetInstance().speedMaxY, Config.GetInstance().speedMinZ, Config.GetInstance().speedMaxZ);
+            gMapControl.Position = new PointLatLng(Config.GetInstance().latitudeInit, Config.GetInstance().longitudeInit);
         }
 
         private void EndReceive(IAsyncResult ar)
@@ -241,28 +245,24 @@ namespace RadarProcess
             switch(m.Msg)
             {
                 case WM_RADAR_DATA:
-                    try
-                    {
-                        S_OBJECT sObject = (S_OBJECT)m.GetLParam(typeof(S_OBJECT));
-                        listSObject.Add(sObject);
-                        AddPosition(sObject.X, sObject.Y, sObject.Z);
-                        AddSpeed(sObject.VX, sObject.VY, sObject.VZ);
-                        CHART_ITEM_INDEX++;
-                        CheckPosition(sObject.X, sObject.Y, sObject.Z);
-                        CheckSpeed(sObject.VX, sObject.VY, sObject.VZ);
-                    }
-                    catch (Exception)
-                    { }
+                    IntPtr ptr = m.LParam;
+                    S_OBJECT sObject = Marshal.PtrToStructure<S_OBJECT>(ptr);
+                    listSObject.Add(sObject);
+                    AddPosition(sObject.X, sObject.Y, sObject.Z);
+                    AddSpeed(sObject.VX, sObject.VY, sObject.VZ);
+                    CHART_ITEM_INDEX++;
+                    CheckPosition(sObject.X, sObject.Y, sObject.Z);
+                    CheckSpeed(sObject.VX, sObject.VY, sObject.VZ);
+                    Marshal.FreeHGlobal(ptr);
+                    break;
+                default:
+                    base.DefWndProc(ref m);
                     break;
             }
-            base.DefWndProc(ref m);
         }
 
         private void AddPosition(double x, double y, double z)
         {
-            /*positionChart.Series["位置X"].Points.Add(new SeriesPoint(CHART_ITEM_INDEX, x));
-            positionChart.Series["位置Y"].Points.Add(new SeriesPoint(CHART_ITEM_INDEX, y));
-            positionChart.Series["位置Z"].Points.Add(new SeriesPoint(CHART_ITEM_INDEX, z));*/
             positionXBuffer.Add(new SeriesPoint(CHART_ITEM_INDEX, x));
             positionYBuffer.Add(new SeriesPoint(CHART_ITEM_INDEX, y));
             positionZBuffer.Add(new SeriesPoint(CHART_ITEM_INDEX, z));
@@ -270,9 +270,6 @@ namespace RadarProcess
 
         private void AddSpeed(double vx, double vy, double vz)
         {
-            /*speedChart.Series["速度X"].Points.Add(new SeriesPoint(CHART_ITEM_INDEX, vx));
-            speedChart.Series["速度Y"].Points.Add(new SeriesPoint(CHART_ITEM_INDEX, vy));
-            speedChart.Series["速度Z"].Points.Add(new SeriesPoint(CHART_ITEM_INDEX, vz));*/
             speedVxBuffer.Add(new SeriesPoint(CHART_ITEM_INDEX, vx));
             speedVyBuffer.Add(new SeriesPoint(CHART_ITEM_INDEX, vy));
             speedVzBuffer.Add(new SeriesPoint(CHART_ITEM_INDEX, vz));
