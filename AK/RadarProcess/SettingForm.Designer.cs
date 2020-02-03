@@ -82,6 +82,8 @@
             this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl22 = new DevExpress.XtraEditors.LabelControl();
             this.editPort = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
+            this.editFligtShot = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
@@ -111,6 +113,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.editSpeedMaxX.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editMultiCastIp.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editPort.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editFligtShot.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -538,11 +541,28 @@
             this.editPort.Size = new System.Drawing.Size(175, 44);
             this.editPort.TabIndex = 44;
             // 
+            // labelControl23
+            // 
+            this.labelControl23.Location = new System.Drawing.Point(692, 86);
+            this.labelControl23.Name = "labelControl23";
+            this.labelControl23.Size = new System.Drawing.Size(120, 29);
+            this.labelControl23.TabIndex = 45;
+            this.labelControl23.Text = "理论射程：";
+            // 
+            // editFligtShot
+            // 
+            this.editFligtShot.Location = new System.Drawing.Point(806, 80);
+            this.editFligtShot.Name = "editFligtShot";
+            this.editFligtShot.Size = new System.Drawing.Size(200, 44);
+            this.editFligtShot.TabIndex = 46;
+            // 
             // SettingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1139, 601);
+            this.Controls.Add(this.editFligtShot);
+            this.Controls.Add(this.labelControl23);
             this.Controls.Add(this.editPort);
             this.Controls.Add(this.labelControl22);
             this.Controls.Add(this.editMultiCastIp);
@@ -623,6 +643,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.editSpeedMaxX.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editMultiCastIp.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editPort.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editFligtShot.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -683,5 +704,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl21;
         private DevExpress.XtraEditors.LabelControl labelControl22;
         private DevExpress.XtraEditors.TextEdit editPort;
+        private DevExpress.XtraEditors.LabelControl labelControl23;
+        private DevExpress.XtraEditors.TextEdit editFligtShot;
     }
 }

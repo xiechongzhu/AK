@@ -53,4 +53,10 @@ namespace RadarProcess
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 5)]
         public byte[] Reserve;
     }
+
+    public struct FallPoint
+    {
+        public double x;
+        public double y;
+    }
 }

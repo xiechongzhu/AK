@@ -30,21 +30,34 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DevExpress.XtraCharts.SwiftPlotDiagram swiftPlotDiagram1 = new DevExpress.XtraCharts.SwiftPlotDiagram();
+            DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
             DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView1 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
+            DevExpress.XtraCharts.PointSeriesView pointSeriesView1 = new DevExpress.XtraCharts.PointSeriesView();
             DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView2 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
+            DevExpress.XtraCharts.PointSeriesView pointSeriesView2 = new DevExpress.XtraCharts.PointSeriesView();
             DevExpress.XtraCharts.Series series3 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.PointSeriesView pointSeriesView3 = new DevExpress.XtraCharts.PointSeriesView();
+            DevExpress.XtraCharts.Series series4 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.PointSeriesView pointSeriesView4 = new DevExpress.XtraCharts.PointSeriesView();
+            DevExpress.XtraCharts.Series series5 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.PointSeriesView pointSeriesView5 = new DevExpress.XtraCharts.PointSeriesView();
+            DevExpress.XtraCharts.Series series6 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.RangeAreaSeriesView rangeAreaSeriesView1 = new DevExpress.XtraCharts.RangeAreaSeriesView();
+            DevExpress.XtraCharts.SwiftPlotDiagram swiftPlotDiagram1 = new DevExpress.XtraCharts.SwiftPlotDiagram();
+            DevExpress.XtraCharts.Series series7 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView1 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
+            DevExpress.XtraCharts.Series series8 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView2 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
+            DevExpress.XtraCharts.Series series9 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView3 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
             DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView4 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
             DevExpress.XtraCharts.ChartTitle chartTitle1 = new DevExpress.XtraCharts.ChartTitle();
             DevExpress.XtraCharts.SwiftPlotDiagram swiftPlotDiagram2 = new DevExpress.XtraCharts.SwiftPlotDiagram();
-            DevExpress.XtraCharts.Series series4 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.Series series10 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView5 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
-            DevExpress.XtraCharts.Series series5 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.Series series11 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView6 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
-            DevExpress.XtraCharts.Series series6 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.Series series12 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView7 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
             DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView8 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
             DevExpress.XtraCharts.ChartTitle chartTitle2 = new DevExpress.XtraCharts.ChartTitle();
@@ -69,7 +82,7 @@
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPageMap = new DevExpress.XtraTab.XtraTabPage();
-            this.gMapControl = new GMap.NET.WindowsForms.GMapControl();
+            this.pointChartControl = new DevExpress.XtraCharts.ChartControl();
             this.xtraTabPagePos = new DevExpress.XtraTab.XtraTabPage();
             this.positionChart = new DevExpress.XtraCharts.ChartControl();
             this.xtraTabPageSpeed = new DevExpress.XtraTab.XtraTabPage();
@@ -95,24 +108,38 @@
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPageMap.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pointChartControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pointSeriesView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pointSeriesView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pointSeriesView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pointSeriesView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pointSeriesView5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(rangeAreaSeriesView1)).BeginInit();
             this.xtraTabPagePos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.positionChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView4)).BeginInit();
             this.xtraTabPageSpeed.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.speedChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
@@ -326,37 +353,45 @@
             // 
             // xtraTabPageMap
             // 
-            this.xtraTabPageMap.Controls.Add(this.gMapControl);
+            this.xtraTabPageMap.Controls.Add(this.pointChartControl);
             this.xtraTabPageMap.Name = "xtraTabPageMap";
             this.xtraTabPageMap.Size = new System.Drawing.Size(2147, 675);
-            this.xtraTabPageMap.Text = "地图";
+            this.xtraTabPageMap.Text = "坐标";
             // 
-            // gMapControl
+            // pointChartControl
             // 
-            this.gMapControl.Bearing = 0F;
-            this.gMapControl.CanDragMap = true;
-            this.gMapControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gMapControl.EmptyTileColor = System.Drawing.Color.Navy;
-            this.gMapControl.GrayScaleMode = false;
-            this.gMapControl.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
-            this.gMapControl.LevelsKeepInMemmory = 5;
-            this.gMapControl.Location = new System.Drawing.Point(0, 0);
-            this.gMapControl.MarkersEnabled = true;
-            this.gMapControl.MaxZoom = 2;
-            this.gMapControl.MinZoom = 2;
-            this.gMapControl.MouseWheelZoomEnabled = true;
-            this.gMapControl.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;
-            this.gMapControl.Name = "gMapControl";
-            this.gMapControl.NegativeMode = false;
-            this.gMapControl.PolygonsEnabled = true;
-            this.gMapControl.RetryLoadTile = 0;
-            this.gMapControl.RoutesEnabled = true;
-            this.gMapControl.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
-            this.gMapControl.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
-            this.gMapControl.ShowTileGridLines = false;
-            this.gMapControl.Size = new System.Drawing.Size(2147, 675);
-            this.gMapControl.TabIndex = 0;
-            this.gMapControl.Zoom = 0D;
+            xyDiagram1.AxisX.GridLines.MinorVisible = true;
+            xyDiagram1.AxisX.GridLines.Visible = true;
+            xyDiagram1.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram1.AxisY.GridLines.MinorVisible = true;
+            xyDiagram1.AxisY.VisibleInPanesSerializable = "-1";
+            this.pointChartControl.Diagram = xyDiagram1;
+            this.pointChartControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pointChartControl.Legend.Name = "Default Legend";
+            this.pointChartControl.Legend.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            this.pointChartControl.Location = new System.Drawing.Point(0, 0);
+            this.pointChartControl.Name = "pointChartControl";
+            series1.Name = "落点1";
+            series1.View = pointSeriesView1;
+            series2.Name = "落点2";
+            series2.View = pointSeriesView2;
+            series3.Name = "落点3";
+            series3.View = pointSeriesView3;
+            series4.Name = "落点4";
+            series4.View = pointSeriesView4;
+            series5.Name = "落点5";
+            series5.View = pointSeriesView5;
+            series6.Name = "必炸线";
+            series6.View = rangeAreaSeriesView1;
+            this.pointChartControl.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
+        series1,
+        series2,
+        series3,
+        series4,
+        series5,
+        series6};
+            this.pointChartControl.Size = new System.Drawing.Size(2147, 675);
+            this.pointChartControl.TabIndex = 0;
             // 
             // xtraTabPagePos
             // 
@@ -389,16 +424,16 @@
             this.positionChart.Legend.Visibility = DevExpress.Utils.DefaultBoolean.True;
             this.positionChart.Location = new System.Drawing.Point(0, 0);
             this.positionChart.Name = "positionChart";
-            series1.Name = "位置X";
-            series1.View = swiftPlotSeriesView1;
-            series2.Name = "位置Y";
-            series2.View = swiftPlotSeriesView2;
-            series3.Name = "位置Z";
-            series3.View = swiftPlotSeriesView3;
+            series7.Name = "位置X";
+            series7.View = swiftPlotSeriesView1;
+            series8.Name = "位置Y";
+            series8.View = swiftPlotSeriesView2;
+            series9.Name = "位置Z";
+            series9.View = swiftPlotSeriesView3;
             this.positionChart.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series1,
-        series2,
-        series3};
+        series7,
+        series8,
+        series9};
             this.positionChart.SeriesTemplate.View = swiftPlotSeriesView4;
             this.positionChart.Size = new System.Drawing.Size(2147, 675);
             this.positionChart.TabIndex = 0;
@@ -439,16 +474,16 @@
             this.speedChart.Legend.Visibility = DevExpress.Utils.DefaultBoolean.True;
             this.speedChart.Location = new System.Drawing.Point(0, 0);
             this.speedChart.Name = "speedChart";
-            series4.Name = "速度X";
-            series4.View = swiftPlotSeriesView5;
-            series5.Name = "速度Y";
-            series5.View = swiftPlotSeriesView6;
-            series6.Name = "速度Z";
-            series6.View = swiftPlotSeriesView7;
+            series10.Name = "速度X";
+            series10.View = swiftPlotSeriesView5;
+            series11.Name = "速度Y";
+            series11.View = swiftPlotSeriesView6;
+            series12.Name = "速度Z";
+            series12.View = swiftPlotSeriesView7;
             this.speedChart.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series4,
-        series5,
-        series6};
+        series10,
+        series11,
+        series12};
             this.speedChart.SeriesTemplate.View = swiftPlotSeriesView8;
             this.speedChart.Size = new System.Drawing.Size(2147, 675);
             this.speedChart.TabIndex = 1;
@@ -514,24 +549,38 @@
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
             this.xtraTabPageMap.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pointSeriesView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pointSeriesView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pointSeriesView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pointSeriesView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pointSeriesView5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(rangeAreaSeriesView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pointChartControl)).EndInit();
             this.xtraTabPagePos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.positionChart)).EndInit();
             this.xtraTabPageSpeed.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.speedChart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
@@ -566,12 +615,12 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private DevExpress.XtraEditors.SimpleButton btnHistory;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
-        private GMap.NET.WindowsForms.GMapControl gMapControl;
         private DevExpress.XtraTab.XtraTabPage xtraTabPageSpeed;
         private DevExpress.XtraCharts.ChartControl positionChart;
         private DevExpress.XtraCharts.ChartControl speedChart;
         private DevExpress.XtraBars.Alerter.AlertControl alertControl;
         private System.Windows.Forms.Timer chartUpateTimer;
+        private DevExpress.XtraCharts.ChartControl pointChartControl;
     }
 }
 

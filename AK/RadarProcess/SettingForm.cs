@@ -32,6 +32,7 @@ namespace RadarProcess
             editHeightInit.Text = Config.GetInstance().heightInit.ToString();
             editAzimuthInit.Text = Config.GetInstance().azimuthInit.ToString();
             editPlacementHeight.Text = Config.GetInstance().placementHeight.ToString();
+            editFligtShot.Text = Config.GetInstance().flightshot.ToString();
             editForwardLine.Text = Config.GetInstance().forwardLine.ToString();
             editBackLine.Text = Config.GetInstance().backwardLine.ToString();
             editSideLine.Text = Config.GetInstance().sideLine.ToString();
@@ -60,6 +61,7 @@ namespace RadarProcess
                 Config.GetInstance().heightInit = double.Parse(editHeightInit.Text);
                 Config.GetInstance().azimuthInit = double.Parse(editAzimuthInit.Text);
                 Config.GetInstance().placementHeight = double.Parse(editPlacementHeight.Text);
+                Config.GetInstance().flightshot = double.Parse(editFligtShot.Text);
                 Config.GetInstance().forwardLine = double.Parse(editForwardLine.Text);
                 Config.GetInstance().backwardLine = double.Parse(editBackLine.Text);
                 Config.GetInstance().sideLine = double.Parse(editSideLine.Text);

@@ -27,6 +27,7 @@ namespace RadarProcess
         private List<SeriesPoint> speedVxBuffer = new List<SeriesPoint>();
         private List<SeriesPoint> speedVyBuffer = new List<SeriesPoint>();
         private List<SeriesPoint> speedVzBuffer = new List<SeriesPoint>();
+        private List<FallPoint> fallPoints = new List<FallPoint>();
 
         private UdpClient udpClient;
         private DataParser dataParser;
@@ -39,19 +40,8 @@ namespace RadarProcess
             InitializeComponent();
             btnStop.Enabled = false;
             Logger.GetInstance().SetMainForm(this);
-            InitGMap();
             positionAlertTime = DateTime.Now;
             speedAlertTime = DateTime.Now;
-        }
-
-        private void InitGMap()
-        {
-            GMaps.Instance.Mode = AccessMode.ServerAndCache;
-            gMapControl.MapProvider = GoogleChinaMapProvider.Instance;
-            gMapControl.MinZoom = 1;
-            gMapControl.MaxZoom = 13;
-            gMapControl.Zoom = 9;
-            gMapControl.ShowCenter = false;
         }
 
         private void btnSetting_Click(object sender, EventArgs e)
@@ -96,13 +86,17 @@ namespace RadarProcess
                 return;
             }
             CHART_ITEM_INDEX = 0;
-            foreach(Series sery in positionChart.Series)
+            foreach(Series series in positionChart.Series)
             {
-                sery.Points.Clear();
+                series.Points.Clear();
             }
-            foreach(Series sery in speedChart.Series)
+            foreach(Series series in speedChart.Series)
             {
-                sery.Points.Clear();
+                series.Points.Clear();
+            }
+            foreach(Series series in pointChartControl.Series)
+            {
+                series.Points.Clear();
             }
             btnSetting.Enabled = false;
             btnStop.Enabled = true;
@@ -113,7 +107,6 @@ namespace RadarProcess
                 Config.GetInstance().locMinY, Config.GetInstance().locMaxY, Config.GetInstance().locMinZ, Config.GetInstance().locMaxZ);
             speedChart.Titles[0].Text = String.Format("Vx范围:{0}-{1}, Vy范围{2}-{3}, Vz范围{4}-{5}", Config.GetInstance().speedMinX, Config.GetInstance().speedMaxX,
                 Config.GetInstance().speedMinY, Config.GetInstance().speedMaxY, Config.GetInstance().speedMinZ, Config.GetInstance().speedMaxZ);
-            gMapControl.Position = new PointLatLng(Config.GetInstance().latitudeInit, Config.GetInstance().longitudeInit);
         }
 
         private void EndReceive(IAsyncResult ar)
@@ -253,6 +246,7 @@ namespace RadarProcess
                     CHART_ITEM_INDEX++;
                     CheckPosition(sObject.X, sObject.Y, sObject.Z);
                     CheckSpeed(sObject.VX, sObject.VY, sObject.VZ);
+                    AddPointOfFall(Algorithm.CalcIdealPointOfFall());
                     Marshal.FreeHGlobal(ptr);
                     break;
                 default:
@@ -273,6 +267,25 @@ namespace RadarProcess
             speedVxBuffer.Add(new SeriesPoint(CHART_ITEM_INDEX, vx));
             speedVyBuffer.Add(new SeriesPoint(CHART_ITEM_INDEX, vy));
             speedVzBuffer.Add(new SeriesPoint(CHART_ITEM_INDEX, vz));
+        }
+
+        private void AddPointOfFall(FallPoint fallPoint)
+        {
+            if(fallPoints.Count == 5)
+            {
+                fallPoints.RemoveAt(fallPoints.Count - 1);
+            }
+            fallPoints.Add(fallPoint);
+            List<FallPoint> temp = new List<FallPoint>(fallPoints.ToArray());
+            int i = 0;
+            while(temp.Count > 0)
+            {
+                FallPoint point = temp[0];
+                pointChartControl.Series[String.Format("落点{0}", i+1)].Points.Clear();
+                pointChartControl.Series[String.Format("落点{0}", i+1)].Points.Add(new SeriesPoint(point.x, point.y));
+                i++;
+                temp.RemoveAt(0);
+            }
         }
 
         private void CheckPosition(double x, double y, double z)

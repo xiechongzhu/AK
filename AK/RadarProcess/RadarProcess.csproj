@@ -92,6 +92,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Algorithm.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="DataBase\CopyMe.SQLite1.generated.cs">
       <AutoGen>True</AutoGen>

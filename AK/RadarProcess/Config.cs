@@ -23,6 +23,7 @@ namespace RadarProcess
         public double heightInit;           //初始位置高度
         public double azimuthInit;          //初始位置方位角
         public double placementHeight;      //落点附近高度
+        public double flightshot;           //理论射程
         public double forwardLine;          //预示落点射程前向必炸线
         public double backwardLine;         //当前点发射系位置x后向必炸线
         public double sideLine;             //侧向必炸线
