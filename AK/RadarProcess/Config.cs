@@ -43,9 +43,10 @@ namespace RadarProcess
 
         public bool LoadConfigFile(out String errMsg)
         {
-            StreamReader file = new StreamReader(configFile);
+            StreamReader file = null;
             try
             {
+                file = new StreamReader(configFile);
                 XmlSerializer reader = new XmlSerializer(typeof(Config));
                 Config __config = (Config)reader.Deserialize(file);
                 __instance = __config;
@@ -54,7 +55,7 @@ namespace RadarProcess
             catch (Exception ex)
             {
                 errMsg = ex.Message;
-                file.Close();
+                file?.Close();
                 return false;
             }
             errMsg = String.Empty;
