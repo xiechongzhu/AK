@@ -60,7 +60,6 @@
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPageMap = new DevExpress.XtraTab.XtraTabPage();
-            this.gMapControl = new GMap.NET.WindowsForms.GMapControl();
             this.xtraTabPagePos = new DevExpress.XtraTab.XtraTabPage();
             this.positionChart = new DevExpress.XtraCharts.ChartControl();
             this.xtraTabPageSpeed = new DevExpress.XtraTab.XtraTabPage();
@@ -265,37 +264,9 @@
             // 
             // xtraTabPageMap
             // 
-            this.xtraTabPageMap.Controls.Add(this.gMapControl);
             this.xtraTabPageMap.Name = "xtraTabPageMap";
             this.xtraTabPageMap.Size = new System.Drawing.Size(2069, 834);
-            this.xtraTabPageMap.Text = "地图";
-            // 
-            // gMapControl
-            // 
-            this.gMapControl.Bearing = 0F;
-            this.gMapControl.CanDragMap = true;
-            this.gMapControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gMapControl.EmptyTileColor = System.Drawing.Color.Navy;
-            this.gMapControl.GrayScaleMode = false;
-            this.gMapControl.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
-            this.gMapControl.LevelsKeepInMemmory = 5;
-            this.gMapControl.Location = new System.Drawing.Point(0, 0);
-            this.gMapControl.MarkersEnabled = true;
-            this.gMapControl.MaxZoom = 2;
-            this.gMapControl.MinZoom = 2;
-            this.gMapControl.MouseWheelZoomEnabled = true;
-            this.gMapControl.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;
-            this.gMapControl.Name = "gMapControl";
-            this.gMapControl.NegativeMode = false;
-            this.gMapControl.PolygonsEnabled = true;
-            this.gMapControl.RetryLoadTile = 0;
-            this.gMapControl.RoutesEnabled = true;
-            this.gMapControl.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
-            this.gMapControl.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
-            this.gMapControl.ShowTileGridLines = false;
-            this.gMapControl.Size = new System.Drawing.Size(2069, 834);
-            this.gMapControl.TabIndex = 0;
-            this.gMapControl.Zoom = 0D;
+            this.xtraTabPageMap.Text = "地图";     
             // 
             // xtraTabPagePos
             // 
@@ -482,7 +453,6 @@
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
         private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
         private DevExpress.XtraTab.XtraTabPage xtraTabPageMap;
-        private GMap.NET.WindowsForms.GMapControl gMapControl;
         private DevExpress.XtraTab.XtraTabPage xtraTabPagePos;
         private DevExpress.XtraCharts.ChartControl positionChart;
         private DevExpress.XtraTab.XtraTabPage xtraTabPageSpeed;
