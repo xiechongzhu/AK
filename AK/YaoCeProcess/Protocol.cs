@@ -180,7 +180,52 @@ namespace YaoCeProcess
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     struct DAOHANGSHUJU_KuaiSu
     {
+        // ?? 当量是什么意思
+        public uint         daoHangXiTongShiJian; // 导航系统时间
+        public int          jingDu;               // 经度（组合结果）当量：1e-7
+        public int          weiDu;                // 纬度（组合结果）当量：1e-7
+        public int          haiBaGaoDu;           // 海拔高度（组合结果）当量：1e-7
 
+        public int          dongXiangSuDu;        // 东向速度（组合结果）当量：1e-7
+        public int          beiXiangSuDu;         // 北向速度（组合结果）当量：1e-7
+        public int          tianXiangSuDu;        // 天向速度（组合结果）当量：1e-7
+
+        public uint         GNSSTime;             // GNSS时间 单位s,UTC秒部
+        public float        fuYangJiao;           // 俯仰角
+        public float        gunZhuanJiao;         // 滚转角
+        public float        pianHangJiao;         // 偏航角
+
+        // 上5ms速度
+        public float        tuoLuoShuJu_X;        // 陀螺X数据
+        public float        tuoLuoShuJu_Y;        // 陀螺Y数据
+        public float        tuoLuoShuJu_Z;        // 陀螺Z数据
+
+        // 上5ms加速度
+        public float        jiaSuDuJiShuJu_X;     // 加速度计X数据
+        public float        jiaSuDuJiShuJu_Y;     // 加速度计Y数据
+        public float        jiaSuDuJiShuJu_Z;     // 加速度计Z数据
+
+        // 本5ms速度
+        public float        tuoLuoShuJu_X2;       // 陀螺X数据2
+        public float        tuoLuoShuJu_Y2;       // 陀螺Y数据2
+        public float        tuoLuoShuJu_Z2;       // 陀螺Z数据2
+
+        // 本5ms加速度
+        public float        jiaSuDuJiShuJu_X2;    // 加速度计X数据2
+        public float        jiaSuDuJiShuJu_Y2;    // 加速度计Y数据2
+        public float        jiaSuDuJiShuJu_Z2;    // 加速度计Z数据2
+
+        public byte         zhuangTaiBiaoZhiWei;  // 状态标志位
+                                                  // bit0 点火标志（0：未点火 1：已点火）
+                                                  // bit1 分离标志（0：已分离 1：未分离）
+                                                  // bit2 bit3 00:准备阶段 01：对准阶段 10：导航阶段
+                                                  // bit4 bit5 00:GPS无更新 01：GPS有更新 10：GPS更新过
+                                                  // GPS组合标志 (00：上5ms惯导，本5ms惯导; 01：上5ms惯导，本5ms组合; 10：上5ms组合，本5ms组合; 11：上5ms组合，本5ms惯导;)
+
+        public byte         tuoLuoGuZhangBiaoZhi; // 陀螺故障标志
+                                                  // bit5 陀螺x故障标志（0：正常）
+                                                  // bit6 陀螺y故障标志（0：正常）
+                                                  // bit7 陀螺z故障标志（0：正常）
     }
 
     // 导航数据(慢速)
@@ -188,6 +233,73 @@ namespace YaoCeProcess
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     struct DAOHANGSHUJU_ManSu
     {
+        public uint         GPSTime;              // GPS时间 单位s,UTC秒部
+        public byte         GPSDingWeiMoShi;      // GPS定位模式
+                                                  // bit0 (1:采用GPS定位 0:没有采用GPS定位)
+                                                  // bit1 (1:采用BD2定位 0:没有采用BD2定位)
+                                                  // bit2 1：采用GLONASS定位 0：没有采用GLONASS定位
+                                                  // bit3 0:没有DGNSS可用 1：DGNSS可用
+                                                  // bit4 bit5 (00:No Fix 01:2DFix 11:3D Fix)
+                                                  // bit6 0:GNSS修正无效 1：GNSS修正有效
+                                                  // bit7 0:BD2修正无效 1：BD2修正有效
 
+        public byte         GPS_SV;               // GPS SV可用/参与定位数（低4位为可用数，高4位为参与定位数）
+        public byte         BD2_SV;               // BD2 SV可用/参与定位数（低4位为可用数，高4位为参与定位数）
+
+        public int          jingDu;               // 经度（GPS测量）当量：1e-7
+        public int          weiDu;                // 纬度（GPS测量）当量：1e-7
+        public int          haiBaGaoDu;           // 海拔高度（GPS测量）当量：1e-2
+
+        public int          dongXiangSuDu;        // 东向速度（GPS测量）当量：1e-2
+        public int          beiXiangSuDu;         // 北向速度（GPS测量）当量：1e-2
+        public int          tianXiangSuDu;        // 天向速度（GPS测量）当量：1e-2
+
+        public ushort       PDOP;                 // PDOP 当量0.01
+        public ushort       HDOP;                 // HDOP 当量0.01
+        public ushort       VDOP;                 // VDOP 当量0.01
+
+        public char         tuoLuoWenDu_X;        // X陀螺温度
+        public char         tuoLuoWenDu_Y;        // Y陀螺温度
+        public char         tuoLuoWenDu_Z;        // Z陀螺温度
+
+        public char         jiaJiWenDu_X;         // X加计温度
+        public char         jiaJiWenDu_Y;         // Y加计温度
+        public char         jiaJiWenDu_Z;         // Z加计温度
+
+        public char         dianYaZhi_zheng5V;    // +5V电压值     当量0.05
+        public char         dianYaZhi_fu5V;       // -5V电压值     当量0.05
+
+        public char         dianYaZhi_zheng15V;   // +15V电压值    当量0.02
+        public char         dianYaZhi_fu15V;      // -15V电压值    当量0.02
+
+        public char         tuoLuoDianYaZhi_X_zheng5V;    // X陀螺+5V电压值     当量0.05
+        public char         tuoLuoDianYaZhi_X_fu5V;       // X陀螺-5V电压值     当量0.05
+
+        public char         tuoLuoDianYaZhi_Y_zheng5V;    // Y陀螺+5V电压值     当量0.05
+        public char         tuoLuoDianYaZhi_Y_fu5V;       // Y陀螺-5V电压值     当量0.05
+
+        public char         tuoLuoDianYaZhi_Z_zheng5V;    // Z陀螺+5V电压值     当量0.05
+        public char         tuoLuoDianYaZhi_Z_fu5V;       // Z陀螺-5V电压值     当量0.05
+
+        public byte         yuTuoLuoTongXingCuoWuJiShu_X; // 与X陀螺通信错误计数（一直循环计数）
+        public byte         yuTuoLuoTongXingCuoWuJiShu_Y; // 与Y陀螺通信错误计数（一直循环计数）
+        public byte         yuTuoLuoTongXingCuoWuJiShu_Z; // 与Z陀螺通信错误计数（一直循环计数）
+        public byte         yuGPSJieShouJiTongXingCuoWuJiShu; // 与GPS接收机通信错误计数（一直循环计数）
+
+        public byte         IMUJinRuZhongDuanCiShu; // IMU进入中断次数（每800次+1 循环计数）
+        public byte         GPSZhongDuanCiShu;      // GPS中断次数（每10次+1 循环计数）
+
+        public byte         biaoZhiWei1;            // 标志位1
+                                                    // bit0 导航初始值装订标志（0:未装订 1：已装订）
+                                                    // bit1 发送1553数据标志（0：未发送 1：已发送）
+                                                    // bit2 导航标志（0：未导航 1：已导航）
+                                                    // bit3 对准完成标志(0:未对准 1：已对准)
+                                                    // bit4 装订参数读取标志(0:未装订 1：已装订)
+
+        public byte         biaoZhiWei2;            // 标志位2
+                                                    // bit0 bit1 工作模式（00：飞行模式 01：仿真模式1 10：仿真模式2 11：调试模式）
+                                                    // bit5 GPS组合标志（0：惯性 1：组合）
+                                                    // bit6 点火标志(0：未点火 1：已点火)
+                                                    // bit7 分离标志（0：已分离 1：未分离）
     }
 }
