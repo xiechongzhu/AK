@@ -1,6 +1,5 @@
 ﻿using DevExpress.XtraCharts;
 using DevExpress.XtraEditors;
-using GMap.NET.MapProviders;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -20,15 +19,6 @@ namespace RadarProcess
             recordId = id;
             InitializeComponent();
             LoadTestInfo();
-            InitGMap();
-        }
-        private void InitGMap()
-        {
-            gMapControl.MapProvider = GoogleChinaMapProvider.Instance;
-            gMapControl.MinZoom = 1;
-            gMapControl.MaxZoom = 13;
-            gMapControl.Zoom = 9;
-            gMapControl.ShowCenter = false;
         }
 
         private void LoadTestInfo()

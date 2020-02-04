@@ -9,8 +9,6 @@ using System.Runtime.InteropServices;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-using GMap.NET.MapProviders;
-using GMap.NET;
 using DevExpress.XtraCharts;
 using DevExpress.XtraEditors;
 
