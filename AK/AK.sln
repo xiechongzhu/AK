@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RadarProcess", "RadarProces
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YaoCeProcess", "YaoCeProcess\YaoCeProcess.csproj", "{5686178F-5EA8-434D-ACCC-B524D1D1115E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RadarSimulator", "RadarSimulator\RadarSimulator.csproj", "{8CC4596B-7D9A-46D9-88BC-928F35137E8C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{5686178F-5EA8-434D-ACCC-B524D1D1115E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5686178F-5EA8-434D-ACCC-B524D1D1115E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5686178F-5EA8-434D-ACCC-B524D1D1115E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CC4596B-7D9A-46D9-88BC-928F35137E8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CC4596B-7D9A-46D9-88BC-928F35137E8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CC4596B-7D9A-46D9-88BC-928F35137E8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CC4596B-7D9A-46D9-88BC-928F35137E8C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
