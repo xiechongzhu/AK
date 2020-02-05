@@ -18,6 +18,14 @@ namespace RadarProcess
         {
             recordId = id;
             InitializeComponent();
+            String errMsg;
+            if(!Config.GetInstance().LoadConfigFile(out errMsg))
+            {
+                XtraMessageBox.Show("加载配置文件失败:" + errMsg, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            pointChartControl.Series["必炸线"].Points.Add(new SeriesPoint(-Config.GetInstance().sideLine, Config.GetInstance().forwardLine, -Config.GetInstance().backwardLine));
+            pointChartControl.Series["必炸线"].Points.Add(new SeriesPoint(Config.GetInstance().sideLine, Config.GetInstance().forwardLine, -Config.GetInstance().backwardLine));
+            pointChartControl.Series["理想落点"].Points.Add(new SeriesPoint(0, 0));
             LoadTestInfo();
         }
 
