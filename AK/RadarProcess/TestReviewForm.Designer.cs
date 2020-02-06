@@ -59,6 +59,7 @@
             DevExpress.XtraCharts.Series series13 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView7 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
             DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView8 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TestReviewForm));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.editTestDate = new DevExpress.XtraEditors.TextEdit();
             this.editOperator = new DevExpress.XtraEditors.TextEdit();
@@ -475,6 +476,7 @@
             this.Controls.Add(this.layoutControl3);
             this.Controls.Add(this.layoutControl2);
             this.Controls.Add(this.layoutControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "TestReviewForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
