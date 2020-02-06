@@ -9,7 +9,17 @@ namespace RadarProcess
 {
     public class Algorithm
     {
-        public static FallPoint CalcIdealPointOfFall()
+        public static FallPoint CalcPointOfFall()
+        {
+            Random random = new Random();
+            return new FallPoint
+            {
+                x = random.NextDouble() * 100,
+                y = random.NextDouble() * 100
+            };
+        }
+
+        public static FallPoint CalcIdeaPointOfFall()
         {
             Random random = new Random();
             return new FallPoint

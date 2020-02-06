@@ -93,6 +93,7 @@
     </Compile>
     <Compile Include="DataLogger.cs" />
     <Compile Include="DataParser.cs" />
+    <Compile Include="HistoryData.cs" />
     <Compile Include="HistoryForm.cs">
       <SubType>Form</SubType>
     </Compile>

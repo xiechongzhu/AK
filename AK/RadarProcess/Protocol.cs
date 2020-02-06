@@ -9,7 +9,7 @@ namespace RadarProcess
 {
     [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
-    struct PACK_HEAD
+    public struct PACK_HEAD
     {
         public byte Station;
         public byte Type;
@@ -17,7 +17,7 @@ namespace RadarProcess
 
     [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
-    struct S_HEAD
+    public struct S_HEAD
     {
         public UInt16  Len;
         public Int32   Time;
@@ -34,7 +34,7 @@ namespace RadarProcess
 
     [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
-    struct S_OBJECT
+    public struct S_OBJECT
     {
         public UInt16 ObjectId;
         public double A;
@@ -54,6 +54,7 @@ namespace RadarProcess
         public byte[] Reserve;
     }
 
+    [Serializable]
     public struct FallPoint
     {
         public double x;

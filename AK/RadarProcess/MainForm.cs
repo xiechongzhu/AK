@@ -30,7 +30,7 @@ namespace RadarProcess
         private UdpClient udpClient;
         private DataParser dataParser;
         private DataLogger dataLogger = new DataLogger();
-        private List<S_OBJECT> listSObject = new List<S_OBJECT>();
+        private HistoryData historyData = new HistoryData();
         private DateTime positionAlertTime, speedAlertTime;
         public MainForm()
         {
@@ -96,10 +96,13 @@ namespace RadarProcess
             {
                 series.Points.Clear();
             }
-
-            pointChartControl.Series["必炸线"].Points.Add(new SeriesPoint(-Config.GetInstance().sideLine, Config.GetInstance().forwardLine, -Config.GetInstance().backwardLine));
-            pointChartControl.Series["必炸线"].Points.Add(new SeriesPoint(Config.GetInstance().sideLine, Config.GetInstance().forwardLine, -Config.GetInstance().backwardLine));
-            pointChartControl.Series["理想落点"].Points.Add(new SeriesPoint(0, 0));
+            FallPoint ideaPoint = Algorithm.CalcIdeaPointOfFall();
+            pointChartControl.Series["理想落点"].Points.Add(new SeriesPoint(ideaPoint.x, ideaPoint.y));
+            historyData.IdeaFallPoint = ideaPoint;
+            pointChartControl.Series["必炸线"].Points.Add(new SeriesPoint(ideaPoint.x - Config.GetInstance().sideLine,
+                ideaPoint.y + Config.GetInstance().forwardLine, ideaPoint.y - Config.GetInstance().backwardLine));
+            pointChartControl.Series["必炸线"].Points.Add(new SeriesPoint(ideaPoint.x + Config.GetInstance().sideLine,
+                ideaPoint.y + Config.GetInstance().forwardLine, ideaPoint.y - Config.GetInstance().backwardLine));
             btnSetting.Enabled = false;
             btnStop.Enabled = true;
             btnStart.Enabled = false;
@@ -139,14 +142,14 @@ namespace RadarProcess
                 using (FileStream fs = new FileStream(TestInfo.GetInstance().strHistoryFile, FileMode.Create))
                 {
                     BinaryFormatter formatter = new BinaryFormatter();
-                    formatter.Serialize(fs, listSObject);
+                    formatter.Serialize(fs, historyData);
                 }
             }
             catch(Exception ex)
             {
                 XtraMessageBox.Show("保存历史数据失败:" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            listSObject.Clear();
+            historyData.Clear();
             btnSetting.Enabled = true;
             btnStop.Enabled = false;
             btnStart.Enabled = true;
@@ -242,13 +245,15 @@ namespace RadarProcess
                 case WM_RADAR_DATA:
                     IntPtr ptr = m.LParam;
                     S_OBJECT sObject = Marshal.PtrToStructure<S_OBJECT>(ptr);
-                    listSObject.Add(sObject);
+                    historyData.AddObject(sObject);
                     AddPosition(sObject.X, sObject.Y, sObject.Z);
                     AddSpeed(sObject.VX, sObject.VY, sObject.VZ);
                     CHART_ITEM_INDEX++;
                     CheckPosition(sObject.X, sObject.Y, sObject.Z);
                     CheckSpeed(sObject.VX, sObject.VY, sObject.VZ);
-                    AddPointOfFall(Algorithm.CalcIdealPointOfFall());
+                    FallPoint fallPoint = Algorithm.CalcPointOfFall();
+                    AddPointOfFall(fallPoint);
+                    historyData.AddFallPoint(fallPoint);
                     Marshal.FreeHGlobal(ptr);
                     break;
                 default:

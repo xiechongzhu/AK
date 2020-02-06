@@ -13,20 +13,23 @@ namespace RadarProcess
     public partial class TestReviewForm : Form
     {
         private long recordId;
-        int CHART_ITEM_INDEX = 0;
+        private int CHART_ITEM_INDEX = 0;
+        private HistoryData historyData = null;
         public TestReviewForm(long id)
         {
             recordId = id;
             InitializeComponent();
+            LoadTestInfo();
             String errMsg;
             if(!Config.GetInstance().LoadConfigFile(out errMsg))
             {
                 XtraMessageBox.Show("加载配置文件失败:" + errMsg, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            pointChartControl.Series["必炸线"].Points.Add(new SeriesPoint(-Config.GetInstance().sideLine, Config.GetInstance().forwardLine, -Config.GetInstance().backwardLine));
-            pointChartControl.Series["必炸线"].Points.Add(new SeriesPoint(Config.GetInstance().sideLine, Config.GetInstance().forwardLine, -Config.GetInstance().backwardLine));
-            pointChartControl.Series["理想落点"].Points.Add(new SeriesPoint(0, 0));
-            LoadTestInfo();
+            pointChartControl.Series["必炸线"].Points.Add(new SeriesPoint(historyData.IdeaFallPoint.x - Config.GetInstance().sideLine,
+                historyData.IdeaFallPoint.y + Config.GetInstance().forwardLine, historyData.IdeaFallPoint.y - Config.GetInstance().backwardLine));
+            pointChartControl.Series["必炸线"].Points.Add(new SeriesPoint(historyData.IdeaFallPoint.x + Config.GetInstance().sideLine,
+                historyData.IdeaFallPoint.y + Config.GetInstance().forwardLine, historyData.IdeaFallPoint.y - Config.GetInstance().backwardLine));
+            pointChartControl.Series["理想落点"].Points.Add(new SeriesPoint(historyData.IdeaFallPoint.x, historyData.IdeaFallPoint.y));
         }
 
         private void LoadTestInfo()
@@ -44,20 +47,20 @@ namespace RadarProcess
                 editTestDate.Text = testInfo?.Time.ToString("yyyy-MM-dd HH:mm:ss");
                 editComment.Text = testInfo?.Comment;
                 String strDateFile = @".\Log\" + testInfo?.Time.ToString("yyyyMMddHHmmss") + @"\History.dat";
-                List<S_OBJECT> objectList = null;
+                
                 try
                 {
                     using (FileStream fs = new FileStream(strDateFile, FileMode.Open))
                     {
                         BinaryFormatter formatter = new BinaryFormatter();
-                        objectList = (List<S_OBJECT>)formatter.Deserialize(fs);
+                        historyData = (HistoryData)formatter.Deserialize(fs);
                     }
                 }
                 catch (Exception ex)
                 {
                     XtraMessageBox.Show("读取历史数据失败:" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                if(objectList != null)
+                if(historyData != null)
                 {
                     List<SeriesPoint> positionXBuffer = new List<SeriesPoint>();
                     List<SeriesPoint> positionYBuffer = new List<SeriesPoint>();
@@ -65,7 +68,7 @@ namespace RadarProcess
                     List<SeriesPoint> speedVxBuffer = new List<SeriesPoint>();
                     List<SeriesPoint> speedVyBuffer = new List<SeriesPoint>();
                     List<SeriesPoint> speedVzBuffer = new List<SeriesPoint>();
-                    foreach(S_OBJECT obj in objectList)
+                    foreach(S_OBJECT obj in historyData.Objects)
                     {
                         positionXBuffer.Add(new SeriesPoint(CHART_ITEM_INDEX, obj.X));
                         positionYBuffer.Add(new SeriesPoint(CHART_ITEM_INDEX, obj.Y));
@@ -81,6 +84,15 @@ namespace RadarProcess
                     speedChart.Series["速度X"].Points.AddRange(speedVxBuffer.ToArray());
                     speedChart.Series["速度Y"].Points.AddRange(speedVyBuffer.ToArray());
                     speedChart.Series["速度Z"].Points.AddRange(speedVzBuffer.ToArray());
+                    int i = 0;
+                    while (historyData.FallPoints.Count > 0)
+                    {
+                        FallPoint point = historyData.FallPoints[0];
+                        pointChartControl.Series[String.Format("落点{0}", i + 1)].Points.Clear();
+                        pointChartControl.Series[String.Format("落点{0}", i + 1)].Points.Add(new SeriesPoint(point.x, point.y));
+                        i++;
+                        historyData.FallPoints.RemoveAt(0);
+                    }
                 }
             }
         }
