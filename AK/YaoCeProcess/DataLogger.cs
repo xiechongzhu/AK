@@ -40,7 +40,7 @@ namespace YaoCeProcess
             // 生成码流日志文件名称
             DateTime dateTime = DateTime.Now;
             String strDate = dateTime.ToString("yyyy_MM_dd_HH_mm_ss");
-            strDataFile = strLogFolder + @"\" + strDate + @"_Data.txt";
+            strDataFile = strLogFolder + @"\" + strDate + @"_Data.dat";
 
             logWriter = new StreamWriter(strDataFile);
             isRuning = true;
@@ -72,6 +72,8 @@ namespace YaoCeProcess
 
         private void LogData(byte[] buffer)
         {
+            /*
+            // 按文本格式存储
             StringBuilder sb = new StringBuilder(buffer.Length * 3);
             foreach (byte b in buffer)
             {
@@ -79,6 +81,10 @@ namespace YaoCeProcess
             }
             String strData = sb.ToString().ToUpper();
             logWriter.WriteLine(strData);
+            logWriter.Flush();
+            */
+            // 20200207 直接原数据存储
+            logWriter.WriteLine(buffer);
             logWriter.Flush();
         }
     }

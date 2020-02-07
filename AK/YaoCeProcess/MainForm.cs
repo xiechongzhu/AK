@@ -5,12 +5,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows.Forms;
 
 namespace YaoCeProcess
@@ -19,6 +21,13 @@ namespace YaoCeProcess
     {
         //-----------------------------------------------------//
         // 成员变量
+
+        // 是否开启Socket接收网络数据
+        bool bStartRecvNetworkData = false;
+        // 读取文件定时器
+        System.Timers.Timer readFileTimer = new System.Timers.Timer();
+        // 以流的形式读取文件
+        StreamReader srFileRead = null;
 
         //--------//
         // 创建曲线X轴索引值
@@ -102,11 +111,50 @@ namespace YaoCeProcess
 
             // 传递主窗口指针
             Logger.GetInstance().SetMainForm(this);
+
+            // 更改是否运行的图片
+            setRunPic(false);
+
+            // 更改按钮Tip
+            toolTip1.SetToolTip(BtnStartStop, "开始");
         }
 
         ~MainForm()
         {
 
+        }
+
+        public void setRunPic(bool bRun)
+        {
+            if (bRun)
+            {
+                string filePath = AppDomain.CurrentDomain.BaseDirectory + "Image" + @"\Stop_32x32.png";
+                if (File.Exists(filePath))
+                {
+                    BtnStartStop.Image = Image.FromFile(filePath);
+                }
+            }
+            else
+            {
+                string filePath = AppDomain.CurrentDomain.BaseDirectory + "Image" + @"\Play_32x32.png";
+                if (File.Exists(filePath))
+                {
+                    BtnStartStop.Image = Image.FromFile(filePath);
+                }
+            }
+        }
+
+        // FormClosing事件 先停下定时器
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // 读取文件定时器
+            readFileTimer.Stop();
+        }
+
+        // FormClosed事件 彻底关闭程序
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            System.Environment.Exit(0);
         }
 
         // 窗口事件
@@ -118,6 +166,9 @@ namespace YaoCeProcess
             // 捕捉关闭窗体消息(用户点击关闭窗体控制按钮) 
             if (m.Msg == WM_SYSCOMMAND && (int)m.WParam == SC_CLOSE)
             {
+                // 读取文件定时器
+                readFileTimer.Stop();
+
                 // 关闭日志文件
                 Logger.GetInstance().closeFile();
 
@@ -739,7 +790,7 @@ namespace YaoCeProcess
             // PDOP 当量0.01
             DHManSu_PDOP.Text = ((double)(sObject.PDOP * 0.01)).ToString();
             // HDOP 当量0.01
-            DHManSu_HDOP.Text = ((double)(sObject.HDOP * 0.01)).ToString(); 
+            DHManSu_HDOP.Text = ((double)(sObject.HDOP * 0.01)).ToString();
             // VDOP 当量0.01
             DHManSu_VDOP.Text = ((double)(sObject.VDOP * 0.01)).ToString();
 
@@ -760,27 +811,27 @@ namespace YaoCeProcess
             // +5V电压值     当量0.05
             DHManSu_Zheng5VDianYa.Text = ((double)(sObject.dianYaZhi_zheng5V * 0.05)).ToString();
             // -5V电压值     当量0.05
-            DHManSu_Fu5VDianYa.Text = ((double)(sObject.dianYaZhi_fu5V * 0.05)).ToString(); 
+            DHManSu_Fu5VDianYa.Text = ((double)(sObject.dianYaZhi_fu5V * 0.05)).ToString();
 
             // +15V电压值    当量0.02
-            DHManSu_Zheng15VDianYa.Text = ((double)(sObject.dianYaZhi_zheng15V * 0.2)).ToString(); 
+            DHManSu_Zheng15VDianYa.Text = ((double)(sObject.dianYaZhi_zheng15V * 0.2)).ToString();
             // -15V电压值    当量0.02
-            DHManSu_Fu15VDianYa.Text = ((double)(sObject.dianYaZhi_fu15V * 0.2)).ToString(); 
+            DHManSu_Fu15VDianYa.Text = ((double)(sObject.dianYaZhi_fu15V * 0.2)).ToString();
 
             // X陀螺+5V电压值     当量0.05
-            DHManSu_XTuoLuoZheng5VDianYa.Text = ((double)(sObject.tuoLuoDianYaZhi_X_zheng5V * 0.05)).ToString(); 
+            DHManSu_XTuoLuoZheng5VDianYa.Text = ((double)(sObject.tuoLuoDianYaZhi_X_zheng5V * 0.05)).ToString();
             // X陀螺-5V电压值     当量0.05
-            DHManSu_XTuoLuoFu5VDianYa.Text = ((double)(sObject.tuoLuoDianYaZhi_X_fu5V * 0.05)).ToString(); 
+            DHManSu_XTuoLuoFu5VDianYa.Text = ((double)(sObject.tuoLuoDianYaZhi_X_fu5V * 0.05)).ToString();
 
             // Y陀螺+5V电压值     当量0.05
-            DHManSu_YTuoLuoZheng5VDianYa.Text = ((double)(sObject.tuoLuoDianYaZhi_Y_zheng5V * 0.05)).ToString(); 
+            DHManSu_YTuoLuoZheng5VDianYa.Text = ((double)(sObject.tuoLuoDianYaZhi_Y_zheng5V * 0.05)).ToString();
             // Y陀螺-5V电压值     当量0.05
-            DHManSu_YTuoLuoFu5VDianYa.Text = ((double)(sObject.tuoLuoDianYaZhi_Y_fu5V * 0.05)).ToString(); 
+            DHManSu_YTuoLuoFu5VDianYa.Text = ((double)(sObject.tuoLuoDianYaZhi_Y_fu5V * 0.05)).ToString();
 
-             // Z陀螺+5V电压值     当量0.05
-            DHManSu_ZTuoLuoZheng5VDianYa.Text = ((double)(sObject.tuoLuoDianYaZhi_Z_zheng5V * 0.05)).ToString(); 
+            // Z陀螺+5V电压值     当量0.05
+            DHManSu_ZTuoLuoZheng5VDianYa.Text = ((double)(sObject.tuoLuoDianYaZhi_Z_zheng5V * 0.05)).ToString();
             // Z陀螺-5V电压值     当量0.05
-            DHManSu_ZTuoLuoFu5VDianYa.Text = ((double)(sObject.tuoLuoDianYaZhi_Z_fu5V * 0.05)).ToString(); 
+            DHManSu_ZTuoLuoFu5VDianYa.Text = ((double)(sObject.tuoLuoDianYaZhi_Z_fu5V * 0.05)).ToString();
 
             // 与X陀螺通信错误计数（一直循环计数）
             DHManSu_XTuoLuoTongXinError.Text = sObject.yuTuoLuoTongXingCuoWuJiShu_X.ToString();
@@ -841,8 +892,8 @@ namespace YaoCeProcess
             DHManSu_FenLi.Text = (biaoZhiWei2 >> 7 & 0x1) == 0 ? "已分离" : "未分离";
         }
 
-    // 添加坐标点集
-    private void AddDHManSuZuoBiao(Int32 jingDu, Int32 weiDu, Int32 gaoDu)
+        // 添加坐标点集
+        private void AddDHManSuZuoBiao(Int32 jingDu, Int32 weiDu, Int32 gaoDu)
         {
             DHManSu_ZuoBiao_JingDu_Buffer.Add(new SeriesPoint(DHManSu_CHART_ITEM_INDEX, jingDu * Math.Pow(10, -7)));
             DHManSu_ZuoBiao_WeiDu_Buffer.Add(new SeriesPoint(DHManSu_CHART_ITEM_INDEX, weiDu * Math.Pow(10, -7)));
@@ -859,131 +910,26 @@ namespace YaoCeProcess
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            //--------------------------------------------------//
+            // 读取文件定时器
+            readFileTimer.Elapsed += new System.Timers.ElapsedEventHandler(OnReadFileTimedEvent);
+            readFileTimer.Interval = 50;
+            readFileTimer.Enabled = true;
 
+            //--------------------------------------------------//
         }
 
         private void BtnSetting_Click(object sender, EventArgs e)
         {
             SettingForm settingForm = new SettingForm();
             settingForm.StartPosition = FormStartPosition.CenterScreen;
-
+            settingForm.ShowDialog();
+            /*
             if (settingForm.ShowDialog() != DialogResult.OK)
             {
                 return;
             }
-
-            //-----------------------------------------------------//
-
-            // 关闭已经存在的连接
-            udpClient?.Close();
-
-            // 关闭码流记录
-            dataLogger.Stop();
-
-            //-----------------------------------------------------//
-
-            // 创建新的日志文件
-            Logger.GetInstance().NewFile();
-            String errMsg;
-            if (!Config.GetInstance().LoadConfigFile(out errMsg))
-            {
-                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_ERROR, "加载配置文件失败," + errMsg);
-                XtraMessageBox.Show("加载配置文件失败," + errMsg, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, "加载配置文件成功");
-
-            //-----------------------------------------------------//
-
-            // 创建UDP Socket，加入组播，接收网络数据
-            try
-            {
-                udpClient = new UdpClient(Config.GetInstance().port);
-                udpClient.JoinMulticastGroup(IPAddress.Parse(Config.GetInstance().strMultiCastIpAddr));
-
-                dataParser.Start();
-                dataLogger.Start();
-                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, "加入组播组成功");
-            }
-            catch (Exception ex)
-            {
-                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_ERROR, "加入组播组失败，" + ex.Message);
-                XtraMessageBox.Show("加入组播组失败，" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                udpClient.Close();
-
-                dataParser.Stop();
-                dataLogger.Stop();
-                return;
-            }
-
-            //-----------------------------------------------------//
-
-            // 开启UDP网络数据接收
-            udpClient.BeginReceive(EndReceive, null);
-
-            //-----------------------------------------------------//
-            //清空所有的曲线
-
-            // 系统判决状态曲线
-            xiTong_CHART_ITEM_INDEX = 0;
-            foreach (Series series in chart_XiTong_ZuoBiao.Series)
-            {
-                series.Points.Clear();
-            }
-            foreach (Series series in chart_XiTong_SuDu.Series)
-            {
-                series.Points.Clear();
-            }
-            foreach (Series series in chart_XiTong_JiaoSuDu.Series)
-            {
-                series.Points.Clear();
-            }
-            foreach (Series series in chart_XiTong_FaSheXi.Series)
-            {
-                series.Points.Clear();
-            }
-            foreach (Series series in chart_XiTong_YuShiLuoDian.Series)
-            {
-                series.Points.Clear();
-            }
-
-            // 导航数据（快速）状态曲线
-            DHKuaiSu_CHART_ITEM_INDEX = 0;
-            foreach (Series series in chart_DHKuaiSu_ZuoBiao.Series)
-            {
-                series.Points.Clear();
-            }
-            foreach (Series series in chart_DHKuaiSu_SuDu.Series)
-            {
-                series.Points.Clear();
-            }
-
-            // 导航数据（慢速）状态曲线
-            DHManSu_CHART_ITEM_INDEX = 0;
-            foreach (Series series in chart_DHManSu_ZuoBiao.Series)
-            {
-                series.Points.Clear();
-            }
-            foreach (Series series in chart_DHManSu_SuDu.Series)
-            {
-                series.Points.Clear();
-            }
-
-            //-----------------------------------------------------//
-
-            // 禁用按钮
-            // btnSetting.Enabled = false;
-            // btnStop.Enabled = true;
-            // btnStart.Enabled = false;
-
-            // 启动绘图定时器刷新数据
-            timerUpdateChart.Start();
-
-            // 绘图时上下限
-            //chart_XiTong_ZuoBiao.Titles[0].Text = String.Format("X范围:{0}-{1}, Y范围{2}-{3}, Z范围{4}-{5}", Config.GetInstance().locMinX, Config.GetInstance().locMaxX,
-            //    Config.GetInstance().locMinY, Config.GetInstance().locMaxY, Config.GetInstance().locMinZ, Config.GetInstance().locMaxZ);
-            //speedChart.Titles[0].Text = String.Format("Vx范围:{0}-{1}, Vy范围{2}-{3}, Vz范围{4}-{5}", Config.GetInstance().speedMinX, Config.GetInstance().speedMaxX,
-            //    Config.GetInstance().speedMinY, Config.GetInstance().speedMaxY, Config.GetInstance().speedMinZ, Config.GetInstance().speedMaxZ);
+            */
         }
 
         private void EndReceive(IAsyncResult ar)
@@ -1152,5 +1098,279 @@ namespace YaoCeProcess
             DHManSu_CHART_ITEM_INDEX++;
             //-----------------------------------------------------------------------------------//
         }
+
+        private void BtnStartStop_Click(object sender, EventArgs e)
+        {
+            // 是否开启Socket接收网络数据
+            if (!bStartRecvNetworkData)
+            {
+                //-----------------------------------------------------//
+
+                // 关闭已经存在的连接
+                udpClient?.Close();
+
+                // 关闭码流记录
+                dataLogger.Stop();
+
+                //-----------------------------------------------------//
+
+                // 创建新的日志文件
+                Logger.GetInstance().NewFile();
+                String errMsg;
+                if (!Config.GetInstance().LoadConfigFile(out errMsg))
+                {
+                    Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_ERROR, "加载配置文件失败," + errMsg);
+                    XtraMessageBox.Show("加载配置文件失败," + errMsg, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, "加载配置文件成功");
+
+                //-----------------------------------------------------//
+
+                // 创建UDP Socket，加入组播，接收网络数据
+                try
+                {
+                    udpClient = new UdpClient(Config.GetInstance().port);
+                    udpClient.JoinMulticastGroup(IPAddress.Parse(Config.GetInstance().strMultiCastIpAddr));
+
+                    dataParser.Start();
+                    dataLogger.Start();
+                    Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, "加入组播组成功");
+                }
+                catch (Exception ex)
+                {
+                    Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_ERROR, "加入组播组失败，" + ex.Message);
+                    XtraMessageBox.Show("加入组播组失败，" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    udpClient.Close();
+
+                    dataParser.Stop();
+                    dataLogger.Stop();
+                    return;
+                }
+
+                //-----------------------------------------------------//
+
+                // 开启UDP网络数据接收
+                udpClient.BeginReceive(EndReceive, null);
+
+                //-----------------------------------------------------//
+                //清空所有的曲线
+                clearAllChart();
+
+                //-----------------------------------------------------//
+
+                // 禁用按钮
+                BtnSetting.Enabled = false;
+                btnLoadFile.Enabled = false;
+                // btnStop.Enabled = true;
+                // btnStart.Enabled = false;
+
+                // 启动绘图定时器刷新数据
+                timerUpdateChart.Start();
+
+                // 绘图时上下限
+                //chart_XiTong_ZuoBiao.Titles[0].Text = String.Format("X范围:{0}-{1}, Y范围{2}-{3}, Z范围{4}-{5}", Config.GetInstance().locMinX, Config.GetInstance().locMaxX,
+                //    Config.GetInstance().locMinY, Config.GetInstance().locMaxY, Config.GetInstance().locMinZ, Config.GetInstance().locMaxZ);
+                //speedChart.Titles[0].Text = String.Format("Vx范围:{0}-{1}, Vy范围{2}-{3}, Vz范围{4}-{5}", Config.GetInstance().speedMinX, Config.GetInstance().speedMaxX,
+                //    Config.GetInstance().speedMinY, Config.GetInstance().speedMaxY, Config.GetInstance().speedMinZ, Config.GetInstance().speedMaxZ);
+
+                //-----------------------------------------------------//
+
+                // 日志打印
+                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, "开启数据接收");
+
+                bStartRecvNetworkData = true;
+
+                // 更改是否运行的图片
+                setRunPic(true);
+                // 更改按钮Tip
+                toolTip1.SetToolTip(BtnStartStop, "停止");
+            }
+            else
+            {
+                //-----------------------------------------------------//
+
+                // 关闭已经存在的连接
+                udpClient?.Close();
+
+                // 关闭码流记录
+                dataLogger.Stop();
+                // 关闭数据解析
+                dataParser.Stop();
+
+                // 禁用按钮
+                BtnSetting.Enabled = true;
+                btnLoadFile.Enabled = true;
+                // btnStop.Enabled = false;
+                // btnStart.Enabled = true;
+
+                // 停止绘图定时器刷新数据
+                timerUpdateChart.Stop();
+
+                // 日志打印
+                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, "停止数据接收");
+
+                //-----------------------------------------------------//
+                bStartRecvNetworkData = false;
+
+                // 更改是否运行的图片
+                setRunPic(false);
+
+                // 更改按钮Tip
+                toolTip1.SetToolTip(BtnStartStop, "开始");
+            }
+        }
+
+        private void btnLoadFile_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            // 是否可以选择多个文件
+            dialog.Multiselect = false;
+            dialog.Title = "请选择文件夹";
+            dialog.Filter = "数据文件(*.dat)|*.dat";
+            dialog.InitialDirectory = AppDomain.CurrentDomain.BaseDirectory + "Log";
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string filePath = dialog.FileName;
+                if (filePath == "")
+                {
+                    return;
+                }
+                // 打开文件
+                srFileRead = new StreamReader(filePath, Encoding.Default);
+
+                // 打开文件读取定时器
+                readFileTimer.Start();
+
+                //-------------------------------------------------------//
+                // 禁用按钮
+                BtnSetting.Enabled = false;
+                BtnStartStop.Enabled = false;
+                btnLoadFile.Enabled = false;
+
+                // 开启数据解析
+                dataParser.Start();
+
+                //-----------------------------------------------------//
+                //清空所有的曲线
+                clearAllChart();
+
+                // 启动绘图定时器刷新数据
+                timerUpdateChart.Start();
+            }
+        }
+
+        delegate void OnReadFileTimedEventCallBack(Object source, ElapsedEventArgs e);
+        public void OnReadFileTimedEvent(Object source, ElapsedEventArgs e)
+        {
+            // Control.InvokeReauqired判断是否是创建控件线程，不是为true，
+            // 则需要invoke到创建控件的线程，是就为false，直接操作控件
+            if (this.InvokeRequired)
+            {
+                // ?? 解决程序关闭时this会变得不可用问题
+                try
+                {
+                    // c# 关于invoke的无法访问已释放的对象
+                    OnReadFileTimedEventCallBack callBack = new OnReadFileTimedEventCallBack(OnReadFileTimedEvent);
+                    this.Invoke(callBack, new object[] { source, e });
+                }
+                catch
+                {
+                    return;
+                }
+            }
+            else
+            {
+                if (srFileRead == null)
+                {
+                    return;
+                }
+
+                // 按行读取 line为每行的数据
+                String line;
+                if ((line = srFileRead.ReadLine()) != null)
+                {
+                    // 处理数据
+                    byte[] byteArray = System.Text.Encoding.Default.GetBytes(line);
+                    dataParser.Enqueue(byteArray);
+                }
+                else
+                {
+                    // 关闭文件
+                    srFileRead.Close();
+
+                    // 关闭文件读取定时器
+                    readFileTimer.Stop();
+
+                    // 文件置空
+                    srFileRead = null;
+
+                    //-------------------------------------------------------//
+                    // 禁用按钮
+                    BtnSetting.Enabled = true;
+                    BtnStartStop.Enabled = true;
+                    btnLoadFile.Enabled = true;
+
+                    // 停止绘图定时器刷新数据
+                    timerUpdateChart.Stop();
+
+                    // 关闭数据解析
+                    dataParser.Stop();
+
+                    // 日志打印
+                    MessageBox.Show("文件读取完成！", "提示", MessageBoxButtons.OK);
+                    //XtraMessageBox.Show("文件读取完成！");
+                }
+            }
+        }
+
+        public void clearAllChart()
+        {
+            // 系统判决状态曲线
+            xiTong_CHART_ITEM_INDEX = 0;
+            foreach (Series series in chart_XiTong_ZuoBiao.Series)
+            {
+                series.Points.Clear();
+            }
+            foreach (Series series in chart_XiTong_SuDu.Series)
+            {
+                series.Points.Clear();
+            }
+            foreach (Series series in chart_XiTong_JiaoSuDu.Series)
+            {
+                series.Points.Clear();
+            }
+            foreach (Series series in chart_XiTong_FaSheXi.Series)
+            {
+                series.Points.Clear();
+            }
+            foreach (Series series in chart_XiTong_YuShiLuoDian.Series)
+            {
+                series.Points.Clear();
+            }
+
+            // 导航数据（快速）状态曲线
+            DHKuaiSu_CHART_ITEM_INDEX = 0;
+            foreach (Series series in chart_DHKuaiSu_ZuoBiao.Series)
+            {
+                series.Points.Clear();
+            }
+            foreach (Series series in chart_DHKuaiSu_SuDu.Series)
+            {
+                series.Points.Clear();
+            }
+
+            // 导航数据（慢速）状态曲线
+            DHManSu_CHART_ITEM_INDEX = 0;
+            foreach (Series series in chart_DHManSu_ZuoBiao.Series)
+            {
+                series.Points.Clear();
+            }
+            foreach (Series series in chart_DHManSu_SuDu.Series)
+            {
+                series.Points.Clear();
+            }
+        }
+
     }
 }
