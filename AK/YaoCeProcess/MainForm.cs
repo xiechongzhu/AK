@@ -540,11 +540,11 @@ namespace YaoCeProcess
 
             // sObject.jingDu;              // 经度（组合结果）当量：1e-7
             // sObject.weiDu;               // 纬度（组合结果）当量：1e-7
-            // sObject.haiBaGaoDu;          // 海拔高度（组合结果）当量：1e-7
+            // sObject.haiBaGaoDu;          // 海拔高度（组合结果）当量：1e-2
 
-            //sObject.dongXiangSuDu;        // 东向速度（组合结果）当量：1e-7
-            //sObject.beiXiangSuDu;         // 北向速度（组合结果）当量：1e-7
-            //sObject.tianXiangSuDu;        // 天向速度（组合结果）当量：1e-7
+            //sObject.dongXiangSuDu;        // 东向速度（组合结果）当量：1e-2
+            //sObject.beiXiangSuDu;         // 北向速度（组合结果）当量：1e-2
+            //sObject.tianXiangSuDu;        // 天向速度（组合结果）当量：1e-2
 
             // GNSS时间 单位s,UTC秒部
             DHKuaiSu_GNSSTime.Text = sObject.GNSSTime.ToString();
@@ -658,26 +658,45 @@ namespace YaoCeProcess
         }
 
         // 添加坐标点集
-        private void AddDHKuaiSuZuoBiao(double jingDu, double weiDu, double gaoDu)
+        private void AddDHKuaiSuZuoBiao(Int32 jingDu, Int32 weiDu, Int32 gaoDu)
         {
-            DHKuaiSu_ZuoBiao_JingDu_Buffer.Add(new SeriesPoint(DHKuaiSu_CHART_ITEM_INDEX, jingDu));
-            DHKuaiSu_ZuoBiao_WeiDu_Buffer.Add(new SeriesPoint(DHKuaiSu_CHART_ITEM_INDEX, weiDu));
-            DHKuaiSu_ZuoBiao_GaoDu_Buffer.Add(new SeriesPoint(DHKuaiSu_CHART_ITEM_INDEX, gaoDu));
+            DHKuaiSu_ZuoBiao_JingDu_Buffer.Add(new SeriesPoint(DHKuaiSu_CHART_ITEM_INDEX, jingDu * Math.Pow(10, -7)));
+            DHKuaiSu_ZuoBiao_WeiDu_Buffer.Add(new SeriesPoint(DHKuaiSu_CHART_ITEM_INDEX, weiDu * Math.Pow(10, -7)));
+            DHKuaiSu_ZuoBiao_GaoDu_Buffer.Add(new SeriesPoint(DHKuaiSu_CHART_ITEM_INDEX, gaoDu * Math.Pow(10, -2)));
         }
 
         // 添加速度点集
-        private void AddDHKuaiSuSuDu(double dongXiangSuDu, double beiXiangSuDu, double tianXiangSuDu)
+        private void AddDHKuaiSuSuDu(Int32 dongXiangSuDu, Int32 beiXiangSuDu, Int32 tianXiangSuDu)
         {
-            DHKuaiSu_SuDu_DongXiang_Buffer.Add(new SeriesPoint(DHKuaiSu_CHART_ITEM_INDEX, dongXiangSuDu));
-            DHKuaiSu_SuDu_BeiXiang_Buffer.Add(new SeriesPoint(DHKuaiSu_CHART_ITEM_INDEX, beiXiangSuDu));
-            DHKuaiSu_SuDu_TianXiang_Buffer.Add(new SeriesPoint(DHKuaiSu_CHART_ITEM_INDEX, tianXiangSuDu));
+            DHKuaiSu_SuDu_DongXiang_Buffer.Add(new SeriesPoint(DHKuaiSu_CHART_ITEM_INDEX, dongXiangSuDu * Math.Pow(10, -2)));
+            DHKuaiSu_SuDu_BeiXiang_Buffer.Add(new SeriesPoint(DHKuaiSu_CHART_ITEM_INDEX, beiXiangSuDu * Math.Pow(10, -2)));
+            DHKuaiSu_SuDu_TianXiang_Buffer.Add(new SeriesPoint(DHKuaiSu_CHART_ITEM_INDEX, tianXiangSuDu * Math.Pow(10, -2)));
         }
 
         //-----------------------导航数据（慢速）-----------------------//
+
+        // 时间转UTC时间
+        public double ConvertDateTimeInt(System.DateTime time)
+        {
+            double intResult = 0;
+            System.DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(new System.DateTime(1970, 1, 1));
+            intResult = (time - startTime).TotalSeconds;
+            return intResult;
+        }
+
+        // UTC 时间转北京时间
+        public DateTime ConvertIntDatetime(double utc)
+        {
+            System.DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(new System.DateTime(1970, 1, 1));
+            startTime = startTime.AddSeconds(utc);
+            startTime = startTime.AddHours(8);  // 转化为北京时间(北京时间=UTC时间+8小时 )
+            return startTime;
+        }
+
         private void showDHManSuTimeStatus(ref DAOHANGSHUJU_ManSu sObject)
         {
             // GPS时间 单位s,UTC秒部
-            DHManSu_GPSTime.Text = sObject.GPSTime.ToString();
+            DHManSu_GPSTime.Text = ConvertIntDatetime(sObject.GPSTime).ToString();
             // GPS定位模式
             byte GPSDingWeiMoShi = sObject.GPSDingWeiMoShi;
             string tempValueSTR = "";
@@ -718,11 +737,11 @@ namespace YaoCeProcess
             // 天向速度（GPS测量）当量：1e-2
 
             // PDOP 当量0.01
-            DHManSu_PDOP.Text = sObject.PDOP.ToString();
+            DHManSu_PDOP.Text = ((double)(sObject.PDOP * 0.01)).ToString();
             // HDOP 当量0.01
-            DHManSu_HDOP.Text = sObject.HDOP.ToString();
+            DHManSu_HDOP.Text = ((double)(sObject.HDOP * 0.01)).ToString(); 
             // VDOP 当量0.01
-            DHManSu_VDOP.Text = sObject.VDOP.ToString();
+            DHManSu_VDOP.Text = ((double)(sObject.VDOP * 0.01)).ToString();
 
             // X陀螺温度
             DHManSu_XTuoLuoWenDu.Text = sObject.tuoLuoWenDu_X.ToString();
@@ -739,29 +758,29 @@ namespace YaoCeProcess
             DHManSu_ZJiaJiWenDu.Text = sObject.jiaJiWenDu_Z.ToString();
 
             // +5V电压值     当量0.05
-            DHManSu_Zheng5VDianYa.Text = sObject.dianYaZhi_zheng5V.ToString();
+            DHManSu_Zheng5VDianYa.Text = ((double)(sObject.dianYaZhi_zheng5V * 0.05)).ToString();
             // -5V电压值     当量0.05
-            DHManSu_Fu5VDianYa.Text = sObject.dianYaZhi_fu5V.ToString();
+            DHManSu_Fu5VDianYa.Text = ((double)(sObject.dianYaZhi_fu5V * 0.05)).ToString(); 
 
             // +15V电压值    当量0.02
-            DHManSu_Zheng15VDianYa.Text = sObject.dianYaZhi_zheng15V.ToString();
+            DHManSu_Zheng15VDianYa.Text = ((double)(sObject.dianYaZhi_zheng15V * 0.2)).ToString(); 
             // -15V电压值    当量0.02
-            DHManSu_Fu15VDianYa.Text = sObject.dianYaZhi_fu15V.ToString();
+            DHManSu_Fu15VDianYa.Text = ((double)(sObject.dianYaZhi_fu15V * 0.2)).ToString(); 
 
             // X陀螺+5V电压值     当量0.05
-            DHManSu_XTuoLuoZheng5VDianYa.Text = sObject.tuoLuoDianYaZhi_X_zheng5V.ToString();
+            DHManSu_XTuoLuoZheng5VDianYa.Text = ((double)(sObject.tuoLuoDianYaZhi_X_zheng5V * 0.05)).ToString(); 
             // X陀螺-5V电压值     当量0.05
-            DHManSu_XTuoLuoFu5VDianYa.Text = sObject.tuoLuoDianYaZhi_X_fu5V.ToString();
+            DHManSu_XTuoLuoFu5VDianYa.Text = ((double)(sObject.tuoLuoDianYaZhi_X_fu5V * 0.05)).ToString(); 
 
             // Y陀螺+5V电压值     当量0.05
-            DHManSu_YTuoLuoZheng5VDianYa.Text = sObject.tuoLuoDianYaZhi_Y_zheng5V.ToString();
+            DHManSu_YTuoLuoZheng5VDianYa.Text = ((double)(sObject.tuoLuoDianYaZhi_Y_zheng5V * 0.05)).ToString(); 
             // Y陀螺-5V电压值     当量0.05
-            DHManSu_YTuoLuoFu5VDianYa.Text = sObject.tuoLuoDianYaZhi_Y_fu5V.ToString();
+            DHManSu_YTuoLuoFu5VDianYa.Text = ((double)(sObject.tuoLuoDianYaZhi_Y_fu5V * 0.05)).ToString(); 
 
              // Z陀螺+5V电压值     当量0.05
-            DHManSu_ZTuoLuoZheng5VDianYa.Text = sObject.tuoLuoDianYaZhi_Z_zheng5V.ToString();
+            DHManSu_ZTuoLuoZheng5VDianYa.Text = ((double)(sObject.tuoLuoDianYaZhi_Z_zheng5V * 0.05)).ToString(); 
             // Z陀螺-5V电压值     当量0.05
-            DHManSu_ZTuoLuoFu5VDianYa.Text = sObject.tuoLuoDianYaZhi_Z_fu5V.ToString();
+            DHManSu_ZTuoLuoFu5VDianYa.Text = ((double)(sObject.tuoLuoDianYaZhi_Z_fu5V * 0.05)).ToString(); 
 
             // 与X陀螺通信错误计数（一直循环计数）
             DHManSu_XTuoLuoTongXinError.Text = sObject.yuTuoLuoTongXingCuoWuJiShu_X.ToString();
@@ -823,19 +842,19 @@ namespace YaoCeProcess
         }
 
     // 添加坐标点集
-    private void AddDHManSuZuoBiao(double jingDu, double weiDu, double gaoDu)
+    private void AddDHManSuZuoBiao(Int32 jingDu, Int32 weiDu, Int32 gaoDu)
         {
-            DHManSu_ZuoBiao_JingDu_Buffer.Add(new SeriesPoint(DHManSu_CHART_ITEM_INDEX, jingDu));
-            DHManSu_ZuoBiao_WeiDu_Buffer.Add(new SeriesPoint(DHManSu_CHART_ITEM_INDEX, weiDu));
-            DHManSu_ZuoBiao_GaoDu_Buffer.Add(new SeriesPoint(DHManSu_CHART_ITEM_INDEX, gaoDu));
+            DHManSu_ZuoBiao_JingDu_Buffer.Add(new SeriesPoint(DHManSu_CHART_ITEM_INDEX, jingDu * Math.Pow(10, -7)));
+            DHManSu_ZuoBiao_WeiDu_Buffer.Add(new SeriesPoint(DHManSu_CHART_ITEM_INDEX, weiDu * Math.Pow(10, -7)));
+            DHManSu_ZuoBiao_GaoDu_Buffer.Add(new SeriesPoint(DHManSu_CHART_ITEM_INDEX, gaoDu * Math.Pow(10, -2)));
         }
 
         // 添加速度点集
-        private void AddDHManSuSuDu(double dongXiangSuDu, double beiXiangSuDu, double tianXiangSuDu)
+        private void AddDHManSuSuDu(Int32 dongXiangSuDu, Int32 beiXiangSuDu, Int32 tianXiangSuDu)
         {
-            DHManSu_SuDu_DongXiang_Buffer.Add(new SeriesPoint(DHManSu_CHART_ITEM_INDEX, dongXiangSuDu));
-            DHManSu_SuDu_BeiXiang_Buffer.Add(new SeriesPoint(DHManSu_CHART_ITEM_INDEX, beiXiangSuDu));
-            DHManSu_SuDu_TianXiang_Buffer.Add(new SeriesPoint(DHManSu_CHART_ITEM_INDEX, tianXiangSuDu));
+            DHManSu_SuDu_DongXiang_Buffer.Add(new SeriesPoint(DHManSu_CHART_ITEM_INDEX, dongXiangSuDu * Math.Pow(10, -2)));
+            DHManSu_SuDu_BeiXiang_Buffer.Add(new SeriesPoint(DHManSu_CHART_ITEM_INDEX, beiXiangSuDu * Math.Pow(10, -2)));
+            DHManSu_SuDu_TianXiang_Buffer.Add(new SeriesPoint(DHManSu_CHART_ITEM_INDEX, tianXiangSuDu * Math.Pow(10, -2)));
         }
 
         private void MainForm_Load(object sender, EventArgs e)

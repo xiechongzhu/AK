@@ -209,9 +209,9 @@ namespace YaoCeProcess
             //---------------------------------------//
 
             // ?? 几种状态数据的类型待确认
-            const byte frameType_systemStatus = 0x05;
-            const byte frameType_daoHangKuaiSu = 0x01;
-            const byte frameType_daoHangManSu = 0x02;
+            const byte frameType_systemStatus = 0x15;
+            const byte frameType_daoHangKuaiSu = 0x21;
+            const byte frameType_daoHangManSu = 0x25;
 
             switch (frameType)
             {
