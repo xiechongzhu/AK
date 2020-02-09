@@ -25,11 +25,14 @@ namespace RadarProcess
             {
                 XtraMessageBox.Show("加载配置文件失败:" + errMsg, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            pointChartControl.Series["必炸线"].Points.Add(new SeriesPoint(historyData.IdeaFallPoint.x - Config.GetInstance().sideLine,
-                historyData.IdeaFallPoint.y + Config.GetInstance().forwardLine, historyData.IdeaFallPoint.y - Config.GetInstance().backwardLine));
-            pointChartControl.Series["必炸线"].Points.Add(new SeriesPoint(historyData.IdeaFallPoint.x + Config.GetInstance().sideLine,
-                historyData.IdeaFallPoint.y + Config.GetInstance().forwardLine, historyData.IdeaFallPoint.y - Config.GetInstance().backwardLine));
-            pointChartControl.Series["理想落点"].Points.Add(new SeriesPoint(historyData.IdeaFallPoint.x, historyData.IdeaFallPoint.y));
+            if (historyData != null)
+            {
+                pointChartControl.Series["必炸线"].Points.Add(new SeriesPoint(historyData.IdeaFallPoint.x - Config.GetInstance().sideLine,
+                    historyData.IdeaFallPoint.y + Config.GetInstance().forwardLine, historyData.IdeaFallPoint.y - Config.GetInstance().backwardLine));
+                pointChartControl.Series["必炸线"].Points.Add(new SeriesPoint(historyData.IdeaFallPoint.x + Config.GetInstance().sideLine,
+                    historyData.IdeaFallPoint.y + Config.GetInstance().forwardLine, historyData.IdeaFallPoint.y - Config.GetInstance().backwardLine));
+                pointChartControl.Series["理想落点"].Points.Add(new SeriesPoint(historyData.IdeaFallPoint.x, historyData.IdeaFallPoint.y));
+            }
         }
 
         private void LoadTestInfo()

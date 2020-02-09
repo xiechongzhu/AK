@@ -31,7 +31,8 @@ namespace RadarProcess
         private DataParser dataParser;
         private DataLogger dataLogger = new DataLogger();
         private HistoryData historyData = new HistoryData();
-        private DateTime positionAlertTime, speedAlertTime;
+        private DateTime positionAlertTime, speedAlertTime, fallPointAlertTime;
+        private FallPoint ideaPoint;
         public MainForm()
         {
             dataParser = new DataParser(Handle);
@@ -40,6 +41,7 @@ namespace RadarProcess
             Logger.GetInstance().SetMainForm(this);
             positionAlertTime = DateTime.Now;
             speedAlertTime = DateTime.Now;
+            fallPointAlertTime = DateTime.Now;
         }
 
         private void btnSetting_Click(object sender, EventArgs e)
@@ -96,7 +98,7 @@ namespace RadarProcess
             {
                 series.Points.Clear();
             }
-            FallPoint ideaPoint = Algorithm.CalcIdeaPointOfFall();
+            ideaPoint = Algorithm.CalcIdeaPointOfFall();
             pointChartControl.Series["理想落点"].Points.Add(new SeriesPoint(ideaPoint.x, ideaPoint.y));
             historyData.IdeaFallPoint = ideaPoint;
             pointChartControl.Series["必炸线"].Points.Add(new SeriesPoint(ideaPoint.x - Config.GetInstance().sideLine,
@@ -252,6 +254,7 @@ namespace RadarProcess
                     CheckPosition(sObject.X, sObject.Y, sObject.Z);
                     CheckSpeed(sObject.VX, sObject.VY, sObject.VZ);
                     FallPoint fallPoint = Algorithm.CalcPointOfFall();
+                    CheckFallPoint(fallPoint);
                     AddPointOfFall(fallPoint);
                     historyData.AddFallPoint(fallPoint);
                     Marshal.FreeHGlobal(ptr);
@@ -304,19 +307,21 @@ namespace RadarProcess
             if(x > Config.GetInstance().locMaxX || x < Config.GetInstance().locMinX)
             {
                 alertControl.Show(this, "提示", "位置X超出范围:\n" + x.ToString());
-                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "位置X超出范围:\n" + x.ToString());
+                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "位置X超出范围:" + x.ToString());
+                positionAlertTime = DateTime.Now;
             }
             if (y > Config.GetInstance().locMaxY || y < Config.GetInstance().locMinY)
             {
                 alertControl.Show(this, "提示", "位置Y超出范围:\n" + y.ToString());
-                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "位置Y超出范围:\n" + y.ToString());
+                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "位置Y超出范围:" + y.ToString());
+                positionAlertTime = DateTime.Now;
             }
             if (z > Config.GetInstance().locMaxZ || z < Config.GetInstance().locMinZ)
             {
                 alertControl.Show(this, "提示", "位置X超出范围:\n" + z.ToString());
-                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "位置Z超出范围:\n" + z.ToString());
+                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "位置Z超出范围:" + z.ToString());
+                positionAlertTime = DateTime.Now;
             }
-            positionAlertTime = DateTime.Now;
         }
 
         private void chartUpateTimer_Tick(object sender, EventArgs e)
@@ -344,19 +349,38 @@ namespace RadarProcess
             if (vx > Config.GetInstance().speedMaxX || vx < Config.GetInstance().speedMinX)
             {
                 alertControl.Show(this, "提示", "速度VX超出范围:\n" + vx.ToString());
-                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "速度VX超出范围:\n" + vx.ToString());
+                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "速度VX超出范围:" + vx.ToString());
+                speedAlertTime = DateTime.Now;
             }
             if (vy > Config.GetInstance().speedMaxY || vy < Config.GetInstance().speedMinY)
             {
                 alertControl.Show(this, "提示", "速度VY超出范围:\n" + vy.ToString());
-                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "速度VY超出范围:\n" + vy.ToString());
+                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "速度VY超出范围:" + vy.ToString());
+                speedAlertTime = DateTime.Now;
             }
             if (vz > Config.GetInstance().speedMaxZ || vz < Config.GetInstance().speedMinZ)
             {
                 alertControl.Show(this, "提示", "速度VZ超出范围:\n" + vz.ToString());
-                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "速度VZ超出范围:\n" + vz.ToString());
+                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "速度VZ超出范围:" + vz.ToString());
+                speedAlertTime = DateTime.Now;
             }
-            speedAlertTime = DateTime.Now;
+        }
+
+        private void CheckFallPoint(FallPoint fallPoint)
+        {
+            if (DateTime.Now < fallPointAlertTime.AddSeconds(10))
+            {
+                return;
+            }
+            if(fallPoint.x < ideaPoint.x - Config.GetInstance().sideLine ||
+                fallPoint.x > ideaPoint.x + Config.GetInstance().sideLine ||
+                fallPoint.y < ideaPoint.y - Config.GetInstance().backwardLine ||
+                fallPoint.y > ideaPoint.y + Config.GetInstance().forwardLine)
+            {
+                alertControl.Show(this, "提示", String.Format("落点超出范围:\nX={0}\nY={1}", fallPoint.x, fallPoint.y));
+                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, String.Format("落点超出范围:X={0},Y={1}", fallPoint.x, fallPoint.y));
+                speedAlertTime = DateTime.Now;
+            }
         }
     }
 }
