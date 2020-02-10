@@ -302,6 +302,7 @@ namespace YaoCeProcess
             }
             XiTong_CeLueJieDuan.Text = ceLueJieDuanValue;
             // 弹头状态(0-状态异常 1-产品遥测上电正常 2-初始化正常 3-一级保险解除
+            // 4-二级保险解除 5-收到保险解除信号 6-三级保险解除 7-充电 8-起爆
             string danTouZhuangTaiValue = "";
             switch (sObject.danTouZhuangTai)
             {
@@ -317,7 +318,23 @@ namespace YaoCeProcess
                 case 3:
                     danTouZhuangTaiValue = "一级保险解除";
                     break;
+                case 4:
+                    danTouZhuangTaiValue = "二级保险解除";
+                    break;
+                case 5:
+                    danTouZhuangTaiValue = "收到保险解除信号";
+                    break;
+                case 6:
+                    danTouZhuangTaiValue = "三级保险解除";
+                    break;
+                case 7:
+                    danTouZhuangTaiValue = "充电";
+                    break;
+                case 8:
+                    danTouZhuangTaiValue = "起爆";
+                    break;
                 default:
+                    danTouZhuangTaiValue = "未知";
                     break;
             }
             XiTong_DanTouZhuangTai.Text = danTouZhuangTaiValue;
@@ -376,7 +393,7 @@ namespace YaoCeProcess
             // bit6 弹头组合无效标志（1表示无效）
             XiTong_DanTouZuHe.Text = (daoHangTip1 >> 6 & 0x1) == 1 ? "无效" : "有效";
             // bit7 弹体组合无效标志（1表示无效）
-            XiTong_DanTiZuHe.Text = (daoHangTip1 >> 6 & 0x1) == 1 ? "无效" : "有效";
+            XiTong_DanTiZuHe.Text = (daoHangTip1 >> 7 & 0x1) == 1 ? "无效" : "有效";
 
             //----------------------------------------------------------------------//
             // 导航状态指示2
@@ -1081,21 +1098,21 @@ namespace YaoCeProcess
 
             //-----------------------------------------------------------------------------------//
             // 测试 绘图功能
-            Random rnd = new Random();
-            chart_XiTong_ZuoBiao.Series["经度"].Points.AddPoint(xiTong_CHART_ITEM_INDEX, rnd.Next(1, 100));
-            chart_XiTong_ZuoBiao.Series["纬度"].Points.AddPoint(xiTong_CHART_ITEM_INDEX, rnd.Next(1, 100));
-            chart_XiTong_ZuoBiao.Series["海拔高度"].Points.AddPoint(xiTong_CHART_ITEM_INDEX, rnd.Next(1, 100));
-            xiTong_CHART_ITEM_INDEX++;
-
-            chart_DHKuaiSu_ZuoBiao.Series["经度"].Points.AddPoint(DHKuaiSu_CHART_ITEM_INDEX, rnd.Next(1, 100));
-            chart_DHKuaiSu_ZuoBiao.Series["纬度"].Points.AddPoint(DHKuaiSu_CHART_ITEM_INDEX, rnd.Next(1, 100));
-            chart_DHKuaiSu_ZuoBiao.Series["海拔高度"].Points.AddPoint(DHKuaiSu_CHART_ITEM_INDEX, rnd.Next(1, 100));
-            DHKuaiSu_CHART_ITEM_INDEX++;
-
-            chart_DHManSu_ZuoBiao.Series["经度"].Points.AddPoint(DHManSu_CHART_ITEM_INDEX, rnd.Next(1, 100));
-            chart_DHManSu_ZuoBiao.Series["纬度"].Points.AddPoint(DHManSu_CHART_ITEM_INDEX, rnd.Next(1, 100));
-            chart_DHManSu_ZuoBiao.Series["海拔高度"].Points.AddPoint(DHManSu_CHART_ITEM_INDEX, rnd.Next(1, 100));
-            DHManSu_CHART_ITEM_INDEX++;
+            // Random rnd = new Random();
+            // chart_XiTong_ZuoBiao.Series["经度"].Points.AddPoint(xiTong_CHART_ITEM_INDEX, rnd.Next(1, 100));
+            // chart_XiTong_ZuoBiao.Series["纬度"].Points.AddPoint(xiTong_CHART_ITEM_INDEX, rnd.Next(1, 100));
+            // chart_XiTong_ZuoBiao.Series["海拔高度"].Points.AddPoint(xiTong_CHART_ITEM_INDEX, rnd.Next(1, 100));
+            // xiTong_CHART_ITEM_INDEX++;
+            // 
+            // chart_DHKuaiSu_ZuoBiao.Series["经度"].Points.AddPoint(DHKuaiSu_CHART_ITEM_INDEX, rnd.Next(1, 100));
+            // chart_DHKuaiSu_ZuoBiao.Series["纬度"].Points.AddPoint(DHKuaiSu_CHART_ITEM_INDEX, rnd.Next(1, 100));
+            // chart_DHKuaiSu_ZuoBiao.Series["海拔高度"].Points.AddPoint(DHKuaiSu_CHART_ITEM_INDEX, rnd.Next(1, 100));
+            // DHKuaiSu_CHART_ITEM_INDEX++;
+            // 
+            // chart_DHManSu_ZuoBiao.Series["经度"].Points.AddPoint(DHManSu_CHART_ITEM_INDEX, rnd.Next(1, 100));
+            // chart_DHManSu_ZuoBiao.Series["纬度"].Points.AddPoint(DHManSu_CHART_ITEM_INDEX, rnd.Next(1, 100));
+            // chart_DHManSu_ZuoBiao.Series["海拔高度"].Points.AddPoint(DHManSu_CHART_ITEM_INDEX, rnd.Next(1, 100));
+            // DHManSu_CHART_ITEM_INDEX++;
             //-----------------------------------------------------------------------------------//
         }
 
@@ -1227,7 +1244,7 @@ namespace YaoCeProcess
             // 是否可以选择多个文件
             dialog.Multiselect = false;
             dialog.Title = "请选择文件夹";
-            dialog.Filter = "数据文件(*.dat)|*.dat";
+            dialog.Filter = "数据文件(*.txt)|*.txt";
             dialog.InitialDirectory = AppDomain.CurrentDomain.BaseDirectory + "Log";
             if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
@@ -1236,6 +1253,10 @@ namespace YaoCeProcess
                 {
                     return;
                 }
+
+                // 创建新的日志文件
+                Logger.GetInstance().NewFile();
+
                 // 打开文件
                 srFileRead = new StreamReader(filePath, Encoding.Default);
 
@@ -1291,7 +1312,7 @@ namespace YaoCeProcess
                 if ((line = srFileRead.ReadLine()) != null)
                 {
                     // 处理数据
-                    byte[] byteArray = System.Text.Encoding.Default.GetBytes(line);
+                    byte[] byteArray = strToToHexByte(line);
                     dataParser.Enqueue(byteArray);
                 }
                 else
@@ -1324,6 +1345,22 @@ namespace YaoCeProcess
             }
         }
 
+        /// <summary>
+        /// 字符串转16进制字节数组
+        /// </summary>
+        /// <param name="hexString"></param>
+        /// <returns></returns>
+        private static byte[] strToToHexByte(string hexString)
+        {
+            hexString = hexString.Replace(" ", "");
+            if ((hexString.Length % 2) != 0)
+                hexString += " ";
+            byte[] returnBytes = new byte[hexString.Length / 2];
+            for (int i = 0; i < returnBytes.Length; i++)
+                returnBytes[i] = Convert.ToByte(hexString.Substring(i * 2, 2), 16);
+            return returnBytes;
+        }
+
         public void clearAllChart()
         {
             // 系统判决状态曲线
@@ -1332,6 +1369,7 @@ namespace YaoCeProcess
             {
                 series.Points.Clear();
             }
+            chart_XiTong_ZuoBiao.ClearCache();
             foreach (Series series in chart_XiTong_SuDu.Series)
             {
                 series.Points.Clear();
@@ -1371,6 +1409,5 @@ namespace YaoCeProcess
                 series.Points.Clear();
             }
         }
-
     }
 }

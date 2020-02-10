@@ -167,6 +167,7 @@ namespace YaoCeProcess
                 totalCountCan = buffer[1];  // 帧总长度
                 frameLength = buffer[4];    // 数据段总长度
                 frameType = buffer[5];      // 帧类型
+                statusBuffer = new byte[0];
             }
             else
             {
@@ -232,7 +233,21 @@ namespace YaoCeProcess
         private bool ParseDataCRC16(byte[] buffer)
         {
             // CRC16
-            // ...
+            string crcValueSTR = CRC.ToCRC16(buffer, true);    // bool 是否逆序
+            byte[] crcValue = CRC.StringToHexByte(crcValueSTR);
+            // 取出最后两字节的校验位
+            byte crcHig = buffer[buffer.Length - 1];
+            byte crcLow = buffer[buffer.Length - 2];
+            if (crcValue.Length >= 2)
+            {
+                if (crcValue[0] == crcLow && crcValue[0] == crcHig)
+                {
+                    return true;
+                }
+                // TODO 测试阶段，不添加添加CRC16校验
+                // return false;
+            }
+
             return true;
         }
 

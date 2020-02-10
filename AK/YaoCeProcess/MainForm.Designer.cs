@@ -30,69 +30,69 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DevExpress.XtraCharts.XYDiagram xyDiagram19 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series55 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView55 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.Series series56 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView56 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.Series series57 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView57 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.XYDiagram xyDiagram20 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series58 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView58 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.Series series59 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView59 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.Series series60 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView60 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.XYDiagram xyDiagram21 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series61 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView61 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.Series series62 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView62 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.Series series63 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView63 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.XYDiagram xyDiagram22 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series64 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView64 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.Series series65 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView65 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.Series series66 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView66 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.Series series67 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView67 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.XYDiagram xyDiagram23 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series68 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView68 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.Series series69 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView69 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.XYDiagram xyDiagram24 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series70 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView70 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.Series series71 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView71 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.Series series72 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView72 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.XYDiagram xyDiagram25 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series73 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView73 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.Series series74 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView74 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.Series series75 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView75 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.XYDiagram xyDiagram26 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series76 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView76 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.Series series77 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView77 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.Series series78 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView78 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.XYDiagram xyDiagram27 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series79 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView79 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.Series series80 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView80 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.Series series81 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView81 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.XYDiagram xyDiagram10 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series28 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView28 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.Series series29 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView29 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.Series series30 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView30 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.XYDiagram xyDiagram11 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series31 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView31 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.Series series32 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView32 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.Series series33 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView33 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.XYDiagram xyDiagram12 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series34 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView34 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.Series series35 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView35 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.Series series36 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView36 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.XYDiagram xyDiagram13 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series37 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView37 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.Series series38 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView38 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.Series series39 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView39 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.Series series40 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView40 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.XYDiagram xyDiagram14 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series41 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView41 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.Series series42 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView42 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.XYDiagram xyDiagram15 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series43 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView43 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.Series series44 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView44 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.Series series45 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView45 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.XYDiagram xyDiagram16 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series46 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView46 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.Series series47 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView47 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.Series series48 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView48 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.XYDiagram xyDiagram17 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series49 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView49 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.Series series50 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView50 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.Series series51 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView51 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.XYDiagram xyDiagram18 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series52 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView52 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.Series series53 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView53 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.Series series54 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView54 = new DevExpress.XtraCharts.SplineSeriesView();
             this.layoutControl_ToolBar = new DevExpress.XtraLayout.LayoutControl();
             this.btnLoadFile = new DevExpress.XtraEditors.SimpleButton();
             this.BtnStartStop = new DevExpress.XtraEditors.SimpleButton();
@@ -442,49 +442,49 @@
             this.Tab_XiTongPlot.SuspendLayout();
             this.TabPage_XiTongPlot_ZuoBiao.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_XiTong_ZuoBiao)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram19)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series55)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView55)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series56)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView56)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series57)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView57)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series28)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView28)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series29)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView29)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series30)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView30)).BeginInit();
             this.TabPage_XiTongPlot_SuDu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_XiTong_SuDu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram20)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series58)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView58)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series59)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView59)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series60)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView60)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series31)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView31)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series32)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView32)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series33)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView33)).BeginInit();
             this.TabPage_XiTongPlot_JiaoSuDu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_XiTong_JiaoSuDu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram21)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series61)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView61)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series62)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView62)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series63)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView63)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series34)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView34)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series35)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView35)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series36)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView36)).BeginInit();
             this.TabPage_XiTongPlot_FaSheXi.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_XiTong_FaSheXi)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram22)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series64)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView64)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series65)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView65)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series66)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView66)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series67)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView67)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series37)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView37)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series38)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView38)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series39)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView39)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series40)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView40)).BeginInit();
             this.TabPage_XiTongPlot_YuShiLuoDian.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_XiTong_YuShiLuoDian)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram23)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series68)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView68)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series69)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView69)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series41)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView41)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series42)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView42)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
@@ -620,22 +620,22 @@
             this.Tab_DHKuaiSuPlot.SuspendLayout();
             this.TabPage_DHKuaiSuPlot_ZuoBiao.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_DHKuaiSu_ZuoBiao)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram24)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series70)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView70)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series71)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView71)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series72)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView72)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series43)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView43)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series44)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView44)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series45)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView45)).BeginInit();
             this.TabPage_DHKuaiSuPlot_SuDu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_DHKuaiSu_SuDu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram25)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series73)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView73)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series74)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView74)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series75)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView75)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series46)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView46)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series47)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView47)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series48)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView48)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem30)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl5)).BeginInit();
@@ -703,22 +703,22 @@
             this.Tab_DHManSuPlot.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_DHManSu_ZuoBiao)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram26)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series76)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView76)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series77)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView77)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series78)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView78)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series49)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView49)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series50)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView50)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series51)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView51)).BeginInit();
             this.xtraTabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_DHManSu_SuDu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram27)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series79)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView79)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series80)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView80)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series81)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView81)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram18)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series52)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView52)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series53)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView53)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series54)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView54)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem83)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl8)).BeginInit();
@@ -1063,13 +1063,13 @@
             // chart_XiTong_ZuoBiao
             // 
             this.chart_XiTong_ZuoBiao.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            xyDiagram19.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram19.AxisY.VisibleInPanesSerializable = "-1";
-            xyDiagram19.EnableAxisXScrolling = true;
-            xyDiagram19.EnableAxisXZooming = true;
-            xyDiagram19.EnableAxisYScrolling = true;
-            xyDiagram19.EnableAxisYZooming = true;
-            this.chart_XiTong_ZuoBiao.Diagram = xyDiagram19;
+            xyDiagram10.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram10.AxisY.VisibleInPanesSerializable = "-1";
+            xyDiagram10.EnableAxisXScrolling = true;
+            xyDiagram10.EnableAxisXZooming = true;
+            xyDiagram10.EnableAxisYScrolling = true;
+            xyDiagram10.EnableAxisYZooming = true;
+            this.chart_XiTong_ZuoBiao.Diagram = xyDiagram10;
             this.chart_XiTong_ZuoBiao.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chart_XiTong_ZuoBiao.Legend.Border.Visibility = DevExpress.Utils.DefaultBoolean.True;
             this.chart_XiTong_ZuoBiao.Legend.MarkerMode = DevExpress.XtraCharts.LegendMarkerMode.CheckBoxAndMarker;
@@ -1077,16 +1077,16 @@
             this.chart_XiTong_ZuoBiao.Legend.Visibility = DevExpress.Utils.DefaultBoolean.True;
             this.chart_XiTong_ZuoBiao.Location = new System.Drawing.Point(0, 0);
             this.chart_XiTong_ZuoBiao.Name = "chart_XiTong_ZuoBiao";
-            series55.Name = "经度";
-            series55.View = splineSeriesView55;
-            series56.Name = "纬度";
-            series56.View = splineSeriesView56;
-            series57.Name = "海拔高度";
-            series57.View = splineSeriesView57;
+            series28.Name = "经度";
+            series28.View = splineSeriesView28;
+            series29.Name = "纬度";
+            series29.View = splineSeriesView29;
+            series30.Name = "海拔高度";
+            series30.View = splineSeriesView30;
             this.chart_XiTong_ZuoBiao.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series55,
-        series56,
-        series57};
+        series28,
+        series29,
+        series30};
             this.chart_XiTong_ZuoBiao.Size = new System.Drawing.Size(614, 469);
             this.chart_XiTong_ZuoBiao.TabIndex = 0;
             // 
@@ -1100,13 +1100,13 @@
             // chart_XiTong_SuDu
             // 
             this.chart_XiTong_SuDu.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            xyDiagram20.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram20.AxisY.VisibleInPanesSerializable = "-1";
-            xyDiagram20.EnableAxisXScrolling = true;
-            xyDiagram20.EnableAxisXZooming = true;
-            xyDiagram20.EnableAxisYScrolling = true;
-            xyDiagram20.EnableAxisYZooming = true;
-            this.chart_XiTong_SuDu.Diagram = xyDiagram20;
+            xyDiagram11.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram11.AxisY.VisibleInPanesSerializable = "-1";
+            xyDiagram11.EnableAxisXScrolling = true;
+            xyDiagram11.EnableAxisXZooming = true;
+            xyDiagram11.EnableAxisYScrolling = true;
+            xyDiagram11.EnableAxisYZooming = true;
+            this.chart_XiTong_SuDu.Diagram = xyDiagram11;
             this.chart_XiTong_SuDu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chart_XiTong_SuDu.Legend.Border.Visibility = DevExpress.Utils.DefaultBoolean.True;
             this.chart_XiTong_SuDu.Legend.MarkerMode = DevExpress.XtraCharts.LegendMarkerMode.CheckBoxAndMarker;
@@ -1114,16 +1114,16 @@
             this.chart_XiTong_SuDu.Legend.Visibility = DevExpress.Utils.DefaultBoolean.True;
             this.chart_XiTong_SuDu.Location = new System.Drawing.Point(0, 0);
             this.chart_XiTong_SuDu.Name = "chart_XiTong_SuDu";
-            series58.Name = "东向速度";
-            series58.View = splineSeriesView58;
-            series59.Name = "北向速度";
-            series59.View = splineSeriesView59;
-            series60.Name = "天向速度";
-            series60.View = splineSeriesView60;
+            series31.Name = "东向速度";
+            series31.View = splineSeriesView31;
+            series32.Name = "北向速度";
+            series32.View = splineSeriesView32;
+            series33.Name = "天向速度";
+            series33.View = splineSeriesView33;
             this.chart_XiTong_SuDu.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series58,
-        series59,
-        series60};
+        series31,
+        series32,
+        series33};
             this.chart_XiTong_SuDu.Size = new System.Drawing.Size(614, 469);
             this.chart_XiTong_SuDu.TabIndex = 1;
             // 
@@ -1137,13 +1137,13 @@
             // chart_XiTong_JiaoSuDu
             // 
             this.chart_XiTong_JiaoSuDu.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            xyDiagram21.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram21.AxisY.VisibleInPanesSerializable = "-1";
-            xyDiagram21.EnableAxisXScrolling = true;
-            xyDiagram21.EnableAxisXZooming = true;
-            xyDiagram21.EnableAxisYScrolling = true;
-            xyDiagram21.EnableAxisYZooming = true;
-            this.chart_XiTong_JiaoSuDu.Diagram = xyDiagram21;
+            xyDiagram12.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram12.AxisY.VisibleInPanesSerializable = "-1";
+            xyDiagram12.EnableAxisXScrolling = true;
+            xyDiagram12.EnableAxisXZooming = true;
+            xyDiagram12.EnableAxisYScrolling = true;
+            xyDiagram12.EnableAxisYZooming = true;
+            this.chart_XiTong_JiaoSuDu.Diagram = xyDiagram12;
             this.chart_XiTong_JiaoSuDu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chart_XiTong_JiaoSuDu.Legend.Border.Visibility = DevExpress.Utils.DefaultBoolean.True;
             this.chart_XiTong_JiaoSuDu.Legend.MarkerMode = DevExpress.XtraCharts.LegendMarkerMode.CheckBoxAndMarker;
@@ -1151,16 +1151,16 @@
             this.chart_XiTong_JiaoSuDu.Legend.Visibility = DevExpress.Utils.DefaultBoolean.True;
             this.chart_XiTong_JiaoSuDu.Location = new System.Drawing.Point(0, 0);
             this.chart_XiTong_JiaoSuDu.Name = "chart_XiTong_JiaoSuDu";
-            series61.Name = "Wx角速度";
-            series61.View = splineSeriesView61;
-            series62.Name = "Wy角速度";
-            series62.View = splineSeriesView62;
-            series63.Name = "Wz角速度";
-            series63.View = splineSeriesView63;
+            series34.Name = "Wx角速度";
+            series34.View = splineSeriesView34;
+            series35.Name = "Wy角速度";
+            series35.View = splineSeriesView35;
+            series36.Name = "Wz角速度";
+            series36.View = splineSeriesView36;
             this.chart_XiTong_JiaoSuDu.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series61,
-        series62,
-        series63};
+        series34,
+        series35,
+        series36};
             this.chart_XiTong_JiaoSuDu.Size = new System.Drawing.Size(614, 469);
             this.chart_XiTong_JiaoSuDu.TabIndex = 2;
             // 
@@ -1174,13 +1174,13 @@
             // chart_XiTong_FaSheXi
             // 
             this.chart_XiTong_FaSheXi.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            xyDiagram22.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram22.AxisY.VisibleInPanesSerializable = "-1";
-            xyDiagram22.EnableAxisXScrolling = true;
-            xyDiagram22.EnableAxisXZooming = true;
-            xyDiagram22.EnableAxisYScrolling = true;
-            xyDiagram22.EnableAxisYZooming = true;
-            this.chart_XiTong_FaSheXi.Diagram = xyDiagram22;
+            xyDiagram13.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram13.AxisY.VisibleInPanesSerializable = "-1";
+            xyDiagram13.EnableAxisXScrolling = true;
+            xyDiagram13.EnableAxisXZooming = true;
+            xyDiagram13.EnableAxisYScrolling = true;
+            xyDiagram13.EnableAxisYZooming = true;
+            this.chart_XiTong_FaSheXi.Diagram = xyDiagram13;
             this.chart_XiTong_FaSheXi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chart_XiTong_FaSheXi.Legend.Border.Visibility = DevExpress.Utils.DefaultBoolean.True;
             this.chart_XiTong_FaSheXi.Legend.MarkerMode = DevExpress.XtraCharts.LegendMarkerMode.CheckBoxAndMarker;
@@ -1188,19 +1188,19 @@
             this.chart_XiTong_FaSheXi.Legend.Visibility = DevExpress.Utils.DefaultBoolean.True;
             this.chart_XiTong_FaSheXi.Location = new System.Drawing.Point(0, 0);
             this.chart_XiTong_FaSheXi.Name = "chart_XiTong_FaSheXi";
-            series64.Name = "轴向过载";
-            series64.View = splineSeriesView64;
-            series65.Name = "当前发射系X";
-            series65.View = splineSeriesView65;
-            series66.Name = "当前发射系Y";
-            series66.View = splineSeriesView66;
-            series67.Name = "当前发射系Z";
-            series67.View = splineSeriesView67;
+            series37.Name = "轴向过载";
+            series37.View = splineSeriesView37;
+            series38.Name = "当前发射系X";
+            series38.View = splineSeriesView38;
+            series39.Name = "当前发射系Y";
+            series39.View = splineSeriesView39;
+            series40.Name = "当前发射系Z";
+            series40.View = splineSeriesView40;
             this.chart_XiTong_FaSheXi.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series64,
-        series65,
-        series66,
-        series67};
+        series37,
+        series38,
+        series39,
+        series40};
             this.chart_XiTong_FaSheXi.Size = new System.Drawing.Size(614, 469);
             this.chart_XiTong_FaSheXi.TabIndex = 3;
             // 
@@ -1214,13 +1214,13 @@
             // chart_XiTong_YuShiLuoDian
             // 
             this.chart_XiTong_YuShiLuoDian.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            xyDiagram23.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram23.AxisY.VisibleInPanesSerializable = "-1";
-            xyDiagram23.EnableAxisXScrolling = true;
-            xyDiagram23.EnableAxisXZooming = true;
-            xyDiagram23.EnableAxisYScrolling = true;
-            xyDiagram23.EnableAxisYZooming = true;
-            this.chart_XiTong_YuShiLuoDian.Diagram = xyDiagram23;
+            xyDiagram14.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram14.AxisY.VisibleInPanesSerializable = "-1";
+            xyDiagram14.EnableAxisXScrolling = true;
+            xyDiagram14.EnableAxisXZooming = true;
+            xyDiagram14.EnableAxisYScrolling = true;
+            xyDiagram14.EnableAxisYZooming = true;
+            this.chart_XiTong_YuShiLuoDian.Diagram = xyDiagram14;
             this.chart_XiTong_YuShiLuoDian.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chart_XiTong_YuShiLuoDian.Legend.Border.Visibility = DevExpress.Utils.DefaultBoolean.True;
             this.chart_XiTong_YuShiLuoDian.Legend.MarkerMode = DevExpress.XtraCharts.LegendMarkerMode.CheckBoxAndMarker;
@@ -1228,13 +1228,13 @@
             this.chart_XiTong_YuShiLuoDian.Legend.Visibility = DevExpress.Utils.DefaultBoolean.True;
             this.chart_XiTong_YuShiLuoDian.Location = new System.Drawing.Point(0, 0);
             this.chart_XiTong_YuShiLuoDian.Name = "chart_XiTong_YuShiLuoDian";
-            series68.Name = "预示落点射程";
-            series68.View = splineSeriesView68;
-            series69.Name = "预示落点Z";
-            series69.View = splineSeriesView69;
+            series41.Name = "预示落点射程";
+            series41.View = splineSeriesView41;
+            series42.Name = "预示落点Z";
+            series42.View = splineSeriesView42;
             this.chart_XiTong_YuShiLuoDian.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series68,
-        series69};
+        series41,
+        series42};
             this.chart_XiTong_YuShiLuoDian.Size = new System.Drawing.Size(614, 469);
             this.chart_XiTong_YuShiLuoDian.TabIndex = 4;
             // 
@@ -2535,13 +2535,13 @@
             // chart_DHKuaiSu_ZuoBiao
             // 
             this.chart_DHKuaiSu_ZuoBiao.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            xyDiagram24.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram24.AxisY.VisibleInPanesSerializable = "-1";
-            xyDiagram24.EnableAxisXScrolling = true;
-            xyDiagram24.EnableAxisXZooming = true;
-            xyDiagram24.EnableAxisYScrolling = true;
-            xyDiagram24.EnableAxisYZooming = true;
-            this.chart_DHKuaiSu_ZuoBiao.Diagram = xyDiagram24;
+            xyDiagram15.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram15.AxisY.VisibleInPanesSerializable = "-1";
+            xyDiagram15.EnableAxisXScrolling = true;
+            xyDiagram15.EnableAxisXZooming = true;
+            xyDiagram15.EnableAxisYScrolling = true;
+            xyDiagram15.EnableAxisYZooming = true;
+            this.chart_DHKuaiSu_ZuoBiao.Diagram = xyDiagram15;
             this.chart_DHKuaiSu_ZuoBiao.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chart_DHKuaiSu_ZuoBiao.Legend.Border.Visibility = DevExpress.Utils.DefaultBoolean.True;
             this.chart_DHKuaiSu_ZuoBiao.Legend.MarkerMode = DevExpress.XtraCharts.LegendMarkerMode.CheckBoxAndMarker;
@@ -2549,16 +2549,16 @@
             this.chart_DHKuaiSu_ZuoBiao.Legend.Visibility = DevExpress.Utils.DefaultBoolean.True;
             this.chart_DHKuaiSu_ZuoBiao.Location = new System.Drawing.Point(0, 0);
             this.chart_DHKuaiSu_ZuoBiao.Name = "chart_DHKuaiSu_ZuoBiao";
-            series70.Name = "经度";
-            series70.View = splineSeriesView70;
-            series71.Name = "纬度";
-            series71.View = splineSeriesView71;
-            series72.Name = "海拔高度";
-            series72.View = splineSeriesView72;
+            series43.Name = "经度";
+            series43.View = splineSeriesView43;
+            series44.Name = "纬度";
+            series44.View = splineSeriesView44;
+            series45.Name = "海拔高度";
+            series45.View = splineSeriesView45;
             this.chart_DHKuaiSu_ZuoBiao.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series70,
-        series71,
-        series72};
+        series43,
+        series44,
+        series45};
             this.chart_DHKuaiSu_ZuoBiao.Size = new System.Drawing.Size(637, 469);
             this.chart_DHKuaiSu_ZuoBiao.TabIndex = 1;
             // 
@@ -2572,13 +2572,13 @@
             // chart_DHKuaiSu_SuDu
             // 
             this.chart_DHKuaiSu_SuDu.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            xyDiagram25.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram25.AxisY.VisibleInPanesSerializable = "-1";
-            xyDiagram25.EnableAxisXScrolling = true;
-            xyDiagram25.EnableAxisXZooming = true;
-            xyDiagram25.EnableAxisYScrolling = true;
-            xyDiagram25.EnableAxisYZooming = true;
-            this.chart_DHKuaiSu_SuDu.Diagram = xyDiagram25;
+            xyDiagram16.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram16.AxisY.VisibleInPanesSerializable = "-1";
+            xyDiagram16.EnableAxisXScrolling = true;
+            xyDiagram16.EnableAxisXZooming = true;
+            xyDiagram16.EnableAxisYScrolling = true;
+            xyDiagram16.EnableAxisYZooming = true;
+            this.chart_DHKuaiSu_SuDu.Diagram = xyDiagram16;
             this.chart_DHKuaiSu_SuDu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chart_DHKuaiSu_SuDu.Legend.Border.Visibility = DevExpress.Utils.DefaultBoolean.True;
             this.chart_DHKuaiSu_SuDu.Legend.MarkerMode = DevExpress.XtraCharts.LegendMarkerMode.CheckBoxAndMarker;
@@ -2586,16 +2586,16 @@
             this.chart_DHKuaiSu_SuDu.Legend.Visibility = DevExpress.Utils.DefaultBoolean.True;
             this.chart_DHKuaiSu_SuDu.Location = new System.Drawing.Point(0, 0);
             this.chart_DHKuaiSu_SuDu.Name = "chart_DHKuaiSu_SuDu";
-            series73.Name = "东向速度";
-            series73.View = splineSeriesView73;
-            series74.Name = "北向速度";
-            series74.View = splineSeriesView74;
-            series75.Name = "天向速度";
-            series75.View = splineSeriesView75;
+            series46.Name = "东向速度";
+            series46.View = splineSeriesView46;
+            series47.Name = "北向速度";
+            series47.View = splineSeriesView47;
+            series48.Name = "天向速度";
+            series48.View = splineSeriesView48;
             this.chart_DHKuaiSu_SuDu.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series73,
-        series74,
-        series75};
+        series46,
+        series47,
+        series48};
             this.chart_DHKuaiSu_SuDu.Size = new System.Drawing.Size(637, 469);
             this.chart_DHKuaiSu_SuDu.TabIndex = 1;
             // 
@@ -3215,13 +3215,13 @@
             // chart_DHManSu_ZuoBiao
             // 
             this.chart_DHManSu_ZuoBiao.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            xyDiagram26.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram26.AxisY.VisibleInPanesSerializable = "-1";
-            xyDiagram26.EnableAxisXScrolling = true;
-            xyDiagram26.EnableAxisXZooming = true;
-            xyDiagram26.EnableAxisYScrolling = true;
-            xyDiagram26.EnableAxisYZooming = true;
-            this.chart_DHManSu_ZuoBiao.Diagram = xyDiagram26;
+            xyDiagram17.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram17.AxisY.VisibleInPanesSerializable = "-1";
+            xyDiagram17.EnableAxisXScrolling = true;
+            xyDiagram17.EnableAxisXZooming = true;
+            xyDiagram17.EnableAxisYScrolling = true;
+            xyDiagram17.EnableAxisYZooming = true;
+            this.chart_DHManSu_ZuoBiao.Diagram = xyDiagram17;
             this.chart_DHManSu_ZuoBiao.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chart_DHManSu_ZuoBiao.Legend.Border.Visibility = DevExpress.Utils.DefaultBoolean.True;
             this.chart_DHManSu_ZuoBiao.Legend.MarkerMode = DevExpress.XtraCharts.LegendMarkerMode.CheckBoxAndMarker;
@@ -3229,16 +3229,16 @@
             this.chart_DHManSu_ZuoBiao.Legend.Visibility = DevExpress.Utils.DefaultBoolean.True;
             this.chart_DHManSu_ZuoBiao.Location = new System.Drawing.Point(0, 0);
             this.chart_DHManSu_ZuoBiao.Name = "chart_DHManSu_ZuoBiao";
-            series76.Name = "经度";
-            series76.View = splineSeriesView76;
-            series77.Name = "纬度";
-            series77.View = splineSeriesView77;
-            series78.Name = "海拔高度";
-            series78.View = splineSeriesView78;
+            series49.Name = "经度";
+            series49.View = splineSeriesView49;
+            series50.Name = "纬度";
+            series50.View = splineSeriesView50;
+            series51.Name = "海拔高度";
+            series51.View = splineSeriesView51;
             this.chart_DHManSu_ZuoBiao.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series76,
-        series77,
-        series78};
+        series49,
+        series50,
+        series51};
             this.chart_DHManSu_ZuoBiao.Size = new System.Drawing.Size(615, 469);
             this.chart_DHManSu_ZuoBiao.TabIndex = 1;
             // 
@@ -3252,13 +3252,13 @@
             // chart_DHManSu_SuDu
             // 
             this.chart_DHManSu_SuDu.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            xyDiagram27.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram27.AxisY.VisibleInPanesSerializable = "-1";
-            xyDiagram27.EnableAxisXScrolling = true;
-            xyDiagram27.EnableAxisXZooming = true;
-            xyDiagram27.EnableAxisYScrolling = true;
-            xyDiagram27.EnableAxisYZooming = true;
-            this.chart_DHManSu_SuDu.Diagram = xyDiagram27;
+            xyDiagram18.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram18.AxisY.VisibleInPanesSerializable = "-1";
+            xyDiagram18.EnableAxisXScrolling = true;
+            xyDiagram18.EnableAxisXZooming = true;
+            xyDiagram18.EnableAxisYScrolling = true;
+            xyDiagram18.EnableAxisYZooming = true;
+            this.chart_DHManSu_SuDu.Diagram = xyDiagram18;
             this.chart_DHManSu_SuDu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chart_DHManSu_SuDu.Legend.Border.Visibility = DevExpress.Utils.DefaultBoolean.True;
             this.chart_DHManSu_SuDu.Legend.MarkerMode = DevExpress.XtraCharts.LegendMarkerMode.CheckBoxAndMarker;
@@ -3266,16 +3266,16 @@
             this.chart_DHManSu_SuDu.Legend.Visibility = DevExpress.Utils.DefaultBoolean.True;
             this.chart_DHManSu_SuDu.Location = new System.Drawing.Point(0, 0);
             this.chart_DHManSu_SuDu.Name = "chart_DHManSu_SuDu";
-            series79.Name = "东向速度";
-            series79.View = splineSeriesView79;
-            series80.Name = "北向速度";
-            series80.View = splineSeriesView80;
-            series81.Name = "天向速度";
-            series81.View = splineSeriesView81;
+            series52.Name = "东向速度";
+            series52.View = splineSeriesView52;
+            series53.Name = "北向速度";
+            series53.View = splineSeriesView53;
+            series54.Name = "天向速度";
+            series54.View = splineSeriesView54;
             this.chart_DHManSu_SuDu.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series79,
-        series80,
-        series81};
+        series52,
+        series53,
+        series54};
             this.chart_DHManSu_SuDu.Size = new System.Drawing.Size(615, 469);
             this.chart_DHManSu_SuDu.TabIndex = 1;
             // 
@@ -4203,6 +4203,7 @@
             this.ClientSize = new System.Drawing.Size(1313, 801);
             this.Controls.Add(this.layoutControl_MainContent);
             this.Controls.Add(this.layoutControl_ToolBar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "遥测数据显示";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
@@ -4231,49 +4232,49 @@
             ((System.ComponentModel.ISupportInitialize)(this.Tab_XiTongPlot)).EndInit();
             this.Tab_XiTongPlot.ResumeLayout(false);
             this.TabPage_XiTongPlot_ZuoBiao.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram19)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView55)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series55)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView56)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series56)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView57)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series57)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView28)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series28)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView29)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series29)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView30)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series30)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_XiTong_ZuoBiao)).EndInit();
             this.TabPage_XiTongPlot_SuDu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram20)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView58)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series58)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView59)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series59)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView60)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series60)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView31)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series31)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView32)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series32)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView33)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series33)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_XiTong_SuDu)).EndInit();
             this.TabPage_XiTongPlot_JiaoSuDu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram21)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView61)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series61)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView62)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series62)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView63)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series63)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView34)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series34)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView35)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series35)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView36)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series36)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_XiTong_JiaoSuDu)).EndInit();
             this.TabPage_XiTongPlot_FaSheXi.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram22)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView64)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series64)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView65)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series65)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView66)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series66)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView67)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series67)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView37)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series37)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView38)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series38)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView39)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series39)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView40)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series40)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_XiTong_FaSheXi)).EndInit();
             this.TabPage_XiTongPlot_YuShiLuoDian.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram23)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView68)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series68)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView69)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series69)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView41)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series41)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView42)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series42)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_XiTong_YuShiLuoDian)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
@@ -4409,22 +4410,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.Tab_DHKuaiSuPlot)).EndInit();
             this.Tab_DHKuaiSuPlot.ResumeLayout(false);
             this.TabPage_DHKuaiSuPlot_ZuoBiao.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram24)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView70)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series70)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView71)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series71)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView72)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series72)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView43)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series43)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView44)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series44)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView45)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series45)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_DHKuaiSu_ZuoBiao)).EndInit();
             this.TabPage_DHKuaiSuPlot_SuDu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram25)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView73)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series73)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView74)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series74)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView75)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series75)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView46)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series46)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView47)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series47)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView48)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series48)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_DHKuaiSu_SuDu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem30)).EndInit();
@@ -4492,22 +4493,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.Tab_DHManSuPlot)).EndInit();
             this.Tab_DHManSuPlot.ResumeLayout(false);
             this.xtraTabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram26)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView76)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series76)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView77)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series77)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView78)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series78)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView49)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series49)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView50)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series50)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView51)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series51)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_DHManSu_ZuoBiao)).EndInit();
             this.xtraTabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram27)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView79)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series79)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView80)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series80)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView81)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series81)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram18)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView52)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series52)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView53)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series53)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView54)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series54)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_DHManSu_SuDu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem83)).EndInit();
