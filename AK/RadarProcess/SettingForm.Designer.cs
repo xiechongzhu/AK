@@ -123,29 +123,32 @@
             this.layoutControl1.Controls.Add(this.btnOK);
             this.layoutControl1.Controls.Add(this.btnCancel);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 501);
+            this.layoutControl1.Location = new System.Drawing.Point(0, 250);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsView.RightToLeftMirroringApplied = true;
             this.layoutControl1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(1139, 100);
+            this.layoutControl1.Size = new System.Drawing.Size(570, 50);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Location = new System.Drawing.Point(6, 6);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(915, 76);
+            this.panel1.Size = new System.Drawing.Size(422, 46);
             this.panel1.TabIndex = 6;
             // 
             // btnOK
             // 
             this.btnOK.AutoWidthInLayoutControl = true;
             this.btnOK.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnOK.ImageOptions.Image")));
-            this.btnOK.Location = new System.Drawing.Point(931, 12);
+            this.btnOK.Location = new System.Drawing.Point(430, 6);
+            this.btnOK.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(96, 44);
+            this.btnOK.Size = new System.Drawing.Size(66, 36);
             this.btnOK.StyleController = this.layoutControl1;
             this.btnOK.TabIndex = 5;
             this.btnOK.Text = "确定";
@@ -155,9 +158,10 @@
             // 
             this.btnCancel.AutoWidthInLayoutControl = true;
             this.btnCancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.ImageOptions.Image")));
-            this.btnCancel.Location = new System.Drawing.Point(1031, 12);
+            this.btnCancel.Location = new System.Drawing.Point(498, 6);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(96, 44);
+            this.btnCancel.Size = new System.Drawing.Size(66, 36);
             this.btnCancel.StyleController = this.layoutControl1;
             this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "取消";
@@ -173,32 +177,32 @@
             this.layoutControlItem2,
             this.layoutControlItem3});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(1139, 100);
+            this.Root.Size = new System.Drawing.Size(570, 58);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.btnCancel;
-            this.layoutControlItem1.Location = new System.Drawing.Point(1019, 0);
+            this.layoutControlItem1.Location = new System.Drawing.Point(492, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(100, 48);
+            this.layoutControlItem1.Size = new System.Drawing.Size(68, 38);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(1019, 48);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(492, 38);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(100, 32);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(68, 10);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.btnOK;
-            this.layoutControlItem2.Location = new System.Drawing.Point(919, 0);
+            this.layoutControlItem2.Location = new System.Drawing.Point(424, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(100, 80);
+            this.layoutControlItem2.Size = new System.Drawing.Size(68, 48);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -207,360 +211,406 @@
             this.layoutControlItem3.Control = this.panel1;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(919, 80);
+            this.layoutControlItem3.Size = new System.Drawing.Size(424, 48);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(13, 22);
+            this.labelControl1.Location = new System.Drawing.Point(6, 11);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(120, 29);
+            this.labelControl1.Size = new System.Drawing.Size(60, 14);
             this.labelControl1.TabIndex = 1;
             this.labelControl1.Text = "初始经度：";
             // 
             // editLongitudeInit
             // 
-            this.editLongitudeInit.Location = new System.Drawing.Point(127, 12);
+            this.editLongitudeInit.Location = new System.Drawing.Point(64, 6);
+            this.editLongitudeInit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.editLongitudeInit.Name = "editLongitudeInit";
-            this.editLongitudeInit.Size = new System.Drawing.Size(200, 44);
+            this.editLongitudeInit.Size = new System.Drawing.Size(100, 20);
             this.editLongitudeInit.TabIndex = 2;
             // 
             // editLatitudeInit
             // 
-            this.editLatitudeInit.Location = new System.Drawing.Point(457, 12);
+            this.editLatitudeInit.Location = new System.Drawing.Point(228, 6);
+            this.editLatitudeInit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.editLatitudeInit.Name = "editLatitudeInit";
-            this.editLatitudeInit.Size = new System.Drawing.Size(211, 44);
+            this.editLatitudeInit.Size = new System.Drawing.Size(106, 20);
             this.editLatitudeInit.TabIndex = 4;
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(343, 22);
+            this.labelControl2.Location = new System.Drawing.Point(172, 11);
+            this.labelControl2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(120, 29);
+            this.labelControl2.Size = new System.Drawing.Size(60, 14);
             this.labelControl2.TabIndex = 3;
             this.labelControl2.Text = "初始纬度：";
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(13, 86);
+            this.labelControl3.Location = new System.Drawing.Point(6, 43);
+            this.labelControl3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(144, 29);
+            this.labelControl3.Size = new System.Drawing.Size(72, 14);
             this.labelControl3.TabIndex = 5;
             this.labelControl3.Text = "初始方位角：";
             // 
             // editAzimuthInit
             // 
-            this.editAzimuthInit.Location = new System.Drawing.Point(163, 76);
+            this.editAzimuthInit.Location = new System.Drawing.Point(74, 38);
+            this.editAzimuthInit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.editAzimuthInit.Name = "editAzimuthInit";
-            this.editAzimuthInit.Size = new System.Drawing.Size(164, 44);
+            this.editAzimuthInit.Size = new System.Drawing.Size(90, 20);
             this.editAzimuthInit.TabIndex = 6;
             // 
             // editHeightInit
             // 
-            this.editHeightInit.Location = new System.Drawing.Point(806, 12);
+            this.editHeightInit.Location = new System.Drawing.Point(421, 6);
+            this.editHeightInit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.editHeightInit.Name = "editHeightInit";
-            this.editHeightInit.Size = new System.Drawing.Size(200, 44);
+            this.editHeightInit.Size = new System.Drawing.Size(84, 20);
             this.editHeightInit.TabIndex = 8;
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(692, 22);
+            this.labelControl4.Location = new System.Drawing.Point(346, 11);
+            this.labelControl4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(120, 29);
+            this.labelControl4.Size = new System.Drawing.Size(80, 14);
             this.labelControl4.TabIndex = 7;
-            this.labelControl4.Text = "初始高度：";
+            this.labelControl4.Text = "初始高度(m)：";
             // 
             // editPlacementHeight
             // 
-            this.editPlacementHeight.Location = new System.Drawing.Point(504, 76);
+            this.editPlacementHeight.Location = new System.Drawing.Point(269, 38);
+            this.editPlacementHeight.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.editPlacementHeight.Name = "editPlacementHeight";
-            this.editPlacementHeight.Size = new System.Drawing.Size(164, 44);
+            this.editPlacementHeight.Size = new System.Drawing.Size(65, 20);
             this.editPlacementHeight.TabIndex = 10;
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(343, 83);
+            this.labelControl5.Location = new System.Drawing.Point(172, 42);
+            this.labelControl5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(168, 29);
+            this.labelControl5.Size = new System.Drawing.Size(104, 14);
             this.labelControl5.TabIndex = 9;
-            this.labelControl5.Text = "落点附近高度：";
+            this.labelControl5.Text = "落点附近高度(m)：";
             // 
             // editForwardLine
             // 
-            this.editForwardLine.Location = new System.Drawing.Point(163, 145);
+            this.editForwardLine.Location = new System.Drawing.Point(94, 72);
+            this.editForwardLine.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.editForwardLine.Name = "editForwardLine";
-            this.editForwardLine.Size = new System.Drawing.Size(164, 44);
+            this.editForwardLine.Size = new System.Drawing.Size(70, 20);
             this.editForwardLine.TabIndex = 12;
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(13, 152);
+            this.labelControl6.Location = new System.Drawing.Point(6, 76);
+            this.labelControl6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(144, 29);
+            this.labelControl6.Size = new System.Drawing.Size(92, 14);
             this.labelControl6.TabIndex = 11;
-            this.labelControl6.Text = "前向必炸线：";
+            this.labelControl6.Text = "前向必炸线(m)：";
             // 
             // editBackLine
             // 
-            this.editBackLine.Location = new System.Drawing.Point(493, 145);
+            this.editBackLine.Location = new System.Drawing.Point(259, 72);
+            this.editBackLine.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.editBackLine.Name = "editBackLine";
-            this.editBackLine.Size = new System.Drawing.Size(175, 44);
+            this.editBackLine.Size = new System.Drawing.Size(75, 20);
             this.editBackLine.TabIndex = 14;
             // 
             // labelControl7
             // 
-            this.labelControl7.Location = new System.Drawing.Point(343, 152);
+            this.labelControl7.Location = new System.Drawing.Point(172, 76);
+            this.labelControl7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(144, 29);
+            this.labelControl7.Size = new System.Drawing.Size(92, 14);
             this.labelControl7.TabIndex = 13;
-            this.labelControl7.Text = "后向必炸线：";
+            this.labelControl7.Text = "后向必炸线(m)：";
             // 
             // editSideLine
             // 
-            this.editSideLine.Location = new System.Drawing.Point(842, 145);
+            this.editSideLine.Location = new System.Drawing.Point(436, 73);
+            this.editSideLine.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.editSideLine.Name = "editSideLine";
-            this.editSideLine.Size = new System.Drawing.Size(175, 44);
+            this.editSideLine.Size = new System.Drawing.Size(123, 20);
             this.editSideLine.TabIndex = 16;
             // 
             // labelControl8
             // 
-            this.labelControl8.Location = new System.Drawing.Point(692, 152);
+            this.labelControl8.Location = new System.Drawing.Point(346, 76);
+            this.labelControl8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(144, 29);
+            this.labelControl8.Size = new System.Drawing.Size(92, 14);
             this.labelControl8.TabIndex = 15;
-            this.labelControl8.Text = "侧向必炸线：";
+            this.labelControl8.Text = "侧向必炸线(m)：";
             // 
             // editLocMaxX
             // 
-            this.editLocMaxX.Location = new System.Drawing.Point(189, 209);
+            this.editLocMaxX.Location = new System.Drawing.Point(111, 104);
+            this.editLocMaxX.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.editLocMaxX.Name = "editLocMaxX";
-            this.editLocMaxX.Size = new System.Drawing.Size(175, 44);
+            this.editLocMaxX.Size = new System.Drawing.Size(71, 20);
             this.editLocMaxX.TabIndex = 18;
             // 
             // labelControl9
             // 
-            this.labelControl9.Location = new System.Drawing.Point(12, 216);
+            this.labelControl9.Location = new System.Drawing.Point(6, 108);
+            this.labelControl9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(182, 29);
+            this.labelControl9.Size = new System.Drawing.Size(111, 14);
             this.labelControl9.TabIndex = 17;
-            this.labelControl9.Text = "位置X分量上限：";
+            this.labelControl9.Text = "位置X分量上限(m)：";
             // 
             // editLocMaxY
             // 
-            this.editLocMaxY.Location = new System.Drawing.Point(566, 209);
+            this.editLocMaxY.Location = new System.Drawing.Point(301, 104);
+            this.editLocMaxY.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.editLocMaxY.Name = "editLocMaxY";
-            this.editLocMaxY.Size = new System.Drawing.Size(175, 44);
+            this.editLocMaxY.Size = new System.Drawing.Size(70, 20);
             this.editLocMaxY.TabIndex = 20;
             // 
             // labelControl10
             // 
-            this.labelControl10.Location = new System.Drawing.Point(389, 216);
+            this.labelControl10.Location = new System.Drawing.Point(194, 108);
+            this.labelControl10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(182, 29);
+            this.labelControl10.Size = new System.Drawing.Size(112, 14);
             this.labelControl10.TabIndex = 19;
-            this.labelControl10.Text = "位置Y分量上限：";
+            this.labelControl10.Text = "位置Y分量上限(m)：";
             // 
             // editLocMaxZ
             // 
-            this.editLocMaxZ.Location = new System.Drawing.Point(942, 209);
+            this.editLocMaxZ.Location = new System.Drawing.Point(486, 104);
+            this.editLocMaxZ.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.editLocMaxZ.Name = "editLocMaxZ";
-            this.editLocMaxZ.Size = new System.Drawing.Size(175, 44);
+            this.editLocMaxZ.Size = new System.Drawing.Size(73, 20);
             this.editLocMaxZ.TabIndex = 22;
             // 
             // labelControl11
             // 
-            this.labelControl11.Location = new System.Drawing.Point(765, 216);
+            this.labelControl11.Location = new System.Drawing.Point(382, 108);
+            this.labelControl11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.labelControl11.Name = "labelControl11";
-            this.labelControl11.Size = new System.Drawing.Size(181, 29);
+            this.labelControl11.Size = new System.Drawing.Size(111, 14);
             this.labelControl11.TabIndex = 21;
-            this.labelControl11.Text = "位置Z分量上限：";
+            this.labelControl11.Text = "位置Z分量上限(m)：";
             // 
             // editLocMinZ
             // 
-            this.editLocMinZ.Location = new System.Drawing.Point(942, 263);
+            this.editLocMinZ.Location = new System.Drawing.Point(486, 132);
+            this.editLocMinZ.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.editLocMinZ.Name = "editLocMinZ";
-            this.editLocMinZ.Size = new System.Drawing.Size(175, 44);
+            this.editLocMinZ.Size = new System.Drawing.Size(73, 20);
             this.editLocMinZ.TabIndex = 28;
             // 
             // labelControl12
             // 
-            this.labelControl12.Location = new System.Drawing.Point(765, 270);
+            this.labelControl12.Location = new System.Drawing.Point(382, 135);
+            this.labelControl12.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.labelControl12.Name = "labelControl12";
-            this.labelControl12.Size = new System.Drawing.Size(181, 29);
+            this.labelControl12.Size = new System.Drawing.Size(111, 14);
             this.labelControl12.TabIndex = 27;
-            this.labelControl12.Text = "位置Z分量下限：";
+            this.labelControl12.Text = "位置Z分量下限(m)：";
             // 
             // editLocMinY
             // 
-            this.editLocMinY.Location = new System.Drawing.Point(566, 263);
+            this.editLocMinY.Location = new System.Drawing.Point(301, 132);
+            this.editLocMinY.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.editLocMinY.Name = "editLocMinY";
-            this.editLocMinY.Size = new System.Drawing.Size(175, 44);
+            this.editLocMinY.Size = new System.Drawing.Size(70, 20);
             this.editLocMinY.TabIndex = 26;
             // 
             // labelControl13
             // 
-            this.labelControl13.Location = new System.Drawing.Point(389, 270);
+            this.labelControl13.Location = new System.Drawing.Point(194, 135);
+            this.labelControl13.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.labelControl13.Name = "labelControl13";
-            this.labelControl13.Size = new System.Drawing.Size(182, 29);
+            this.labelControl13.Size = new System.Drawing.Size(112, 14);
             this.labelControl13.TabIndex = 25;
-            this.labelControl13.Text = "位置Y分量下限：";
+            this.labelControl13.Text = "位置Y分量下限(m)：";
             // 
             // editLocMinX
             // 
-            this.editLocMinX.Location = new System.Drawing.Point(189, 263);
+            this.editLocMinX.Location = new System.Drawing.Point(111, 132);
+            this.editLocMinX.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.editLocMinX.Name = "editLocMinX";
-            this.editLocMinX.Size = new System.Drawing.Size(175, 44);
+            this.editLocMinX.Size = new System.Drawing.Size(71, 20);
             this.editLocMinX.TabIndex = 24;
             // 
             // labelControl14
             // 
-            this.labelControl14.Location = new System.Drawing.Point(12, 270);
+            this.labelControl14.Location = new System.Drawing.Point(6, 135);
+            this.labelControl14.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.labelControl14.Name = "labelControl14";
-            this.labelControl14.Size = new System.Drawing.Size(182, 29);
+            this.labelControl14.Size = new System.Drawing.Size(111, 14);
             this.labelControl14.TabIndex = 23;
-            this.labelControl14.Text = "位置X分量下限：";
+            this.labelControl14.Text = "位置X分量下限(m)：";
             // 
             // editSpeedMinZ
             // 
-            this.editSpeedMinZ.Location = new System.Drawing.Point(942, 376);
+            this.editSpeedMinZ.Location = new System.Drawing.Point(498, 188);
+            this.editSpeedMinZ.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.editSpeedMinZ.Name = "editSpeedMinZ";
-            this.editSpeedMinZ.Size = new System.Drawing.Size(175, 44);
+            this.editSpeedMinZ.Size = new System.Drawing.Size(61, 20);
             this.editSpeedMinZ.TabIndex = 40;
             // 
             // labelControl15
             // 
-            this.labelControl15.Location = new System.Drawing.Point(765, 383);
+            this.labelControl15.Location = new System.Drawing.Point(382, 192);
+            this.labelControl15.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.labelControl15.Name = "labelControl15";
-            this.labelControl15.Size = new System.Drawing.Size(181, 29);
+            this.labelControl15.Size = new System.Drawing.Size(121, 14);
             this.labelControl15.TabIndex = 39;
-            this.labelControl15.Text = "速度Z分量下限：";
+            this.labelControl15.Text = "速度Z分量下限(m/s)：";
             // 
             // editSpeedMinY
             // 
-            this.editSpeedMinY.Location = new System.Drawing.Point(566, 376);
+            this.editSpeedMinY.Location = new System.Drawing.Point(311, 188);
+            this.editSpeedMinY.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.editSpeedMinY.Name = "editSpeedMinY";
-            this.editSpeedMinY.Size = new System.Drawing.Size(175, 44);
+            this.editSpeedMinY.Size = new System.Drawing.Size(60, 20);
             this.editSpeedMinY.TabIndex = 38;
             // 
             // labelControl16
             // 
-            this.labelControl16.Location = new System.Drawing.Point(389, 383);
+            this.labelControl16.Location = new System.Drawing.Point(194, 192);
+            this.labelControl16.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.labelControl16.Name = "labelControl16";
-            this.labelControl16.Size = new System.Drawing.Size(182, 29);
+            this.labelControl16.Size = new System.Drawing.Size(122, 14);
             this.labelControl16.TabIndex = 37;
-            this.labelControl16.Text = "速度Y分量下限：";
+            this.labelControl16.Text = "速度Y分量下限(m/s)：";
             // 
             // editSpeedMinX
             // 
-            this.editSpeedMinX.Location = new System.Drawing.Point(189, 376);
+            this.editSpeedMinX.Location = new System.Drawing.Point(122, 188);
+            this.editSpeedMinX.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.editSpeedMinX.Name = "editSpeedMinX";
-            this.editSpeedMinX.Size = new System.Drawing.Size(175, 44);
+            this.editSpeedMinX.Size = new System.Drawing.Size(60, 20);
             this.editSpeedMinX.TabIndex = 36;
             // 
             // labelControl17
             // 
-            this.labelControl17.Location = new System.Drawing.Point(12, 383);
+            this.labelControl17.Location = new System.Drawing.Point(6, 192);
+            this.labelControl17.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.labelControl17.Name = "labelControl17";
-            this.labelControl17.Size = new System.Drawing.Size(182, 29);
+            this.labelControl17.Size = new System.Drawing.Size(121, 14);
             this.labelControl17.TabIndex = 35;
-            this.labelControl17.Text = "速度X分量下限：";
+            this.labelControl17.Text = "速度X分量下限(m/s)：";
             // 
             // editSpeedMaxZ
             // 
-            this.editSpeedMaxZ.Location = new System.Drawing.Point(942, 322);
+            this.editSpeedMaxZ.Location = new System.Drawing.Point(498, 161);
+            this.editSpeedMaxZ.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.editSpeedMaxZ.Name = "editSpeedMaxZ";
-            this.editSpeedMaxZ.Size = new System.Drawing.Size(175, 44);
+            this.editSpeedMaxZ.Size = new System.Drawing.Size(61, 20);
             this.editSpeedMaxZ.TabIndex = 34;
             // 
             // labelControl18
             // 
-            this.labelControl18.Location = new System.Drawing.Point(765, 329);
+            this.labelControl18.Location = new System.Drawing.Point(382, 164);
+            this.labelControl18.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.labelControl18.Name = "labelControl18";
-            this.labelControl18.Size = new System.Drawing.Size(181, 29);
+            this.labelControl18.Size = new System.Drawing.Size(121, 14);
             this.labelControl18.TabIndex = 33;
-            this.labelControl18.Text = "速度Z分量上限：";
+            this.labelControl18.Text = "速度Z分量上限(m/s)：";
             // 
             // editSpeedMaxY
             // 
-            this.editSpeedMaxY.Location = new System.Drawing.Point(566, 322);
+            this.editSpeedMaxY.Location = new System.Drawing.Point(311, 161);
+            this.editSpeedMaxY.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.editSpeedMaxY.Name = "editSpeedMaxY";
-            this.editSpeedMaxY.Size = new System.Drawing.Size(175, 44);
+            this.editSpeedMaxY.Size = new System.Drawing.Size(60, 20);
             this.editSpeedMaxY.TabIndex = 32;
             // 
             // labelControl19
             // 
-            this.labelControl19.Location = new System.Drawing.Point(389, 329);
+            this.labelControl19.Location = new System.Drawing.Point(194, 164);
+            this.labelControl19.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.labelControl19.Name = "labelControl19";
-            this.labelControl19.Size = new System.Drawing.Size(182, 29);
+            this.labelControl19.Size = new System.Drawing.Size(122, 14);
             this.labelControl19.TabIndex = 31;
-            this.labelControl19.Text = "速度Y分量上限：";
+            this.labelControl19.Text = "速度Y分量上限(m/s)：";
             // 
             // editSpeedMaxX
             // 
-            this.editSpeedMaxX.Location = new System.Drawing.Point(189, 322);
+            this.editSpeedMaxX.Location = new System.Drawing.Point(122, 161);
+            this.editSpeedMaxX.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.editSpeedMaxX.Name = "editSpeedMaxX";
-            this.editSpeedMaxX.Size = new System.Drawing.Size(175, 44);
+            this.editSpeedMaxX.Size = new System.Drawing.Size(60, 20);
             this.editSpeedMaxX.TabIndex = 30;
             // 
             // labelControl20
             // 
-            this.labelControl20.Location = new System.Drawing.Point(12, 329);
+            this.labelControl20.Location = new System.Drawing.Point(6, 164);
+            this.labelControl20.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.labelControl20.Name = "labelControl20";
-            this.labelControl20.Size = new System.Drawing.Size(182, 29);
+            this.labelControl20.Size = new System.Drawing.Size(121, 14);
             this.labelControl20.TabIndex = 29;
-            this.labelControl20.Text = "速度X分量上限：";
+            this.labelControl20.Text = "速度X分量上限(m/s)：";
             // 
             // editMultiCastIp
             // 
-            this.editMultiCastIp.Location = new System.Drawing.Point(127, 458);
+            this.editMultiCastIp.Location = new System.Drawing.Point(64, 229);
+            this.editMultiCastIp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.editMultiCastIp.Name = "editMultiCastIp";
-            this.editMultiCastIp.Size = new System.Drawing.Size(237, 44);
+            this.editMultiCastIp.Size = new System.Drawing.Size(118, 20);
             this.editMultiCastIp.TabIndex = 42;
             // 
             // labelControl21
             // 
-            this.labelControl21.Location = new System.Drawing.Point(13, 465);
+            this.labelControl21.Location = new System.Drawing.Point(6, 232);
+            this.labelControl21.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.labelControl21.Name = "labelControl21";
-            this.labelControl21.Size = new System.Drawing.Size(120, 29);
+            this.labelControl21.Size = new System.Drawing.Size(60, 14);
             this.labelControl21.TabIndex = 41;
             this.labelControl21.Text = "组播地址：";
             // 
             // labelControl22
             // 
-            this.labelControl22.Location = new System.Drawing.Point(391, 465);
+            this.labelControl22.Location = new System.Drawing.Point(196, 232);
+            this.labelControl22.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.labelControl22.Name = "labelControl22";
-            this.labelControl22.Size = new System.Drawing.Size(72, 29);
+            this.labelControl22.Size = new System.Drawing.Size(36, 14);
             this.labelControl22.TabIndex = 43;
             this.labelControl22.Text = "端口：";
             // 
             // editPort
             // 
-            this.editPort.Location = new System.Drawing.Point(469, 458);
+            this.editPort.Location = new System.Drawing.Point(234, 229);
+            this.editPort.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.editPort.Name = "editPort";
-            this.editPort.Size = new System.Drawing.Size(175, 44);
+            this.editPort.Size = new System.Drawing.Size(88, 20);
             this.editPort.TabIndex = 44;
             // 
             // labelControl23
             // 
-            this.labelControl23.Location = new System.Drawing.Point(692, 86);
+            this.labelControl23.Location = new System.Drawing.Point(346, 43);
+            this.labelControl23.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.labelControl23.Name = "labelControl23";
-            this.labelControl23.Size = new System.Drawing.Size(120, 29);
+            this.labelControl23.Size = new System.Drawing.Size(80, 14);
             this.labelControl23.TabIndex = 45;
-            this.labelControl23.Text = "理论射程：";
+            this.labelControl23.Text = "理论射程(m)：";
             // 
             // editFligtShot
             // 
-            this.editFligtShot.Location = new System.Drawing.Point(806, 80);
+            this.editFligtShot.Location = new System.Drawing.Point(421, 40);
+            this.editFligtShot.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.editFligtShot.Name = "editFligtShot";
-            this.editFligtShot.Size = new System.Drawing.Size(200, 44);
+            this.editFligtShot.Size = new System.Drawing.Size(84, 20);
             this.editFligtShot.TabIndex = 46;
             // 
             // SettingForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1139, 601);
+            this.ClientSize = new System.Drawing.Size(570, 300);
             this.Controls.Add(this.editFligtShot);
             this.Controls.Add(this.labelControl23);
             this.Controls.Add(this.editPort);
@@ -609,6 +659,7 @@
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.layoutControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SettingForm";
