@@ -17,9 +17,9 @@ namespace YaoCeProcess
         private bool isRuning = false;
         Thread thread;
         // 二进制数据格式存储
-        // protected FileStream logWriter;
+        protected FileStream logWriter;
         // 以文本的格式存储
-        protected StreamWriter logWriter;
+        // protected StreamWriter logWriter;
 
         public String strLogFolder;
         public String strDataFile;
@@ -44,12 +44,12 @@ namespace YaoCeProcess
             DateTime dateTime = DateTime.Now;
             String strDate = dateTime.ToString("yyyy_MM_dd_HH_mm_ss");
             // 注意修改文件后缀名
-            strDataFile = strLogFolder + @"\" + strDate + @"_data.txt";
+            strDataFile = strLogFolder + @"\" + strDate + @"_data.dat";
 
             // 二进制数据格式存储
-            // logWriter = new FileStream(strDataFile, FileMode.Append);
+            logWriter = new FileStream(strDataFile, FileMode.Append);
             // 文本数据格式存储
-            logWriter = new StreamWriter(strDataFile);
+            // logWriter = new StreamWriter(strDataFile);
 
             isRuning = true;
             thread = new Thread(new ThreadStart(ThreadFunction));
@@ -81,6 +81,7 @@ namespace YaoCeProcess
 
         private void LogData(byte[] buffer)
         {
+            /*
             // 按文本格式存储
             StringBuilder sb = new StringBuilder(buffer.Length * 3);
             foreach (byte b in buffer)
@@ -90,15 +91,13 @@ namespace YaoCeProcess
             String strData = sb.ToString().ToUpper();
             logWriter.WriteLine(strData);
             logWriter.Flush();
+            */
 
             //----------------------------------------------------------//
             // 以二进制格式进行数据存储
-            // // 20200207 直接原数据存储
-            // logWriter.Write(buffer, 0, buffer.Length);
-            // // 添加换行符，方便读取数据
-            // byte[] huanHang = { 0x0D, 0x0A };
-            // logWriter.Write(huanHang, 0, huanHang.Length);
-            // logWriter.Flush();
+            // 20200207 直接原数据存储
+            logWriter.Write(buffer, 0, buffer.Length);
+            logWriter.Flush();
         }
     }
 }

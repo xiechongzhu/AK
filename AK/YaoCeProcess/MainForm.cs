@@ -26,8 +26,10 @@ namespace YaoCeProcess
         bool bStartRecvNetworkData = false;
         // 读取文件定时器
         System.Timers.Timer readFileTimer = new System.Timers.Timer();
-        // 以流的形式读取文件
-        StreamReader srFileRead = null;
+        // 以文本流的形式读取文件
+        // StreamReader srFileRead = null;
+        // 直接读取二进制文件
+        FileStream srFileRead = null;
 
         //--------//
         // 创建曲线X轴索引值
@@ -1244,7 +1246,7 @@ namespace YaoCeProcess
             // 是否可以选择多个文件
             dialog.Multiselect = false;
             dialog.Title = "请选择文件夹";
-            dialog.Filter = "数据文件(*.txt)|*.txt";
+            dialog.Filter = "数据文件(*.dat)|*.dat";
             dialog.InitialDirectory = AppDomain.CurrentDomain.BaseDirectory + "Log";
             if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
@@ -1258,7 +1260,8 @@ namespace YaoCeProcess
                 Logger.GetInstance().NewFile();
 
                 // 打开文件
-                srFileRead = new StreamReader(filePath, Encoding.Default);
+                // srFileRead = new StreamReader(filePath, Encoding.Default);
+                srFileRead = new FileStream(filePath, FileMode.Open);
 
                 // 打开文件读取定时器
                 readFileTimer.Start();
@@ -1307,6 +1310,7 @@ namespace YaoCeProcess
                     return;
                 }
 
+                /*
                 // 按行读取 line为每行的数据
                 String line;
                 if ((line = srFileRead.ReadLine()) != null)
@@ -1314,6 +1318,25 @@ namespace YaoCeProcess
                     // 处理数据
                     byte[] byteArray = strToToHexByte(line);
                     dataParser.Enqueue(byteArray);
+                }
+                */
+                // 按字节读取数据
+                const int fsLen = 651;  
+                byte[] heByte = new byte[fsLen];
+                int readLength = 0;
+                if ((readLength = srFileRead.Read(heByte, 0, heByte.Length)) > 0)
+                {
+                    // 处理数据
+                    if (readLength < fsLen)
+                    {
+                        byte[] byteArray = new byte[readLength];
+                        Array.Copy(heByte, 0, byteArray, 0, readLength);
+                        dataParser.Enqueue(byteArray);
+                    }
+                    else
+                    {
+                        dataParser.Enqueue(heByte);
+                    }
                 }
                 else
                 {
