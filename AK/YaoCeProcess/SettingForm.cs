@@ -15,6 +15,10 @@ namespace YaoCeProcess
         public SettingForm()
         {
             InitializeComponent();
+            this.editPort.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            // 5000-65535
+            this.editPort.Properties.Mask.EditMask = @"5[0-9]{3}|[6-9]{4}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5]";
+
             LoadConfig();
         }
 
@@ -30,7 +34,12 @@ namespace YaoCeProcess
             editPort.Text = Config.GetInstance().port.ToString();
         }
 
-        private void simpleButton1_Click(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnOK_Click(object sender, EventArgs e)
         {
             try
             {
@@ -50,11 +59,6 @@ namespace YaoCeProcess
             }
 
             DialogResult = DialogResult.OK;
-            Close();
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
             Close();
         }
     }
