@@ -423,14 +423,6 @@
             this.DHManSu_ZJiaJiWenDu = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlGroup10 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem57 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlGroup9 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem82 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.timerUpdateChart = new System.Windows.Forms.Timer(this.components);
-            this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.layoutControlItem59 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem62 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem58 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -470,6 +462,15 @@
             this.layoutControlItem133 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem134 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem135 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlGroup9 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem82 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.timerUpdateChart = new System.Windows.Forms.Timer(this.components);
+            this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.timerUpdateLoadFileProgress = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl_ToolBar)).BeginInit();
             this.layoutControl_ToolBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
@@ -820,12 +821,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.DHManSu_ZJiaJiWenDu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem57)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem82)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem59)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem62)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem58)).BeginInit();
@@ -865,6 +860,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem133)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem134)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem135)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem82)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl_ToolBar
@@ -1325,7 +1326,7 @@
             this.xtraScrollableControl1.Controls.Add(this.layoutControl4);
             this.xtraScrollableControl1.Location = new System.Drawing.Point(12, 12);
             this.xtraScrollableControl1.Name = "xtraScrollableControl1";
-            this.xtraScrollableControl1.Size = new System.Drawing.Size(1169, 580);
+            this.xtraScrollableControl1.Size = new System.Drawing.Size(1169, 780);
             this.xtraScrollableControl1.TabIndex = 4;
             // 
             // layoutControl4
@@ -1394,538 +1395,538 @@
             this.layoutControl4.Name = "layoutControl4";
             this.layoutControl4.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(679, 209, 812, 501);
             this.layoutControl4.Root = this.layoutControlGroup5;
-            this.layoutControl4.Size = new System.Drawing.Size(1169, 580);
+            this.layoutControl4.Size = new System.Drawing.Size(1169, 780);
             this.layoutControl4.TabIndex = 0;
             this.layoutControl4.Text = "layoutControl4";
             // 
             // XiTong_GNSSTime
             // 
             this.XiTong_GNSSTime.Enabled = false;
-            this.XiTong_GNSSTime.Location = new System.Drawing.Point(128, -109);
+            this.XiTong_GNSSTime.Location = new System.Drawing.Point(128, 12);
             this.XiTong_GNSSTime.Name = "XiTong_GNSSTime";
-            this.XiTong_GNSSTime.Size = new System.Drawing.Size(206, 24);
+            this.XiTong_GNSSTime.Size = new System.Drawing.Size(213, 24);
             this.XiTong_GNSSTime.StyleController = this.layoutControl4;
             this.XiTong_GNSSTime.TabIndex = 4;
             // 
             // XiTong_ZongFeiXingTime
             // 
             this.XiTong_ZongFeiXingTime.Enabled = false;
-            this.XiTong_ZongFeiXingTime.Location = new System.Drawing.Point(504, -109);
+            this.XiTong_ZongFeiXingTime.Location = new System.Drawing.Point(511, 12);
             this.XiTong_ZongFeiXingTime.Name = "XiTong_ZongFeiXingTime";
-            this.XiTong_ZongFeiXingTime.Size = new System.Drawing.Size(206, 24);
+            this.XiTong_ZongFeiXingTime.Size = new System.Drawing.Size(213, 24);
             this.XiTong_ZongFeiXingTime.StyleController = this.layoutControl4;
             this.XiTong_ZongFeiXingTime.TabIndex = 6;
             // 
             // XiTong_CeLueJieDuan
             // 
             this.XiTong_CeLueJieDuan.Enabled = false;
-            this.XiTong_CeLueJieDuan.Location = new System.Drawing.Point(880, -33);
+            this.XiTong_CeLueJieDuan.Location = new System.Drawing.Point(894, 88);
             this.XiTong_CeLueJieDuan.Name = "XiTong_CeLueJieDuan";
-            this.XiTong_CeLueJieDuan.Size = new System.Drawing.Size(256, 24);
+            this.XiTong_CeLueJieDuan.Size = new System.Drawing.Size(263, 24);
             this.XiTong_CeLueJieDuan.StyleController = this.layoutControl4;
             this.XiTong_CeLueJieDuan.TabIndex = 7;
             // 
             // XiTong_DanTouZhuangTai
             // 
             this.XiTong_DanTouZhuangTai.Enabled = false;
-            this.XiTong_DanTouZhuangTai.Location = new System.Drawing.Point(128, -71);
+            this.XiTong_DanTouZhuangTai.Location = new System.Drawing.Point(128, 50);
             this.XiTong_DanTouZhuangTai.Name = "XiTong_DanTouZhuangTai";
-            this.XiTong_DanTouZhuangTai.Size = new System.Drawing.Size(206, 24);
+            this.XiTong_DanTouZhuangTai.Size = new System.Drawing.Size(213, 24);
             this.XiTong_DanTouZhuangTai.StyleController = this.layoutControl4;
             this.XiTong_DanTouZhuangTai.TabIndex = 8;
             // 
             // XiTong_DaoHangShuJuXuanZe
             // 
             this.XiTong_DaoHangShuJuXuanZe.Enabled = false;
-            this.XiTong_DaoHangShuJuXuanZe.Location = new System.Drawing.Point(504, -71);
+            this.XiTong_DaoHangShuJuXuanZe.Location = new System.Drawing.Point(511, 50);
             this.XiTong_DaoHangShuJuXuanZe.Name = "XiTong_DaoHangShuJuXuanZe";
-            this.XiTong_DaoHangShuJuXuanZe.Size = new System.Drawing.Size(206, 24);
+            this.XiTong_DaoHangShuJuXuanZe.Size = new System.Drawing.Size(213, 24);
             this.XiTong_DaoHangShuJuXuanZe.StyleController = this.layoutControl4;
             this.XiTong_DaoHangShuJuXuanZe.TabIndex = 9;
             // 
             // XiTong_TuoLuoShuJuRongHe
             // 
             this.XiTong_TuoLuoShuJuRongHe.Enabled = false;
-            this.XiTong_TuoLuoShuJuRongHe.Location = new System.Drawing.Point(880, -71);
+            this.XiTong_TuoLuoShuJuRongHe.Location = new System.Drawing.Point(894, 50);
             this.XiTong_TuoLuoShuJuRongHe.Name = "XiTong_TuoLuoShuJuRongHe";
-            this.XiTong_TuoLuoShuJuRongHe.Size = new System.Drawing.Size(256, 24);
+            this.XiTong_TuoLuoShuJuRongHe.Size = new System.Drawing.Size(263, 24);
             this.XiTong_TuoLuoShuJuRongHe.StyleController = this.layoutControl4;
             this.XiTong_TuoLuoShuJuRongHe.TabIndex = 10;
             // 
             // XiTong_ShuJuWeiGengXin
             // 
             this.XiTong_ShuJuWeiGengXin.Enabled = false;
-            this.XiTong_ShuJuWeiGengXin.Location = new System.Drawing.Point(128, -33);
+            this.XiTong_ShuJuWeiGengXin.Location = new System.Drawing.Point(128, 88);
             this.XiTong_ShuJuWeiGengXin.Name = "XiTong_ShuJuWeiGengXin";
-            this.XiTong_ShuJuWeiGengXin.Size = new System.Drawing.Size(206, 24);
+            this.XiTong_ShuJuWeiGengXin.Size = new System.Drawing.Size(213, 24);
             this.XiTong_ShuJuWeiGengXin.StyleController = this.layoutControl4;
             this.XiTong_ShuJuWeiGengXin.TabIndex = 11;
             // 
             // XiTong_ShiJianJianGeYiChang
             // 
             this.XiTong_ShiJianJianGeYiChang.Enabled = false;
-            this.XiTong_ShiJianJianGeYiChang.Location = new System.Drawing.Point(504, -33);
+            this.XiTong_ShiJianJianGeYiChang.Location = new System.Drawing.Point(511, 88);
             this.XiTong_ShiJianJianGeYiChang.Name = "XiTong_ShiJianJianGeYiChang";
-            this.XiTong_ShiJianJianGeYiChang.Size = new System.Drawing.Size(206, 24);
+            this.XiTong_ShiJianJianGeYiChang.Size = new System.Drawing.Size(213, 24);
             this.XiTong_ShiJianJianGeYiChang.StyleController = this.layoutControl4;
             this.XiTong_ShiJianJianGeYiChang.TabIndex = 12;
             // 
             // XiTong_DanTouZuHe
             // 
             this.XiTong_DanTouZuHe.Enabled = false;
-            this.XiTong_DanTouZuHe.Location = new System.Drawing.Point(128, 5);
+            this.XiTong_DanTouZuHe.Location = new System.Drawing.Point(128, 126);
             this.XiTong_DanTouZuHe.Name = "XiTong_DanTouZuHe";
-            this.XiTong_DanTouZuHe.Size = new System.Drawing.Size(206, 24);
+            this.XiTong_DanTouZuHe.Size = new System.Drawing.Size(213, 24);
             this.XiTong_DanTouZuHe.StyleController = this.layoutControl4;
             this.XiTong_DanTouZuHe.TabIndex = 13;
             // 
             // XiTong_DanTiZuHe
             // 
             this.XiTong_DanTiZuHe.Enabled = false;
-            this.XiTong_DanTiZuHe.Location = new System.Drawing.Point(504, 5);
+            this.XiTong_DanTiZuHe.Location = new System.Drawing.Point(511, 126);
             this.XiTong_DanTiZuHe.Name = "XiTong_DanTiZuHe";
-            this.XiTong_DanTiZuHe.Size = new System.Drawing.Size(206, 24);
+            this.XiTong_DanTiZuHe.Size = new System.Drawing.Size(213, 24);
             this.XiTong_DanTiZuHe.StyleController = this.layoutControl4;
             this.XiTong_DanTiZuHe.TabIndex = 14;
             // 
             // XiTong_1HaoShuJuJingDu
             // 
             this.XiTong_1HaoShuJuJingDu.Enabled = false;
-            this.XiTong_1HaoShuJuJingDu.Location = new System.Drawing.Point(128, 43);
+            this.XiTong_1HaoShuJuJingDu.Location = new System.Drawing.Point(128, 164);
             this.XiTong_1HaoShuJuJingDu.Name = "XiTong_1HaoShuJuJingDu";
-            this.XiTong_1HaoShuJuJingDu.Size = new System.Drawing.Size(206, 24);
+            this.XiTong_1HaoShuJuJingDu.Size = new System.Drawing.Size(213, 24);
             this.XiTong_1HaoShuJuJingDu.StyleController = this.layoutControl4;
             this.XiTong_1HaoShuJuJingDu.TabIndex = 15;
             // 
             // XiTong_1HaoShuJuWeiDu
             // 
             this.XiTong_1HaoShuJuWeiDu.Enabled = false;
-            this.XiTong_1HaoShuJuWeiDu.Location = new System.Drawing.Point(504, 43);
+            this.XiTong_1HaoShuJuWeiDu.Location = new System.Drawing.Point(511, 164);
             this.XiTong_1HaoShuJuWeiDu.Name = "XiTong_1HaoShuJuWeiDu";
-            this.XiTong_1HaoShuJuWeiDu.Size = new System.Drawing.Size(206, 24);
+            this.XiTong_1HaoShuJuWeiDu.Size = new System.Drawing.Size(213, 24);
             this.XiTong_1HaoShuJuWeiDu.StyleController = this.layoutControl4;
             this.XiTong_1HaoShuJuWeiDu.TabIndex = 16;
             // 
             // XiTong_1HaoShuJuGaoDu
             // 
             this.XiTong_1HaoShuJuGaoDu.Enabled = false;
-            this.XiTong_1HaoShuJuGaoDu.Location = new System.Drawing.Point(880, 43);
+            this.XiTong_1HaoShuJuGaoDu.Location = new System.Drawing.Point(894, 164);
             this.XiTong_1HaoShuJuGaoDu.Name = "XiTong_1HaoShuJuGaoDu";
-            this.XiTong_1HaoShuJuGaoDu.Size = new System.Drawing.Size(256, 24);
+            this.XiTong_1HaoShuJuGaoDu.Size = new System.Drawing.Size(263, 24);
             this.XiTong_1HaoShuJuGaoDu.StyleController = this.layoutControl4;
             this.XiTong_1HaoShuJuGaoDu.TabIndex = 17;
             // 
             // XiTong_1HaoShuJuDongXiangSuDu
             // 
             this.XiTong_1HaoShuJuDongXiangSuDu.Enabled = false;
-            this.XiTong_1HaoShuJuDongXiangSuDu.Location = new System.Drawing.Point(128, 81);
+            this.XiTong_1HaoShuJuDongXiangSuDu.Location = new System.Drawing.Point(128, 202);
             this.XiTong_1HaoShuJuDongXiangSuDu.Name = "XiTong_1HaoShuJuDongXiangSuDu";
-            this.XiTong_1HaoShuJuDongXiangSuDu.Size = new System.Drawing.Size(206, 24);
+            this.XiTong_1HaoShuJuDongXiangSuDu.Size = new System.Drawing.Size(213, 24);
             this.XiTong_1HaoShuJuDongXiangSuDu.StyleController = this.layoutControl4;
             this.XiTong_1HaoShuJuDongXiangSuDu.TabIndex = 18;
             // 
             // XiTong_1HaoShuJuBeiXiangSuDu
             // 
             this.XiTong_1HaoShuJuBeiXiangSuDu.Enabled = false;
-            this.XiTong_1HaoShuJuBeiXiangSuDu.Location = new System.Drawing.Point(504, 81);
+            this.XiTong_1HaoShuJuBeiXiangSuDu.Location = new System.Drawing.Point(511, 202);
             this.XiTong_1HaoShuJuBeiXiangSuDu.Name = "XiTong_1HaoShuJuBeiXiangSuDu";
-            this.XiTong_1HaoShuJuBeiXiangSuDu.Size = new System.Drawing.Size(206, 24);
+            this.XiTong_1HaoShuJuBeiXiangSuDu.Size = new System.Drawing.Size(213, 24);
             this.XiTong_1HaoShuJuBeiXiangSuDu.StyleController = this.layoutControl4;
             this.XiTong_1HaoShuJuBeiXiangSuDu.TabIndex = 19;
             // 
             // XiTong_1HaoShuJuTianXiangSuDu
             // 
             this.XiTong_1HaoShuJuTianXiangSuDu.Enabled = false;
-            this.XiTong_1HaoShuJuTianXiangSuDu.Location = new System.Drawing.Point(880, 81);
+            this.XiTong_1HaoShuJuTianXiangSuDu.Location = new System.Drawing.Point(894, 202);
             this.XiTong_1HaoShuJuTianXiangSuDu.Name = "XiTong_1HaoShuJuTianXiangSuDu";
-            this.XiTong_1HaoShuJuTianXiangSuDu.Size = new System.Drawing.Size(256, 24);
+            this.XiTong_1HaoShuJuTianXiangSuDu.Size = new System.Drawing.Size(263, 24);
             this.XiTong_1HaoShuJuTianXiangSuDu.StyleController = this.layoutControl4;
             this.XiTong_1HaoShuJuTianXiangSuDu.TabIndex = 20;
             // 
             // XiTong_2HaoShuJuJingDu
             // 
             this.XiTong_2HaoShuJuJingDu.Enabled = false;
-            this.XiTong_2HaoShuJuJingDu.Location = new System.Drawing.Point(128, 119);
+            this.XiTong_2HaoShuJuJingDu.Location = new System.Drawing.Point(128, 240);
             this.XiTong_2HaoShuJuJingDu.Name = "XiTong_2HaoShuJuJingDu";
-            this.XiTong_2HaoShuJuJingDu.Size = new System.Drawing.Size(206, 24);
+            this.XiTong_2HaoShuJuJingDu.Size = new System.Drawing.Size(213, 24);
             this.XiTong_2HaoShuJuJingDu.StyleController = this.layoutControl4;
             this.XiTong_2HaoShuJuJingDu.TabIndex = 21;
             // 
             // XiTong_2HaoShuJuWeiDu
             // 
             this.XiTong_2HaoShuJuWeiDu.Enabled = false;
-            this.XiTong_2HaoShuJuWeiDu.Location = new System.Drawing.Point(504, 119);
+            this.XiTong_2HaoShuJuWeiDu.Location = new System.Drawing.Point(511, 240);
             this.XiTong_2HaoShuJuWeiDu.Name = "XiTong_2HaoShuJuWeiDu";
-            this.XiTong_2HaoShuJuWeiDu.Size = new System.Drawing.Size(206, 24);
+            this.XiTong_2HaoShuJuWeiDu.Size = new System.Drawing.Size(213, 24);
             this.XiTong_2HaoShuJuWeiDu.StyleController = this.layoutControl4;
             this.XiTong_2HaoShuJuWeiDu.TabIndex = 22;
             // 
             // XiTong_2HaoShuJuGaoDu
             // 
             this.XiTong_2HaoShuJuGaoDu.Enabled = false;
-            this.XiTong_2HaoShuJuGaoDu.Location = new System.Drawing.Point(880, 119);
+            this.XiTong_2HaoShuJuGaoDu.Location = new System.Drawing.Point(894, 240);
             this.XiTong_2HaoShuJuGaoDu.Name = "XiTong_2HaoShuJuGaoDu";
-            this.XiTong_2HaoShuJuGaoDu.Size = new System.Drawing.Size(256, 24);
+            this.XiTong_2HaoShuJuGaoDu.Size = new System.Drawing.Size(263, 24);
             this.XiTong_2HaoShuJuGaoDu.StyleController = this.layoutControl4;
             this.XiTong_2HaoShuJuGaoDu.TabIndex = 23;
             // 
             // XiTong_2HaoShuJuDongXiangSuDu
             // 
             this.XiTong_2HaoShuJuDongXiangSuDu.Enabled = false;
-            this.XiTong_2HaoShuJuDongXiangSuDu.Location = new System.Drawing.Point(128, 157);
+            this.XiTong_2HaoShuJuDongXiangSuDu.Location = new System.Drawing.Point(128, 278);
             this.XiTong_2HaoShuJuDongXiangSuDu.Name = "XiTong_2HaoShuJuDongXiangSuDu";
-            this.XiTong_2HaoShuJuDongXiangSuDu.Size = new System.Drawing.Size(206, 24);
+            this.XiTong_2HaoShuJuDongXiangSuDu.Size = new System.Drawing.Size(213, 24);
             this.XiTong_2HaoShuJuDongXiangSuDu.StyleController = this.layoutControl4;
             this.XiTong_2HaoShuJuDongXiangSuDu.TabIndex = 24;
             // 
             // XiTong_2HaoShuJuBeiXiangSuDu
             // 
             this.XiTong_2HaoShuJuBeiXiangSuDu.Enabled = false;
-            this.XiTong_2HaoShuJuBeiXiangSuDu.Location = new System.Drawing.Point(504, 157);
+            this.XiTong_2HaoShuJuBeiXiangSuDu.Location = new System.Drawing.Point(511, 278);
             this.XiTong_2HaoShuJuBeiXiangSuDu.Name = "XiTong_2HaoShuJuBeiXiangSuDu";
-            this.XiTong_2HaoShuJuBeiXiangSuDu.Size = new System.Drawing.Size(206, 24);
+            this.XiTong_2HaoShuJuBeiXiangSuDu.Size = new System.Drawing.Size(213, 24);
             this.XiTong_2HaoShuJuBeiXiangSuDu.StyleController = this.layoutControl4;
             this.XiTong_2HaoShuJuBeiXiangSuDu.TabIndex = 25;
             // 
             // XiTong_2HaoShuJuTianXiangSuDu
             // 
             this.XiTong_2HaoShuJuTianXiangSuDu.Enabled = false;
-            this.XiTong_2HaoShuJuTianXiangSuDu.Location = new System.Drawing.Point(880, 157);
+            this.XiTong_2HaoShuJuTianXiangSuDu.Location = new System.Drawing.Point(894, 278);
             this.XiTong_2HaoShuJuTianXiangSuDu.Name = "XiTong_2HaoShuJuTianXiangSuDu";
-            this.XiTong_2HaoShuJuTianXiangSuDu.Size = new System.Drawing.Size(256, 24);
+            this.XiTong_2HaoShuJuTianXiangSuDu.Size = new System.Drawing.Size(263, 24);
             this.XiTong_2HaoShuJuTianXiangSuDu.StyleController = this.layoutControl4;
             this.XiTong_2HaoShuJuTianXiangSuDu.TabIndex = 26;
             // 
             // XiTong_GongLvShuChuBiHe
             // 
             this.XiTong_GongLvShuChuBiHe.Enabled = false;
-            this.XiTong_GongLvShuChuBiHe.Location = new System.Drawing.Point(128, 195);
+            this.XiTong_GongLvShuChuBiHe.Location = new System.Drawing.Point(128, 316);
             this.XiTong_GongLvShuChuBiHe.Name = "XiTong_GongLvShuChuBiHe";
-            this.XiTong_GongLvShuChuBiHe.Size = new System.Drawing.Size(206, 24);
+            this.XiTong_GongLvShuChuBiHe.Size = new System.Drawing.Size(213, 24);
             this.XiTong_GongLvShuChuBiHe.StyleController = this.layoutControl4;
             this.XiTong_GongLvShuChuBiHe.TabIndex = 27;
             // 
             // XiTong_JieBaoZhiLingFaChu
             // 
             this.XiTong_JieBaoZhiLingFaChu.Enabled = false;
-            this.XiTong_JieBaoZhiLingFaChu.Location = new System.Drawing.Point(504, 195);
+            this.XiTong_JieBaoZhiLingFaChu.Location = new System.Drawing.Point(511, 316);
             this.XiTong_JieBaoZhiLingFaChu.Name = "XiTong_JieBaoZhiLingFaChu";
-            this.XiTong_JieBaoZhiLingFaChu.Size = new System.Drawing.Size(206, 24);
+            this.XiTong_JieBaoZhiLingFaChu.Size = new System.Drawing.Size(213, 24);
             this.XiTong_JieBaoZhiLingFaChu.StyleController = this.layoutControl4;
             this.XiTong_JieBaoZhiLingFaChu.TabIndex = 28;
             // 
             // XiTong_ZiHuiZhiLingFaChu
             // 
             this.XiTong_ZiHuiZhiLingFaChu.Enabled = false;
-            this.XiTong_ZiHuiZhiLingFaChu.Location = new System.Drawing.Point(880, 195);
+            this.XiTong_ZiHuiZhiLingFaChu.Location = new System.Drawing.Point(894, 316);
             this.XiTong_ZiHuiZhiLingFaChu.Name = "XiTong_ZiHuiZhiLingFaChu";
-            this.XiTong_ZiHuiZhiLingFaChu.Size = new System.Drawing.Size(256, 24);
+            this.XiTong_ZiHuiZhiLingFaChu.Size = new System.Drawing.Size(263, 24);
             this.XiTong_ZiHuiZhiLingFaChu.StyleController = this.layoutControl4;
             this.XiTong_ZiHuiZhiLingFaChu.TabIndex = 29;
             // 
             // XiTong_FuWeiXinHao
             // 
             this.XiTong_FuWeiXinHao.Enabled = false;
-            this.XiTong_FuWeiXinHao.Location = new System.Drawing.Point(128, 233);
+            this.XiTong_FuWeiXinHao.Location = new System.Drawing.Point(128, 354);
             this.XiTong_FuWeiXinHao.Name = "XiTong_FuWeiXinHao";
-            this.XiTong_FuWeiXinHao.Size = new System.Drawing.Size(206, 24);
+            this.XiTong_FuWeiXinHao.Size = new System.Drawing.Size(213, 24);
             this.XiTong_FuWeiXinHao.StyleController = this.layoutControl4;
             this.XiTong_FuWeiXinHao.TabIndex = 30;
             // 
             // XiTong_DuiWaiGongDian
             // 
             this.XiTong_DuiWaiGongDian.Enabled = false;
-            this.XiTong_DuiWaiGongDian.Location = new System.Drawing.Point(504, 233);
+            this.XiTong_DuiWaiGongDian.Location = new System.Drawing.Point(511, 354);
             this.XiTong_DuiWaiGongDian.Name = "XiTong_DuiWaiGongDian";
-            this.XiTong_DuiWaiGongDian.Size = new System.Drawing.Size(206, 24);
+            this.XiTong_DuiWaiGongDian.Size = new System.Drawing.Size(213, 24);
             this.XiTong_DuiWaiGongDian.StyleController = this.layoutControl4;
             this.XiTong_DuiWaiGongDian.TabIndex = 31;
             // 
             // XiTong_MoNiZiHui1
             // 
             this.XiTong_MoNiZiHui1.Enabled = false;
-            this.XiTong_MoNiZiHui1.Location = new System.Drawing.Point(880, 233);
+            this.XiTong_MoNiZiHui1.Location = new System.Drawing.Point(894, 354);
             this.XiTong_MoNiZiHui1.Name = "XiTong_MoNiZiHui1";
-            this.XiTong_MoNiZiHui1.Size = new System.Drawing.Size(256, 24);
+            this.XiTong_MoNiZiHui1.Size = new System.Drawing.Size(263, 24);
             this.XiTong_MoNiZiHui1.StyleController = this.layoutControl4;
             this.XiTong_MoNiZiHui1.TabIndex = 32;
             // 
             // XiTong_MoNiZiHui2
             // 
             this.XiTong_MoNiZiHui2.Enabled = false;
-            this.XiTong_MoNiZiHui2.Location = new System.Drawing.Point(128, 271);
+            this.XiTong_MoNiZiHui2.Location = new System.Drawing.Point(128, 392);
             this.XiTong_MoNiZiHui2.Name = "XiTong_MoNiZiHui2";
-            this.XiTong_MoNiZiHui2.Size = new System.Drawing.Size(206, 24);
+            this.XiTong_MoNiZiHui2.Size = new System.Drawing.Size(213, 24);
             this.XiTong_MoNiZiHui2.StyleController = this.layoutControl4;
             this.XiTong_MoNiZiHui2.TabIndex = 33;
             // 
             // XiTong_HuiLuJianCe
             // 
             this.XiTong_HuiLuJianCe.Enabled = false;
-            this.XiTong_HuiLuJianCe.Location = new System.Drawing.Point(504, 271);
+            this.XiTong_HuiLuJianCe.Location = new System.Drawing.Point(511, 392);
             this.XiTong_HuiLuJianCe.Name = "XiTong_HuiLuJianCe";
-            this.XiTong_HuiLuJianCe.Size = new System.Drawing.Size(206, 24);
+            this.XiTong_HuiLuJianCe.Size = new System.Drawing.Size(213, 24);
             this.XiTong_HuiLuJianCe.StyleController = this.layoutControl4;
             this.XiTong_HuiLuJianCe.TabIndex = 34;
             // 
             // XiTong_QiFeiFenLiTuoCha
             // 
             this.XiTong_QiFeiFenLiTuoCha.Enabled = false;
-            this.XiTong_QiFeiFenLiTuoCha.Location = new System.Drawing.Point(880, 271);
+            this.XiTong_QiFeiFenLiTuoCha.Location = new System.Drawing.Point(894, 392);
             this.XiTong_QiFeiFenLiTuoCha.Name = "XiTong_QiFeiFenLiTuoCha";
-            this.XiTong_QiFeiFenLiTuoCha.Size = new System.Drawing.Size(256, 24);
+            this.XiTong_QiFeiFenLiTuoCha.Size = new System.Drawing.Size(263, 24);
             this.XiTong_QiFeiFenLiTuoCha.StyleController = this.layoutControl4;
             this.XiTong_QiFeiFenLiTuoCha.TabIndex = 35;
             // 
             // XiTong_YiJiFenLiTuoCha
             // 
             this.XiTong_YiJiFenLiTuoCha.Enabled = false;
-            this.XiTong_YiJiFenLiTuoCha.Location = new System.Drawing.Point(128, 309);
+            this.XiTong_YiJiFenLiTuoCha.Location = new System.Drawing.Point(128, 430);
             this.XiTong_YiJiFenLiTuoCha.Name = "XiTong_YiJiFenLiTuoCha";
-            this.XiTong_YiJiFenLiTuoCha.Size = new System.Drawing.Size(206, 24);
+            this.XiTong_YiJiFenLiTuoCha.Size = new System.Drawing.Size(213, 24);
             this.XiTong_YiJiFenLiTuoCha.StyleController = this.layoutControl4;
             this.XiTong_YiJiFenLiTuoCha.TabIndex = 36;
             // 
             // XiTong_AnKongJieShouJiYuLing
             // 
             this.XiTong_AnKongJieShouJiYuLing.Enabled = false;
-            this.XiTong_AnKongJieShouJiYuLing.Location = new System.Drawing.Point(504, 309);
+            this.XiTong_AnKongJieShouJiYuLing.Location = new System.Drawing.Point(511, 430);
             this.XiTong_AnKongJieShouJiYuLing.Name = "XiTong_AnKongJieShouJiYuLing";
-            this.XiTong_AnKongJieShouJiYuLing.Size = new System.Drawing.Size(206, 24);
+            this.XiTong_AnKongJieShouJiYuLing.Size = new System.Drawing.Size(213, 24);
             this.XiTong_AnKongJieShouJiYuLing.StyleController = this.layoutControl4;
             this.XiTong_AnKongJieShouJiYuLing.TabIndex = 37;
             // 
             // XiTong_AnKongJieShouJiDongLing
             // 
             this.XiTong_AnKongJieShouJiDongLing.Enabled = false;
-            this.XiTong_AnKongJieShouJiDongLing.Location = new System.Drawing.Point(880, 309);
+            this.XiTong_AnKongJieShouJiDongLing.Location = new System.Drawing.Point(894, 430);
             this.XiTong_AnKongJieShouJiDongLing.Name = "XiTong_AnKongJieShouJiDongLing";
-            this.XiTong_AnKongJieShouJiDongLing.Size = new System.Drawing.Size(256, 24);
+            this.XiTong_AnKongJieShouJiDongLing.Size = new System.Drawing.Size(263, 24);
             this.XiTong_AnKongJieShouJiDongLing.StyleController = this.layoutControl4;
             this.XiTong_AnKongJieShouJiDongLing.TabIndex = 38;
             // 
             // XiTong_1ZiHuiWorkA
             // 
             this.XiTong_1ZiHuiWorkA.Enabled = false;
-            this.XiTong_1ZiHuiWorkA.Location = new System.Drawing.Point(128, 347);
+            this.XiTong_1ZiHuiWorkA.Location = new System.Drawing.Point(128, 468);
             this.XiTong_1ZiHuiWorkA.Name = "XiTong_1ZiHuiWorkA";
-            this.XiTong_1ZiHuiWorkA.Size = new System.Drawing.Size(206, 24);
+            this.XiTong_1ZiHuiWorkA.Size = new System.Drawing.Size(213, 24);
             this.XiTong_1ZiHuiWorkA.StyleController = this.layoutControl4;
             this.XiTong_1ZiHuiWorkA.TabIndex = 39;
             // 
             // XiTong_1ZiHuiWorkB
             // 
             this.XiTong_1ZiHuiWorkB.Enabled = false;
-            this.XiTong_1ZiHuiWorkB.Location = new System.Drawing.Point(504, 347);
+            this.XiTong_1ZiHuiWorkB.Location = new System.Drawing.Point(511, 468);
             this.XiTong_1ZiHuiWorkB.Name = "XiTong_1ZiHuiWorkB";
-            this.XiTong_1ZiHuiWorkB.Size = new System.Drawing.Size(206, 24);
+            this.XiTong_1ZiHuiWorkB.Size = new System.Drawing.Size(213, 24);
             this.XiTong_1ZiHuiWorkB.StyleController = this.layoutControl4;
             this.XiTong_1ZiHuiWorkB.TabIndex = 40;
             // 
             // XiTong_2ZiHuiWorkA
             // 
             this.XiTong_2ZiHuiWorkA.Enabled = false;
-            this.XiTong_2ZiHuiWorkA.Location = new System.Drawing.Point(128, 385);
+            this.XiTong_2ZiHuiWorkA.Location = new System.Drawing.Point(128, 506);
             this.XiTong_2ZiHuiWorkA.Name = "XiTong_2ZiHuiWorkA";
-            this.XiTong_2ZiHuiWorkA.Size = new System.Drawing.Size(206, 24);
+            this.XiTong_2ZiHuiWorkA.Size = new System.Drawing.Size(213, 24);
             this.XiTong_2ZiHuiWorkA.StyleController = this.layoutControl4;
             this.XiTong_2ZiHuiWorkA.TabIndex = 41;
             // 
             // XiTong_2ZiHuiWorkB
             // 
             this.XiTong_2ZiHuiWorkB.Enabled = false;
-            this.XiTong_2ZiHuiWorkB.Location = new System.Drawing.Point(504, 385);
+            this.XiTong_2ZiHuiWorkB.Location = new System.Drawing.Point(511, 506);
             this.XiTong_2ZiHuiWorkB.Name = "XiTong_2ZiHuiWorkB";
-            this.XiTong_2ZiHuiWorkB.Size = new System.Drawing.Size(206, 24);
+            this.XiTong_2ZiHuiWorkB.Size = new System.Drawing.Size(213, 24);
             this.XiTong_2ZiHuiWorkB.StyleController = this.layoutControl4;
             this.XiTong_2ZiHuiWorkB.TabIndex = 42;
             // 
             // XiTong_ZongFeiXingShiJian
             // 
             this.XiTong_ZongFeiXingShiJian.Enabled = false;
-            this.XiTong_ZongFeiXingShiJian.Location = new System.Drawing.Point(880, -109);
+            this.XiTong_ZongFeiXingShiJian.Location = new System.Drawing.Point(894, 12);
             this.XiTong_ZongFeiXingShiJian.Name = "XiTong_ZongFeiXingShiJian";
-            this.XiTong_ZongFeiXingShiJian.Size = new System.Drawing.Size(256, 24);
+            this.XiTong_ZongFeiXingShiJian.Size = new System.Drawing.Size(263, 24);
             this.XiTong_ZongFeiXingShiJian.StyleController = this.layoutControl4;
             this.XiTong_ZongFeiXingShiJian.TabIndex = 43;
             // 
             // XiTong_CeXiang
             // 
             this.XiTong_CeXiang.Enabled = false;
-            this.XiTong_CeXiang.Location = new System.Drawing.Point(880, 347);
+            this.XiTong_CeXiang.Location = new System.Drawing.Point(894, 468);
             this.XiTong_CeXiang.Name = "XiTong_CeXiang";
-            this.XiTong_CeXiang.Size = new System.Drawing.Size(256, 24);
+            this.XiTong_CeXiang.Size = new System.Drawing.Size(263, 24);
             this.XiTong_CeXiang.StyleController = this.layoutControl4;
             this.XiTong_CeXiang.TabIndex = 44;
             // 
             // XiTong_WxJiaoSuDu
             // 
             this.XiTong_WxJiaoSuDu.Enabled = false;
-            this.XiTong_WxJiaoSuDu.Location = new System.Drawing.Point(128, 423);
+            this.XiTong_WxJiaoSuDu.Location = new System.Drawing.Point(128, 544);
             this.XiTong_WxJiaoSuDu.Name = "XiTong_WxJiaoSuDu";
-            this.XiTong_WxJiaoSuDu.Size = new System.Drawing.Size(206, 24);
+            this.XiTong_WxJiaoSuDu.Size = new System.Drawing.Size(213, 24);
             this.XiTong_WxJiaoSuDu.StyleController = this.layoutControl4;
             this.XiTong_WxJiaoSuDu.TabIndex = 45;
             // 
             // XiTong_WyJiaoSuDu
             // 
             this.XiTong_WyJiaoSuDu.Enabled = false;
-            this.XiTong_WyJiaoSuDu.Location = new System.Drawing.Point(504, 423);
+            this.XiTong_WyJiaoSuDu.Location = new System.Drawing.Point(511, 544);
             this.XiTong_WyJiaoSuDu.Name = "XiTong_WyJiaoSuDu";
-            this.XiTong_WyJiaoSuDu.Size = new System.Drawing.Size(206, 24);
+            this.XiTong_WyJiaoSuDu.Size = new System.Drawing.Size(213, 24);
             this.XiTong_WyJiaoSuDu.StyleController = this.layoutControl4;
             this.XiTong_WyJiaoSuDu.TabIndex = 46;
             // 
             // XiTong_WzJiaoSuDu
             // 
             this.XiTong_WzJiaoSuDu.Enabled = false;
-            this.XiTong_WzJiaoSuDu.Location = new System.Drawing.Point(880, 423);
+            this.XiTong_WzJiaoSuDu.Location = new System.Drawing.Point(894, 544);
             this.XiTong_WzJiaoSuDu.Name = "XiTong_WzJiaoSuDu";
-            this.XiTong_WzJiaoSuDu.Size = new System.Drawing.Size(256, 24);
+            this.XiTong_WzJiaoSuDu.Size = new System.Drawing.Size(263, 24);
             this.XiTong_WzJiaoSuDu.StyleController = this.layoutControl4;
             this.XiTong_WzJiaoSuDu.TabIndex = 47;
             // 
             // XiTong_HouXiang
             // 
             this.XiTong_HouXiang.Enabled = false;
-            this.XiTong_HouXiang.Location = new System.Drawing.Point(880, 385);
+            this.XiTong_HouXiang.Location = new System.Drawing.Point(894, 506);
             this.XiTong_HouXiang.Name = "XiTong_HouXiang";
-            this.XiTong_HouXiang.Size = new System.Drawing.Size(256, 24);
+            this.XiTong_HouXiang.Size = new System.Drawing.Size(263, 24);
             this.XiTong_HouXiang.StyleController = this.layoutControl4;
             this.XiTong_HouXiang.TabIndex = 48;
             // 
             // XiTong_ZhuiLuo
             // 
             this.XiTong_ZhuiLuo.Enabled = false;
-            this.XiTong_ZhuiLuo.Location = new System.Drawing.Point(128, 461);
+            this.XiTong_ZhuiLuo.Location = new System.Drawing.Point(128, 582);
             this.XiTong_ZhuiLuo.Name = "XiTong_ZhuiLuo";
-            this.XiTong_ZhuiLuo.Size = new System.Drawing.Size(206, 24);
+            this.XiTong_ZhuiLuo.Size = new System.Drawing.Size(213, 24);
             this.XiTong_ZhuiLuo.StyleController = this.layoutControl4;
             this.XiTong_ZhuiLuo.TabIndex = 49;
             // 
             // XiTong_FenLiShiTian
             // 
             this.XiTong_FenLiShiTian.Enabled = false;
-            this.XiTong_FenLiShiTian.Location = new System.Drawing.Point(504, 461);
+            this.XiTong_FenLiShiTian.Location = new System.Drawing.Point(511, 582);
             this.XiTong_FenLiShiTian.Name = "XiTong_FenLiShiTian";
-            this.XiTong_FenLiShiTian.Size = new System.Drawing.Size(206, 24);
+            this.XiTong_FenLiShiTian.Size = new System.Drawing.Size(213, 24);
             this.XiTong_FenLiShiTian.StyleController = this.layoutControl4;
             this.XiTong_FenLiShiTian.TabIndex = 50;
             // 
             // XiTong_KongZhiQuXiaXian
             // 
             this.XiTong_KongZhiQuXiaXian.Enabled = false;
-            this.XiTong_KongZhiQuXiaXian.Location = new System.Drawing.Point(128, 499);
+            this.XiTong_KongZhiQuXiaXian.Location = new System.Drawing.Point(128, 620);
             this.XiTong_KongZhiQuXiaXian.Name = "XiTong_KongZhiQuXiaXian";
-            this.XiTong_KongZhiQuXiaXian.Size = new System.Drawing.Size(206, 24);
+            this.XiTong_KongZhiQuXiaXian.Size = new System.Drawing.Size(213, 24);
             this.XiTong_KongZhiQuXiaXian.StyleController = this.layoutControl4;
             this.XiTong_KongZhiQuXiaXian.TabIndex = 51;
             // 
             // XiTong_KongZhiQuShangXian
             // 
             this.XiTong_KongZhiQuShangXian.Enabled = false;
-            this.XiTong_KongZhiQuShangXian.Location = new System.Drawing.Point(504, 499);
+            this.XiTong_KongZhiQuShangXian.Location = new System.Drawing.Point(511, 620);
             this.XiTong_KongZhiQuShangXian.Name = "XiTong_KongZhiQuShangXian";
-            this.XiTong_KongZhiQuShangXian.Size = new System.Drawing.Size(206, 24);
+            this.XiTong_KongZhiQuShangXian.Size = new System.Drawing.Size(213, 24);
             this.XiTong_KongZhiQuShangXian.StyleController = this.layoutControl4;
             this.XiTong_KongZhiQuShangXian.TabIndex = 52;
             // 
             // XiTong_DanTouBaoXian
             // 
             this.XiTong_DanTouBaoXian.Enabled = false;
-            this.XiTong_DanTouBaoXian.Location = new System.Drawing.Point(880, 461);
+            this.XiTong_DanTouBaoXian.Location = new System.Drawing.Point(894, 582);
             this.XiTong_DanTouBaoXian.Name = "XiTong_DanTouBaoXian";
-            this.XiTong_DanTouBaoXian.Size = new System.Drawing.Size(256, 24);
+            this.XiTong_DanTouBaoXian.Size = new System.Drawing.Size(263, 24);
             this.XiTong_DanTouBaoXian.StyleController = this.layoutControl4;
             this.XiTong_DanTouBaoXian.TabIndex = 53;
             // 
             // XiTong_2JiBaoXian1
             // 
             this.XiTong_2JiBaoXian1.Enabled = false;
-            this.XiTong_2JiBaoXian1.Location = new System.Drawing.Point(504, 575);
+            this.XiTong_2JiBaoXian1.Location = new System.Drawing.Point(511, 696);
             this.XiTong_2JiBaoXian1.Name = "XiTong_2JiBaoXian1";
-            this.XiTong_2JiBaoXian1.Size = new System.Drawing.Size(206, 24);
+            this.XiTong_2JiBaoXian1.Size = new System.Drawing.Size(213, 24);
             this.XiTong_2JiBaoXian1.StyleController = this.layoutControl4;
             this.XiTong_2JiBaoXian1.TabIndex = 54;
             // 
             // XiTong_DanTouQiBao
             // 
             this.XiTong_DanTouQiBao.Enabled = false;
-            this.XiTong_DanTouQiBao.Location = new System.Drawing.Point(880, 499);
+            this.XiTong_DanTouQiBao.Location = new System.Drawing.Point(894, 620);
             this.XiTong_DanTouQiBao.Name = "XiTong_DanTouQiBao";
-            this.XiTong_DanTouQiBao.Size = new System.Drawing.Size(256, 24);
+            this.XiTong_DanTouQiBao.Size = new System.Drawing.Size(263, 24);
             this.XiTong_DanTouQiBao.StyleController = this.layoutControl4;
             this.XiTong_DanTouQiBao.TabIndex = 55;
             // 
             // XiTong_2JiBaoXian2
             // 
             this.XiTong_2JiBaoXian2.Enabled = false;
-            this.XiTong_2JiBaoXian2.Location = new System.Drawing.Point(880, 575);
+            this.XiTong_2JiBaoXian2.Location = new System.Drawing.Point(894, 696);
             this.XiTong_2JiBaoXian2.Name = "XiTong_2JiBaoXian2";
-            this.XiTong_2JiBaoXian2.Size = new System.Drawing.Size(256, 24);
+            this.XiTong_2JiBaoXian2.Size = new System.Drawing.Size(263, 24);
             this.XiTong_2JiBaoXian2.StyleController = this.layoutControl4;
             this.XiTong_2JiBaoXian2.TabIndex = 56;
             // 
             // XiTong_1JiBaoXian1
             // 
             this.XiTong_1JiBaoXian1.Enabled = false;
-            this.XiTong_1JiBaoXian1.Location = new System.Drawing.Point(128, 537);
+            this.XiTong_1JiBaoXian1.Location = new System.Drawing.Point(128, 658);
             this.XiTong_1JiBaoXian1.Name = "XiTong_1JiBaoXian1";
-            this.XiTong_1JiBaoXian1.Size = new System.Drawing.Size(206, 24);
+            this.XiTong_1JiBaoXian1.Size = new System.Drawing.Size(213, 24);
             this.XiTong_1JiBaoXian1.StyleController = this.layoutControl4;
             this.XiTong_1JiBaoXian1.TabIndex = 57;
             // 
             // XiTong_2JiQiBao1
             // 
             this.XiTong_2JiQiBao1.Enabled = false;
-            this.XiTong_2JiQiBao1.Location = new System.Drawing.Point(128, 613);
+            this.XiTong_2JiQiBao1.Location = new System.Drawing.Point(128, 734);
             this.XiTong_2JiQiBao1.Name = "XiTong_2JiQiBao1";
-            this.XiTong_2JiQiBao1.Size = new System.Drawing.Size(206, 24);
+            this.XiTong_2JiQiBao1.Size = new System.Drawing.Size(213, 24);
             this.XiTong_2JiQiBao1.StyleController = this.layoutControl4;
             this.XiTong_2JiQiBao1.TabIndex = 58;
             // 
             // XiTong_1JiBaoXian2
             // 
             this.XiTong_1JiBaoXian2.Enabled = false;
-            this.XiTong_1JiBaoXian2.Location = new System.Drawing.Point(504, 537);
+            this.XiTong_1JiBaoXian2.Location = new System.Drawing.Point(511, 658);
             this.XiTong_1JiBaoXian2.Name = "XiTong_1JiBaoXian2";
-            this.XiTong_1JiBaoXian2.Size = new System.Drawing.Size(206, 24);
+            this.XiTong_1JiBaoXian2.Size = new System.Drawing.Size(213, 24);
             this.XiTong_1JiBaoXian2.StyleController = this.layoutControl4;
             this.XiTong_1JiBaoXian2.TabIndex = 59;
             // 
             // XiTong_2JiQiBao2
             // 
             this.XiTong_2JiQiBao2.Enabled = false;
-            this.XiTong_2JiQiBao2.Location = new System.Drawing.Point(504, 613);
+            this.XiTong_2JiQiBao2.Location = new System.Drawing.Point(511, 734);
             this.XiTong_2JiQiBao2.Name = "XiTong_2JiQiBao2";
-            this.XiTong_2JiQiBao2.Size = new System.Drawing.Size(206, 24);
+            this.XiTong_2JiQiBao2.Size = new System.Drawing.Size(213, 24);
             this.XiTong_2JiQiBao2.StyleController = this.layoutControl4;
             this.XiTong_2JiQiBao2.TabIndex = 60;
             // 
             // XiTong_1JiQiBao1
             // 
             this.XiTong_1JiQiBao1.Enabled = false;
-            this.XiTong_1JiQiBao1.Location = new System.Drawing.Point(880, 537);
+            this.XiTong_1JiQiBao1.Location = new System.Drawing.Point(894, 658);
             this.XiTong_1JiQiBao1.Name = "XiTong_1JiQiBao1";
-            this.XiTong_1JiQiBao1.Size = new System.Drawing.Size(256, 24);
+            this.XiTong_1JiQiBao1.Size = new System.Drawing.Size(263, 24);
             this.XiTong_1JiQiBao1.StyleController = this.layoutControl4;
             this.XiTong_1JiQiBao1.TabIndex = 61;
             // 
             // XiTong_CanShiZhuangTai
             // 
             this.XiTong_CanShiZhuangTai.Enabled = false;
-            this.XiTong_CanShiZhuangTai.Location = new System.Drawing.Point(880, 5);
+            this.XiTong_CanShiZhuangTai.Location = new System.Drawing.Point(894, 126);
             this.XiTong_CanShiZhuangTai.Name = "XiTong_CanShiZhuangTai";
-            this.XiTong_CanShiZhuangTai.Size = new System.Drawing.Size(256, 24);
+            this.XiTong_CanShiZhuangTai.Size = new System.Drawing.Size(263, 24);
             this.XiTong_CanShiZhuangTai.StyleController = this.layoutControl4;
             this.XiTong_CanShiZhuangTai.TabIndex = 62;
             // 
             // XiTong_1JiQiBao2
             // 
             this.XiTong_1JiQiBao2.Enabled = false;
-            this.XiTong_1JiQiBao2.Location = new System.Drawing.Point(128, 575);
+            this.XiTong_1JiQiBao2.Location = new System.Drawing.Point(128, 696);
             this.XiTong_1JiQiBao2.Name = "XiTong_1JiQiBao2";
-            this.XiTong_1JiQiBao2.Size = new System.Drawing.Size(206, 24);
+            this.XiTong_1JiQiBao2.Size = new System.Drawing.Size(213, 24);
             this.XiTong_1JiQiBao2.StyleController = this.layoutControl4;
             this.XiTong_1JiQiBao2.TabIndex = 63;
             // 
@@ -2000,7 +2001,7 @@
             columnDefinition2.SizeType = System.Windows.Forms.SizeType.Percent;
             columnDefinition2.Width = 50D;
             columnDefinition3.SizeType = System.Windows.Forms.SizeType.AutoSize;
-            columnDefinition3.Width = 376D;
+            columnDefinition3.Width = 383D;
             this.layoutControlGroup5.OptionsTableLayoutGroup.ColumnDefinitions.AddRange(new DevExpress.XtraLayout.ColumnDefinition[] {
             columnDefinition1,
             columnDefinition2,
@@ -2066,7 +2067,7 @@
             rowDefinition18,
             rowDefinition19,
             rowDefinition20});
-            this.layoutControlGroup5.Size = new System.Drawing.Size(1148, 780);
+            this.layoutControlGroup5.Size = new System.Drawing.Size(1169, 780);
             this.layoutControlGroup5.TextVisible = false;
             // 
             // layoutControlItem8
@@ -2074,7 +2075,7 @@
             this.layoutControlItem8.Control = this.XiTong_GNSSTime;
             this.layoutControlItem8.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem8.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem8.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
             this.layoutControlItem8.Text = "GNSS时间：";
             this.layoutControlItem8.TextSize = new System.Drawing.Size(113, 18);
@@ -2082,10 +2083,10 @@
             // layoutControlItem10
             // 
             this.layoutControlItem10.Control = this.XiTong_ZongFeiXingTime;
-            this.layoutControlItem10.Location = new System.Drawing.Point(376, 0);
+            this.layoutControlItem10.Location = new System.Drawing.Point(383, 0);
             this.layoutControlItem10.Name = "layoutControlItem10";
             this.layoutControlItem10.OptionsTableLayoutItem.ColumnIndex = 1;
-            this.layoutControlItem10.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem10.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem10.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
             this.layoutControlItem10.Text = "总飞行时间：";
             this.layoutControlItem10.TextSize = new System.Drawing.Size(113, 18);
@@ -2096,7 +2097,7 @@
             this.layoutControlItem11.Location = new System.Drawing.Point(0, 38);
             this.layoutControlItem11.Name = "layoutControlItem11";
             this.layoutControlItem11.OptionsTableLayoutItem.RowIndex = 1;
-            this.layoutControlItem11.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem11.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem11.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
             this.layoutControlItem11.Text = "弹头状态：";
             this.layoutControlItem11.TextSize = new System.Drawing.Size(113, 18);
@@ -2104,11 +2105,11 @@
             // layoutControlItem12
             // 
             this.layoutControlItem12.Control = this.XiTong_DaoHangShuJuXuanZe;
-            this.layoutControlItem12.Location = new System.Drawing.Point(376, 38);
+            this.layoutControlItem12.Location = new System.Drawing.Point(383, 38);
             this.layoutControlItem12.Name = "layoutControlItem12";
             this.layoutControlItem12.OptionsTableLayoutItem.ColumnIndex = 1;
             this.layoutControlItem12.OptionsTableLayoutItem.RowIndex = 1;
-            this.layoutControlItem12.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem12.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem12.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
             this.layoutControlItem12.Text = "导航数据选择：";
             this.layoutControlItem12.TextSize = new System.Drawing.Size(113, 18);
@@ -2116,11 +2117,11 @@
             // layoutControlItem13
             // 
             this.layoutControlItem13.Control = this.XiTong_TuoLuoShuJuRongHe;
-            this.layoutControlItem13.Location = new System.Drawing.Point(752, 38);
+            this.layoutControlItem13.Location = new System.Drawing.Point(766, 38);
             this.layoutControlItem13.Name = "layoutControlItem13";
             this.layoutControlItem13.OptionsTableLayoutItem.ColumnIndex = 2;
             this.layoutControlItem13.OptionsTableLayoutItem.RowIndex = 1;
-            this.layoutControlItem13.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem13.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem13.Text = "陀螺数据融合：";
             this.layoutControlItem13.TextSize = new System.Drawing.Size(113, 18);
             // 
@@ -2130,7 +2131,7 @@
             this.layoutControlItem16.Location = new System.Drawing.Point(0, 114);
             this.layoutControlItem16.Name = "layoutControlItem16";
             this.layoutControlItem16.OptionsTableLayoutItem.RowIndex = 3;
-            this.layoutControlItem16.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem16.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem16.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
             this.layoutControlItem16.Text = "弹头组合：";
             this.layoutControlItem16.TextSize = new System.Drawing.Size(113, 18);
@@ -2138,11 +2139,11 @@
             // layoutControlItem17
             // 
             this.layoutControlItem17.Control = this.XiTong_DanTiZuHe;
-            this.layoutControlItem17.Location = new System.Drawing.Point(376, 114);
+            this.layoutControlItem17.Location = new System.Drawing.Point(383, 114);
             this.layoutControlItem17.Name = "layoutControlItem17";
             this.layoutControlItem17.OptionsTableLayoutItem.ColumnIndex = 1;
             this.layoutControlItem17.OptionsTableLayoutItem.RowIndex = 3;
-            this.layoutControlItem17.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem17.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem17.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
             this.layoutControlItem17.Text = "弹体组合：";
             this.layoutControlItem17.TextSize = new System.Drawing.Size(113, 18);
@@ -2150,10 +2151,10 @@
             // layoutControlItem111
             // 
             this.layoutControlItem111.Control = this.XiTong_ZongFeiXingShiJian;
-            this.layoutControlItem111.Location = new System.Drawing.Point(752, 0);
+            this.layoutControlItem111.Location = new System.Drawing.Point(766, 0);
             this.layoutControlItem111.Name = "layoutControlItem111";
             this.layoutControlItem111.OptionsTableLayoutItem.ColumnIndex = 2;
-            this.layoutControlItem111.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem111.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem111.Text = "总飞行时间状态:";
             this.layoutControlItem111.TextSize = new System.Drawing.Size(113, 18);
             // 
@@ -2163,7 +2164,7 @@
             this.layoutControlItem18.Location = new System.Drawing.Point(0, 152);
             this.layoutControlItem18.Name = "layoutControlItem18";
             this.layoutControlItem18.OptionsTableLayoutItem.RowIndex = 4;
-            this.layoutControlItem18.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem18.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem18.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
             this.layoutControlItem18.Text = "1号数据经度：";
             this.layoutControlItem18.TextSize = new System.Drawing.Size(113, 18);
@@ -2171,11 +2172,11 @@
             // layoutControlItem19
             // 
             this.layoutControlItem19.Control = this.XiTong_1HaoShuJuWeiDu;
-            this.layoutControlItem19.Location = new System.Drawing.Point(376, 152);
+            this.layoutControlItem19.Location = new System.Drawing.Point(383, 152);
             this.layoutControlItem19.Name = "layoutControlItem19";
             this.layoutControlItem19.OptionsTableLayoutItem.ColumnIndex = 1;
             this.layoutControlItem19.OptionsTableLayoutItem.RowIndex = 4;
-            this.layoutControlItem19.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem19.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem19.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
             this.layoutControlItem19.Text = "1号数据纬度：";
             this.layoutControlItem19.TextSize = new System.Drawing.Size(113, 18);
@@ -2183,11 +2184,11 @@
             // layoutControlItem20
             // 
             this.layoutControlItem20.Control = this.XiTong_1HaoShuJuGaoDu;
-            this.layoutControlItem20.Location = new System.Drawing.Point(752, 152);
+            this.layoutControlItem20.Location = new System.Drawing.Point(766, 152);
             this.layoutControlItem20.Name = "layoutControlItem20";
             this.layoutControlItem20.OptionsTableLayoutItem.ColumnIndex = 2;
             this.layoutControlItem20.OptionsTableLayoutItem.RowIndex = 4;
-            this.layoutControlItem20.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem20.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem20.Text = "1号数据高度：";
             this.layoutControlItem20.TextSize = new System.Drawing.Size(113, 18);
             // 
@@ -2197,7 +2198,7 @@
             this.layoutControlItem21.Location = new System.Drawing.Point(0, 190);
             this.layoutControlItem21.Name = "layoutControlItem21";
             this.layoutControlItem21.OptionsTableLayoutItem.RowIndex = 5;
-            this.layoutControlItem21.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem21.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem21.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
             this.layoutControlItem21.Text = "1号数据东速：";
             this.layoutControlItem21.TextSize = new System.Drawing.Size(113, 18);
@@ -2205,11 +2206,11 @@
             // layoutControlItem29
             // 
             this.layoutControlItem29.Control = this.XiTong_1HaoShuJuBeiXiangSuDu;
-            this.layoutControlItem29.Location = new System.Drawing.Point(376, 190);
+            this.layoutControlItem29.Location = new System.Drawing.Point(383, 190);
             this.layoutControlItem29.Name = "layoutControlItem29";
             this.layoutControlItem29.OptionsTableLayoutItem.ColumnIndex = 1;
             this.layoutControlItem29.OptionsTableLayoutItem.RowIndex = 5;
-            this.layoutControlItem29.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem29.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem29.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
             this.layoutControlItem29.Text = "1号数据北速：";
             this.layoutControlItem29.TextSize = new System.Drawing.Size(113, 18);
@@ -2217,11 +2218,11 @@
             // layoutControlItem22
             // 
             this.layoutControlItem22.Control = this.XiTong_1HaoShuJuTianXiangSuDu;
-            this.layoutControlItem22.Location = new System.Drawing.Point(752, 190);
+            this.layoutControlItem22.Location = new System.Drawing.Point(766, 190);
             this.layoutControlItem22.Name = "layoutControlItem22";
             this.layoutControlItem22.OptionsTableLayoutItem.ColumnIndex = 2;
             this.layoutControlItem22.OptionsTableLayoutItem.RowIndex = 5;
-            this.layoutControlItem22.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem22.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem22.Text = "1号数据天速：";
             this.layoutControlItem22.TextSize = new System.Drawing.Size(113, 18);
             // 
@@ -2231,7 +2232,7 @@
             this.layoutControlItem23.Location = new System.Drawing.Point(0, 228);
             this.layoutControlItem23.Name = "layoutControlItem23";
             this.layoutControlItem23.OptionsTableLayoutItem.RowIndex = 6;
-            this.layoutControlItem23.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem23.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem23.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
             this.layoutControlItem23.Text = "2号数据经度：";
             this.layoutControlItem23.TextSize = new System.Drawing.Size(113, 18);
@@ -2239,11 +2240,11 @@
             // layoutControlItem24
             // 
             this.layoutControlItem24.Control = this.XiTong_2HaoShuJuWeiDu;
-            this.layoutControlItem24.Location = new System.Drawing.Point(376, 228);
+            this.layoutControlItem24.Location = new System.Drawing.Point(383, 228);
             this.layoutControlItem24.Name = "layoutControlItem24";
             this.layoutControlItem24.OptionsTableLayoutItem.ColumnIndex = 1;
             this.layoutControlItem24.OptionsTableLayoutItem.RowIndex = 6;
-            this.layoutControlItem24.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem24.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem24.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
             this.layoutControlItem24.Text = "2号数据纬度：";
             this.layoutControlItem24.TextSize = new System.Drawing.Size(113, 18);
@@ -2251,11 +2252,11 @@
             // layoutControlItem25
             // 
             this.layoutControlItem25.Control = this.XiTong_2HaoShuJuGaoDu;
-            this.layoutControlItem25.Location = new System.Drawing.Point(752, 228);
+            this.layoutControlItem25.Location = new System.Drawing.Point(766, 228);
             this.layoutControlItem25.Name = "layoutControlItem25";
             this.layoutControlItem25.OptionsTableLayoutItem.ColumnIndex = 2;
             this.layoutControlItem25.OptionsTableLayoutItem.RowIndex = 6;
-            this.layoutControlItem25.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem25.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem25.Text = "2号数据高度：";
             this.layoutControlItem25.TextSize = new System.Drawing.Size(113, 18);
             // 
@@ -2265,7 +2266,7 @@
             this.layoutControlItem26.Location = new System.Drawing.Point(0, 266);
             this.layoutControlItem26.Name = "layoutControlItem26";
             this.layoutControlItem26.OptionsTableLayoutItem.RowIndex = 7;
-            this.layoutControlItem26.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem26.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem26.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
             this.layoutControlItem26.Text = "2号数据东速：";
             this.layoutControlItem26.TextSize = new System.Drawing.Size(113, 18);
@@ -2273,11 +2274,11 @@
             // layoutControlItem27
             // 
             this.layoutControlItem27.Control = this.XiTong_2HaoShuJuBeiXiangSuDu;
-            this.layoutControlItem27.Location = new System.Drawing.Point(376, 266);
+            this.layoutControlItem27.Location = new System.Drawing.Point(383, 266);
             this.layoutControlItem27.Name = "layoutControlItem27";
             this.layoutControlItem27.OptionsTableLayoutItem.ColumnIndex = 1;
             this.layoutControlItem27.OptionsTableLayoutItem.RowIndex = 7;
-            this.layoutControlItem27.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem27.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem27.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
             this.layoutControlItem27.Text = "2号数据北速：";
             this.layoutControlItem27.TextSize = new System.Drawing.Size(113, 18);
@@ -2285,11 +2286,11 @@
             // layoutControlItem28
             // 
             this.layoutControlItem28.Control = this.XiTong_2HaoShuJuTianXiangSuDu;
-            this.layoutControlItem28.Location = new System.Drawing.Point(752, 266);
+            this.layoutControlItem28.Location = new System.Drawing.Point(766, 266);
             this.layoutControlItem28.Name = "layoutControlItem28";
             this.layoutControlItem28.OptionsTableLayoutItem.ColumnIndex = 2;
             this.layoutControlItem28.OptionsTableLayoutItem.RowIndex = 7;
-            this.layoutControlItem28.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem28.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem28.Text = "2号数据天速：";
             this.layoutControlItem28.TextSize = new System.Drawing.Size(113, 18);
             // 
@@ -2299,7 +2300,7 @@
             this.layoutControlItem95.Location = new System.Drawing.Point(0, 304);
             this.layoutControlItem95.Name = "layoutControlItem95";
             this.layoutControlItem95.OptionsTableLayoutItem.RowIndex = 8;
-            this.layoutControlItem95.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem95.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem95.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
             this.layoutControlItem95.Text = "功率输出闭合:";
             this.layoutControlItem95.TextSize = new System.Drawing.Size(113, 18);
@@ -2307,11 +2308,11 @@
             // layoutControlItem96
             // 
             this.layoutControlItem96.Control = this.XiTong_JieBaoZhiLingFaChu;
-            this.layoutControlItem96.Location = new System.Drawing.Point(376, 304);
+            this.layoutControlItem96.Location = new System.Drawing.Point(383, 304);
             this.layoutControlItem96.Name = "layoutControlItem96";
             this.layoutControlItem96.OptionsTableLayoutItem.ColumnIndex = 1;
             this.layoutControlItem96.OptionsTableLayoutItem.RowIndex = 8;
-            this.layoutControlItem96.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem96.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem96.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
             this.layoutControlItem96.Text = "解保指令发出:";
             this.layoutControlItem96.TextSize = new System.Drawing.Size(113, 18);
@@ -2319,11 +2320,11 @@
             // layoutControlItem97
             // 
             this.layoutControlItem97.Control = this.XiTong_ZiHuiZhiLingFaChu;
-            this.layoutControlItem97.Location = new System.Drawing.Point(752, 304);
+            this.layoutControlItem97.Location = new System.Drawing.Point(766, 304);
             this.layoutControlItem97.Name = "layoutControlItem97";
             this.layoutControlItem97.OptionsTableLayoutItem.ColumnIndex = 2;
             this.layoutControlItem97.OptionsTableLayoutItem.RowIndex = 8;
-            this.layoutControlItem97.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem97.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem97.Text = "自毁指令发出:";
             this.layoutControlItem97.TextSize = new System.Drawing.Size(113, 18);
             // 
@@ -2333,7 +2334,7 @@
             this.layoutControlItem98.Location = new System.Drawing.Point(0, 342);
             this.layoutControlItem98.Name = "layoutControlItem98";
             this.layoutControlItem98.OptionsTableLayoutItem.RowIndex = 9;
-            this.layoutControlItem98.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem98.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem98.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
             this.layoutControlItem98.Text = "复位信号：";
             this.layoutControlItem98.TextSize = new System.Drawing.Size(113, 18);
@@ -2341,11 +2342,11 @@
             // layoutControlItem99
             // 
             this.layoutControlItem99.Control = this.XiTong_DuiWaiGongDian;
-            this.layoutControlItem99.Location = new System.Drawing.Point(376, 342);
+            this.layoutControlItem99.Location = new System.Drawing.Point(383, 342);
             this.layoutControlItem99.Name = "layoutControlItem99";
             this.layoutControlItem99.OptionsTableLayoutItem.ColumnIndex = 1;
             this.layoutControlItem99.OptionsTableLayoutItem.RowIndex = 9;
-            this.layoutControlItem99.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem99.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem99.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
             this.layoutControlItem99.Text = "对外供电：";
             this.layoutControlItem99.TextSize = new System.Drawing.Size(113, 18);
@@ -2353,11 +2354,11 @@
             // layoutControlItem100
             // 
             this.layoutControlItem100.Control = this.XiTong_MoNiZiHui1;
-            this.layoutControlItem100.Location = new System.Drawing.Point(752, 342);
+            this.layoutControlItem100.Location = new System.Drawing.Point(766, 342);
             this.layoutControlItem100.Name = "layoutControlItem100";
             this.layoutControlItem100.OptionsTableLayoutItem.ColumnIndex = 2;
             this.layoutControlItem100.OptionsTableLayoutItem.RowIndex = 9;
-            this.layoutControlItem100.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem100.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem100.Text = "模拟自毁指令1：";
             this.layoutControlItem100.TextSize = new System.Drawing.Size(113, 18);
             // 
@@ -2367,7 +2368,7 @@
             this.layoutControlItem101.Location = new System.Drawing.Point(0, 380);
             this.layoutControlItem101.Name = "layoutControlItem101";
             this.layoutControlItem101.OptionsTableLayoutItem.RowIndex = 10;
-            this.layoutControlItem101.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem101.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem101.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
             this.layoutControlItem101.Text = "模拟自毁指令2:";
             this.layoutControlItem101.TextSize = new System.Drawing.Size(113, 18);
@@ -2375,11 +2376,11 @@
             // layoutControlItem102
             // 
             this.layoutControlItem102.Control = this.XiTong_HuiLuJianCe;
-            this.layoutControlItem102.Location = new System.Drawing.Point(376, 380);
+            this.layoutControlItem102.Location = new System.Drawing.Point(383, 380);
             this.layoutControlItem102.Name = "layoutControlItem102";
             this.layoutControlItem102.OptionsTableLayoutItem.ColumnIndex = 1;
             this.layoutControlItem102.OptionsTableLayoutItem.RowIndex = 10;
-            this.layoutControlItem102.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem102.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem102.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
             this.layoutControlItem102.Text = "回路检测:";
             this.layoutControlItem102.TextSize = new System.Drawing.Size(113, 18);
@@ -2387,11 +2388,11 @@
             // layoutControlItem103
             // 
             this.layoutControlItem103.Control = this.XiTong_QiFeiFenLiTuoCha;
-            this.layoutControlItem103.Location = new System.Drawing.Point(752, 380);
+            this.layoutControlItem103.Location = new System.Drawing.Point(766, 380);
             this.layoutControlItem103.Name = "layoutControlItem103";
             this.layoutControlItem103.OptionsTableLayoutItem.ColumnIndex = 2;
             this.layoutControlItem103.OptionsTableLayoutItem.RowIndex = 10;
-            this.layoutControlItem103.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem103.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem103.Text = "起飞分离脱插:";
             this.layoutControlItem103.TextSize = new System.Drawing.Size(113, 18);
             // 
@@ -2401,7 +2402,7 @@
             this.layoutControlItem104.Location = new System.Drawing.Point(0, 418);
             this.layoutControlItem104.Name = "layoutControlItem104";
             this.layoutControlItem104.OptionsTableLayoutItem.RowIndex = 11;
-            this.layoutControlItem104.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem104.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem104.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
             this.layoutControlItem104.Text = "一级分离脱插:";
             this.layoutControlItem104.TextSize = new System.Drawing.Size(113, 18);
@@ -2409,11 +2410,11 @@
             // layoutControlItem105
             // 
             this.layoutControlItem105.Control = this.XiTong_AnKongJieShouJiYuLing;
-            this.layoutControlItem105.Location = new System.Drawing.Point(376, 418);
+            this.layoutControlItem105.Location = new System.Drawing.Point(383, 418);
             this.layoutControlItem105.Name = "layoutControlItem105";
             this.layoutControlItem105.OptionsTableLayoutItem.ColumnIndex = 1;
             this.layoutControlItem105.OptionsTableLayoutItem.RowIndex = 11;
-            this.layoutControlItem105.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem105.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem105.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
             this.layoutControlItem105.Text = "安控接收机预令:";
             this.layoutControlItem105.TextSize = new System.Drawing.Size(113, 18);
@@ -2421,11 +2422,11 @@
             // layoutControlItem106
             // 
             this.layoutControlItem106.Control = this.XiTong_AnKongJieShouJiDongLing;
-            this.layoutControlItem106.Location = new System.Drawing.Point(752, 418);
+            this.layoutControlItem106.Location = new System.Drawing.Point(766, 418);
             this.layoutControlItem106.Name = "layoutControlItem106";
             this.layoutControlItem106.OptionsTableLayoutItem.ColumnIndex = 2;
             this.layoutControlItem106.OptionsTableLayoutItem.RowIndex = 11;
-            this.layoutControlItem106.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem106.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem106.Text = "安控接收机动令:";
             this.layoutControlItem106.TextSize = new System.Drawing.Size(113, 18);
             // 
@@ -2435,7 +2436,7 @@
             this.layoutControlItem107.Location = new System.Drawing.Point(0, 456);
             this.layoutControlItem107.Name = "layoutControlItem107";
             this.layoutControlItem107.OptionsTableLayoutItem.RowIndex = 12;
-            this.layoutControlItem107.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem107.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem107.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
             this.layoutControlItem107.Text = "一级自毁状态A:";
             this.layoutControlItem107.TextSize = new System.Drawing.Size(113, 18);
@@ -2443,11 +2444,11 @@
             // layoutControlItem108
             // 
             this.layoutControlItem108.Control = this.XiTong_1ZiHuiWorkB;
-            this.layoutControlItem108.Location = new System.Drawing.Point(376, 456);
+            this.layoutControlItem108.Location = new System.Drawing.Point(383, 456);
             this.layoutControlItem108.Name = "layoutControlItem108";
             this.layoutControlItem108.OptionsTableLayoutItem.ColumnIndex = 1;
             this.layoutControlItem108.OptionsTableLayoutItem.RowIndex = 12;
-            this.layoutControlItem108.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem108.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem108.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
             this.layoutControlItem108.Text = "一级自毁状态B:";
             this.layoutControlItem108.TextSize = new System.Drawing.Size(113, 18);
@@ -2458,7 +2459,7 @@
             this.layoutControlItem109.Location = new System.Drawing.Point(0, 494);
             this.layoutControlItem109.Name = "layoutControlItem109";
             this.layoutControlItem109.OptionsTableLayoutItem.RowIndex = 13;
-            this.layoutControlItem109.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem109.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem109.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
             this.layoutControlItem109.Text = "二级自毁状态A:";
             this.layoutControlItem109.TextSize = new System.Drawing.Size(113, 18);
@@ -2466,11 +2467,11 @@
             // layoutControlItem110
             // 
             this.layoutControlItem110.Control = this.XiTong_2ZiHuiWorkB;
-            this.layoutControlItem110.Location = new System.Drawing.Point(376, 494);
+            this.layoutControlItem110.Location = new System.Drawing.Point(383, 494);
             this.layoutControlItem110.Name = "layoutControlItem110";
             this.layoutControlItem110.OptionsTableLayoutItem.ColumnIndex = 1;
             this.layoutControlItem110.OptionsTableLayoutItem.RowIndex = 13;
-            this.layoutControlItem110.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem110.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem110.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
             this.layoutControlItem110.Text = "二级自毁状态B:";
             this.layoutControlItem110.TextSize = new System.Drawing.Size(113, 18);
@@ -2478,22 +2479,22 @@
             // layoutControlItem112
             // 
             this.layoutControlItem112.Control = this.XiTong_CeXiang;
-            this.layoutControlItem112.Location = new System.Drawing.Point(752, 456);
+            this.layoutControlItem112.Location = new System.Drawing.Point(766, 456);
             this.layoutControlItem112.Name = "layoutControlItem112";
             this.layoutControlItem112.OptionsTableLayoutItem.ColumnIndex = 2;
             this.layoutControlItem112.OptionsTableLayoutItem.RowIndex = 12;
-            this.layoutControlItem112.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem112.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem112.Text = "侧向:";
             this.layoutControlItem112.TextSize = new System.Drawing.Size(113, 18);
             // 
             // layoutControlItem116
             // 
             this.layoutControlItem116.Control = this.XiTong_HouXiang;
-            this.layoutControlItem116.Location = new System.Drawing.Point(752, 494);
+            this.layoutControlItem116.Location = new System.Drawing.Point(766, 494);
             this.layoutControlItem116.Name = "layoutControlItem116";
             this.layoutControlItem116.OptionsTableLayoutItem.ColumnIndex = 2;
             this.layoutControlItem116.OptionsTableLayoutItem.RowIndex = 13;
-            this.layoutControlItem116.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem116.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem116.Text = "后向:";
             this.layoutControlItem116.TextSize = new System.Drawing.Size(113, 18);
             // 
@@ -2503,7 +2504,7 @@
             this.layoutControlItem113.Location = new System.Drawing.Point(0, 532);
             this.layoutControlItem113.Name = "layoutControlItem113";
             this.layoutControlItem113.OptionsTableLayoutItem.RowIndex = 14;
-            this.layoutControlItem113.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem113.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem113.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
             this.layoutControlItem113.Text = "Wx角速度:";
             this.layoutControlItem113.TextSize = new System.Drawing.Size(113, 18);
@@ -2511,11 +2512,11 @@
             // layoutControlItem114
             // 
             this.layoutControlItem114.Control = this.XiTong_WyJiaoSuDu;
-            this.layoutControlItem114.Location = new System.Drawing.Point(376, 532);
+            this.layoutControlItem114.Location = new System.Drawing.Point(383, 532);
             this.layoutControlItem114.Name = "layoutControlItem114";
             this.layoutControlItem114.OptionsTableLayoutItem.ColumnIndex = 1;
             this.layoutControlItem114.OptionsTableLayoutItem.RowIndex = 14;
-            this.layoutControlItem114.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem114.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem114.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
             this.layoutControlItem114.Text = "Wy角速度：";
             this.layoutControlItem114.TextSize = new System.Drawing.Size(113, 18);
@@ -2523,11 +2524,11 @@
             // layoutControlItem115
             // 
             this.layoutControlItem115.Control = this.XiTong_WzJiaoSuDu;
-            this.layoutControlItem115.Location = new System.Drawing.Point(752, 532);
+            this.layoutControlItem115.Location = new System.Drawing.Point(766, 532);
             this.layoutControlItem115.Name = "layoutControlItem115";
             this.layoutControlItem115.OptionsTableLayoutItem.ColumnIndex = 2;
             this.layoutControlItem115.OptionsTableLayoutItem.RowIndex = 14;
-            this.layoutControlItem115.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem115.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem115.Text = "Wz角速度:";
             this.layoutControlItem115.TextSize = new System.Drawing.Size(113, 18);
             // 
@@ -2537,7 +2538,7 @@
             this.layoutControlItem117.Location = new System.Drawing.Point(0, 570);
             this.layoutControlItem117.Name = "layoutControlItem117";
             this.layoutControlItem117.OptionsTableLayoutItem.RowIndex = 15;
-            this.layoutControlItem117.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem117.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem117.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
             this.layoutControlItem117.Text = "坠落:";
             this.layoutControlItem117.TextSize = new System.Drawing.Size(113, 18);
@@ -2545,11 +2546,11 @@
             // layoutControlItem118
             // 
             this.layoutControlItem118.Control = this.XiTong_FenLiShiTian;
-            this.layoutControlItem118.Location = new System.Drawing.Point(376, 570);
+            this.layoutControlItem118.Location = new System.Drawing.Point(383, 570);
             this.layoutControlItem118.Name = "layoutControlItem118";
             this.layoutControlItem118.OptionsTableLayoutItem.ColumnIndex = 1;
             this.layoutControlItem118.OptionsTableLayoutItem.RowIndex = 15;
-            this.layoutControlItem118.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem118.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem118.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
             this.layoutControlItem118.Text = "分离时间:";
             this.layoutControlItem118.TextSize = new System.Drawing.Size(113, 18);
@@ -2560,7 +2561,7 @@
             this.layoutControlItem119.Location = new System.Drawing.Point(0, 608);
             this.layoutControlItem119.Name = "layoutControlItem119";
             this.layoutControlItem119.OptionsTableLayoutItem.RowIndex = 16;
-            this.layoutControlItem119.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem119.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem119.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
             this.layoutControlItem119.Text = "控制区下限:";
             this.layoutControlItem119.TextSize = new System.Drawing.Size(113, 18);
@@ -2568,11 +2569,11 @@
             // layoutControlItem120
             // 
             this.layoutControlItem120.Control = this.XiTong_KongZhiQuShangXian;
-            this.layoutControlItem120.Location = new System.Drawing.Point(376, 608);
+            this.layoutControlItem120.Location = new System.Drawing.Point(383, 608);
             this.layoutControlItem120.Name = "layoutControlItem120";
             this.layoutControlItem120.OptionsTableLayoutItem.ColumnIndex = 1;
             this.layoutControlItem120.OptionsTableLayoutItem.RowIndex = 16;
-            this.layoutControlItem120.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem120.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem120.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
             this.layoutControlItem120.Text = "控制区上限:";
             this.layoutControlItem120.TextSize = new System.Drawing.Size(113, 18);
@@ -2580,22 +2581,22 @@
             // layoutControlItem121
             // 
             this.layoutControlItem121.Control = this.XiTong_DanTouBaoXian;
-            this.layoutControlItem121.Location = new System.Drawing.Point(752, 570);
+            this.layoutControlItem121.Location = new System.Drawing.Point(766, 570);
             this.layoutControlItem121.Name = "layoutControlItem121";
             this.layoutControlItem121.OptionsTableLayoutItem.ColumnIndex = 2;
             this.layoutControlItem121.OptionsTableLayoutItem.RowIndex = 15;
-            this.layoutControlItem121.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem121.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem121.Text = "弹头保险:";
             this.layoutControlItem121.TextSize = new System.Drawing.Size(113, 18);
             // 
             // layoutControlItem123
             // 
             this.layoutControlItem123.Control = this.XiTong_DanTouQiBao;
-            this.layoutControlItem123.Location = new System.Drawing.Point(752, 608);
+            this.layoutControlItem123.Location = new System.Drawing.Point(766, 608);
             this.layoutControlItem123.Name = "layoutControlItem123";
             this.layoutControlItem123.OptionsTableLayoutItem.ColumnIndex = 2;
             this.layoutControlItem123.OptionsTableLayoutItem.RowIndex = 16;
-            this.layoutControlItem123.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem123.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem123.Text = "弹头起爆:";
             this.layoutControlItem123.TextSize = new System.Drawing.Size(113, 18);
             // 
@@ -2605,7 +2606,7 @@
             this.layoutControlItem125.Location = new System.Drawing.Point(0, 646);
             this.layoutControlItem125.Name = "layoutControlItem125";
             this.layoutControlItem125.OptionsTableLayoutItem.RowIndex = 17;
-            this.layoutControlItem125.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem125.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem125.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
             this.layoutControlItem125.Text = "一级保险1:";
             this.layoutControlItem125.TextSize = new System.Drawing.Size(113, 18);
@@ -2613,11 +2614,11 @@
             // layoutControlItem127
             // 
             this.layoutControlItem127.Control = this.XiTong_1JiBaoXian2;
-            this.layoutControlItem127.Location = new System.Drawing.Point(376, 646);
+            this.layoutControlItem127.Location = new System.Drawing.Point(383, 646);
             this.layoutControlItem127.Name = "layoutControlItem127";
             this.layoutControlItem127.OptionsTableLayoutItem.ColumnIndex = 1;
             this.layoutControlItem127.OptionsTableLayoutItem.RowIndex = 17;
-            this.layoutControlItem127.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem127.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem127.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
             this.layoutControlItem127.Text = "一级保险2:";
             this.layoutControlItem127.TextSize = new System.Drawing.Size(113, 18);
@@ -2625,11 +2626,11 @@
             // layoutControlItem129
             // 
             this.layoutControlItem129.Control = this.XiTong_1JiQiBao1;
-            this.layoutControlItem129.Location = new System.Drawing.Point(752, 646);
+            this.layoutControlItem129.Location = new System.Drawing.Point(766, 646);
             this.layoutControlItem129.Name = "layoutControlItem129";
             this.layoutControlItem129.OptionsTableLayoutItem.ColumnIndex = 2;
             this.layoutControlItem129.OptionsTableLayoutItem.RowIndex = 17;
-            this.layoutControlItem129.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem129.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem129.Text = "一级起爆1:";
             this.layoutControlItem129.TextSize = new System.Drawing.Size(113, 18);
             // 
@@ -2639,7 +2640,7 @@
             this.layoutControlItem131.Location = new System.Drawing.Point(0, 684);
             this.layoutControlItem131.Name = "layoutControlItem131";
             this.layoutControlItem131.OptionsTableLayoutItem.RowIndex = 18;
-            this.layoutControlItem131.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem131.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem131.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
             this.layoutControlItem131.Text = "一级起爆2:";
             this.layoutControlItem131.TextSize = new System.Drawing.Size(113, 18);
@@ -2647,11 +2648,11 @@
             // layoutControlItem122
             // 
             this.layoutControlItem122.Control = this.XiTong_2JiBaoXian1;
-            this.layoutControlItem122.Location = new System.Drawing.Point(376, 684);
+            this.layoutControlItem122.Location = new System.Drawing.Point(383, 684);
             this.layoutControlItem122.Name = "layoutControlItem122";
             this.layoutControlItem122.OptionsTableLayoutItem.ColumnIndex = 1;
             this.layoutControlItem122.OptionsTableLayoutItem.RowIndex = 18;
-            this.layoutControlItem122.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem122.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem122.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
             this.layoutControlItem122.Text = "二级保险1:";
             this.layoutControlItem122.TextSize = new System.Drawing.Size(113, 18);
@@ -2659,11 +2660,11 @@
             // layoutControlItem124
             // 
             this.layoutControlItem124.Control = this.XiTong_2JiBaoXian2;
-            this.layoutControlItem124.Location = new System.Drawing.Point(752, 684);
+            this.layoutControlItem124.Location = new System.Drawing.Point(766, 684);
             this.layoutControlItem124.Name = "layoutControlItem124";
             this.layoutControlItem124.OptionsTableLayoutItem.ColumnIndex = 2;
             this.layoutControlItem124.OptionsTableLayoutItem.RowIndex = 18;
-            this.layoutControlItem124.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem124.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem124.Text = "二级保险2:";
             this.layoutControlItem124.TextSize = new System.Drawing.Size(113, 18);
             // 
@@ -2673,7 +2674,7 @@
             this.layoutControlItem126.Location = new System.Drawing.Point(0, 722);
             this.layoutControlItem126.Name = "layoutControlItem126";
             this.layoutControlItem126.OptionsTableLayoutItem.RowIndex = 19;
-            this.layoutControlItem126.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem126.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem126.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
             this.layoutControlItem126.Text = "二级起爆1:";
             this.layoutControlItem126.TextSize = new System.Drawing.Size(113, 18);
@@ -2681,11 +2682,11 @@
             // layoutControlItem128
             // 
             this.layoutControlItem128.Control = this.XiTong_2JiQiBao2;
-            this.layoutControlItem128.Location = new System.Drawing.Point(376, 722);
+            this.layoutControlItem128.Location = new System.Drawing.Point(383, 722);
             this.layoutControlItem128.Name = "layoutControlItem128";
             this.layoutControlItem128.OptionsTableLayoutItem.ColumnIndex = 1;
             this.layoutControlItem128.OptionsTableLayoutItem.RowIndex = 19;
-            this.layoutControlItem128.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem128.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem128.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
             this.layoutControlItem128.Text = "二级起爆2:";
             this.layoutControlItem128.TextSize = new System.Drawing.Size(113, 18);
@@ -2696,7 +2697,7 @@
             this.layoutControlItem14.Location = new System.Drawing.Point(0, 76);
             this.layoutControlItem14.Name = "layoutControlItem14";
             this.layoutControlItem14.OptionsTableLayoutItem.RowIndex = 2;
-            this.layoutControlItem14.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem14.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem14.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
             this.layoutControlItem14.Text = "数据未更新：";
             this.layoutControlItem14.TextSize = new System.Drawing.Size(113, 18);
@@ -2704,11 +2705,11 @@
             // layoutControlItem15
             // 
             this.layoutControlItem15.Control = this.XiTong_ShiJianJianGeYiChang;
-            this.layoutControlItem15.Location = new System.Drawing.Point(376, 76);
+            this.layoutControlItem15.Location = new System.Drawing.Point(383, 76);
             this.layoutControlItem15.Name = "layoutControlItem15";
             this.layoutControlItem15.OptionsTableLayoutItem.ColumnIndex = 1;
             this.layoutControlItem15.OptionsTableLayoutItem.RowIndex = 2;
-            this.layoutControlItem15.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem15.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem15.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
             this.layoutControlItem15.Text = "时间间隔异常：";
             this.layoutControlItem15.TextSize = new System.Drawing.Size(113, 18);
@@ -2716,22 +2717,22 @@
             // layoutControlItem9
             // 
             this.layoutControlItem9.Control = this.XiTong_CeLueJieDuan;
-            this.layoutControlItem9.Location = new System.Drawing.Point(752, 76);
+            this.layoutControlItem9.Location = new System.Drawing.Point(766, 76);
             this.layoutControlItem9.Name = "layoutControlItem9";
             this.layoutControlItem9.OptionsTableLayoutItem.ColumnIndex = 2;
             this.layoutControlItem9.OptionsTableLayoutItem.RowIndex = 2;
-            this.layoutControlItem9.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem9.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem9.Text = "策略阶段：";
             this.layoutControlItem9.TextSize = new System.Drawing.Size(113, 18);
             // 
             // layoutControlItem130
             // 
             this.layoutControlItem130.Control = this.XiTong_CanShiZhuangTai;
-            this.layoutControlItem130.Location = new System.Drawing.Point(752, 114);
+            this.layoutControlItem130.Location = new System.Drawing.Point(766, 114);
             this.layoutControlItem130.Name = "layoutControlItem130";
             this.layoutControlItem130.OptionsTableLayoutItem.ColumnIndex = 2;
             this.layoutControlItem130.OptionsTableLayoutItem.RowIndex = 3;
-            this.layoutControlItem130.Size = new System.Drawing.Size(376, 38);
+            this.layoutControlItem130.Size = new System.Drawing.Size(383, 38);
             this.layoutControlItem130.Text = "参试状态:";
             this.layoutControlItem130.TextSize = new System.Drawing.Size(113, 18);
             // 
@@ -2742,7 +2743,7 @@
             this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem6});
             this.layoutControlGroup3.Name = "Root";
-            this.layoutControlGroup3.Size = new System.Drawing.Size(1193, 604);
+            this.layoutControlGroup3.Size = new System.Drawing.Size(1193, 804);
             this.layoutControlGroup3.TextVisible = false;
             // 
             // layoutControlItem6
@@ -2750,7 +2751,7 @@
             this.layoutControlItem6.Control = this.xtraScrollableControl1;
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(1173, 584);
+            this.layoutControlItem6.Size = new System.Drawing.Size(1173, 784);
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
             // 
@@ -3667,7 +3668,7 @@
             this.xtraScrollableControl3.Controls.Add(this.layoutControl9);
             this.xtraScrollableControl3.Location = new System.Drawing.Point(12, 12);
             this.xtraScrollableControl3.Name = "xtraScrollableControl3";
-            this.xtraScrollableControl3.Size = new System.Drawing.Size(1168, 580);
+            this.xtraScrollableControl3.Size = new System.Drawing.Size(1189, 573);
             this.xtraScrollableControl3.TabIndex = 6;
             // 
             // layoutControl9
@@ -3716,7 +3717,7 @@
             this.layoutControl9.Location = new System.Drawing.Point(0, 0);
             this.layoutControl9.Name = "layoutControl9";
             this.layoutControl9.Root = this.layoutControlGroup10;
-            this.layoutControl9.Size = new System.Drawing.Size(1168, 580);
+            this.layoutControl9.Size = new System.Drawing.Size(1189, 573);
             this.layoutControl9.TabIndex = 0;
             this.layoutControl9.Text = "layoutControl9";
             // 
@@ -3725,7 +3726,7 @@
             this.DHManSu_GPSTime.Enabled = false;
             this.DHManSu_GPSTime.Location = new System.Drawing.Point(128, 12);
             this.DHManSu_GPSTime.Name = "DHManSu_GPSTime";
-            this.DHManSu_GPSTime.Size = new System.Drawing.Size(212, 24);
+            this.DHManSu_GPSTime.Size = new System.Drawing.Size(219, 24);
             this.DHManSu_GPSTime.StyleController = this.layoutControl9;
             this.DHManSu_GPSTime.TabIndex = 4;
             // 
@@ -3734,34 +3735,34 @@
             this.DHManSu_XTuoLuoZheng5VDianYa.Enabled = false;
             this.DHManSu_XTuoLuoZheng5VDianYa.Location = new System.Drawing.Point(128, 88);
             this.DHManSu_XTuoLuoZheng5VDianYa.Name = "DHManSu_XTuoLuoZheng5VDianYa";
-            this.DHManSu_XTuoLuoZheng5VDianYa.Size = new System.Drawing.Size(212, 24);
+            this.DHManSu_XTuoLuoZheng5VDianYa.Size = new System.Drawing.Size(219, 24);
             this.DHManSu_XTuoLuoZheng5VDianYa.StyleController = this.layoutControl9;
             this.DHManSu_XTuoLuoZheng5VDianYa.TabIndex = 6;
             // 
             // DHManSu_GPSSVKeYong
             // 
             this.DHManSu_GPSSVKeYong.Enabled = false;
-            this.DHManSu_GPSSVKeYong.Location = new System.Drawing.Point(510, 12);
+            this.DHManSu_GPSSVKeYong.Location = new System.Drawing.Point(517, 12);
             this.DHManSu_GPSSVKeYong.Name = "DHManSu_GPSSVKeYong";
-            this.DHManSu_GPSSVKeYong.Size = new System.Drawing.Size(213, 24);
+            this.DHManSu_GPSSVKeYong.Size = new System.Drawing.Size(220, 24);
             this.DHManSu_GPSSVKeYong.StyleController = this.layoutControl9;
             this.DHManSu_GPSSVKeYong.TabIndex = 7;
             // 
             // DHManSu_XTuoLuoFu5VDianYa
             // 
             this.DHManSu_XTuoLuoFu5VDianYa.Enabled = false;
-            this.DHManSu_XTuoLuoFu5VDianYa.Location = new System.Drawing.Point(510, 88);
+            this.DHManSu_XTuoLuoFu5VDianYa.Location = new System.Drawing.Point(517, 88);
             this.DHManSu_XTuoLuoFu5VDianYa.Name = "DHManSu_XTuoLuoFu5VDianYa";
-            this.DHManSu_XTuoLuoFu5VDianYa.Size = new System.Drawing.Size(213, 24);
+            this.DHManSu_XTuoLuoFu5VDianYa.Size = new System.Drawing.Size(220, 24);
             this.DHManSu_XTuoLuoFu5VDianYa.StyleController = this.layoutControl9;
             this.DHManSu_XTuoLuoFu5VDianYa.TabIndex = 8;
             // 
             // DHManSu_GPSCanYuDingWei
             // 
             this.DHManSu_GPSCanYuDingWei.Enabled = false;
-            this.DHManSu_GPSCanYuDingWei.Location = new System.Drawing.Point(893, 12);
+            this.DHManSu_GPSCanYuDingWei.Location = new System.Drawing.Point(907, 12);
             this.DHManSu_GPSCanYuDingWei.Name = "DHManSu_GPSCanYuDingWei";
-            this.DHManSu_GPSCanYuDingWei.Size = new System.Drawing.Size(263, 24);
+            this.DHManSu_GPSCanYuDingWei.Size = new System.Drawing.Size(270, 24);
             this.DHManSu_GPSCanYuDingWei.StyleController = this.layoutControl9;
             this.DHManSu_GPSCanYuDingWei.TabIndex = 10;
             // 
@@ -3770,34 +3771,34 @@
             this.textEdit32.Enabled = false;
             this.textEdit32.Location = new System.Drawing.Point(128, 50);
             this.textEdit32.Name = "textEdit32";
-            this.textEdit32.Size = new System.Drawing.Size(212, 24);
+            this.textEdit32.Size = new System.Drawing.Size(219, 24);
             this.textEdit32.StyleController = this.layoutControl9;
             this.textEdit32.TabIndex = 11;
             // 
             // DHManSu_BD2CanYuDingWei
             // 
             this.DHManSu_BD2CanYuDingWei.Enabled = false;
-            this.DHManSu_BD2CanYuDingWei.Location = new System.Drawing.Point(510, 50);
+            this.DHManSu_BD2CanYuDingWei.Location = new System.Drawing.Point(517, 50);
             this.DHManSu_BD2CanYuDingWei.Name = "DHManSu_BD2CanYuDingWei";
-            this.DHManSu_BD2CanYuDingWei.Size = new System.Drawing.Size(213, 24);
+            this.DHManSu_BD2CanYuDingWei.Size = new System.Drawing.Size(220, 24);
             this.DHManSu_BD2CanYuDingWei.StyleController = this.layoutControl9;
             this.DHManSu_BD2CanYuDingWei.TabIndex = 12;
             // 
             // DHManSu_PDOP
             // 
             this.DHManSu_PDOP.Enabled = false;
-            this.DHManSu_PDOP.Location = new System.Drawing.Point(893, 50);
+            this.DHManSu_PDOP.Location = new System.Drawing.Point(907, 50);
             this.DHManSu_PDOP.Name = "DHManSu_PDOP";
-            this.DHManSu_PDOP.Size = new System.Drawing.Size(263, 24);
+            this.DHManSu_PDOP.Size = new System.Drawing.Size(270, 24);
             this.DHManSu_PDOP.StyleController = this.layoutControl9;
             this.DHManSu_PDOP.TabIndex = 13;
             // 
             // DHManSu_HDOP
             // 
             this.DHManSu_HDOP.Enabled = false;
-            this.DHManSu_HDOP.Location = new System.Drawing.Point(893, 88);
+            this.DHManSu_HDOP.Location = new System.Drawing.Point(907, 88);
             this.DHManSu_HDOP.Name = "DHManSu_HDOP";
-            this.DHManSu_HDOP.Size = new System.Drawing.Size(263, 24);
+            this.DHManSu_HDOP.Size = new System.Drawing.Size(270, 24);
             this.DHManSu_HDOP.StyleController = this.layoutControl9;
             this.DHManSu_HDOP.TabIndex = 14;
             // 
@@ -3806,16 +3807,16 @@
             this.DHManSu_YTuoLuoZheng5VDianYa.Enabled = false;
             this.DHManSu_YTuoLuoZheng5VDianYa.Location = new System.Drawing.Point(128, 126);
             this.DHManSu_YTuoLuoZheng5VDianYa.Name = "DHManSu_YTuoLuoZheng5VDianYa";
-            this.DHManSu_YTuoLuoZheng5VDianYa.Size = new System.Drawing.Size(212, 24);
+            this.DHManSu_YTuoLuoZheng5VDianYa.Size = new System.Drawing.Size(219, 24);
             this.DHManSu_YTuoLuoZheng5VDianYa.StyleController = this.layoutControl9;
             this.DHManSu_YTuoLuoZheng5VDianYa.TabIndex = 16;
             // 
             // DHManSu_YTuoLuoFu5VDianYa
             // 
             this.DHManSu_YTuoLuoFu5VDianYa.Enabled = false;
-            this.DHManSu_YTuoLuoFu5VDianYa.Location = new System.Drawing.Point(510, 126);
+            this.DHManSu_YTuoLuoFu5VDianYa.Location = new System.Drawing.Point(517, 126);
             this.DHManSu_YTuoLuoFu5VDianYa.Name = "DHManSu_YTuoLuoFu5VDianYa";
-            this.DHManSu_YTuoLuoFu5VDianYa.Size = new System.Drawing.Size(213, 24);
+            this.DHManSu_YTuoLuoFu5VDianYa.Size = new System.Drawing.Size(220, 24);
             this.DHManSu_YTuoLuoFu5VDianYa.StyleController = this.layoutControl9;
             this.DHManSu_YTuoLuoFu5VDianYa.TabIndex = 17;
             // 
@@ -3824,16 +3825,16 @@
             this.DHManSu_ZTuoLuoZheng5VDianYa.Enabled = false;
             this.DHManSu_ZTuoLuoZheng5VDianYa.Location = new System.Drawing.Point(128, 164);
             this.DHManSu_ZTuoLuoZheng5VDianYa.Name = "DHManSu_ZTuoLuoZheng5VDianYa";
-            this.DHManSu_ZTuoLuoZheng5VDianYa.Size = new System.Drawing.Size(212, 24);
+            this.DHManSu_ZTuoLuoZheng5VDianYa.Size = new System.Drawing.Size(219, 24);
             this.DHManSu_ZTuoLuoZheng5VDianYa.StyleController = this.layoutControl9;
             this.DHManSu_ZTuoLuoZheng5VDianYa.TabIndex = 18;
             // 
             // DHManSu_ZTuoLuoFu5VDianYa
             // 
             this.DHManSu_ZTuoLuoFu5VDianYa.Enabled = false;
-            this.DHManSu_ZTuoLuoFu5VDianYa.Location = new System.Drawing.Point(510, 164);
+            this.DHManSu_ZTuoLuoFu5VDianYa.Location = new System.Drawing.Point(517, 164);
             this.DHManSu_ZTuoLuoFu5VDianYa.Name = "DHManSu_ZTuoLuoFu5VDianYa";
-            this.DHManSu_ZTuoLuoFu5VDianYa.Size = new System.Drawing.Size(213, 24);
+            this.DHManSu_ZTuoLuoFu5VDianYa.Size = new System.Drawing.Size(220, 24);
             this.DHManSu_ZTuoLuoFu5VDianYa.StyleController = this.layoutControl9;
             this.DHManSu_ZTuoLuoFu5VDianYa.TabIndex = 19;
             // 
@@ -3842,34 +3843,34 @@
             this.DHManSu_XTuoLuoTongXinError.Enabled = false;
             this.DHManSu_XTuoLuoTongXinError.Location = new System.Drawing.Point(128, 202);
             this.DHManSu_XTuoLuoTongXinError.Name = "DHManSu_XTuoLuoTongXinError";
-            this.DHManSu_XTuoLuoTongXinError.Size = new System.Drawing.Size(212, 24);
+            this.DHManSu_XTuoLuoTongXinError.Size = new System.Drawing.Size(219, 24);
             this.DHManSu_XTuoLuoTongXinError.StyleController = this.layoutControl9;
             this.DHManSu_XTuoLuoTongXinError.TabIndex = 20;
             // 
             // DHManSu_YTuoLuoTongXinError
             // 
             this.DHManSu_YTuoLuoTongXinError.Enabled = false;
-            this.DHManSu_YTuoLuoTongXinError.Location = new System.Drawing.Point(510, 202);
+            this.DHManSu_YTuoLuoTongXinError.Location = new System.Drawing.Point(517, 202);
             this.DHManSu_YTuoLuoTongXinError.Name = "DHManSu_YTuoLuoTongXinError";
-            this.DHManSu_YTuoLuoTongXinError.Size = new System.Drawing.Size(213, 24);
+            this.DHManSu_YTuoLuoTongXinError.Size = new System.Drawing.Size(220, 24);
             this.DHManSu_YTuoLuoTongXinError.StyleController = this.layoutControl9;
             this.DHManSu_YTuoLuoTongXinError.TabIndex = 21;
             // 
             // DHManSu_ZTuoLuoTongXinError
             // 
             this.DHManSu_ZTuoLuoTongXinError.Enabled = false;
-            this.DHManSu_ZTuoLuoTongXinError.Location = new System.Drawing.Point(893, 202);
+            this.DHManSu_ZTuoLuoTongXinError.Location = new System.Drawing.Point(907, 202);
             this.DHManSu_ZTuoLuoTongXinError.Name = "DHManSu_ZTuoLuoTongXinError";
-            this.DHManSu_ZTuoLuoTongXinError.Size = new System.Drawing.Size(263, 24);
+            this.DHManSu_ZTuoLuoTongXinError.Size = new System.Drawing.Size(270, 24);
             this.DHManSu_ZTuoLuoTongXinError.StyleController = this.layoutControl9;
             this.DHManSu_ZTuoLuoTongXinError.TabIndex = 22;
             // 
             // DHManSu_GPSJieShouJiTongXinError
             // 
             this.DHManSu_GPSJieShouJiTongXinError.Enabled = false;
-            this.DHManSu_GPSJieShouJiTongXinError.Location = new System.Drawing.Point(893, 164);
+            this.DHManSu_GPSJieShouJiTongXinError.Location = new System.Drawing.Point(907, 164);
             this.DHManSu_GPSJieShouJiTongXinError.Name = "DHManSu_GPSJieShouJiTongXinError";
-            this.DHManSu_GPSJieShouJiTongXinError.Size = new System.Drawing.Size(263, 24);
+            this.DHManSu_GPSJieShouJiTongXinError.Size = new System.Drawing.Size(270, 24);
             this.DHManSu_GPSJieShouJiTongXinError.StyleController = this.layoutControl9;
             this.DHManSu_GPSJieShouJiTongXinError.TabIndex = 23;
             // 
@@ -3878,25 +3879,25 @@
             this.DHManSu_IMUZhongDuan.Enabled = false;
             this.DHManSu_IMUZhongDuan.Location = new System.Drawing.Point(128, 240);
             this.DHManSu_IMUZhongDuan.Name = "DHManSu_IMUZhongDuan";
-            this.DHManSu_IMUZhongDuan.Size = new System.Drawing.Size(212, 24);
+            this.DHManSu_IMUZhongDuan.Size = new System.Drawing.Size(219, 24);
             this.DHManSu_IMUZhongDuan.StyleController = this.layoutControl9;
             this.DHManSu_IMUZhongDuan.TabIndex = 24;
             // 
             // DHManSu_GPSZhongDuan
             // 
             this.DHManSu_GPSZhongDuan.Enabled = false;
-            this.DHManSu_GPSZhongDuan.Location = new System.Drawing.Point(510, 240);
+            this.DHManSu_GPSZhongDuan.Location = new System.Drawing.Point(517, 240);
             this.DHManSu_GPSZhongDuan.Name = "DHManSu_GPSZhongDuan";
-            this.DHManSu_GPSZhongDuan.Size = new System.Drawing.Size(213, 24);
+            this.DHManSu_GPSZhongDuan.Size = new System.Drawing.Size(220, 24);
             this.DHManSu_GPSZhongDuan.StyleController = this.layoutControl9;
             this.DHManSu_GPSZhongDuan.TabIndex = 25;
             // 
             // DHManSu_DaoHangChuZhiZhuangDing
             // 
             this.DHManSu_DaoHangChuZhiZhuangDing.Enabled = false;
-            this.DHManSu_DaoHangChuZhiZhuangDing.Location = new System.Drawing.Point(893, 240);
+            this.DHManSu_DaoHangChuZhiZhuangDing.Location = new System.Drawing.Point(907, 240);
             this.DHManSu_DaoHangChuZhiZhuangDing.Name = "DHManSu_DaoHangChuZhiZhuangDing";
-            this.DHManSu_DaoHangChuZhiZhuangDing.Size = new System.Drawing.Size(263, 24);
+            this.DHManSu_DaoHangChuZhiZhuangDing.Size = new System.Drawing.Size(270, 24);
             this.DHManSu_DaoHangChuZhiZhuangDing.StyleController = this.layoutControl9;
             this.DHManSu_DaoHangChuZhiZhuangDing.TabIndex = 26;
             // 
@@ -3905,25 +3906,25 @@
             this.DHManSu_XTuoLuoWenDu.Enabled = false;
             this.DHManSu_XTuoLuoWenDu.Location = new System.Drawing.Point(128, 278);
             this.DHManSu_XTuoLuoWenDu.Name = "DHManSu_XTuoLuoWenDu";
-            this.DHManSu_XTuoLuoWenDu.Size = new System.Drawing.Size(212, 24);
+            this.DHManSu_XTuoLuoWenDu.Size = new System.Drawing.Size(219, 24);
             this.DHManSu_XTuoLuoWenDu.StyleController = this.layoutControl9;
             this.DHManSu_XTuoLuoWenDu.TabIndex = 27;
             // 
             // DHManSu_YTuoLuoWenDu
             // 
             this.DHManSu_YTuoLuoWenDu.Enabled = false;
-            this.DHManSu_YTuoLuoWenDu.Location = new System.Drawing.Point(510, 278);
+            this.DHManSu_YTuoLuoWenDu.Location = new System.Drawing.Point(517, 278);
             this.DHManSu_YTuoLuoWenDu.Name = "DHManSu_YTuoLuoWenDu";
-            this.DHManSu_YTuoLuoWenDu.Size = new System.Drawing.Size(213, 24);
+            this.DHManSu_YTuoLuoWenDu.Size = new System.Drawing.Size(220, 24);
             this.DHManSu_YTuoLuoWenDu.StyleController = this.layoutControl9;
             this.DHManSu_YTuoLuoWenDu.TabIndex = 28;
             // 
             // DHManSu_ZTuoLuoWenDu
             // 
             this.DHManSu_ZTuoLuoWenDu.Enabled = false;
-            this.DHManSu_ZTuoLuoWenDu.Location = new System.Drawing.Point(893, 278);
+            this.DHManSu_ZTuoLuoWenDu.Location = new System.Drawing.Point(907, 278);
             this.DHManSu_ZTuoLuoWenDu.Name = "DHManSu_ZTuoLuoWenDu";
-            this.DHManSu_ZTuoLuoWenDu.Size = new System.Drawing.Size(263, 24);
+            this.DHManSu_ZTuoLuoWenDu.Size = new System.Drawing.Size(270, 24);
             this.DHManSu_ZTuoLuoWenDu.StyleController = this.layoutControl9;
             this.DHManSu_ZTuoLuoWenDu.TabIndex = 29;
             // 
@@ -3932,16 +3933,16 @@
             this.DHManSu_Zheng5VDianYa.Enabled = false;
             this.DHManSu_Zheng5VDianYa.Location = new System.Drawing.Point(128, 316);
             this.DHManSu_Zheng5VDianYa.Name = "DHManSu_Zheng5VDianYa";
-            this.DHManSu_Zheng5VDianYa.Size = new System.Drawing.Size(212, 24);
+            this.DHManSu_Zheng5VDianYa.Size = new System.Drawing.Size(219, 24);
             this.DHManSu_Zheng5VDianYa.StyleController = this.layoutControl9;
             this.DHManSu_Zheng5VDianYa.TabIndex = 30;
             // 
             // DHManSu_Fu5VDianYa
             // 
             this.DHManSu_Fu5VDianYa.Enabled = false;
-            this.DHManSu_Fu5VDianYa.Location = new System.Drawing.Point(510, 316);
+            this.DHManSu_Fu5VDianYa.Location = new System.Drawing.Point(517, 316);
             this.DHManSu_Fu5VDianYa.Name = "DHManSu_Fu5VDianYa";
-            this.DHManSu_Fu5VDianYa.Size = new System.Drawing.Size(213, 24);
+            this.DHManSu_Fu5VDianYa.Size = new System.Drawing.Size(220, 24);
             this.DHManSu_Fu5VDianYa.StyleController = this.layoutControl9;
             this.DHManSu_Fu5VDianYa.TabIndex = 31;
             // 
@@ -3950,34 +3951,34 @@
             this.DHManSu_Zheng15VDianYa.Enabled = false;
             this.DHManSu_Zheng15VDianYa.Location = new System.Drawing.Point(128, 354);
             this.DHManSu_Zheng15VDianYa.Name = "DHManSu_Zheng15VDianYa";
-            this.DHManSu_Zheng15VDianYa.Size = new System.Drawing.Size(212, 24);
+            this.DHManSu_Zheng15VDianYa.Size = new System.Drawing.Size(219, 24);
             this.DHManSu_Zheng15VDianYa.StyleController = this.layoutControl9;
             this.DHManSu_Zheng15VDianYa.TabIndex = 32;
             // 
             // DHManSu_Fu15VDianYa
             // 
             this.DHManSu_Fu15VDianYa.Enabled = false;
-            this.DHManSu_Fu15VDianYa.Location = new System.Drawing.Point(510, 354);
+            this.DHManSu_Fu15VDianYa.Location = new System.Drawing.Point(517, 354);
             this.DHManSu_Fu15VDianYa.Name = "DHManSu_Fu15VDianYa";
-            this.DHManSu_Fu15VDianYa.Size = new System.Drawing.Size(213, 24);
+            this.DHManSu_Fu15VDianYa.Size = new System.Drawing.Size(220, 24);
             this.DHManSu_Fu15VDianYa.StyleController = this.layoutControl9;
             this.DHManSu_Fu15VDianYa.TabIndex = 33;
             // 
             // DHManSu_1553ShuJuFaSong
             // 
             this.DHManSu_1553ShuJuFaSong.Enabled = false;
-            this.DHManSu_1553ShuJuFaSong.Location = new System.Drawing.Point(893, 316);
+            this.DHManSu_1553ShuJuFaSong.Location = new System.Drawing.Point(907, 316);
             this.DHManSu_1553ShuJuFaSong.Name = "DHManSu_1553ShuJuFaSong";
-            this.DHManSu_1553ShuJuFaSong.Size = new System.Drawing.Size(263, 24);
+            this.DHManSu_1553ShuJuFaSong.Size = new System.Drawing.Size(270, 24);
             this.DHManSu_1553ShuJuFaSong.StyleController = this.layoutControl9;
             this.DHManSu_1553ShuJuFaSong.TabIndex = 34;
             // 
             // DHManSu_DaoHangBiaoZhi
             // 
             this.DHManSu_DaoHangBiaoZhi.Enabled = false;
-            this.DHManSu_DaoHangBiaoZhi.Location = new System.Drawing.Point(893, 354);
+            this.DHManSu_DaoHangBiaoZhi.Location = new System.Drawing.Point(907, 354);
             this.DHManSu_DaoHangBiaoZhi.Name = "DHManSu_DaoHangBiaoZhi";
-            this.DHManSu_DaoHangBiaoZhi.Size = new System.Drawing.Size(263, 24);
+            this.DHManSu_DaoHangBiaoZhi.Size = new System.Drawing.Size(270, 24);
             this.DHManSu_DaoHangBiaoZhi.StyleController = this.layoutControl9;
             this.DHManSu_DaoHangBiaoZhi.TabIndex = 35;
             // 
@@ -3986,25 +3987,25 @@
             this.DHManSu_DuiZhunWanCheng.Enabled = false;
             this.DHManSu_DuiZhunWanCheng.Location = new System.Drawing.Point(128, 392);
             this.DHManSu_DuiZhunWanCheng.Name = "DHManSu_DuiZhunWanCheng";
-            this.DHManSu_DuiZhunWanCheng.Size = new System.Drawing.Size(212, 24);
+            this.DHManSu_DuiZhunWanCheng.Size = new System.Drawing.Size(219, 24);
             this.DHManSu_DuiZhunWanCheng.StyleController = this.layoutControl9;
             this.DHManSu_DuiZhunWanCheng.TabIndex = 36;
             // 
             // DHManSu_ZhuangDingCanShuDuQu
             // 
             this.DHManSu_ZhuangDingCanShuDuQu.Enabled = false;
-            this.DHManSu_ZhuangDingCanShuDuQu.Location = new System.Drawing.Point(510, 392);
+            this.DHManSu_ZhuangDingCanShuDuQu.Location = new System.Drawing.Point(517, 392);
             this.DHManSu_ZhuangDingCanShuDuQu.Name = "DHManSu_ZhuangDingCanShuDuQu";
-            this.DHManSu_ZhuangDingCanShuDuQu.Size = new System.Drawing.Size(213, 24);
+            this.DHManSu_ZhuangDingCanShuDuQu.Size = new System.Drawing.Size(220, 24);
             this.DHManSu_ZhuangDingCanShuDuQu.StyleController = this.layoutControl9;
             this.DHManSu_ZhuangDingCanShuDuQu.TabIndex = 37;
             // 
             // DHManSu_GongZuoMoShi
             // 
             this.DHManSu_GongZuoMoShi.Enabled = false;
-            this.DHManSu_GongZuoMoShi.Location = new System.Drawing.Point(893, 392);
+            this.DHManSu_GongZuoMoShi.Location = new System.Drawing.Point(907, 392);
             this.DHManSu_GongZuoMoShi.Name = "DHManSu_GongZuoMoShi";
-            this.DHManSu_GongZuoMoShi.Size = new System.Drawing.Size(263, 24);
+            this.DHManSu_GongZuoMoShi.Size = new System.Drawing.Size(270, 24);
             this.DHManSu_GongZuoMoShi.StyleController = this.layoutControl9;
             this.DHManSu_GongZuoMoShi.TabIndex = 38;
             // 
@@ -4013,25 +4014,25 @@
             this.DHManSu_GPSZuHe.Enabled = false;
             this.DHManSu_GPSZuHe.Location = new System.Drawing.Point(128, 430);
             this.DHManSu_GPSZuHe.Name = "DHManSu_GPSZuHe";
-            this.DHManSu_GPSZuHe.Size = new System.Drawing.Size(212, 24);
+            this.DHManSu_GPSZuHe.Size = new System.Drawing.Size(219, 24);
             this.DHManSu_GPSZuHe.StyleController = this.layoutControl9;
             this.DHManSu_GPSZuHe.TabIndex = 39;
             // 
             // DHManSu_DianHuo
             // 
             this.DHManSu_DianHuo.Enabled = false;
-            this.DHManSu_DianHuo.Location = new System.Drawing.Point(510, 430);
+            this.DHManSu_DianHuo.Location = new System.Drawing.Point(517, 430);
             this.DHManSu_DianHuo.Name = "DHManSu_DianHuo";
-            this.DHManSu_DianHuo.Size = new System.Drawing.Size(213, 24);
+            this.DHManSu_DianHuo.Size = new System.Drawing.Size(220, 24);
             this.DHManSu_DianHuo.StyleController = this.layoutControl9;
             this.DHManSu_DianHuo.TabIndex = 40;
             // 
             // DHManSu_FenLi
             // 
             this.DHManSu_FenLi.Enabled = false;
-            this.DHManSu_FenLi.Location = new System.Drawing.Point(893, 430);
+            this.DHManSu_FenLi.Location = new System.Drawing.Point(907, 430);
             this.DHManSu_FenLi.Name = "DHManSu_FenLi";
-            this.DHManSu_FenLi.Size = new System.Drawing.Size(263, 24);
+            this.DHManSu_FenLi.Size = new System.Drawing.Size(270, 24);
             this.DHManSu_FenLi.StyleController = this.layoutControl9;
             this.DHManSu_FenLi.TabIndex = 41;
             // 
@@ -4040,16 +4041,16 @@
             this.DHManSu_GPSDingWeiZhuangTai.Enabled = false;
             this.DHManSu_GPSDingWeiZhuangTai.Location = new System.Drawing.Point(128, 506);
             this.DHManSu_GPSDingWeiZhuangTai.Name = "DHManSu_GPSDingWeiZhuangTai";
-            this.DHManSu_GPSDingWeiZhuangTai.Size = new System.Drawing.Size(212, 24);
+            this.DHManSu_GPSDingWeiZhuangTai.Size = new System.Drawing.Size(219, 24);
             this.DHManSu_GPSDingWeiZhuangTai.StyleController = this.layoutControl9;
             this.DHManSu_GPSDingWeiZhuangTai.TabIndex = 42;
             // 
             // DHManSu_VDOP
             // 
             this.DHManSu_VDOP.Enabled = false;
-            this.DHManSu_VDOP.Location = new System.Drawing.Point(893, 126);
+            this.DHManSu_VDOP.Location = new System.Drawing.Point(907, 126);
             this.DHManSu_VDOP.Name = "DHManSu_VDOP";
-            this.DHManSu_VDOP.Size = new System.Drawing.Size(263, 24);
+            this.DHManSu_VDOP.Size = new System.Drawing.Size(270, 24);
             this.DHManSu_VDOP.StyleController = this.layoutControl9;
             this.DHManSu_VDOP.TabIndex = 43;
             // 
@@ -4058,25 +4059,25 @@
             this.DHManSu_XJiaJiWenDu.Enabled = false;
             this.DHManSu_XJiaJiWenDu.Location = new System.Drawing.Point(128, 468);
             this.DHManSu_XJiaJiWenDu.Name = "DHManSu_XJiaJiWenDu";
-            this.DHManSu_XJiaJiWenDu.Size = new System.Drawing.Size(212, 24);
+            this.DHManSu_XJiaJiWenDu.Size = new System.Drawing.Size(219, 24);
             this.DHManSu_XJiaJiWenDu.StyleController = this.layoutControl9;
             this.DHManSu_XJiaJiWenDu.TabIndex = 44;
             // 
             // DHManSu_YJiaJiWenDu
             // 
             this.DHManSu_YJiaJiWenDu.Enabled = false;
-            this.DHManSu_YJiaJiWenDu.Location = new System.Drawing.Point(510, 468);
+            this.DHManSu_YJiaJiWenDu.Location = new System.Drawing.Point(517, 468);
             this.DHManSu_YJiaJiWenDu.Name = "DHManSu_YJiaJiWenDu";
-            this.DHManSu_YJiaJiWenDu.Size = new System.Drawing.Size(213, 24);
+            this.DHManSu_YJiaJiWenDu.Size = new System.Drawing.Size(220, 24);
             this.DHManSu_YJiaJiWenDu.StyleController = this.layoutControl9;
             this.DHManSu_YJiaJiWenDu.TabIndex = 45;
             // 
             // DHManSu_ZJiaJiWenDu
             // 
             this.DHManSu_ZJiaJiWenDu.Enabled = false;
-            this.DHManSu_ZJiaJiWenDu.Location = new System.Drawing.Point(893, 468);
+            this.DHManSu_ZJiaJiWenDu.Location = new System.Drawing.Point(907, 468);
             this.DHManSu_ZJiaJiWenDu.Name = "DHManSu_ZJiaJiWenDu";
-            this.DHManSu_ZJiaJiWenDu.Size = new System.Drawing.Size(263, 24);
+            this.DHManSu_ZJiaJiWenDu.Size = new System.Drawing.Size(270, 24);
             this.DHManSu_ZJiaJiWenDu.StyleController = this.layoutControl9;
             this.DHManSu_ZJiaJiWenDu.TabIndex = 46;
             // 
@@ -4163,7 +4164,7 @@
             rowDefinition41.SizeType = System.Windows.Forms.SizeType.AutoSize;
             rowDefinition42.Height = 38D;
             rowDefinition42.SizeType = System.Windows.Forms.SizeType.AutoSize;
-            rowDefinition43.Height = 66D;
+            rowDefinition43.Height = 59D;
             rowDefinition43.SizeType = System.Windows.Forms.SizeType.AutoSize;
             this.layoutControlGroup10.OptionsTableLayoutGroup.RowDefinitions.AddRange(new DevExpress.XtraLayout.RowDefinition[] {
             rowDefinition30,
@@ -4180,7 +4181,7 @@
             rowDefinition41,
             rowDefinition42,
             rowDefinition43});
-            this.layoutControlGroup10.Size = new System.Drawing.Size(1168, 580);
+            this.layoutControlGroup10.Size = new System.Drawing.Size(1189, 573);
             this.layoutControlGroup10.TextVisible = false;
             // 
             // layoutControlItem57
@@ -4188,10 +4189,450 @@
             this.layoutControlItem57.Control = this.DHManSu_GPSTime;
             this.layoutControlItem57.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem57.Name = "layoutControlItem8";
-            this.layoutControlItem57.Size = new System.Drawing.Size(382, 38);
+            this.layoutControlItem57.Size = new System.Drawing.Size(389, 38);
             this.layoutControlItem57.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
             this.layoutControlItem57.Text = "GPS时间：";
             this.layoutControlItem57.TextSize = new System.Drawing.Size(113, 18);
+            // 
+            // layoutControlItem59
+            // 
+            this.layoutControlItem59.Control = this.DHManSu_GPSSVKeYong;
+            this.layoutControlItem59.Location = new System.Drawing.Point(389, 0);
+            this.layoutControlItem59.Name = "layoutControlItem59";
+            this.layoutControlItem59.OptionsTableLayoutItem.ColumnIndex = 1;
+            this.layoutControlItem59.Size = new System.Drawing.Size(390, 38);
+            this.layoutControlItem59.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
+            this.layoutControlItem59.Text = "GPS SV可用：";
+            this.layoutControlItem59.TextSize = new System.Drawing.Size(113, 18);
+            // 
+            // layoutControlItem62
+            // 
+            this.layoutControlItem62.Control = this.DHManSu_GPSCanYuDingWei;
+            this.layoutControlItem62.Location = new System.Drawing.Point(779, 0);
+            this.layoutControlItem62.Name = "layoutControlItem62";
+            this.layoutControlItem62.OptionsTableLayoutItem.ColumnIndex = 2;
+            this.layoutControlItem62.Size = new System.Drawing.Size(390, 38);
+            this.layoutControlItem62.Text = "GPS参与定位：";
+            this.layoutControlItem62.TextSize = new System.Drawing.Size(113, 18);
+            // 
+            // layoutControlItem58
+            // 
+            this.layoutControlItem58.Control = this.DHManSu_XTuoLuoZheng5VDianYa;
+            this.layoutControlItem58.Location = new System.Drawing.Point(0, 76);
+            this.layoutControlItem58.Name = "layoutControlItem58";
+            this.layoutControlItem58.OptionsTableLayoutItem.RowIndex = 2;
+            this.layoutControlItem58.Size = new System.Drawing.Size(389, 38);
+            this.layoutControlItem58.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
+            this.layoutControlItem58.Text = "X陀螺+5V电压：";
+            this.layoutControlItem58.TextSize = new System.Drawing.Size(113, 18);
+            // 
+            // layoutControlItem60
+            // 
+            this.layoutControlItem60.Control = this.DHManSu_XTuoLuoFu5VDianYa;
+            this.layoutControlItem60.Location = new System.Drawing.Point(389, 76);
+            this.layoutControlItem60.Name = "layoutControlItem60";
+            this.layoutControlItem60.OptionsTableLayoutItem.ColumnIndex = 1;
+            this.layoutControlItem60.OptionsTableLayoutItem.RowIndex = 2;
+            this.layoutControlItem60.Size = new System.Drawing.Size(390, 38);
+            this.layoutControlItem60.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
+            this.layoutControlItem60.Text = "X陀螺-5V电压：";
+            this.layoutControlItem60.TextSize = new System.Drawing.Size(113, 18);
+            // 
+            // layoutControlItem63
+            // 
+            this.layoutControlItem63.Control = this.textEdit32;
+            this.layoutControlItem63.Location = new System.Drawing.Point(0, 38);
+            this.layoutControlItem63.Name = "layoutControlItem63";
+            this.layoutControlItem63.OptionsTableLayoutItem.RowIndex = 1;
+            this.layoutControlItem63.Size = new System.Drawing.Size(389, 38);
+            this.layoutControlItem63.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
+            this.layoutControlItem63.Text = "BD2 SV可用：";
+            this.layoutControlItem63.TextSize = new System.Drawing.Size(113, 18);
+            // 
+            // layoutControlItem64
+            // 
+            this.layoutControlItem64.Control = this.DHManSu_BD2CanYuDingWei;
+            this.layoutControlItem64.Location = new System.Drawing.Point(389, 38);
+            this.layoutControlItem64.Name = "layoutControlItem64";
+            this.layoutControlItem64.OptionsTableLayoutItem.ColumnIndex = 1;
+            this.layoutControlItem64.OptionsTableLayoutItem.RowIndex = 1;
+            this.layoutControlItem64.Size = new System.Drawing.Size(390, 38);
+            this.layoutControlItem64.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
+            this.layoutControlItem64.Text = "BD2参与定位：";
+            this.layoutControlItem64.TextSize = new System.Drawing.Size(113, 18);
+            // 
+            // layoutControlItem65
+            // 
+            this.layoutControlItem65.Control = this.DHManSu_PDOP;
+            this.layoutControlItem65.Location = new System.Drawing.Point(779, 38);
+            this.layoutControlItem65.Name = "layoutControlItem65";
+            this.layoutControlItem65.OptionsTableLayoutItem.ColumnIndex = 2;
+            this.layoutControlItem65.OptionsTableLayoutItem.RowIndex = 1;
+            this.layoutControlItem65.Size = new System.Drawing.Size(390, 38);
+            this.layoutControlItem65.Text = "PDOP：";
+            this.layoutControlItem65.TextSize = new System.Drawing.Size(113, 18);
+            // 
+            // layoutControlItem66
+            // 
+            this.layoutControlItem66.Control = this.DHManSu_HDOP;
+            this.layoutControlItem66.Location = new System.Drawing.Point(779, 76);
+            this.layoutControlItem66.Name = "layoutControlItem66";
+            this.layoutControlItem66.OptionsTableLayoutItem.ColumnIndex = 2;
+            this.layoutControlItem66.OptionsTableLayoutItem.RowIndex = 2;
+            this.layoutControlItem66.Size = new System.Drawing.Size(390, 38);
+            this.layoutControlItem66.Text = "HDOP：";
+            this.layoutControlItem66.TextSize = new System.Drawing.Size(113, 18);
+            // 
+            // layoutControlItem132
+            // 
+            this.layoutControlItem132.Control = this.DHManSu_VDOP;
+            this.layoutControlItem132.Location = new System.Drawing.Point(779, 114);
+            this.layoutControlItem132.Name = "layoutControlItem132";
+            this.layoutControlItem132.OptionsTableLayoutItem.ColumnIndex = 2;
+            this.layoutControlItem132.OptionsTableLayoutItem.RowIndex = 3;
+            this.layoutControlItem132.Size = new System.Drawing.Size(390, 38);
+            this.layoutControlItem132.Text = "VDOP：";
+            this.layoutControlItem132.TextSize = new System.Drawing.Size(113, 18);
+            // 
+            // layoutControlItem68
+            // 
+            this.layoutControlItem68.Control = this.DHManSu_YTuoLuoZheng5VDianYa;
+            this.layoutControlItem68.Location = new System.Drawing.Point(0, 114);
+            this.layoutControlItem68.Name = "layoutControlItem68";
+            this.layoutControlItem68.OptionsTableLayoutItem.RowIndex = 3;
+            this.layoutControlItem68.Size = new System.Drawing.Size(389, 38);
+            this.layoutControlItem68.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
+            this.layoutControlItem68.Text = "Y陀螺+5V电压：";
+            this.layoutControlItem68.TextSize = new System.Drawing.Size(113, 18);
+            // 
+            // layoutControlItem69
+            // 
+            this.layoutControlItem69.Control = this.DHManSu_YTuoLuoFu5VDianYa;
+            this.layoutControlItem69.Location = new System.Drawing.Point(389, 114);
+            this.layoutControlItem69.Name = "layoutControlItem69";
+            this.layoutControlItem69.OptionsTableLayoutItem.ColumnIndex = 1;
+            this.layoutControlItem69.OptionsTableLayoutItem.RowIndex = 3;
+            this.layoutControlItem69.Size = new System.Drawing.Size(390, 38);
+            this.layoutControlItem69.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
+            this.layoutControlItem69.Text = "Y陀螺-5V电压：";
+            this.layoutControlItem69.TextSize = new System.Drawing.Size(113, 18);
+            // 
+            // layoutControlItem70
+            // 
+            this.layoutControlItem70.Control = this.DHManSu_ZTuoLuoZheng5VDianYa;
+            this.layoutControlItem70.Location = new System.Drawing.Point(0, 152);
+            this.layoutControlItem70.Name = "layoutControlItem70";
+            this.layoutControlItem70.OptionsTableLayoutItem.RowIndex = 4;
+            this.layoutControlItem70.Size = new System.Drawing.Size(389, 38);
+            this.layoutControlItem70.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
+            this.layoutControlItem70.Text = "Z陀螺+5V电压：";
+            this.layoutControlItem70.TextSize = new System.Drawing.Size(113, 18);
+            // 
+            // layoutControlItem71
+            // 
+            this.layoutControlItem71.Control = this.DHManSu_ZTuoLuoFu5VDianYa;
+            this.layoutControlItem71.Location = new System.Drawing.Point(389, 152);
+            this.layoutControlItem71.Name = "layoutControlItem71";
+            this.layoutControlItem71.OptionsTableLayoutItem.ColumnIndex = 1;
+            this.layoutControlItem71.OptionsTableLayoutItem.RowIndex = 4;
+            this.layoutControlItem71.Size = new System.Drawing.Size(390, 38);
+            this.layoutControlItem71.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
+            this.layoutControlItem71.Text = "Z陀螺-5V电压：";
+            this.layoutControlItem71.TextSize = new System.Drawing.Size(113, 18);
+            // 
+            // layoutControlItem72
+            // 
+            this.layoutControlItem72.Control = this.DHManSu_XTuoLuoTongXinError;
+            this.layoutControlItem72.Location = new System.Drawing.Point(0, 190);
+            this.layoutControlItem72.Name = "layoutControlItem72";
+            this.layoutControlItem72.OptionsTableLayoutItem.RowIndex = 5;
+            this.layoutControlItem72.Size = new System.Drawing.Size(389, 38);
+            this.layoutControlItem72.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
+            this.layoutControlItem72.Text = "与X陀螺错误：";
+            this.layoutControlItem72.TextSize = new System.Drawing.Size(113, 18);
+            // 
+            // layoutControlItem74
+            // 
+            this.layoutControlItem74.Control = this.DHManSu_ZTuoLuoTongXinError;
+            this.layoutControlItem74.Location = new System.Drawing.Point(779, 190);
+            this.layoutControlItem74.Name = "layoutControlItem74";
+            this.layoutControlItem74.OptionsTableLayoutItem.ColumnIndex = 2;
+            this.layoutControlItem74.OptionsTableLayoutItem.RowIndex = 5;
+            this.layoutControlItem74.Size = new System.Drawing.Size(390, 38);
+            this.layoutControlItem74.Text = "与Z陀螺错误：";
+            this.layoutControlItem74.TextSize = new System.Drawing.Size(113, 18);
+            // 
+            // layoutControlItem73
+            // 
+            this.layoutControlItem73.Control = this.DHManSu_YTuoLuoTongXinError;
+            this.layoutControlItem73.Location = new System.Drawing.Point(389, 190);
+            this.layoutControlItem73.Name = "layoutControlItem73";
+            this.layoutControlItem73.OptionsTableLayoutItem.ColumnIndex = 1;
+            this.layoutControlItem73.OptionsTableLayoutItem.RowIndex = 5;
+            this.layoutControlItem73.Size = new System.Drawing.Size(390, 38);
+            this.layoutControlItem73.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
+            this.layoutControlItem73.Text = "与Y陀螺错误：";
+            this.layoutControlItem73.TextSize = new System.Drawing.Size(113, 18);
+            // 
+            // layoutControlItem75
+            // 
+            this.layoutControlItem75.Control = this.DHManSu_GPSJieShouJiTongXinError;
+            this.layoutControlItem75.Location = new System.Drawing.Point(779, 152);
+            this.layoutControlItem75.Name = "layoutControlItem75";
+            this.layoutControlItem75.OptionsTableLayoutItem.ColumnIndex = 2;
+            this.layoutControlItem75.OptionsTableLayoutItem.RowIndex = 4;
+            this.layoutControlItem75.Size = new System.Drawing.Size(390, 38);
+            this.layoutControlItem75.Text = "与GPS JSJ错误：";
+            this.layoutControlItem75.TextSize = new System.Drawing.Size(113, 18);
+            // 
+            // layoutControlItem76
+            // 
+            this.layoutControlItem76.Control = this.DHManSu_IMUZhongDuan;
+            this.layoutControlItem76.Location = new System.Drawing.Point(0, 228);
+            this.layoutControlItem76.Name = "layoutControlItem76";
+            this.layoutControlItem76.OptionsTableLayoutItem.RowIndex = 6;
+            this.layoutControlItem76.Size = new System.Drawing.Size(389, 38);
+            this.layoutControlItem76.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
+            this.layoutControlItem76.Text = "IMU进入中断：";
+            this.layoutControlItem76.TextSize = new System.Drawing.Size(113, 18);
+            // 
+            // layoutControlItem77
+            // 
+            this.layoutControlItem77.Control = this.DHManSu_GPSZhongDuan;
+            this.layoutControlItem77.Location = new System.Drawing.Point(389, 228);
+            this.layoutControlItem77.Name = "layoutControlItem77";
+            this.layoutControlItem77.OptionsTableLayoutItem.ColumnIndex = 1;
+            this.layoutControlItem77.OptionsTableLayoutItem.RowIndex = 6;
+            this.layoutControlItem77.Size = new System.Drawing.Size(390, 38);
+            this.layoutControlItem77.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
+            this.layoutControlItem77.Text = "GPS中断次数：";
+            this.layoutControlItem77.TextSize = new System.Drawing.Size(113, 18);
+            // 
+            // layoutControlItem78
+            // 
+            this.layoutControlItem78.Control = this.DHManSu_DaoHangChuZhiZhuangDing;
+            this.layoutControlItem78.Location = new System.Drawing.Point(779, 228);
+            this.layoutControlItem78.Name = "layoutControlItem78";
+            this.layoutControlItem78.OptionsTableLayoutItem.ColumnIndex = 2;
+            this.layoutControlItem78.OptionsTableLayoutItem.RowIndex = 6;
+            this.layoutControlItem78.Size = new System.Drawing.Size(390, 38);
+            this.layoutControlItem78.Text = "导航初值装订：";
+            this.layoutControlItem78.TextSize = new System.Drawing.Size(113, 18);
+            // 
+            // layoutControlItem79
+            // 
+            this.layoutControlItem79.Control = this.DHManSu_XTuoLuoWenDu;
+            this.layoutControlItem79.Location = new System.Drawing.Point(0, 266);
+            this.layoutControlItem79.Name = "layoutControlItem79";
+            this.layoutControlItem79.OptionsTableLayoutItem.RowIndex = 7;
+            this.layoutControlItem79.Size = new System.Drawing.Size(389, 38);
+            this.layoutControlItem79.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
+            this.layoutControlItem79.Text = "X陀螺温度：";
+            this.layoutControlItem79.TextSize = new System.Drawing.Size(113, 18);
+            // 
+            // layoutControlItem80
+            // 
+            this.layoutControlItem80.Control = this.DHManSu_YTuoLuoWenDu;
+            this.layoutControlItem80.Location = new System.Drawing.Point(389, 266);
+            this.layoutControlItem80.Name = "layoutControlItem80";
+            this.layoutControlItem80.OptionsTableLayoutItem.ColumnIndex = 1;
+            this.layoutControlItem80.OptionsTableLayoutItem.RowIndex = 7;
+            this.layoutControlItem80.Size = new System.Drawing.Size(390, 38);
+            this.layoutControlItem80.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
+            this.layoutControlItem80.Text = "Y陀螺温度：";
+            this.layoutControlItem80.TextSize = new System.Drawing.Size(113, 18);
+            // 
+            // layoutControlItem81
+            // 
+            this.layoutControlItem81.Control = this.DHManSu_ZTuoLuoWenDu;
+            this.layoutControlItem81.Location = new System.Drawing.Point(779, 266);
+            this.layoutControlItem81.Name = "layoutControlItem81";
+            this.layoutControlItem81.OptionsTableLayoutItem.ColumnIndex = 2;
+            this.layoutControlItem81.OptionsTableLayoutItem.RowIndex = 7;
+            this.layoutControlItem81.Size = new System.Drawing.Size(390, 38);
+            this.layoutControlItem81.Text = "Z陀螺温度：";
+            this.layoutControlItem81.TextSize = new System.Drawing.Size(113, 18);
+            // 
+            // layoutControlItem61
+            // 
+            this.layoutControlItem61.Control = this.DHManSu_Zheng5VDianYa;
+            this.layoutControlItem61.Location = new System.Drawing.Point(0, 304);
+            this.layoutControlItem61.Name = "layoutControlItem61";
+            this.layoutControlItem61.OptionsTableLayoutItem.RowIndex = 8;
+            this.layoutControlItem61.Size = new System.Drawing.Size(389, 38);
+            this.layoutControlItem61.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
+            this.layoutControlItem61.Text = "+5V电压值：";
+            this.layoutControlItem61.TextSize = new System.Drawing.Size(113, 18);
+            // 
+            // layoutControlItem67
+            // 
+            this.layoutControlItem67.Control = this.DHManSu_Fu5VDianYa;
+            this.layoutControlItem67.Location = new System.Drawing.Point(389, 304);
+            this.layoutControlItem67.Name = "layoutControlItem67";
+            this.layoutControlItem67.OptionsTableLayoutItem.ColumnIndex = 1;
+            this.layoutControlItem67.OptionsTableLayoutItem.RowIndex = 8;
+            this.layoutControlItem67.Size = new System.Drawing.Size(390, 38);
+            this.layoutControlItem67.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
+            this.layoutControlItem67.Text = "-5V电压值：";
+            this.layoutControlItem67.TextSize = new System.Drawing.Size(113, 18);
+            // 
+            // layoutControlItem84
+            // 
+            this.layoutControlItem84.Control = this.DHManSu_Zheng15VDianYa;
+            this.layoutControlItem84.Location = new System.Drawing.Point(0, 342);
+            this.layoutControlItem84.Name = "layoutControlItem84";
+            this.layoutControlItem84.OptionsTableLayoutItem.RowIndex = 9;
+            this.layoutControlItem84.Size = new System.Drawing.Size(389, 38);
+            this.layoutControlItem84.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
+            this.layoutControlItem84.Text = "+15V电压值：";
+            this.layoutControlItem84.TextSize = new System.Drawing.Size(113, 18);
+            // 
+            // layoutControlItem85
+            // 
+            this.layoutControlItem85.Control = this.DHManSu_Fu15VDianYa;
+            this.layoutControlItem85.Location = new System.Drawing.Point(389, 342);
+            this.layoutControlItem85.Name = "layoutControlItem85";
+            this.layoutControlItem85.OptionsTableLayoutItem.ColumnIndex = 1;
+            this.layoutControlItem85.OptionsTableLayoutItem.RowIndex = 9;
+            this.layoutControlItem85.Size = new System.Drawing.Size(390, 38);
+            this.layoutControlItem85.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
+            this.layoutControlItem85.Text = "-15V电压值：";
+            this.layoutControlItem85.TextSize = new System.Drawing.Size(113, 18);
+            // 
+            // layoutControlItem86
+            // 
+            this.layoutControlItem86.Control = this.DHManSu_1553ShuJuFaSong;
+            this.layoutControlItem86.Location = new System.Drawing.Point(779, 304);
+            this.layoutControlItem86.Name = "layoutControlItem86";
+            this.layoutControlItem86.OptionsTableLayoutItem.ColumnIndex = 2;
+            this.layoutControlItem86.OptionsTableLayoutItem.RowIndex = 8;
+            this.layoutControlItem86.Size = new System.Drawing.Size(390, 38);
+            this.layoutControlItem86.Text = "发送1553数据：";
+            this.layoutControlItem86.TextSize = new System.Drawing.Size(113, 18);
+            // 
+            // layoutControlItem87
+            // 
+            this.layoutControlItem87.Control = this.DHManSu_DaoHangBiaoZhi;
+            this.layoutControlItem87.Location = new System.Drawing.Point(779, 342);
+            this.layoutControlItem87.Name = "layoutControlItem87";
+            this.layoutControlItem87.OptionsTableLayoutItem.ColumnIndex = 2;
+            this.layoutControlItem87.OptionsTableLayoutItem.RowIndex = 9;
+            this.layoutControlItem87.Size = new System.Drawing.Size(390, 38);
+            this.layoutControlItem87.Text = "导航标志：";
+            this.layoutControlItem87.TextSize = new System.Drawing.Size(113, 18);
+            // 
+            // layoutControlItem88
+            // 
+            this.layoutControlItem88.Control = this.DHManSu_DuiZhunWanCheng;
+            this.layoutControlItem88.Location = new System.Drawing.Point(0, 380);
+            this.layoutControlItem88.Name = "layoutControlItem88";
+            this.layoutControlItem88.OptionsTableLayoutItem.RowIndex = 10;
+            this.layoutControlItem88.Size = new System.Drawing.Size(389, 38);
+            this.layoutControlItem88.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
+            this.layoutControlItem88.Text = "对准完成标志：";
+            this.layoutControlItem88.TextSize = new System.Drawing.Size(113, 18);
+            // 
+            // layoutControlItem89
+            // 
+            this.layoutControlItem89.Control = this.DHManSu_ZhuangDingCanShuDuQu;
+            this.layoutControlItem89.Location = new System.Drawing.Point(389, 380);
+            this.layoutControlItem89.Name = "layoutControlItem89";
+            this.layoutControlItem89.OptionsTableLayoutItem.ColumnIndex = 1;
+            this.layoutControlItem89.OptionsTableLayoutItem.RowIndex = 10;
+            this.layoutControlItem89.Size = new System.Drawing.Size(390, 38);
+            this.layoutControlItem89.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
+            this.layoutControlItem89.Text = "装订参数读取：";
+            this.layoutControlItem89.TextSize = new System.Drawing.Size(113, 18);
+            // 
+            // layoutControlItem90
+            // 
+            this.layoutControlItem90.Control = this.DHManSu_GongZuoMoShi;
+            this.layoutControlItem90.Location = new System.Drawing.Point(779, 380);
+            this.layoutControlItem90.Name = "layoutControlItem90";
+            this.layoutControlItem90.OptionsTableLayoutItem.ColumnIndex = 2;
+            this.layoutControlItem90.OptionsTableLayoutItem.RowIndex = 10;
+            this.layoutControlItem90.Size = new System.Drawing.Size(390, 38);
+            this.layoutControlItem90.Text = "工作模式：";
+            this.layoutControlItem90.TextSize = new System.Drawing.Size(113, 18);
+            // 
+            // layoutControlItem91
+            // 
+            this.layoutControlItem91.Control = this.DHManSu_GPSZuHe;
+            this.layoutControlItem91.Location = new System.Drawing.Point(0, 418);
+            this.layoutControlItem91.Name = "layoutControlItem91";
+            this.layoutControlItem91.OptionsTableLayoutItem.RowIndex = 11;
+            this.layoutControlItem91.Size = new System.Drawing.Size(389, 38);
+            this.layoutControlItem91.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
+            this.layoutControlItem91.Text = "GPS组合：";
+            this.layoutControlItem91.TextSize = new System.Drawing.Size(113, 18);
+            // 
+            // layoutControlItem92
+            // 
+            this.layoutControlItem92.Control = this.DHManSu_DianHuo;
+            this.layoutControlItem92.Location = new System.Drawing.Point(389, 418);
+            this.layoutControlItem92.Name = "layoutControlItem92";
+            this.layoutControlItem92.OptionsTableLayoutItem.ColumnIndex = 1;
+            this.layoutControlItem92.OptionsTableLayoutItem.RowIndex = 11;
+            this.layoutControlItem92.Size = new System.Drawing.Size(390, 38);
+            this.layoutControlItem92.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
+            this.layoutControlItem92.Text = "点火标志：";
+            this.layoutControlItem92.TextSize = new System.Drawing.Size(113, 18);
+            // 
+            // layoutControlItem93
+            // 
+            this.layoutControlItem93.Control = this.DHManSu_FenLi;
+            this.layoutControlItem93.Location = new System.Drawing.Point(779, 418);
+            this.layoutControlItem93.Name = "layoutControlItem93";
+            this.layoutControlItem93.OptionsTableLayoutItem.ColumnIndex = 2;
+            this.layoutControlItem93.OptionsTableLayoutItem.RowIndex = 11;
+            this.layoutControlItem93.Size = new System.Drawing.Size(390, 38);
+            this.layoutControlItem93.Text = "分离标志：";
+            this.layoutControlItem93.TextSize = new System.Drawing.Size(113, 18);
+            // 
+            // layoutControlItem94
+            // 
+            this.layoutControlItem94.Control = this.DHManSu_GPSDingWeiZhuangTai;
+            this.layoutControlItem94.Location = new System.Drawing.Point(0, 494);
+            this.layoutControlItem94.Name = "layoutControlItem94";
+            this.layoutControlItem94.OptionsTableLayoutItem.RowIndex = 13;
+            this.layoutControlItem94.Size = new System.Drawing.Size(389, 59);
+            this.layoutControlItem94.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
+            this.layoutControlItem94.Text = "GPS定位/状态：";
+            this.layoutControlItem94.TextSize = new System.Drawing.Size(113, 18);
+            // 
+            // layoutControlItem133
+            // 
+            this.layoutControlItem133.Control = this.DHManSu_XJiaJiWenDu;
+            this.layoutControlItem133.Location = new System.Drawing.Point(0, 456);
+            this.layoutControlItem133.Name = "layoutControlItem133";
+            this.layoutControlItem133.OptionsTableLayoutItem.RowIndex = 12;
+            this.layoutControlItem133.Size = new System.Drawing.Size(389, 38);
+            this.layoutControlItem133.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
+            this.layoutControlItem133.Text = "X加计温度：";
+            this.layoutControlItem133.TextSize = new System.Drawing.Size(113, 18);
+            // 
+            // layoutControlItem134
+            // 
+            this.layoutControlItem134.Control = this.DHManSu_YJiaJiWenDu;
+            this.layoutControlItem134.Location = new System.Drawing.Point(389, 456);
+            this.layoutControlItem134.Name = "layoutControlItem134";
+            this.layoutControlItem134.OptionsTableLayoutItem.ColumnIndex = 1;
+            this.layoutControlItem134.OptionsTableLayoutItem.RowIndex = 12;
+            this.layoutControlItem134.Size = new System.Drawing.Size(390, 38);
+            this.layoutControlItem134.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
+            this.layoutControlItem134.Text = "Y加计温度：";
+            this.layoutControlItem134.TextSize = new System.Drawing.Size(113, 18);
+            // 
+            // layoutControlItem135
+            // 
+            this.layoutControlItem135.Control = this.DHManSu_ZJiaJiWenDu;
+            this.layoutControlItem135.Location = new System.Drawing.Point(779, 456);
+            this.layoutControlItem135.Name = "layoutControlItem135";
+            this.layoutControlItem135.OptionsTableLayoutItem.ColumnIndex = 2;
+            this.layoutControlItem135.OptionsTableLayoutItem.RowIndex = 12;
+            this.layoutControlItem135.Size = new System.Drawing.Size(390, 38);
+            this.layoutControlItem135.Text = "Z加计温度：";
+            this.layoutControlItem135.TextSize = new System.Drawing.Size(113, 18);
             // 
             // layoutControlGroup9
             // 
@@ -4200,7 +4641,7 @@
             this.layoutControlGroup9.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem82});
             this.layoutControlGroup9.Name = "layoutControlGroup9";
-            this.layoutControlGroup9.Size = new System.Drawing.Size(1192, 604);
+            this.layoutControlGroup9.Size = new System.Drawing.Size(1213, 597);
             this.layoutControlGroup9.TextVisible = false;
             // 
             // layoutControlItem82
@@ -4208,7 +4649,7 @@
             this.layoutControlItem82.Control = this.xtraScrollableControl3;
             this.layoutControlItem82.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem82.Name = "layoutControlItem82";
-            this.layoutControlItem82.Size = new System.Drawing.Size(1172, 584);
+            this.layoutControlItem82.Size = new System.Drawing.Size(1193, 577);
             this.layoutControlItem82.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem82.TextVisible = false;
             // 
@@ -4253,445 +4694,10 @@
             this.emptySpaceItem3.Size = new System.Drawing.Size(1125, 50);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // layoutControlItem59
+            // timerUpdateLoadFileProgress
             // 
-            this.layoutControlItem59.Control = this.DHManSu_GPSSVKeYong;
-            this.layoutControlItem59.Location = new System.Drawing.Point(382, 0);
-            this.layoutControlItem59.Name = "layoutControlItem59";
-            this.layoutControlItem59.OptionsTableLayoutItem.ColumnIndex = 1;
-            this.layoutControlItem59.Size = new System.Drawing.Size(383, 38);
-            this.layoutControlItem59.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
-            this.layoutControlItem59.Text = "GPS SV可用：";
-            this.layoutControlItem59.TextSize = new System.Drawing.Size(113, 18);
-            // 
-            // layoutControlItem62
-            // 
-            this.layoutControlItem62.Control = this.DHManSu_GPSCanYuDingWei;
-            this.layoutControlItem62.Location = new System.Drawing.Point(765, 0);
-            this.layoutControlItem62.Name = "layoutControlItem62";
-            this.layoutControlItem62.OptionsTableLayoutItem.ColumnIndex = 2;
-            this.layoutControlItem62.Size = new System.Drawing.Size(383, 38);
-            this.layoutControlItem62.Text = "GPS参与定位：";
-            this.layoutControlItem62.TextSize = new System.Drawing.Size(113, 18);
-            // 
-            // layoutControlItem58
-            // 
-            this.layoutControlItem58.Control = this.DHManSu_XTuoLuoZheng5VDianYa;
-            this.layoutControlItem58.Location = new System.Drawing.Point(0, 76);
-            this.layoutControlItem58.Name = "layoutControlItem58";
-            this.layoutControlItem58.OptionsTableLayoutItem.RowIndex = 2;
-            this.layoutControlItem58.Size = new System.Drawing.Size(382, 38);
-            this.layoutControlItem58.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
-            this.layoutControlItem58.Text = "X陀螺+5V电压：";
-            this.layoutControlItem58.TextSize = new System.Drawing.Size(113, 18);
-            // 
-            // layoutControlItem60
-            // 
-            this.layoutControlItem60.Control = this.DHManSu_XTuoLuoFu5VDianYa;
-            this.layoutControlItem60.Location = new System.Drawing.Point(382, 76);
-            this.layoutControlItem60.Name = "layoutControlItem60";
-            this.layoutControlItem60.OptionsTableLayoutItem.ColumnIndex = 1;
-            this.layoutControlItem60.OptionsTableLayoutItem.RowIndex = 2;
-            this.layoutControlItem60.Size = new System.Drawing.Size(383, 38);
-            this.layoutControlItem60.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
-            this.layoutControlItem60.Text = "X陀螺-5V电压：";
-            this.layoutControlItem60.TextSize = new System.Drawing.Size(113, 18);
-            // 
-            // layoutControlItem63
-            // 
-            this.layoutControlItem63.Control = this.textEdit32;
-            this.layoutControlItem63.Location = new System.Drawing.Point(0, 38);
-            this.layoutControlItem63.Name = "layoutControlItem63";
-            this.layoutControlItem63.OptionsTableLayoutItem.RowIndex = 1;
-            this.layoutControlItem63.Size = new System.Drawing.Size(382, 38);
-            this.layoutControlItem63.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
-            this.layoutControlItem63.Text = "BD2 SV可用：";
-            this.layoutControlItem63.TextSize = new System.Drawing.Size(113, 18);
-            // 
-            // layoutControlItem64
-            // 
-            this.layoutControlItem64.Control = this.DHManSu_BD2CanYuDingWei;
-            this.layoutControlItem64.Location = new System.Drawing.Point(382, 38);
-            this.layoutControlItem64.Name = "layoutControlItem64";
-            this.layoutControlItem64.OptionsTableLayoutItem.ColumnIndex = 1;
-            this.layoutControlItem64.OptionsTableLayoutItem.RowIndex = 1;
-            this.layoutControlItem64.Size = new System.Drawing.Size(383, 38);
-            this.layoutControlItem64.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
-            this.layoutControlItem64.Text = "BD2参与定位：";
-            this.layoutControlItem64.TextSize = new System.Drawing.Size(113, 18);
-            // 
-            // layoutControlItem65
-            // 
-            this.layoutControlItem65.Control = this.DHManSu_PDOP;
-            this.layoutControlItem65.Location = new System.Drawing.Point(765, 38);
-            this.layoutControlItem65.Name = "layoutControlItem65";
-            this.layoutControlItem65.OptionsTableLayoutItem.ColumnIndex = 2;
-            this.layoutControlItem65.OptionsTableLayoutItem.RowIndex = 1;
-            this.layoutControlItem65.Size = new System.Drawing.Size(383, 38);
-            this.layoutControlItem65.Text = "PDOP：";
-            this.layoutControlItem65.TextSize = new System.Drawing.Size(113, 18);
-            // 
-            // layoutControlItem66
-            // 
-            this.layoutControlItem66.Control = this.DHManSu_HDOP;
-            this.layoutControlItem66.Location = new System.Drawing.Point(765, 76);
-            this.layoutControlItem66.Name = "layoutControlItem66";
-            this.layoutControlItem66.OptionsTableLayoutItem.ColumnIndex = 2;
-            this.layoutControlItem66.OptionsTableLayoutItem.RowIndex = 2;
-            this.layoutControlItem66.Size = new System.Drawing.Size(383, 38);
-            this.layoutControlItem66.Text = "HDOP：";
-            this.layoutControlItem66.TextSize = new System.Drawing.Size(113, 18);
-            // 
-            // layoutControlItem132
-            // 
-            this.layoutControlItem132.Control = this.DHManSu_VDOP;
-            this.layoutControlItem132.Location = new System.Drawing.Point(765, 114);
-            this.layoutControlItem132.Name = "layoutControlItem132";
-            this.layoutControlItem132.OptionsTableLayoutItem.ColumnIndex = 2;
-            this.layoutControlItem132.OptionsTableLayoutItem.RowIndex = 3;
-            this.layoutControlItem132.Size = new System.Drawing.Size(383, 38);
-            this.layoutControlItem132.Text = "VDOP：";
-            this.layoutControlItem132.TextSize = new System.Drawing.Size(113, 18);
-            // 
-            // layoutControlItem68
-            // 
-            this.layoutControlItem68.Control = this.DHManSu_YTuoLuoZheng5VDianYa;
-            this.layoutControlItem68.Location = new System.Drawing.Point(0, 114);
-            this.layoutControlItem68.Name = "layoutControlItem68";
-            this.layoutControlItem68.OptionsTableLayoutItem.RowIndex = 3;
-            this.layoutControlItem68.Size = new System.Drawing.Size(382, 38);
-            this.layoutControlItem68.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
-            this.layoutControlItem68.Text = "Y陀螺+5V电压：";
-            this.layoutControlItem68.TextSize = new System.Drawing.Size(113, 18);
-            // 
-            // layoutControlItem69
-            // 
-            this.layoutControlItem69.Control = this.DHManSu_YTuoLuoFu5VDianYa;
-            this.layoutControlItem69.Location = new System.Drawing.Point(382, 114);
-            this.layoutControlItem69.Name = "layoutControlItem69";
-            this.layoutControlItem69.OptionsTableLayoutItem.ColumnIndex = 1;
-            this.layoutControlItem69.OptionsTableLayoutItem.RowIndex = 3;
-            this.layoutControlItem69.Size = new System.Drawing.Size(383, 38);
-            this.layoutControlItem69.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
-            this.layoutControlItem69.Text = "Y陀螺-5V电压：";
-            this.layoutControlItem69.TextSize = new System.Drawing.Size(113, 18);
-            // 
-            // layoutControlItem70
-            // 
-            this.layoutControlItem70.Control = this.DHManSu_ZTuoLuoZheng5VDianYa;
-            this.layoutControlItem70.Location = new System.Drawing.Point(0, 152);
-            this.layoutControlItem70.Name = "layoutControlItem70";
-            this.layoutControlItem70.OptionsTableLayoutItem.RowIndex = 4;
-            this.layoutControlItem70.Size = new System.Drawing.Size(382, 38);
-            this.layoutControlItem70.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
-            this.layoutControlItem70.Text = "Z陀螺+5V电压：";
-            this.layoutControlItem70.TextSize = new System.Drawing.Size(113, 18);
-            // 
-            // layoutControlItem71
-            // 
-            this.layoutControlItem71.Control = this.DHManSu_ZTuoLuoFu5VDianYa;
-            this.layoutControlItem71.Location = new System.Drawing.Point(382, 152);
-            this.layoutControlItem71.Name = "layoutControlItem71";
-            this.layoutControlItem71.OptionsTableLayoutItem.ColumnIndex = 1;
-            this.layoutControlItem71.OptionsTableLayoutItem.RowIndex = 4;
-            this.layoutControlItem71.Size = new System.Drawing.Size(383, 38);
-            this.layoutControlItem71.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
-            this.layoutControlItem71.Text = "Z陀螺-5V电压：";
-            this.layoutControlItem71.TextSize = new System.Drawing.Size(113, 18);
-            // 
-            // layoutControlItem72
-            // 
-            this.layoutControlItem72.Control = this.DHManSu_XTuoLuoTongXinError;
-            this.layoutControlItem72.Location = new System.Drawing.Point(0, 190);
-            this.layoutControlItem72.Name = "layoutControlItem72";
-            this.layoutControlItem72.OptionsTableLayoutItem.RowIndex = 5;
-            this.layoutControlItem72.Size = new System.Drawing.Size(382, 38);
-            this.layoutControlItem72.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
-            this.layoutControlItem72.Text = "与X陀螺错误：";
-            this.layoutControlItem72.TextSize = new System.Drawing.Size(113, 18);
-            // 
-            // layoutControlItem74
-            // 
-            this.layoutControlItem74.Control = this.DHManSu_ZTuoLuoTongXinError;
-            this.layoutControlItem74.Location = new System.Drawing.Point(765, 190);
-            this.layoutControlItem74.Name = "layoutControlItem74";
-            this.layoutControlItem74.OptionsTableLayoutItem.ColumnIndex = 2;
-            this.layoutControlItem74.OptionsTableLayoutItem.RowIndex = 5;
-            this.layoutControlItem74.Size = new System.Drawing.Size(383, 38);
-            this.layoutControlItem74.Text = "与Z陀螺错误：";
-            this.layoutControlItem74.TextSize = new System.Drawing.Size(113, 18);
-            // 
-            // layoutControlItem73
-            // 
-            this.layoutControlItem73.Control = this.DHManSu_YTuoLuoTongXinError;
-            this.layoutControlItem73.Location = new System.Drawing.Point(382, 190);
-            this.layoutControlItem73.Name = "layoutControlItem73";
-            this.layoutControlItem73.OptionsTableLayoutItem.ColumnIndex = 1;
-            this.layoutControlItem73.OptionsTableLayoutItem.RowIndex = 5;
-            this.layoutControlItem73.Size = new System.Drawing.Size(383, 38);
-            this.layoutControlItem73.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
-            this.layoutControlItem73.Text = "与Y陀螺错误：";
-            this.layoutControlItem73.TextSize = new System.Drawing.Size(113, 18);
-            // 
-            // layoutControlItem75
-            // 
-            this.layoutControlItem75.Control = this.DHManSu_GPSJieShouJiTongXinError;
-            this.layoutControlItem75.Location = new System.Drawing.Point(765, 152);
-            this.layoutControlItem75.Name = "layoutControlItem75";
-            this.layoutControlItem75.OptionsTableLayoutItem.ColumnIndex = 2;
-            this.layoutControlItem75.OptionsTableLayoutItem.RowIndex = 4;
-            this.layoutControlItem75.Size = new System.Drawing.Size(383, 38);
-            this.layoutControlItem75.Text = "与GPS JSJ错误：";
-            this.layoutControlItem75.TextSize = new System.Drawing.Size(113, 18);
-            // 
-            // layoutControlItem76
-            // 
-            this.layoutControlItem76.Control = this.DHManSu_IMUZhongDuan;
-            this.layoutControlItem76.Location = new System.Drawing.Point(0, 228);
-            this.layoutControlItem76.Name = "layoutControlItem76";
-            this.layoutControlItem76.OptionsTableLayoutItem.RowIndex = 6;
-            this.layoutControlItem76.Size = new System.Drawing.Size(382, 38);
-            this.layoutControlItem76.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
-            this.layoutControlItem76.Text = "IMU进入中断：";
-            this.layoutControlItem76.TextSize = new System.Drawing.Size(113, 18);
-            // 
-            // layoutControlItem77
-            // 
-            this.layoutControlItem77.Control = this.DHManSu_GPSZhongDuan;
-            this.layoutControlItem77.Location = new System.Drawing.Point(382, 228);
-            this.layoutControlItem77.Name = "layoutControlItem77";
-            this.layoutControlItem77.OptionsTableLayoutItem.ColumnIndex = 1;
-            this.layoutControlItem77.OptionsTableLayoutItem.RowIndex = 6;
-            this.layoutControlItem77.Size = new System.Drawing.Size(383, 38);
-            this.layoutControlItem77.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
-            this.layoutControlItem77.Text = "GPS中断次数：";
-            this.layoutControlItem77.TextSize = new System.Drawing.Size(113, 18);
-            // 
-            // layoutControlItem78
-            // 
-            this.layoutControlItem78.Control = this.DHManSu_DaoHangChuZhiZhuangDing;
-            this.layoutControlItem78.Location = new System.Drawing.Point(765, 228);
-            this.layoutControlItem78.Name = "layoutControlItem78";
-            this.layoutControlItem78.OptionsTableLayoutItem.ColumnIndex = 2;
-            this.layoutControlItem78.OptionsTableLayoutItem.RowIndex = 6;
-            this.layoutControlItem78.Size = new System.Drawing.Size(383, 38);
-            this.layoutControlItem78.Text = "导航初值装订：";
-            this.layoutControlItem78.TextSize = new System.Drawing.Size(113, 18);
-            // 
-            // layoutControlItem79
-            // 
-            this.layoutControlItem79.Control = this.DHManSu_XTuoLuoWenDu;
-            this.layoutControlItem79.Location = new System.Drawing.Point(0, 266);
-            this.layoutControlItem79.Name = "layoutControlItem79";
-            this.layoutControlItem79.OptionsTableLayoutItem.RowIndex = 7;
-            this.layoutControlItem79.Size = new System.Drawing.Size(382, 38);
-            this.layoutControlItem79.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
-            this.layoutControlItem79.Text = "X陀螺温度：";
-            this.layoutControlItem79.TextSize = new System.Drawing.Size(113, 18);
-            // 
-            // layoutControlItem80
-            // 
-            this.layoutControlItem80.Control = this.DHManSu_YTuoLuoWenDu;
-            this.layoutControlItem80.Location = new System.Drawing.Point(382, 266);
-            this.layoutControlItem80.Name = "layoutControlItem80";
-            this.layoutControlItem80.OptionsTableLayoutItem.ColumnIndex = 1;
-            this.layoutControlItem80.OptionsTableLayoutItem.RowIndex = 7;
-            this.layoutControlItem80.Size = new System.Drawing.Size(383, 38);
-            this.layoutControlItem80.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
-            this.layoutControlItem80.Text = "Y陀螺温度：";
-            this.layoutControlItem80.TextSize = new System.Drawing.Size(113, 18);
-            // 
-            // layoutControlItem81
-            // 
-            this.layoutControlItem81.Control = this.DHManSu_ZTuoLuoWenDu;
-            this.layoutControlItem81.Location = new System.Drawing.Point(765, 266);
-            this.layoutControlItem81.Name = "layoutControlItem81";
-            this.layoutControlItem81.OptionsTableLayoutItem.ColumnIndex = 2;
-            this.layoutControlItem81.OptionsTableLayoutItem.RowIndex = 7;
-            this.layoutControlItem81.Size = new System.Drawing.Size(383, 38);
-            this.layoutControlItem81.Text = "Z陀螺温度：";
-            this.layoutControlItem81.TextSize = new System.Drawing.Size(113, 18);
-            // 
-            // layoutControlItem61
-            // 
-            this.layoutControlItem61.Control = this.DHManSu_Zheng5VDianYa;
-            this.layoutControlItem61.Location = new System.Drawing.Point(0, 304);
-            this.layoutControlItem61.Name = "layoutControlItem61";
-            this.layoutControlItem61.OptionsTableLayoutItem.RowIndex = 8;
-            this.layoutControlItem61.Size = new System.Drawing.Size(382, 38);
-            this.layoutControlItem61.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
-            this.layoutControlItem61.Text = "+5V电压值：";
-            this.layoutControlItem61.TextSize = new System.Drawing.Size(113, 18);
-            // 
-            // layoutControlItem67
-            // 
-            this.layoutControlItem67.Control = this.DHManSu_Fu5VDianYa;
-            this.layoutControlItem67.Location = new System.Drawing.Point(382, 304);
-            this.layoutControlItem67.Name = "layoutControlItem67";
-            this.layoutControlItem67.OptionsTableLayoutItem.ColumnIndex = 1;
-            this.layoutControlItem67.OptionsTableLayoutItem.RowIndex = 8;
-            this.layoutControlItem67.Size = new System.Drawing.Size(383, 38);
-            this.layoutControlItem67.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
-            this.layoutControlItem67.Text = "-5V电压值：";
-            this.layoutControlItem67.TextSize = new System.Drawing.Size(113, 18);
-            // 
-            // layoutControlItem84
-            // 
-            this.layoutControlItem84.Control = this.DHManSu_Zheng15VDianYa;
-            this.layoutControlItem84.Location = new System.Drawing.Point(0, 342);
-            this.layoutControlItem84.Name = "layoutControlItem84";
-            this.layoutControlItem84.OptionsTableLayoutItem.RowIndex = 9;
-            this.layoutControlItem84.Size = new System.Drawing.Size(382, 38);
-            this.layoutControlItem84.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
-            this.layoutControlItem84.Text = "+15V电压值：";
-            this.layoutControlItem84.TextSize = new System.Drawing.Size(113, 18);
-            // 
-            // layoutControlItem85
-            // 
-            this.layoutControlItem85.Control = this.DHManSu_Fu15VDianYa;
-            this.layoutControlItem85.Location = new System.Drawing.Point(382, 342);
-            this.layoutControlItem85.Name = "layoutControlItem85";
-            this.layoutControlItem85.OptionsTableLayoutItem.ColumnIndex = 1;
-            this.layoutControlItem85.OptionsTableLayoutItem.RowIndex = 9;
-            this.layoutControlItem85.Size = new System.Drawing.Size(383, 38);
-            this.layoutControlItem85.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
-            this.layoutControlItem85.Text = "-15V电压值：";
-            this.layoutControlItem85.TextSize = new System.Drawing.Size(113, 18);
-            // 
-            // layoutControlItem86
-            // 
-            this.layoutControlItem86.Control = this.DHManSu_1553ShuJuFaSong;
-            this.layoutControlItem86.Location = new System.Drawing.Point(765, 304);
-            this.layoutControlItem86.Name = "layoutControlItem86";
-            this.layoutControlItem86.OptionsTableLayoutItem.ColumnIndex = 2;
-            this.layoutControlItem86.OptionsTableLayoutItem.RowIndex = 8;
-            this.layoutControlItem86.Size = new System.Drawing.Size(383, 38);
-            this.layoutControlItem86.Text = "发送1553数据：";
-            this.layoutControlItem86.TextSize = new System.Drawing.Size(113, 18);
-            // 
-            // layoutControlItem87
-            // 
-            this.layoutControlItem87.Control = this.DHManSu_DaoHangBiaoZhi;
-            this.layoutControlItem87.Location = new System.Drawing.Point(765, 342);
-            this.layoutControlItem87.Name = "layoutControlItem87";
-            this.layoutControlItem87.OptionsTableLayoutItem.ColumnIndex = 2;
-            this.layoutControlItem87.OptionsTableLayoutItem.RowIndex = 9;
-            this.layoutControlItem87.Size = new System.Drawing.Size(383, 38);
-            this.layoutControlItem87.Text = "导航标志：";
-            this.layoutControlItem87.TextSize = new System.Drawing.Size(113, 18);
-            // 
-            // layoutControlItem88
-            // 
-            this.layoutControlItem88.Control = this.DHManSu_DuiZhunWanCheng;
-            this.layoutControlItem88.Location = new System.Drawing.Point(0, 380);
-            this.layoutControlItem88.Name = "layoutControlItem88";
-            this.layoutControlItem88.OptionsTableLayoutItem.RowIndex = 10;
-            this.layoutControlItem88.Size = new System.Drawing.Size(382, 38);
-            this.layoutControlItem88.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
-            this.layoutControlItem88.Text = "对准完成标志：";
-            this.layoutControlItem88.TextSize = new System.Drawing.Size(113, 18);
-            // 
-            // layoutControlItem89
-            // 
-            this.layoutControlItem89.Control = this.DHManSu_ZhuangDingCanShuDuQu;
-            this.layoutControlItem89.Location = new System.Drawing.Point(382, 380);
-            this.layoutControlItem89.Name = "layoutControlItem89";
-            this.layoutControlItem89.OptionsTableLayoutItem.ColumnIndex = 1;
-            this.layoutControlItem89.OptionsTableLayoutItem.RowIndex = 10;
-            this.layoutControlItem89.Size = new System.Drawing.Size(383, 38);
-            this.layoutControlItem89.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
-            this.layoutControlItem89.Text = "装订参数读取：";
-            this.layoutControlItem89.TextSize = new System.Drawing.Size(113, 18);
-            // 
-            // layoutControlItem90
-            // 
-            this.layoutControlItem90.Control = this.DHManSu_GongZuoMoShi;
-            this.layoutControlItem90.Location = new System.Drawing.Point(765, 380);
-            this.layoutControlItem90.Name = "layoutControlItem90";
-            this.layoutControlItem90.OptionsTableLayoutItem.ColumnIndex = 2;
-            this.layoutControlItem90.OptionsTableLayoutItem.RowIndex = 10;
-            this.layoutControlItem90.Size = new System.Drawing.Size(383, 38);
-            this.layoutControlItem90.Text = "工作模式：";
-            this.layoutControlItem90.TextSize = new System.Drawing.Size(113, 18);
-            // 
-            // layoutControlItem91
-            // 
-            this.layoutControlItem91.Control = this.DHManSu_GPSZuHe;
-            this.layoutControlItem91.Location = new System.Drawing.Point(0, 418);
-            this.layoutControlItem91.Name = "layoutControlItem91";
-            this.layoutControlItem91.OptionsTableLayoutItem.RowIndex = 11;
-            this.layoutControlItem91.Size = new System.Drawing.Size(382, 38);
-            this.layoutControlItem91.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
-            this.layoutControlItem91.Text = "GPS组合：";
-            this.layoutControlItem91.TextSize = new System.Drawing.Size(113, 18);
-            // 
-            // layoutControlItem92
-            // 
-            this.layoutControlItem92.Control = this.DHManSu_DianHuo;
-            this.layoutControlItem92.Location = new System.Drawing.Point(382, 418);
-            this.layoutControlItem92.Name = "layoutControlItem92";
-            this.layoutControlItem92.OptionsTableLayoutItem.ColumnIndex = 1;
-            this.layoutControlItem92.OptionsTableLayoutItem.RowIndex = 11;
-            this.layoutControlItem92.Size = new System.Drawing.Size(383, 38);
-            this.layoutControlItem92.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
-            this.layoutControlItem92.Text = "点火标志：";
-            this.layoutControlItem92.TextSize = new System.Drawing.Size(113, 18);
-            // 
-            // layoutControlItem93
-            // 
-            this.layoutControlItem93.Control = this.DHManSu_FenLi;
-            this.layoutControlItem93.Location = new System.Drawing.Point(765, 418);
-            this.layoutControlItem93.Name = "layoutControlItem93";
-            this.layoutControlItem93.OptionsTableLayoutItem.ColumnIndex = 2;
-            this.layoutControlItem93.OptionsTableLayoutItem.RowIndex = 11;
-            this.layoutControlItem93.Size = new System.Drawing.Size(383, 38);
-            this.layoutControlItem93.Text = "分离标志：";
-            this.layoutControlItem93.TextSize = new System.Drawing.Size(113, 18);
-            // 
-            // layoutControlItem94
-            // 
-            this.layoutControlItem94.Control = this.DHManSu_GPSDingWeiZhuangTai;
-            this.layoutControlItem94.Location = new System.Drawing.Point(0, 494);
-            this.layoutControlItem94.Name = "layoutControlItem94";
-            this.layoutControlItem94.OptionsTableLayoutItem.RowIndex = 13;
-            this.layoutControlItem94.Size = new System.Drawing.Size(382, 66);
-            this.layoutControlItem94.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
-            this.layoutControlItem94.Text = "GPS定位/状态：";
-            this.layoutControlItem94.TextSize = new System.Drawing.Size(113, 18);
-            // 
-            // layoutControlItem133
-            // 
-            this.layoutControlItem133.Control = this.DHManSu_XJiaJiWenDu;
-            this.layoutControlItem133.Location = new System.Drawing.Point(0, 456);
-            this.layoutControlItem133.Name = "layoutControlItem133";
-            this.layoutControlItem133.OptionsTableLayoutItem.RowIndex = 12;
-            this.layoutControlItem133.Size = new System.Drawing.Size(382, 38);
-            this.layoutControlItem133.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 10);
-            this.layoutControlItem133.Text = "X加计温度：";
-            this.layoutControlItem133.TextSize = new System.Drawing.Size(113, 18);
-            // 
-            // layoutControlItem134
-            // 
-            this.layoutControlItem134.Control = this.DHManSu_YJiaJiWenDu;
-            this.layoutControlItem134.Location = new System.Drawing.Point(382, 456);
-            this.layoutControlItem134.Name = "layoutControlItem134";
-            this.layoutControlItem134.OptionsTableLayoutItem.ColumnIndex = 1;
-            this.layoutControlItem134.OptionsTableLayoutItem.RowIndex = 12;
-            this.layoutControlItem134.Size = new System.Drawing.Size(383, 38);
-            this.layoutControlItem134.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
-            this.layoutControlItem134.Text = "Y加计温度：";
-            this.layoutControlItem134.TextSize = new System.Drawing.Size(113, 18);
-            // 
-            // layoutControlItem135
-            // 
-            this.layoutControlItem135.Control = this.DHManSu_ZJiaJiWenDu;
-            this.layoutControlItem135.Location = new System.Drawing.Point(765, 456);
-            this.layoutControlItem135.Name = "layoutControlItem135";
-            this.layoutControlItem135.OptionsTableLayoutItem.ColumnIndex = 2;
-            this.layoutControlItem135.OptionsTableLayoutItem.RowIndex = 12;
-            this.layoutControlItem135.Size = new System.Drawing.Size(383, 38);
-            this.layoutControlItem135.Text = "Z加计温度：";
-            this.layoutControlItem135.TextSize = new System.Drawing.Size(113, 18);
+            this.timerUpdateLoadFileProgress.Interval = 1000;
+            this.timerUpdateLoadFileProgress.Tick += new System.EventHandler(this.timerUpdateLoadFileProgress_Tick);
             // 
             // MainForm
             // 
@@ -5056,12 +5062,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.DHManSu_ZJiaJiWenDu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem57)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem82)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem59)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem62)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem58)).EndInit();
@@ -5101,6 +5101,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem133)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem134)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem135)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem82)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -5432,6 +5438,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem133;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem134;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem135;
+        private System.Windows.Forms.Timer timerUpdateLoadFileProgress;
     }
 }
 

@@ -30,6 +30,10 @@ namespace YaoCeProcess
         // StreamReader srFileRead = null;
         // 直接读取二进制文件
         FileStream srFileRead = null;
+        // 文件大小
+        long loadFileLength = 0;
+        // 已经读取的文件大小
+        long alreadReadFileLength = 0;
 
         //--------//
         // 创建曲线X轴索引值
@@ -159,6 +163,9 @@ namespace YaoCeProcess
         {
             // 读取文件定时器
             readFileTimer.Stop();
+
+            // 停止加载文件进度
+            timerUpdateLoadFileProgress.Stop();
         }
 
         // FormClosed事件 彻底关闭程序
@@ -190,6 +197,9 @@ namespace YaoCeProcess
 
                 // 关闭绘图定时器刷新数据
                 timerUpdateChart.Stop();
+
+                // 停止加载文件进度
+                timerUpdateLoadFileProgress.Stop();
             }
             base.WndProc(ref m);
         }
@@ -1252,6 +1262,12 @@ namespace YaoCeProcess
 
         private void btnLoadFile_Click(object sender, EventArgs e)
         {
+            /*
+            LoadDataForm form = new LoadDataForm();
+            form.Show();
+            return;
+            */
+
             OpenFileDialog dialog = new OpenFileDialog();
             // 是否可以选择多个文件
             dialog.Multiselect = false;
@@ -1274,6 +1290,12 @@ namespace YaoCeProcess
                 // srFileRead = new StreamReader(filePath, Encoding.Default);
                 srFileRead = new FileStream(filePath, FileMode.Open);
 
+                // 文件大小
+                FileInfo fileInfo = new FileInfo(filePath);
+                loadFileLength = fileInfo.Length;
+                // 已经读取的文件大小
+                alreadReadFileLength = 0;
+
                 // 打开文件读取定时器
                 readFileTimer.Start();
 
@@ -1292,6 +1314,9 @@ namespace YaoCeProcess
 
                 // 启动绘图定时器刷新数据
                 timerUpdateChart.Start();
+
+                // 刷新加载文件进度
+                timerUpdateLoadFileProgress.Start();
             }
         }
 
@@ -1348,6 +1373,8 @@ namespace YaoCeProcess
                     {
                         dataParser.Enqueue(heByte);
                     }
+                    // 已经读取的文件大小
+                    alreadReadFileLength += readLength;
                 }
                 else
                 {
@@ -1368,6 +1395,9 @@ namespace YaoCeProcess
 
                     // 停止绘图定时器刷新数据
                     timerUpdateChart.Stop();
+
+                    // 停止加载文件进度
+                    timerUpdateLoadFileProgress.Stop();
 
                     // 关闭数据解析
                     dataParser.Stop();
@@ -1404,23 +1434,27 @@ namespace YaoCeProcess
             {
                 series.Points.Clear();
             }
-            chart_XiTong_ZuoBiao.ClearCache();
+            chart_XiTong_ZuoBiao.Update();
             foreach (Series series in chart_XiTong_SuDu.Series)
             {
                 series.Points.Clear();
             }
+            chart_XiTong_SuDu.Update();
             foreach (Series series in chart_XiTong_JiaoSuDu.Series)
             {
                 series.Points.Clear();
             }
+            chart_XiTong_JiaoSuDu.Update();
             foreach (Series series in chart_XiTong_FaSheXi.Series)
             {
                 series.Points.Clear();
             }
+            chart_XiTong_FaSheXi.Update();
             foreach (Series series in chart_XiTong_YuShiLuoDian.Series)
             {
                 series.Points.Clear();
             }
+            chart_XiTong_YuShiLuoDian.Update();
 
             // 导航数据（快速）状态曲线
             DHKuaiSu_CHART_ITEM_INDEX = 0;
@@ -1428,10 +1462,12 @@ namespace YaoCeProcess
             {
                 series.Points.Clear();
             }
+            chart_DHKuaiSu_ZuoBiao.Update();
             foreach (Series series in chart_DHKuaiSu_SuDu.Series)
             {
                 series.Points.Clear();
             }
+            chart_DHKuaiSu_SuDu.Update();
 
             // 导航数据（慢速）状态曲线
             DHManSu_CHART_ITEM_INDEX = 0;
@@ -1439,10 +1475,21 @@ namespace YaoCeProcess
             {
                 series.Points.Clear();
             }
+            chart_DHManSu_ZuoBiao.Update();
             foreach (Series series in chart_DHManSu_SuDu.Series)
             {
                 series.Points.Clear();
             }
+            chart_DHManSu_SuDu.Update();
+        }
+
+        private void timerUpdateLoadFileProgress_Tick(object sender, EventArgs e)
+        {
+            double percent = (double)alreadReadFileLength / (double)loadFileLength;
+            percent *= 100;
+            // 日志打印
+            // Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, "数据加载：" + ((UInt32)percent).ToString() + "%");
+Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, "数据加载：" + percent.ToString("f2") + "%");    // 保留两位小数
         }
     }
 }

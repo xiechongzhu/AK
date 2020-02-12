@@ -26,11 +26,49 @@ namespace YaoCeProcess
         private bool isRuning = false;
         Thread thread;
         //------------------------------------------------------------------------------------//
-        // 缓存的CAN长帧数据
-        byte[] statusBuffer = null;     // 状态数据
-        byte totalCountCan = 0;         // 帧总长度
-        byte frameLength = 0;           // 数据段总长度
-        byte frameType = 0;             // 帧类型
+        //---------------缓存的CAN长帧数据---------------//
+        const byte frameType_systemStatus_1 = 0x15;       // 系统判据状态
+        const byte frameType_systemStatus_2 = 0x16;       // 系统判据状态
+        const byte frameType_daoHangKuaiSu_Ti = 0x21;     // 导航快速（弹体）
+        const byte frameType_daoHangKuaiSu_Tou = 0x31;    // 导航快速（弹头）
+        const byte frameType_daoHangManSu_Ti = 0x25;      // 导航慢速（弹体）
+        const byte frameType_daoHangManSu_Tou = 0x35;     // 导航慢速（弹头）
+
+        // 系统判决状态15
+        bool bRecvHeader_XiTong15 = false;
+        byte[] statusBuffer_XiTong15 = null;     // 状态数据
+        byte totalCountCan_XiTong15 = 0;         // 帧总长度
+        byte frameLength_XiTong15 = 0;           // 数据段总长度
+
+        // 系统判决状态16
+        bool bRecvHeader_XiTong16 = false;
+        byte[] statusBuffer_XiTong16 = null;     // 状态数据
+        byte totalCountCan_XiTong16 = 0;         // 帧总长度
+        byte frameLength_XiTong16 = 0;           // 数据段总长度
+
+        // 导航快速 弹体
+        bool bRecvHeader_DHK21 = false;
+        byte[] statusBuffer_DHK21 = null;        // 状态数据
+        byte totalCountCan_DHK21 = 0;            // 帧总长度
+        byte frameLength_DHK21 = 0;              // 数据段总长度
+
+        // 导航快速 弹头
+        bool bRecvHeader_DHK31 = false;
+        byte[] statusBuffer_DHK31 = null;        // 状态数据
+        byte totalCountCan_DHK31 = 0;            // 帧总长度
+        byte frameLength_DHK31 = 0;              // 数据段总长度
+
+        // 导航慢速 弹体
+        bool bRecvHeader_DHM25 = false;
+        byte[] statusBuffer_DHM25 = null;        // 状态数据
+        byte totalCountCan_DHM25 = 0;            // 帧总长度
+        byte frameLength_DHM25 = 0;              // 数据段总长度
+
+        // 导航慢速 弹头
+        bool bRecvHeader_DHM35 = false;
+        byte[] statusBuffer_DHM35 = null;        // 状态数据
+        byte totalCountCan_DHM35 = 0;            // 帧总长度
+        byte frameLength_DHM35 = 0;              // 数据段总长度
         //------------------------------------------------------------------------------------//
 
         public void Enqueue(byte[] data)
@@ -90,20 +128,43 @@ namespace YaoCeProcess
                         // 解析CAN帧头
                         CANHead packHead = new CANHead
                         {
-                            frameInfo = br.ReadByte()
+                            frameInfo1 = br.ReadByte(),
+                            frameInfo2 = br.ReadByte()
                         };
+                        // TODO 这里的CAN帧头是大端字节序
+                        UInt16 frameInfo = (UInt16)((UInt16)packHead.frameInfo1 << 8 + packHead.frameInfo2);
+                        // 3bit占位 8bit 帧id(仲裁场) 1bitRTR(0) 4bit数据场(数据长度)
+                        byte canDataId = (byte)(frameInfo >> 5 & 0xFF);
+
                         // 偏移
                         dataReadPos += (UInt16)Marshal.SizeOf(typeof(CANHead));
 
                         // 当前CAN帧的数据长度
-                        int canLen = (int)packHead.frameInfo & 0xF;
+                        int canLen = (int)frameInfo & 0xF;
                         // 读取can数据
                         byte[] canData = br.ReadBytes(canLen);
                         // 偏移
-                        dataReadPos += (UInt16)canLen;
+                        // dataReadPos += (UInt16)canLen;
+                        // 这里直接默认偏移8个字节，数据不足会进行填充
+                        dataReadPos += 8;
+                        byte[] unUseData = br.ReadBytes(8 - canLen);
 
-                        // 将数据放入CAN数据处理模块，进行长帧的拼包工作
-                        ParseCANData(canData);
+                        //---------------------------------------------------------------------------------//
+                        // 只进行如下状态数据
+                        switch (canDataId)
+                        {
+                            case frameType_systemStatus_1:
+                            case frameType_systemStatus_2:
+                            case frameType_daoHangKuaiSu_Ti:
+                            case frameType_daoHangKuaiSu_Tou:
+                            case frameType_daoHangManSu_Ti:
+                            case frameType_daoHangManSu_Tou:
+                                // 将数据放入CAN数据处理模块，进行长帧的拼包工作
+                                ParseCANData(canData, canDataId);
+                                break;
+                            default:
+                                break;
+                        }
                     }
                 }
             }
@@ -134,8 +195,9 @@ namespace YaoCeProcess
                 return false;
             }
 
-            // 数据长度判断
-            dataLength = (UInt16)(((UInt16)buffer[5] << 8) + buffer[4]);
+            // 20200212更改
+            // 数据长度判断（大端）
+            dataLength = (UInt16)(((UInt16)buffer[4] << 8) + buffer[5]);
             if ((length - Marshal.SizeOf(typeof(UDPHead))) < dataLength)
             {
                 errMsg = "数据包含不完整";
@@ -146,14 +208,12 @@ namespace YaoCeProcess
             return true;
         }
 
-        private void ParseCANData(byte[] buffer)
+        private void ParseCANData(byte[] buffer, byte canDataId)
         {
             // can数据长度（至少大于等于1才能取出数据中的第一个字节：帧序号）
-            int length = buffer.Length;
-            if (length < 1)
-            {
-                return;
-            }
+            if (buffer.Length < 1) return;
+
+            //---------------------------------------------------------------//
 
             // 子帧序号
             byte xuHao = buffer[0];
@@ -161,40 +221,276 @@ namespace YaoCeProcess
             // 数据第一帧
             if (xuHao == 0x00)
             {
-                // 设置空 回到原始状态
-                statusBuffer = null;
-
-                totalCountCan = buffer[1];  // 帧总长度
-                frameLength = buffer[4];    // 数据段总长度
-                frameType = buffer[5];      // 帧类型
-                statusBuffer = new byte[0];
+                switch (canDataId)
+                {
+                    case frameType_systemStatus_1:
+                        {
+                            // 设置空 回到原始状态
+                            statusBuffer_XiTong15 = null;
+                            totalCountCan_XiTong15 = buffer[1];  // 帧总长度
+                            frameLength_XiTong15 = buffer[4];    // 数据段总长度
+                            statusBuffer_XiTong15 = new byte[0];
+                            bRecvHeader_XiTong15 = true;
+                        }
+                        break;
+                    case frameType_systemStatus_2:
+                        {
+                            // 设置空 回到原始状态
+                            statusBuffer_XiTong16 = null;
+                            totalCountCan_XiTong16 = buffer[1];  // 帧总长度
+                            frameLength_XiTong16 = buffer[4];    // 数据段总长度
+                            statusBuffer_XiTong16 = new byte[0];
+                            bRecvHeader_XiTong16 = true;
+                        }
+                        break;
+                    case frameType_daoHangKuaiSu_Ti:
+                        {
+                            // 设置空 回到原始状态
+                            statusBuffer_DHK21 = null;
+                            totalCountCan_DHK21 = buffer[1];  // 帧总长度
+                            frameLength_DHK21 = buffer[4];    // 数据段总长度
+                            statusBuffer_DHK21 = new byte[0];
+                            bRecvHeader_DHK21 = true;
+                        }
+                        break;
+                    case frameType_daoHangKuaiSu_Tou:
+                        {
+                            // 设置空 回到原始状态
+                            statusBuffer_DHK31 = null;
+                            totalCountCan_DHK31 = buffer[1];  // 帧总长度
+                            frameLength_DHK31 = buffer[4];    // 数据段总长度
+                            statusBuffer_DHK31 = new byte[0];
+                            bRecvHeader_DHK31 = true;
+                        }
+                        break;
+                    case frameType_daoHangManSu_Ti:
+                        {
+                            // 设置空 回到原始状态
+                            statusBuffer_DHM25 = null;
+                            totalCountCan_DHM25 = buffer[1];  // 帧总长度
+                            frameLength_DHM25 = buffer[4];    // 数据段总长度
+                            statusBuffer_DHM25 = new byte[0];
+                            bRecvHeader_DHM25 = true;
+                        }
+                        break;
+                    case frameType_daoHangManSu_Tou:
+                        {
+                            // 设置空 回到原始状态
+                            statusBuffer_DHM35 = null;
+                            totalCountCan_DHM35 = buffer[1];  // 帧总长度
+                            frameLength_DHM35 = buffer[4];    // 数据段总长度
+                            statusBuffer_DHM35 = new byte[0];
+                            bRecvHeader_DHM35 = true;
+                        }
+                        break;
+                    default:
+                        break;
+                }
             }
             else
             {
-                // 中间帧
-                if (xuHao != totalCountCan - 1)
+                switch (canDataId)
                 {
-                    // 拼接上一次剩余的包(中间帧包括：1字节序号，7字节数据)
-                    byte[] canData = new byte[7];
-                    Array.Copy(buffer, 1, canData, 0, 7);   // 从buffer的第1个位置开始拷贝7个字节到canData中
-                    statusBuffer = statusBuffer.Concat(canData).ToArray();
-                }
-                // 结束帧
-                else
-                {
-                    // 整个长帧剩余长度
-                    int lastDataLen = frameLength - statusBuffer.Length;
+                    case frameType_systemStatus_1:
+                        {
+                            if (!bRecvHeader_XiTong15)
+                            {
+                                return;
+                            }
+                            // 中间帧
+                            if (xuHao != totalCountCan_XiTong15 - 1)
+                            {
+                                // 拼接上一次剩余的包(中间帧包括：1字节序号，7字节数据)
+                                byte[] canData = new byte[7];
+                                Array.Copy(buffer, 1, canData, 0, 7);   // 从buffer的第1个位置开始拷贝7个字节到canData中
+                                statusBuffer_XiTong15 = statusBuffer_XiTong15.Concat(canData).ToArray();
+                            }
+                            // 结束帧
+                            else
+                            {
+                                // 整个长帧剩余长度
+                                int lastDataLen = frameLength_XiTong15 - statusBuffer_XiTong15.Length;
 
-                    // 拼接上一次剩余的包
-                    byte[] canData = new byte[lastDataLen];
-                    Array.Copy(buffer, 1, canData, 0, lastDataLen);
-                    statusBuffer = statusBuffer.Concat(canData).ToArray();
+                                // 拼接上一次剩余的包
+                                byte[] canData = new byte[lastDataLen];
+                                Array.Copy(buffer, 1, canData, 0, lastDataLen);
+                                statusBuffer_XiTong15 = statusBuffer_XiTong15.Concat(canData).ToArray();
 
-                    //---------------------------------------------------//
-                    // 拼接完成，分类型进行数据的处理
-                    ParseStatusData(statusBuffer, frameType);
+                                //---------------------------------------------------//
+                                // 拼接完成，分类型进行数据的处理
+                                ParseStatusData(statusBuffer_XiTong15, frameType_systemStatus_1);
+                                bRecvHeader_XiTong15 = false;
+                                //---------------------------------------------------//
+                            }
+                        }
+                        break;
+                    case frameType_systemStatus_2:
+                        {
+                            if (!bRecvHeader_XiTong16)
+                            {
+                                return;
+                            }
+                            // 中间帧
+                            if (xuHao != totalCountCan_XiTong16 - 1)
+                            {
+                                // 拼接上一次剩余的包(中间帧包括：1字节序号，7字节数据)
+                                byte[] canData = new byte[7];
+                                Array.Copy(buffer, 1, canData, 0, 7);   // 从buffer的第1个位置开始拷贝7个字节到canData中
+                                statusBuffer_XiTong16 = statusBuffer_XiTong16.Concat(canData).ToArray();
+                            }
+                            // 结束帧
+                            else
+                            {
+                                // 整个长帧剩余长度
+                                int lastDataLen = frameLength_XiTong16 - statusBuffer_XiTong16.Length;
 
-                    //---------------------------------------------------//
+                                // 拼接上一次剩余的包
+                                byte[] canData = new byte[lastDataLen];
+                                Array.Copy(buffer, 1, canData, 0, lastDataLen);
+                                statusBuffer_XiTong16 = statusBuffer_XiTong16.Concat(canData).ToArray();
+
+                                //---------------------------------------------------//
+                                // 拼接完成，分类型进行数据的处理
+                                ParseStatusData(statusBuffer_XiTong16, frameType_systemStatus_2);
+                                bRecvHeader_XiTong16 = false;
+                                //---------------------------------------------------//
+                            }
+                        }
+                        break;
+                    case frameType_daoHangKuaiSu_Ti:
+                        {
+                            if (!bRecvHeader_DHK21)
+                            {
+                                return;
+                            }
+                            // 中间帧
+                            if (xuHao != totalCountCan_DHK21 - 1)
+                            {
+                                // 拼接上一次剩余的包(中间帧包括：1字节序号，7字节数据)
+                                byte[] canData = new byte[7];
+                                Array.Copy(buffer, 1, canData, 0, 7);   // 从buffer的第1个位置开始拷贝7个字节到canData中
+                                statusBuffer_DHK21 = statusBuffer_DHK21.Concat(canData).ToArray();
+                            }
+                            // 结束帧
+                            else
+                            {
+                                // 整个长帧剩余长度
+                                int lastDataLen = frameLength_DHK21 - statusBuffer_DHK21.Length;
+
+                                // 拼接上一次剩余的包
+                                byte[] canData = new byte[lastDataLen];
+                                Array.Copy(buffer, 1, canData, 0, lastDataLen);
+                                statusBuffer_DHK21 = statusBuffer_DHK21.Concat(canData).ToArray();
+
+                                //---------------------------------------------------//
+                                // 拼接完成，分类型进行数据的处理
+                                ParseStatusData(statusBuffer_DHK21, frameType_daoHangKuaiSu_Ti);
+                                bRecvHeader_DHK21 = false;
+                                //---------------------------------------------------//
+                            }
+                        }
+                        break;
+                    case frameType_daoHangKuaiSu_Tou:
+                        {
+                            if (!bRecvHeader_DHK31)
+                            {
+                                return;
+                            }
+                            // 中间帧
+                            if (xuHao != totalCountCan_DHK31 - 1)
+                            {
+                                // 拼接上一次剩余的包(中间帧包括：1字节序号，7字节数据)
+                                byte[] canData = new byte[7];
+                                Array.Copy(buffer, 1, canData, 0, 7);   // 从buffer的第1个位置开始拷贝7个字节到canData中
+                                statusBuffer_DHK31 = statusBuffer_DHK31.Concat(canData).ToArray();
+                            }
+                            // 结束帧
+                            else
+                            {
+                                // 整个长帧剩余长度
+                                int lastDataLen = frameLength_DHK31 - statusBuffer_DHK31.Length;
+
+                                // 拼接上一次剩余的包
+                                byte[] canData = new byte[lastDataLen];
+                                Array.Copy(buffer, 1, canData, 0, lastDataLen);
+                                statusBuffer_DHK31 = statusBuffer_DHK31.Concat(canData).ToArray();
+
+                                //---------------------------------------------------//
+                                // 拼接完成，分类型进行数据的处理
+                                ParseStatusData(statusBuffer_DHK31, frameType_daoHangKuaiSu_Tou);
+                                bRecvHeader_DHK31 = false;
+                                //---------------------------------------------------//
+                            }
+                        }
+                        break;
+                    case frameType_daoHangManSu_Ti:
+                        {
+                            if (!bRecvHeader_DHM25)
+                            {
+                                return;
+                            }
+                            // 中间帧
+                            if (xuHao != totalCountCan_DHM25 - 1)
+                            {
+                                // 拼接上一次剩余的包(中间帧包括：1字节序号，7字节数据)
+                                byte[] canData = new byte[7];
+                                Array.Copy(buffer, 1, canData, 0, 7);   // 从buffer的第1个位置开始拷贝7个字节到canData中
+                                statusBuffer_DHM25 = statusBuffer_DHM25.Concat(canData).ToArray();
+                            }
+                            // 结束帧
+                            else
+                            {
+                                // 整个长帧剩余长度
+                                int lastDataLen = frameLength_DHM25 - statusBuffer_DHM25.Length;
+
+                                // 拼接上一次剩余的包
+                                byte[] canData = new byte[lastDataLen];
+                                Array.Copy(buffer, 1, canData, 0, lastDataLen);
+                                statusBuffer_DHM25 = statusBuffer_DHM25.Concat(canData).ToArray();
+
+                                //---------------------------------------------------//
+                                // 拼接完成，分类型进行数据的处理
+                                ParseStatusData(statusBuffer_DHM25, frameType_daoHangManSu_Ti);
+                                bRecvHeader_DHM25 = false;
+                                //---------------------------------------------------//
+                            }
+                        }
+                        break;
+                    case frameType_daoHangManSu_Tou:
+                        {
+                            if (!bRecvHeader_DHM35)
+                            {
+                                return;
+                            }
+                            // 中间帧
+                            if (xuHao != totalCountCan_DHM35 - 1)
+                            {
+                                // 拼接上一次剩余的包(中间帧包括：1字节序号，7字节数据)
+                                byte[] canData = new byte[7];
+                                Array.Copy(buffer, 1, canData, 0, 7);   // 从buffer的第1个位置开始拷贝7个字节到canData中
+                                statusBuffer_DHM35 = statusBuffer_DHM35.Concat(canData).ToArray();
+                            }
+                            // 结束帧
+                            else
+                            {
+                                // 整个长帧剩余长度
+                                int lastDataLen = frameLength_DHM35 - statusBuffer_DHM35.Length;
+
+                                // 拼接上一次剩余的包
+                                byte[] canData = new byte[lastDataLen];
+                                Array.Copy(buffer, 1, canData, 0, lastDataLen);
+                                statusBuffer_DHM35 = statusBuffer_DHM35.Concat(canData).ToArray();
+
+                                //---------------------------------------------------//
+                                // 拼接完成，分类型进行数据的处理
+                                ParseStatusData(statusBuffer_DHM35, frameType_daoHangManSu_Tou);
+                                bRecvHeader_DHM35 = false;
+                                //---------------------------------------------------//
+                            }
+                        }
+                        break;
+                    default:
+                        break;
                 }
             }
         }
@@ -209,20 +505,20 @@ namespace YaoCeProcess
 
             //---------------------------------------//
 
-            // ?? 几种状态数据的类型待确认
-            const byte frameType_systemStatus = 0x15;
-            const byte frameType_daoHangKuaiSu = 0x21;
-            const byte frameType_daoHangManSu = 0x25;
-
             switch (frameType)
             {
-                case frameType_systemStatus:
+                case frameType_systemStatus_1:                  // 系统判据状态
+                case frameType_systemStatus_2:                  // 系统判据状态
                     ParseStatusData_SystemStatus(buffer);
                     break;
-                case frameType_daoHangKuaiSu:
+                    // TODO 注意导航快速数据需要分别显示在弹头弹体上
+                case frameType_daoHangKuaiSu_Ti:                // 导航快速（弹体）
+                case frameType_daoHangKuaiSu_Tou:               // 导航快速（弹头）
                     ParseStatusData_daoHangKuaiSu(buffer);
                     break;
-                case frameType_daoHangManSu:
+                    // TODO 注意导航慢速数据需要分别显示在弹头弹体上
+                case frameType_daoHangManSu_Ti:                 // 导航慢速（弹体）
+                case frameType_daoHangManSu_Tou:                // 导航慢速（弹头）
                     ParseStatusData_daoHangKuaiSu(buffer);
                     break;
                 default:

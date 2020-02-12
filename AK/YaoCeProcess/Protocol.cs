@@ -27,8 +27,10 @@ namespace YaoCeProcess
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     struct CANHead 
     {
-        public byte         frameInfo;          // 包含了该帧内的数据长度(bit0-bit3)
-        // 后面直接跟数据段第1-8个字节
+        public byte        frameInfo1;          // 
+        public byte        frameInfo2;          // 
+        // 这两个字节包括了仲裁场（数据类型ID），数据长度
+        // 后面直接跟数据段第1-8个字节(不足则填充)
     }
 
     // 第一子帧帧结构
