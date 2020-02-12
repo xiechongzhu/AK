@@ -104,6 +104,10 @@ namespace YaoCeProcess
 
             // 窗口居中显示
             this.StartPosition = FormStartPosition.CenterScreen;
+            // 最大化: 
+            this.WindowState = FormWindowState.Maximized;
+            // 原始大小: this.WindowState = FormWindowState.Normal;
+            // 最小化: this.WindowState = FormWindowState.Minimized;
 
             // 传递窗口句柄
             dataParser = new DataParser(Handle);
@@ -119,6 +123,10 @@ namespace YaoCeProcess
 
             // 更改按钮Tip
             toolTip1.SetToolTip(BtnStartStop, "开始");
+
+            // 创建新的日志文件
+            Logger.GetInstance().NewFile();
+            Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, "程序开始启动！");
         }
 
         ~MainForm()
@@ -357,10 +365,12 @@ namespace YaoCeProcess
                     tempSTR = "均无数据";
                     break;
                 case 1:
-                    tempSTR = "1号输入无数据，2号输入有数据";
+                    // tempSTR = "1号输入无数据，2号输入有数据";
+                    tempSTR = "1号无数据，2号有数据";
                     break;
                 case 2:
-                    tempSTR = "1号输入有数据，2号输入无数据";
+                    // tempSTR = "1号输入有数据，2号输入无数据";
+                    tempSTR = "1号有数据，2号无数据";
                     break;
                 case 3:
                     tempSTR = "均有数据";
@@ -942,13 +952,12 @@ namespace YaoCeProcess
         {
             SettingForm settingForm = new SettingForm();
             settingForm.StartPosition = FormStartPosition.CenterScreen;
-            settingForm.ShowDialog();
-            /*
-            if (settingForm.ShowDialog() != DialogResult.OK)
+            // settingForm.ShowDialog();
+            if (settingForm.ShowDialog() == DialogResult.OK)
             {
+                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, "设置网络配置成功！");
                 return;
             }
-            */
         }
 
         private void EndReceive(IAsyncResult ar)
@@ -1105,12 +1114,12 @@ namespace YaoCeProcess
             // chart_XiTong_ZuoBiao.Series["纬度"].Points.AddPoint(xiTong_CHART_ITEM_INDEX, rnd.Next(1, 100));
             // chart_XiTong_ZuoBiao.Series["海拔高度"].Points.AddPoint(xiTong_CHART_ITEM_INDEX, rnd.Next(1, 100));
             // xiTong_CHART_ITEM_INDEX++;
-            // 
+             
             // chart_DHKuaiSu_ZuoBiao.Series["经度"].Points.AddPoint(DHKuaiSu_CHART_ITEM_INDEX, rnd.Next(1, 100));
             // chart_DHKuaiSu_ZuoBiao.Series["纬度"].Points.AddPoint(DHKuaiSu_CHART_ITEM_INDEX, rnd.Next(1, 100));
             // chart_DHKuaiSu_ZuoBiao.Series["海拔高度"].Points.AddPoint(DHKuaiSu_CHART_ITEM_INDEX, rnd.Next(1, 100));
             // DHKuaiSu_CHART_ITEM_INDEX++;
-            // 
+             
             // chart_DHManSu_ZuoBiao.Series["经度"].Points.AddPoint(DHManSu_CHART_ITEM_INDEX, rnd.Next(1, 100));
             // chart_DHManSu_ZuoBiao.Series["纬度"].Points.AddPoint(DHManSu_CHART_ITEM_INDEX, rnd.Next(1, 100));
             // chart_DHManSu_ZuoBiao.Series["海拔高度"].Points.AddPoint(DHManSu_CHART_ITEM_INDEX, rnd.Next(1, 100));
@@ -1134,7 +1143,8 @@ namespace YaoCeProcess
                 //-----------------------------------------------------//
 
                 // 创建新的日志文件
-                Logger.GetInstance().NewFile();
+                // Logger.GetInstance().NewFile();
+
                 String errMsg;
                 if (!Config.GetInstance().LoadConfigFile(out errMsg))
                 {
@@ -1257,7 +1267,8 @@ namespace YaoCeProcess
                 }
 
                 // 创建新的日志文件
-                Logger.GetInstance().NewFile();
+                // Logger.GetInstance().NewFile();
+                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, "开始加载历史数据！");
 
                 // 打开文件
                 // srFileRead = new StreamReader(filePath, Encoding.Default);
@@ -1362,8 +1373,9 @@ namespace YaoCeProcess
                     dataParser.Stop();
 
                     // 日志打印
-                    MessageBox.Show("文件读取完成！", "提示", MessageBoxButtons.OK);
-                    //XtraMessageBox.Show("文件读取完成！");
+                    Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, "历史数据加载完成！");
+                    //MessageBox.Show("文件读取完成！", "提示", MessageBoxButtons.OK);
+                    XtraMessageBox.Show("文件读取完成！");
                 }
             }
         }
