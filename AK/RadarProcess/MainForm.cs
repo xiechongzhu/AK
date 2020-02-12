@@ -342,6 +342,8 @@ namespace RadarProcess
                 double distanceLow = positionXBuffer[positionXBuffer.Count - 1].Values[0] - Config.GetInstance().locMinX;
                 chartX.Titles[0].Text = String.Format("上限差值={0:F},下限差值={1:F}", distanceHigh, distanceLow);
                 chartX.Titles[0].TextColor = distanceHigh < 0 || distanceLow < 0 ? Color.Red : Color.Black;
+                ((TextAnnotation)chartX.Annotations[0]).Text = String.Format("{0:F}", positionXBuffer[positionXBuffer.Count - 1].Values[0]);
+                
             }
             if (positionYBuffer.Count > 0)
             {
@@ -356,6 +358,7 @@ namespace RadarProcess
                 double distanceLow = positionYBuffer[positionYBuffer.Count - 1].Values[0] - Config.GetInstance().locMinY;
                 chartY.Titles[0].Text = String.Format("上限差值={0:F},下限差值={1:F}", distanceHigh, distanceLow);
                 chartY.Titles[0].TextColor = distanceHigh < 0 || distanceLow < 0 ? Color.Red : Color.Black;
+                ((TextAnnotation)chartY.Annotations[0]).Text = String.Format("{0:F}", positionYBuffer[positionYBuffer.Count - 1].Values[0]);
             }
             if (positionZBuffer.Count > 0)
             {
@@ -370,6 +373,7 @@ namespace RadarProcess
                 double distanceLow = positionZBuffer[positionZBuffer.Count - 1].Values[0] - Config.GetInstance().locMinZ;
                 chartZ.Titles[0].Text = String.Format("上限差值={0:F},下限差值={1:F}", distanceHigh, distanceLow);
                 chartZ.Titles[0].TextColor = distanceHigh < 0 || distanceLow < 0 ? Color.Red : Color.Black;
+                ((TextAnnotation)chartZ.Annotations[0]).Text = String.Format("{0:F}", positionZBuffer[positionZBuffer.Count - 1].Values[0]);
             }
             if (speedVxBuffer.Count > 0)
             {
@@ -384,6 +388,7 @@ namespace RadarProcess
                 double distanceLow = speedVxBuffer[speedVxBuffer.Count - 1].Values[0] - Config.GetInstance().speedMinX;
                 chartVx.Titles[0].Text = String.Format("上限差值={0:F},下限差值={1:F}", distanceHigh, distanceLow);
                 chartVx.Titles[0].TextColor = distanceHigh < 0 || distanceLow < 0 ? Color.Red : Color.Black;
+                ((TextAnnotation)chartVx.Annotations[0]).Text = String.Format("{0:F}", speedVxBuffer[speedVxBuffer.Count - 1].Values[0]);
             }
             if (speedVyBuffer.Count > 0)
             {
@@ -398,6 +403,7 @@ namespace RadarProcess
                 double distanceLow = speedVyBuffer[speedVyBuffer.Count - 1].Values[0] - Config.GetInstance().speedMinY;
                 chartVy.Titles[0].Text = String.Format("上限差值={0:F},下限差值={1:F}", distanceHigh, distanceLow);
                 chartVy.Titles[0].TextColor = distanceHigh < 0 || distanceLow < 0 ? Color.Red : Color.Black;
+                ((TextAnnotation)chartVy.Annotations[0]).Text = String.Format("{0:F}", speedVyBuffer[speedVyBuffer.Count - 1].Values[0]);
             }
             if (speedVzBuffer.Count > 0)
             {
@@ -412,6 +418,7 @@ namespace RadarProcess
                 double distanceLow = speedVzBuffer[speedVzBuffer.Count - 1].Values[0] - Config.GetInstance().speedMinZ;
                 chartVz.Titles[0].Text = String.Format("上限差值={0:F},下限差值={1:F}", distanceHigh, distanceLow);
                 chartVz.Titles[0].TextColor = distanceHigh < 0 || distanceLow < 0 ? Color.Red : Color.Black;
+                ((TextAnnotation)chartVz.Annotations[0]).Text = String.Format("{0:F}", speedVzBuffer[speedVzBuffer.Count - 1].Values[0]);
             }
             positionXBuffer.Clear();
             positionYBuffer.Clear();
@@ -484,6 +491,10 @@ namespace RadarProcess
             foreach (ChartTitle title in chartControl.Titles)
             {
                 title.Text = String.Empty;
+            }
+            foreach(TextAnnotation textAnnotation in chartControl.Annotations)
+            {
+                textAnnotation.Text = String.Empty;
             }
         }
 
