@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.XtraEditors;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,6 +18,18 @@ namespace RadarProcess
         {
             InitializeComponent();
             LoadConfig();
+        }
+
+        public void SetViwMode()
+        {
+            foreach(Control control in Controls)
+            {
+                if(control is TextEdit)
+                {
+                    ((TextEdit)control).ReadOnly = true;
+                }
+            }
+            layoutControlItem2.HideToCustomization();
         }
 
         protected void LoadConfig()
@@ -97,6 +110,37 @@ namespace RadarProcess
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        public void SetParams(double longitudeInit, double latitudeInit, double heightInit, double azimuthInit,
+            double placementHeight, double flightshot, double forwardLine, double backwardLine, double sideLine,
+            double locMaxX, double locMaxY, double locMaxZ, double locMinX, double locMinY, double locMinZ,
+            double speedMaxX, double speedMaxY, double speedMaxZ, double speedMinX, double speedMinY, double speedMinZ,
+            String strMultiCastIpAddr, UInt16 port)
+        {
+            editLongitudeInit.Text = longitudeInit.ToString();
+            editLatitudeInit.Text = latitudeInit.ToString();
+            editHeightInit.Text = heightInit.ToString();
+            editAzimuthInit.Text = azimuthInit.ToString();
+            editPlacementHeight.Text = placementHeight.ToString();
+            editFligtShot.Text = flightshot.ToString();
+            editForwardLine.Text = forwardLine.ToString();
+            editBackLine.Text = backwardLine.ToString();
+            editSideLine.Text = sideLine.ToString();
+            editLocMaxX.Text = locMaxX.ToString();
+            editLocMaxY.Text = locMaxY.ToString();
+            editLocMaxZ.Text = locMaxZ.ToString();
+            editLocMinX.Text = locMinX.ToString();
+            editLocMinY.Text = locMinY.ToString();
+            editLocMinZ.Text = locMinZ.ToString();
+            editSpeedMaxX.Text = speedMaxX.ToString();
+            editSpeedMaxY.Text = speedMaxY.ToString();
+            editSpeedMaxZ.Text = speedMaxZ.ToString();
+            editSpeedMinX.Text = speedMinX.ToString();
+            editSpeedMinY.Text = speedMinY.ToString();
+            editSpeedMinZ.Text = speedMinZ.ToString();
+            editMultiCastIp.Text = strMultiCastIpAddr;
+            editPort.Text = port.ToString();
         }
     }
 }
