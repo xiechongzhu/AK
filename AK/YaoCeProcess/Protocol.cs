@@ -260,13 +260,16 @@ namespace YaoCeProcess
         public ushort       HDOP;                 // HDOP 当量0.01
         public ushort       VDOP;                 // VDOP 当量0.01
 
-        public char         tuoLuoWenDu_X;        // X陀螺温度
-        public char         tuoLuoWenDu_Y;        // Y陀螺温度
-        public char         tuoLuoWenDu_Z;        // Z陀螺温度
+        //----------------------------------------------------//
+        // 原协议类型为char
+        public byte         tuoLuoWenDu_X;        // X陀螺温度
+        public byte         tuoLuoWenDu_Y;        // Y陀螺温度
+        public byte         tuoLuoWenDu_Z;        // Z陀螺温度
 
-        public char         jiaJiWenDu_X;         // X加计温度
-        public char         jiaJiWenDu_Y;         // Y加计温度
-        public char         jiaJiWenDu_Z;         // Z加计温度
+        public byte         jiaJiWenDu_X;         // X加计温度
+        public byte         jiaJiWenDu_Y;         // Y加计温度
+        public byte         jiaJiWenDu_Z;         // Z加计温度
+        //----------------------------------------------------//
 
         public char         dianYaZhi_zheng5V;    // +5V电压值     当量0.05
         public char         dianYaZhi_fu5V;       // -5V电压值     当量0.05

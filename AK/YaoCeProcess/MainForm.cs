@@ -84,6 +84,11 @@ namespace YaoCeProcess
         private List<SeriesPoint> DHManSu_SuDu_TianXiang_Buffer = new List<SeriesPoint>();      // 天向速度
 
         //-----------------------------------------------------//
+        // 状态数据缓存
+        SYSTEMPARSE_STATUS sObject_XiTong;      
+        DAOHANGSHUJU_KuaiSu sObject_DHK_Ti;     
+        DAOHANGSHUJU_ManSu sObject_DHM_Ti;
+        //-----------------------------------------------------//
 
         private const int WM_USER = 0x400;
         // 系统判决状态数据标识
@@ -214,9 +219,11 @@ namespace YaoCeProcess
                         IntPtr ptr = m.LParam;
                         SYSTEMPARSE_STATUS sObject = Marshal.PtrToStructure<SYSTEMPARSE_STATUS>(ptr);
 
+                        // 缓存状态数据
+                        sObject_XiTong = sObject;
                         //----------------------------------------------------------//
-                        // 填充实时数据
-                        showSystemTimeStatus(ref sObject);
+                        // 填充实时数据(更改成通过定时器来刷新实时数据)
+                        // showSystemTimeStatus(ref sObject);
                         //----------------------------------------------------------//
                         // 绘图
                         xiTong_CHART_ITEM_INDEX++;
@@ -245,9 +252,11 @@ namespace YaoCeProcess
                         IntPtr ptr = m.LParam;
                         DAOHANGSHUJU_KuaiSu sObject = Marshal.PtrToStructure<DAOHANGSHUJU_KuaiSu>(ptr);
 
+                        // 缓存状态数据
+                        sObject_DHK_Ti = sObject;
                         //----------------------------------------------------------//
                         // 填充实时数据
-                        showDHKuaiSuTimeStatus(ref sObject);
+                        // showDHKuaiSuTimeStatus(ref sObject);
                         //----------------------------------------------------------//
                         // 绘图
                         DHKuaiSu_CHART_ITEM_INDEX++;
@@ -269,9 +278,11 @@ namespace YaoCeProcess
                         IntPtr ptr = m.LParam;
                         DAOHANGSHUJU_ManSu sObject = Marshal.PtrToStructure<DAOHANGSHUJU_ManSu>(ptr);
 
+                        // 缓存状态数据
+                        sObject_DHM_Ti = sObject;
                         //----------------------------------------------------------//
                         // 填充实时数据
-                        showDHManSuTimeStatus(ref sObject);
+                        // showDHManSuTimeStatus(ref sObject);
                         //----------------------------------------------------------//
                         // 绘图
                         DHManSu_CHART_ITEM_INDEX++;
@@ -952,7 +963,7 @@ namespace YaoCeProcess
             //--------------------------------------------------//
             // 读取文件定时器
             readFileTimer.Elapsed += new System.Timers.ElapsedEventHandler(OnReadFileTimedEvent);
-            readFileTimer.Interval = 50;
+            readFileTimer.Interval = 1;
             readFileTimer.Enabled = true;
 
             //--------------------------------------------------//
@@ -1124,12 +1135,12 @@ namespace YaoCeProcess
             // chart_XiTong_ZuoBiao.Series["纬度"].Points.AddPoint(xiTong_CHART_ITEM_INDEX, rnd.Next(1, 100));
             // chart_XiTong_ZuoBiao.Series["海拔高度"].Points.AddPoint(xiTong_CHART_ITEM_INDEX, rnd.Next(1, 100));
             // xiTong_CHART_ITEM_INDEX++;
-             
+
             // chart_DHKuaiSu_ZuoBiao.Series["经度"].Points.AddPoint(DHKuaiSu_CHART_ITEM_INDEX, rnd.Next(1, 100));
             // chart_DHKuaiSu_ZuoBiao.Series["纬度"].Points.AddPoint(DHKuaiSu_CHART_ITEM_INDEX, rnd.Next(1, 100));
             // chart_DHKuaiSu_ZuoBiao.Series["海拔高度"].Points.AddPoint(DHKuaiSu_CHART_ITEM_INDEX, rnd.Next(1, 100));
             // DHKuaiSu_CHART_ITEM_INDEX++;
-             
+
             // chart_DHManSu_ZuoBiao.Series["经度"].Points.AddPoint(DHManSu_CHART_ITEM_INDEX, rnd.Next(1, 100));
             // chart_DHManSu_ZuoBiao.Series["纬度"].Points.AddPoint(DHManSu_CHART_ITEM_INDEX, rnd.Next(1, 100));
             // chart_DHManSu_ZuoBiao.Series["海拔高度"].Points.AddPoint(DHManSu_CHART_ITEM_INDEX, rnd.Next(1, 100));
@@ -1224,6 +1235,9 @@ namespace YaoCeProcess
                 setRunPic(true);
                 // 更改按钮Tip
                 toolTip1.SetToolTip(BtnStartStop, "停止");
+
+                // 开启状态刷新定时器
+                setUpdateTimerStatus(true);
             }
             else
             {
@@ -1257,6 +1271,9 @@ namespace YaoCeProcess
 
                 // 更改按钮Tip
                 toolTip1.SetToolTip(BtnStartStop, "开始");
+
+                // 关闭状态刷新定时器
+                setUpdateTimerStatus(false);
             }
         }
 
@@ -1272,7 +1289,7 @@ namespace YaoCeProcess
             // 是否可以选择多个文件
             dialog.Multiselect = false;
             dialog.Title = "请选择文件夹";
-            dialog.Filter = "数据文件(*.dat)|*.dat";
+            dialog.Filter = "数据文件(*.dat,*.bin)|*.dat;*.bin";
             dialog.InitialDirectory = AppDomain.CurrentDomain.BaseDirectory + "Log";
             if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
@@ -1317,6 +1334,9 @@ namespace YaoCeProcess
 
                 // 刷新加载文件进度
                 timerUpdateLoadFileProgress.Start();
+
+                // 开启状态刷新定时器
+                setUpdateTimerStatus(true);
             }
         }
 
@@ -1357,7 +1377,7 @@ namespace YaoCeProcess
                 }
                 */
                 // 按字节读取数据
-                const int fsLen = 651;  
+                const int fsLen = 651;
                 byte[] heByte = new byte[fsLen];
                 int readLength = 0;
                 if ((readLength = srFileRead.Read(heByte, 0, heByte.Length)) > 0)
@@ -1401,6 +1421,9 @@ namespace YaoCeProcess
 
                     // 关闭数据解析
                     dataParser.Stop();
+
+                    // 关闭状态刷新定时器
+                    setUpdateTimerStatus(false);
 
                     // 日志打印
                     Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, "历史数据加载完成！");
@@ -1489,7 +1512,59 @@ namespace YaoCeProcess
             percent *= 100;
             // 日志打印
             // Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, "数据加载：" + ((UInt32)percent).ToString() + "%");
-Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, "数据加载：" + percent.ToString("f2") + "%");    // 保留两位小数
+            Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, "数据加载：" + percent.ToString("f2") + "%");    // 保留两位小数
+        }
+
+        //-----------------------------------------------------------------------//
+        // 通过定时器定时刷新数据
+
+        private void timerUpdateXiTongStatus_Tick(object sender, EventArgs e)
+        {
+            // 填充实时数据
+            showSystemTimeStatus(ref sObject_XiTong);
+        }
+
+        private void timerOffLineXiTongStatus_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timerUpdateDHKStatus_Ti_Tick(object sender, EventArgs e)
+        {
+            // 填充实时数据
+            showDHKuaiSuTimeStatus(ref sObject_DHK_Ti);
+        }
+
+        private void timerOfflineDHKStatus_Ti_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timerUpdateDHMStatus_Ti_Tick(object sender, EventArgs e)
+        {
+            // 填充实时数据
+            showDHManSuTimeStatus(ref sObject_DHM_Ti);
+        }
+
+        private void timerOfflineDHMStatus_Ti_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void setUpdateTimerStatus(bool bOpen)
+        {
+            if (bOpen)
+            {
+                timerUpdateXiTongStatus.Start();
+                timerUpdateDHKStatus_Ti.Start();
+                timerUpdateDHMStatus_Ti.Start();
+            }
+            else
+            {
+                timerUpdateXiTongStatus.Stop();
+                timerUpdateDHKStatus_Ti.Stop();
+                timerUpdateDHMStatus_Ti.Stop();
+            }
         }
     }
 }
