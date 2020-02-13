@@ -180,7 +180,7 @@ namespace YaoCeProcess
     // 导航数据(快速)
     [Serializable]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
-    struct DAOHANGSHUJU_KuaiSu
+    public struct DAOHANGSHUJU_KuaiSu
     {
         // ?? 当量是什么意思
         public uint         daoHangXiTongShiJian; // 导航系统时间

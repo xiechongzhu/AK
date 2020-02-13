@@ -66,6 +66,12 @@
     <Compile Include="CRC16.cs" />
     <Compile Include="DataLogger.cs" />
     <Compile Include="DataParser.cs" />
+    <Compile Include="DHKSubForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DHKSubForm.Designer.cs">
+      <DependentUpon>DHKSubForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoadDataForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,9 @@
     <Compile Include="SettingForm.Designer.cs">
       <DependentUpon>SettingForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DHKSubForm.resx">
+      <DependentUpon>DHKSubForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoadDataForm.resx">
       <DependentUpon>LoadDataForm.cs</DependentUpon>
     </EmbeddedResource>

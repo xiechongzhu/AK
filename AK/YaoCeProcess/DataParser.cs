@@ -473,7 +473,7 @@ namespace YaoCeProcess
                     // 向界面传递数据
                     IntPtr ptr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(DAOHANGSHUJU_KuaiSu)));
                     Marshal.StructureToPtr(sObject, ptr, true);
-                    PostMessage(mainFormHandle, MainForm.WM_YAOCE_daoHangKuaiSu_DATA, 0, ptr);
+                    PostMessage(mainFormHandle, MainForm.WM_YAOCE_daoHangKuaiSu_Ti_DATA, 0, ptr);
                 }
             }
         }
