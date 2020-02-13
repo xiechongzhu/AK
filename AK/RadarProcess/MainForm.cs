@@ -206,6 +206,12 @@ namespace RadarProcess
                 XtraMessageBox.Show("保存试验信息失败:" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+            historyData.LongitudeInit = Config.GetInstance().longitudeInit;
+            historyData.LatitudeInit = Config.GetInstance().latitudeInit;
+            historyData.HeightInit = Config.GetInstance().heightInit;
+            historyData.AzimuthInit = Config.GetInstance().azimuthInit;
+            historyData.PlacementHeight = Config.GetInstance().placementHeight;
+            historyData.Flightshot = Config.GetInstance().flightshot;
             historyData.LocMaxX = Config.GetInstance().locMaxX;
             historyData.LocMinX = Config.GetInstance().locMinX;
             historyData.LocMaxY = Config.GetInstance().locMaxY;
@@ -221,6 +227,8 @@ namespace RadarProcess
             historyData.ForwardLine = Config.GetInstance().forwardLine;
             historyData.BackwardLine = Config.GetInstance().backwardLine;
             historyData.SideLine = Config.GetInstance().sideLine;
+            historyData.StrMultiCastIpAddr = Config.GetInstance().strMultiCastIpAddr;
+            historyData.Port = Config.GetInstance().port;
 
             try
             {

@@ -122,6 +122,8 @@
             this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
+            this.btnViewConfig = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.editTestDate.Properties)).BeginInit();
@@ -219,6 +221,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
             this.layoutControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -317,6 +320,7 @@
             // 
             // layoutControl2
             // 
+            this.layoutControl2.Controls.Add(this.btnViewConfig);
             this.layoutControl2.Controls.Add(this.editComment);
             this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.layoutControl2.Location = new System.Drawing.Point(0, 40);
@@ -333,7 +337,7 @@
             this.editComment.Margin = new System.Windows.Forms.Padding(2);
             this.editComment.Name = "editComment";
             this.editComment.Properties.ReadOnly = true;
-            this.editComment.Size = new System.Drawing.Size(1353, 36);
+            this.editComment.Size = new System.Drawing.Size(1264, 36);
             this.editComment.StyleController = this.layoutControl2;
             this.editComment.TabIndex = 4;
             // 
@@ -342,7 +346,8 @@
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem4});
+            this.layoutControlItem4,
+            this.layoutControlItem14});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Size = new System.Drawing.Size(1408, 60);
             this.layoutControlGroup1.TextVisible = false;
@@ -352,7 +357,7 @@
             this.layoutControlItem4.Control = this.editComment;
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(1388, 40);
+            this.layoutControlItem4.Size = new System.Drawing.Size(1299, 40);
             this.layoutControlItem4.Text = "备注:";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(28, 14);
             // 
@@ -750,6 +755,26 @@
             this.layoutControl3.TabIndex = 2;
             this.layoutControl3.Text = "layoutControl3";
             // 
+            // btnViewConfig
+            // 
+            this.btnViewConfig.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.btnViewConfig.Location = new System.Drawing.Point(1311, 12);
+            this.btnViewConfig.Name = "btnViewConfig";
+            this.btnViewConfig.Size = new System.Drawing.Size(85, 22);
+            this.btnViewConfig.StyleController = this.layoutControl2;
+            this.btnViewConfig.TabIndex = 5;
+            this.btnViewConfig.Text = "查看配置";
+            this.btnViewConfig.Click += new System.EventHandler(this.btnViewConfig_Click);
+            // 
+            // layoutControlItem14
+            // 
+            this.layoutControlItem14.Control = this.btnViewConfig;
+            this.layoutControlItem14.Location = new System.Drawing.Point(1299, 0);
+            this.layoutControlItem14.Name = "layoutControlItem14";
+            this.layoutControlItem14.Size = new System.Drawing.Size(89, 40);
+            this.layoutControlItem14.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem14.TextVisible = false;
+            // 
             // TestReviewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -860,6 +885,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).EndInit();
             this.layoutControl3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -902,5 +928,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem11;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem12;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem13;
+        private DevExpress.XtraEditors.SimpleButton btnViewConfig;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem14;
     }
 }

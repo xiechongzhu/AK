@@ -12,9 +12,29 @@ namespace RadarProcess
         private List<S_OBJECT> listSObject = new List<S_OBJECT>();
         private FallPoint ideaFallPoint = new FallPoint();
         private List<FallPoint> listFallPoints = new List<FallPoint>();
-        private double locMaxX, locMinX, locMaxY, locMinY, locMaxZ, locMinZ;
-        private double speedMaxX, speedMinX, speedMaxY, speedMinY, speedMaxZ, speedMinZ;
-        private double forwardLine, backwardLine, sideLine;
+        private double longitudeInit;        //初始位置经度
+        private double latitudeInit;         //初始位置纬度
+        private double heightInit;           //初始位置高度
+        private double azimuthInit;          //初始位置方位角
+        private double placementHeight;      //落点附近高度
+        private double flightshot;           //理论射程
+        private double forwardLine;          //预示落点射程前向必炸线
+        private double backwardLine;         //当前点发射系位置x后向必炸线
+        private double sideLine;             //侧向必炸线
+        private double locMaxX;              //位置x分量上限
+        private double locMinX;              //位置x分量下限
+        private double locMaxY;              //位置y分量上限
+        private double locMinY;              //位置y分量下限
+        private double locMaxZ;              //位置z分量上限
+        private double locMinZ;              //位置z分量下限
+        private double speedMaxX;              //速度x分量上限
+        private double speedMinX;              //速度x分量下限
+        private double speedMaxY;              //速度y分量上限
+        private double speedMinY;              //速度y分量下限
+        private double speedMaxZ;              //速度z分量上限
+        private double speedMinZ;              //速度z分量下限
+        private String strMultiCastIpAddr;       //组播地址
+        private UInt16 port;                     //组播端口
 
         public void Clear()
         {
@@ -29,7 +49,7 @@ namespace RadarProcess
 
         public void AddFallPoint(FallPoint fallPoint)
         {
-            if(listFallPoints.Count == 5)
+            if (listFallPoints.Count == 5)
             {
                 listFallPoints.RemoveAt(0);
             }
@@ -67,5 +87,13 @@ namespace RadarProcess
         public double ForwardLine { get => forwardLine; set => forwardLine = value; }
         public double BackwardLine { get => backwardLine; set => backwardLine = value; }
         public double SideLine { get => sideLine; set => sideLine = value; }
+        public double LongitudeInit { get => longitudeInit; set => longitudeInit = value; }
+        public double LatitudeInit { get => latitudeInit; set => latitudeInit = value; }
+        public double HeightInit { get => heightInit; set => heightInit = value; }
+        public double AzimuthInit { get => azimuthInit; set => azimuthInit = value; }
+        public double PlacementHeight { get => placementHeight; set => placementHeight = value; }
+        public double Flightshot { get => flightshot; set => flightshot = value; }
+        public string StrMultiCastIpAddr { get => strMultiCastIpAddr; set => strMultiCastIpAddr = value; }
+        public ushort Port { get => port; set => port = value; }
     }
 }

@@ -153,5 +153,22 @@ namespace RadarProcess
                 }
             }
         }
+
+        private void btnViewConfig_Click(object sender, EventArgs e)
+        {
+            if(null == historyData)
+            {
+                XtraMessageBox.Show("读取配置失败", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            SettingForm settingForm = new SettingForm();
+            settingForm.SetViwMode();
+            settingForm.SetParams(historyData.LongitudeInit, historyData.LatitudeInit, historyData.HeightInit,
+                historyData.AzimuthInit, historyData.PlacementHeight, historyData.Flightshot, historyData.ForwardLine,
+                historyData.BackwardLine, historyData.SideLine, historyData.LocMaxX, historyData.LocMaxY, historyData.LocMaxZ,
+                historyData.LocMinX, historyData.LocMinY, historyData.LocMinZ, historyData.SpeedMaxX, historyData.SpeedMaxY, historyData.SpeedMaxZ,
+                historyData.SpeedMinX, historyData.SpeedMinY, historyData.SpeedMinZ, historyData.StrMultiCastIpAddr, historyData.Port);
+            settingForm.ShowDialog();
+        }
     }
 }
