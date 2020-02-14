@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraCharts;
+using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,13 +29,26 @@ namespace YaoCeProcess
         private List<SeriesPoint> DHKuaiSu_SuDu_TianXiang_Buffer = new List<SeriesPoint>();     // 天向速度
 
         // 状态数据缓存
-        public DAOHANGSHUJU_KuaiSu sObject_DHK_Ti;
+        public DAOHANGSHUJU_KuaiSu sObject_DHK;
+
+        // 是否收到数据
+        bool bRecvStatusData = false;
 
         //--------------------------------------------------------------//
 
         public DHKSubForm()
         {
             InitializeComponent();
+            // 离线定时器初始即启动
+            timerOfflineDHKStatus.Start();
+
+            // 初始清空数据
+            GenericFunction.reSetAllTextEdit(this);
+        }
+
+        ~DHKSubForm()
+        {
+            timerOfflineDHKStatus.Stop();
         }
 
         //-----------------------导航数据（快速）-----------------------//
@@ -237,21 +251,25 @@ namespace YaoCeProcess
             chart_DHKuaiSu_SuDu_Tian.Update();
         }
 
-        private void timerUpdateDHKStatus_Ti_Tick(object sender, EventArgs e)
+        private void timerUpdateDHKStatus_Tick(object sender, EventArgs e)
         {
-            // 填充实时数据
-            showDHKuaiSuTimeStatus(ref sObject_DHK_Ti);
+            // 是否收到数据
+            if (bRecvStatusData)
+            {
+                // 填充实时数据
+                showDHKuaiSuTimeStatus(ref sObject_DHK);
+            }
         }
 
         public void setUpdateTimerStatus(bool bOpen)
         {
             if (bOpen)
             {
-                timerUpdateDHKStatus_Ti.Start();
+                timerUpdateDHKStatus.Start();
             }
             else
             {
-                timerUpdateDHKStatus_Ti.Stop();
+                timerUpdateDHKStatus.Stop();
             }
         }
 
@@ -269,12 +287,27 @@ namespace YaoCeProcess
 
         public void SetDHKStatus(ref DAOHANGSHUJU_KuaiSu sObject)
         {
-            sObject_DHK_Ti = sObject;
+            sObject_DHK = sObject;
+            // 重新启动离线定时器
+            timerOfflineDHKStatus.Stop();
+            timerOfflineDHKStatus.Start();
+
+            // 是否收到数据
+            bRecvStatusData = true;
         }
 
         public void setCHARTITEMINDEXAdd()
         {
             DHKuaiSu_CHART_ITEM_INDEX++;
+        }
+
+        private void timerOfflineDHKStatus_Tick(object sender, EventArgs e)
+        {
+            // 清空数据
+            GenericFunction.reSetAllTextEdit(this);
+
+            // 是否收到数据
+            bRecvStatusData = false;
         }
     }
 }

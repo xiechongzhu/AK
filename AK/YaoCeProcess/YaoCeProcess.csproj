@@ -72,6 +72,13 @@
     <Compile Include="DHKSubForm.Designer.cs">
       <DependentUpon>DHKSubForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DHMSubForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DHMSubForm.Designer.cs">
+      <DependentUpon>DHMSubForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GenericFunction.cs" />
     <Compile Include="LoadDataForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +103,9 @@
     </Compile>
     <EmbeddedResource Include="DHKSubForm.resx">
       <DependentUpon>DHKSubForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DHMSubForm.resx">
+      <DependentUpon>DHMSubForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoadDataForm.resx">
       <DependentUpon>LoadDataForm.cs</DependentUpon>
