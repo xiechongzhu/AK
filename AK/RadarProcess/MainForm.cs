@@ -18,6 +18,45 @@ namespace RadarProcess
 {
     public partial class MainForm : Form
     {
+        public enum FlashType : uint
+        {
+            FLASHW_STOP = 0, //停止闪烁
+            FALSHW_CAPTION = 1, //只闪烁标题
+            FLASHW_TRAY = 2, //只闪烁任务栏
+            FLASHW_ALL = 3, //标题和任务栏同时闪烁
+            FLASHW_PARAM1 = 4,
+            FLASHW_PARAM2 = 12,
+            FLASHW_TIMER = FLASHW_TRAY | FLASHW_PARAM1, //无条件闪烁任务栏直到发送停止标志或者窗口被激活，如果未激活，停止时高亮
+            FLASHW_TIMERNOFG = FLASHW_TRAY | FLASHW_PARAM2 //未激活时闪烁任务栏直到发送停止标志或者窗体被激活，停止后高亮
+        }
+
+        public struct FLASHWINFO
+        {
+            /// <summary>
+            /// 结构大小
+            /// </summary>
+            public uint cbSize;
+            /// <summary>
+            /// 要闪烁或停止的窗口句柄
+            /// </summary>
+            public IntPtr hwnd;
+            /// <summary>
+            /// 闪烁的类型
+            /// </summary>
+            public uint dwFlags;
+            /// <summary>
+            /// 闪烁窗口的次数
+            /// </summary>
+            public uint uCount;
+            /// <summary>
+            /// 窗口闪烁的频度，毫秒为单位；若该值为0，则为默认图标的闪烁频度
+            /// </summary>
+            public uint dwTimeout;
+        }
+
+        [DllImport("user32.dll")]
+        private static extern bool FlashWindowEx(ref FLASHWINFO pwfi);
+
         private System.Windows.Media.MediaPlayer player = new System.Windows.Media.MediaPlayer();
         private bool isAlertPlaying = false;
         private int CHART_ITEM_INDEX = 0;
@@ -317,19 +356,19 @@ namespace RadarProcess
             }
             if(x > Config.GetInstance().locMaxX || x < Config.GetInstance().locMinX)
             {
-                PlayAlertSound();
+                ShowAlert();
                 Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "位置X超出范围:" + x.ToString());
                 positionAlertTime = DateTime.Now;
             }
             if (y > Config.GetInstance().locMaxY || y < Config.GetInstance().locMinY)
             {
-                PlayAlertSound();
+                ShowAlert();
                 Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "位置Y超出范围:" + y.ToString());
                 positionAlertTime = DateTime.Now;
             }
             if (z > Config.GetInstance().locMaxZ || z < Config.GetInstance().locMinZ)
             {
-                PlayAlertSound();
+                ShowAlert();
                 Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "位置Z超出范围:" + z.ToString());
                 positionAlertTime = DateTime.Now;
             }
@@ -444,19 +483,19 @@ namespace RadarProcess
             }
             if (vx > Config.GetInstance().speedMaxX || vx < Config.GetInstance().speedMinX)
             {
-                PlayAlertSound();
+                ShowAlert();
                 Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "速度VX超出范围:" + vx.ToString());
                 speedAlertTime = DateTime.Now;
             }
             if (vy > Config.GetInstance().speedMaxY || vy < Config.GetInstance().speedMinY)
             {
-                PlayAlertSound();
+                ShowAlert();
                 Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "速度VY超出范围:" + vy.ToString());
                 speedAlertTime = DateTime.Now;
             }
             if (vz > Config.GetInstance().speedMaxZ || vz < Config.GetInstance().speedMinZ)
             {
-                PlayAlertSound();
+                ShowAlert();
                 Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "速度VZ超出范围:" + vz.ToString());
                 speedAlertTime = DateTime.Now;
             }
@@ -473,7 +512,7 @@ namespace RadarProcess
                 fallPoint.y < ideaPoint.y - Config.GetInstance().backwardLine ||
                 fallPoint.y > ideaPoint.y + Config.GetInstance().forwardLine)
             {
-                PlayAlertSound();
+                ShowAlert();
                 Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, String.Format("落点超出范围:X={0},Y={1}", fallPoint.x, fallPoint.y));
                 speedAlertTime = DateTime.Now;
             }
@@ -524,6 +563,28 @@ namespace RadarProcess
                 player.Position = new TimeSpan(0);
                 player.Play();
             }
+        }
+
+        private void ShowAlert()
+        {
+            if (!isAlertPlaying)
+            {
+                isAlertPlaying = true;
+                player.Position = new TimeSpan(0);
+                player.Play();
+            }
+            FlashWindow(Handle, FlashType.FLASHW_ALL);
+        }
+
+        public static bool FlashWindow(IntPtr hWnd, FlashType type)
+        {
+            FLASHWINFO fInfo = new FLASHWINFO();
+            fInfo.cbSize = Convert.ToUInt32(Marshal.SizeOf(fInfo));
+            fInfo.hwnd = hWnd;//要闪烁的窗口的句柄，该窗口可以是打开的或最小化的
+            fInfo.dwFlags = (uint)type;//闪烁的类型
+            fInfo.uCount = 3;//闪烁窗口的次数
+            fInfo.dwTimeout = 0; //窗口闪烁的频度，毫秒为单位；若该值为0，则为默认图标的闪烁频度
+            return FlashWindowEx(ref fInfo);
         }
 
         private void Player_MediaEnded(object sender, EventArgs e)
