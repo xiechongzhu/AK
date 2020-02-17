@@ -165,15 +165,16 @@ namespace YaoCeProcess
                             return;
                         // 读取can数据
                         // TODO 这里剩下的数据长度不包括校验的两个字节，如果想用校验，需要再读取两个字节的校验值
-                        byte[] canData = br.ReadBytes(canLen);
+                        // TODO 20200217 更改为直接读取8个字节
+                        byte[] canData = br.ReadBytes(/*canLen*/8);
                         // 偏移
                         // dataReadPos += (UInt16)canLen;
                         // 这里直接默认偏移8个字节，数据不足会进行填充
                         dataReadPos += 8;
-                        if (8 - canLen > 0)
-                        {
-                            byte[] unUseData = br.ReadBytes(8 - canLen);
-                        }
+                        // if (8 - canLen > 0)
+                        // {
+                        //     byte[] unUseData = br.ReadBytes(8 - canLen);
+                        // }
 
                         //---------------------------------------------------------------------------------//
                         // 只进行如下状态数据
@@ -283,8 +284,9 @@ namespace YaoCeProcess
                     }
 
                     // 拼接上一次剩余的包
-                    byte[] canData = new byte[lastDataLen];
-                    Array.Copy(buffer, 1, canData, 0, lastDataLen);
+                    // TODO +2添加两个字节的校验
+                    byte[] canData = new byte[lastDataLen + 2];
+                    Array.Copy(buffer, 1, canData, 0, lastDataLen + 2);
                     statusBuffer = statusBuffer.Concat(canData).ToArray();
 
                     //---------------------------------------------------//
@@ -353,7 +355,7 @@ namespace YaoCeProcess
 
         private void ParseStatusData(byte[] buffer, byte canId, byte frameType)
         {
-            // TODO 添加CRC16校验待定
+            // TODO 添加CRC16校验待定，此处需要在原数据获取上，添加两个字节
             if (!ParseDataCRC16(buffer))
             {
                 return;
