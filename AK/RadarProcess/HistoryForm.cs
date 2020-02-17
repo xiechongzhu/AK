@@ -4,6 +4,7 @@ using LinqToDB;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -66,13 +67,57 @@ namespace RadarProcess
             {
                 long id = (long)gridView.GetRowCellValue(selectedRow, "Id");
                 ids.Add(id);
+                String date = (String)gridView.GetRowCellValue(selectedRow, "Time");
+                DelectDir(String.Format("./Log/{0}", DateTime.Parse(date).ToString("yyyyMMddHHmmss")));
             }
             using (DataModels.DatabaseDB db = new DataModels.DatabaseDB())
             {
                 db.TestInfos.Delete(item => ids.Contains(item.Id));
                 db.CommitTransaction();
             }
+
             gridView.DeleteSelectedRows();
+        }
+
+        protected void DelectDir(string srcPath)
+        {
+            try
+            {
+                //去除文件夹和子文件的只读属性
+                //去除文件夹的只读属性
+                System.IO.DirectoryInfo fileInfo = new DirectoryInfo(srcPath);
+                fileInfo.Attributes = FileAttributes.Normal & FileAttributes.Directory;
+
+                //去除文件的只读属性
+                System.IO.File.SetAttributes(srcPath, System.IO.FileAttributes.Normal);
+
+                //判断文件夹是否还存在
+                if (Directory.Exists(srcPath))
+                {
+                    foreach (string f in Directory.GetFileSystemEntries(srcPath))
+                    {
+                        if (File.Exists(f))
+                        {
+                            //如果有子文件删除文件
+                            File.Delete(f);
+                            Console.WriteLine(f);
+                        }
+                        else
+                        {
+                            //循环递归删除子文件夹
+                            DelectDir(f);
+                        }
+                    }
+
+                    //删除空文件夹
+                    Directory.Delete(srcPath);
+                }
+
+            }
+            catch (Exception) // 异常处理
+            {
+                
+            }
         }
     }
 }

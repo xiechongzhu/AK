@@ -29,6 +29,11 @@ namespace RadarProcess
             logWriter = new StreamWriter(TestInfo.GetInstance().strLogFile);
         }
 
+        public void Close()
+        {
+            logWriter?.Close();
+        }
+
         private MainForm mainForm;
         private static Logger __instance = new Logger();
         public static Logger GetInstance()
@@ -59,8 +64,13 @@ namespace RadarProcess
                     return;
             }
             String strLog = String.Format("[{0}][{1}]{2}", dateTime.ToString("G"), strLevel, msg);
-            logWriter.WriteLine(strLog);
-            logWriter.Flush();
+            try
+            {
+                logWriter.WriteLine(strLog);
+                logWriter.Flush();
+            }
+            catch (Exception)
+            { }
         }
     }
 }

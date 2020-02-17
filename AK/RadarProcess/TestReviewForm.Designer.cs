@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TestReviewForm));
             DevExpress.XtraCharts.SwiftPlotDiagram swiftPlotDiagram1 = new DevExpress.XtraCharts.SwiftPlotDiagram();
             DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView1 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
@@ -84,8 +85,7 @@
             DevExpress.XtraCharts.Series series24 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.PointSeriesView pointSeriesView6 = new DevExpress.XtraCharts.PointSeriesView();
             DevExpress.XtraCharts.Series series25 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.AreaSeriesView areaSeriesView1 = new DevExpress.XtraCharts.AreaSeriesView();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TestReviewForm));
+            DevExpress.XtraCharts.RangeAreaSeriesView rangeAreaSeriesView1 = new DevExpress.XtraCharts.RangeAreaSeriesView();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.editTestDate = new DevExpress.XtraEditors.TextEdit();
             this.editOperator = new DevExpress.XtraEditors.TextEdit();
@@ -96,9 +96,11 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
+            this.btnViewConfig = new DevExpress.XtraEditors.SimpleButton();
             this.editComment = new DevExpress.XtraEditors.MemoEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
             this.xtraTabPageSpeed = new DevExpress.XtraTab.XtraTabPage();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -122,8 +124,6 @@
             this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
-            this.btnViewConfig = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.editTestDate.Properties)).BeginInit();
@@ -139,6 +139,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.editComment.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl4)).BeginInit();
@@ -216,12 +217,11 @@
             ((System.ComponentModel.ISupportInitialize)(series24)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(pointSeriesView6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(series25)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(areaSeriesView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(rangeAreaSeriesView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
             this.layoutControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -331,6 +331,17 @@
             this.layoutControl2.TabIndex = 1;
             this.layoutControl2.Text = "layoutControl2";
             // 
+            // btnViewConfig
+            // 
+            this.btnViewConfig.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnViewConfig.ImageOptions.Image")));
+            this.btnViewConfig.Location = new System.Drawing.Point(1311, 12);
+            this.btnViewConfig.Name = "btnViewConfig";
+            this.btnViewConfig.Size = new System.Drawing.Size(85, 22);
+            this.btnViewConfig.StyleController = this.layoutControl2;
+            this.btnViewConfig.TabIndex = 5;
+            this.btnViewConfig.Text = "查看配置";
+            this.btnViewConfig.Click += new System.EventHandler(this.btnViewConfig_Click);
+            // 
             // editComment
             // 
             this.editComment.Location = new System.Drawing.Point(43, 12);
@@ -360,6 +371,15 @@
             this.layoutControlItem4.Size = new System.Drawing.Size(1299, 40);
             this.layoutControlItem4.Text = "备注:";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(28, 14);
+            // 
+            // layoutControlItem14
+            // 
+            this.layoutControlItem14.Control = this.btnViewConfig;
+            this.layoutControlItem14.Location = new System.Drawing.Point(1299, 0);
+            this.layoutControlItem14.Name = "layoutControlItem14";
+            this.layoutControlItem14.Size = new System.Drawing.Size(89, 40);
+            this.layoutControlItem14.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem14.TextVisible = false;
             // 
             // xtraTabPageSpeed
             // 
@@ -711,7 +731,7 @@
             pointSeriesView6.Color = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             series24.View = pointSeriesView6;
             series25.Name = "必炸线";
-            series25.View = areaSeriesView1;
+            series25.View = rangeAreaSeriesView1;
             this.chartPoints.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series19,
         series20,
@@ -755,26 +775,6 @@
             this.layoutControl3.TabIndex = 2;
             this.layoutControl3.Text = "layoutControl3";
             // 
-            // btnViewConfig
-            // 
-            this.btnViewConfig.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.btnViewConfig.Location = new System.Drawing.Point(1311, 12);
-            this.btnViewConfig.Name = "btnViewConfig";
-            this.btnViewConfig.Size = new System.Drawing.Size(85, 22);
-            this.btnViewConfig.StyleController = this.layoutControl2;
-            this.btnViewConfig.TabIndex = 5;
-            this.btnViewConfig.Text = "查看配置";
-            this.btnViewConfig.Click += new System.EventHandler(this.btnViewConfig_Click);
-            // 
-            // layoutControlItem14
-            // 
-            this.layoutControlItem14.Control = this.btnViewConfig;
-            this.layoutControlItem14.Location = new System.Drawing.Point(1299, 0);
-            this.layoutControlItem14.Name = "layoutControlItem14";
-            this.layoutControlItem14.Size = new System.Drawing.Size(89, 40);
-            this.layoutControlItem14.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem14.TextVisible = false;
-            // 
             // TestReviewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -803,6 +803,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.editComment.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl4)).EndInit();
@@ -878,14 +879,13 @@
             ((System.ComponentModel.ISupportInitialize)(series23)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(pointSeriesView6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(series24)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(areaSeriesView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(rangeAreaSeriesView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(series25)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartPoints)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).EndInit();
             this.layoutControl3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
             this.ResumeLayout(false);
 
         }
