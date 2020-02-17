@@ -58,12 +58,18 @@ namespace YaoCeProcess
             DHKuaiSu_DaoHangXiTongShiJian.Text = sObject.daoHangXiTongShiJian.ToString();
 
             // sObject.jingDu;              // 经度（组合结果）当量：1e-7
+            DHKuaiSu_JingDu.Text = ((double)(sObject.jingDu * Math.Pow(10, -7))).ToString();
             // sObject.weiDu;               // 纬度（组合结果）当量：1e-7
+            DHKuaiSu_WeiDu.Text = ((double)(sObject.weiDu * Math.Pow(10, -7))).ToString();
             // sObject.haiBaGaoDu;          // 海拔高度（组合结果）当量：1e-2
+            DHKuaiSu_GaoDu.Text = ((double)(sObject.haiBaGaoDu * Math.Pow(10, -2))).ToString();
 
             //sObject.dongXiangSuDu;        // 东向速度（组合结果）当量：1e-2
+            DHKuaiSu_DongXiangSuDu.Text = ((double)(sObject.dongXiangSuDu * Math.Pow(10, -2))).ToString();
             //sObject.beiXiangSuDu;         // 北向速度（组合结果）当量：1e-2
+            DHKuaiSu_BeiXiangSuDu.Text = ((double)(sObject.beiXiangSuDu * Math.Pow(10, -2))).ToString();
             //sObject.tianXiangSuDu;        // 天向速度（组合结果）当量：1e-2
+            DHKuaiSu_TianXiangSuDu.Text = ((double)(sObject.tianXiangSuDu * Math.Pow(10, -2))).ToString();
 
             // GNSS时间 单位s,UTC秒部
             DHKuaiSu_GNSSTime.Text = sObject.GNSSTime.ToString();
@@ -304,7 +310,8 @@ namespace YaoCeProcess
         private void timerOfflineDHKStatus_Tick(object sender, EventArgs e)
         {
             // 清空数据
-            GenericFunction.reSetAllTextEdit(this);
+            // TODO 这里不需要清空最后一帧数据显示
+            // GenericFunction.reSetAllTextEdit(this);
 
             // 是否收到数据
             bRecvStatusData = false;

@@ -11,6 +11,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Forms;
@@ -32,6 +33,8 @@ namespace YaoCeProcess
         public const int WM_YAOCE_daoHangManSu_Tou_DATA = WM_USER + 106;
         // 回路检测数据标识
         public const int WM_YAOCE_HuiLuJianCe_DATA = WM_USER + 107;
+
+        private static readonly TimeSpan Interval = TimeSpan.FromMilliseconds(500);
 
         //-----------------------------------------------------//
         // 成员变量
@@ -238,8 +241,8 @@ namespace YaoCeProcess
                         sObject_XiTong = sObject;
 
                         // 重新启动离线定时器
-                        timerUpdateXiTongStatus.Stop();
-                        timerUpdateXiTongStatus.Start();
+                        timerOffLineXiTongStatus.Stop();
+                        timerOffLineXiTongStatus.Start();
 
                         // 是否收到数据
                         bRecvStatusData_XiTong = true;
@@ -1109,11 +1112,19 @@ namespace YaoCeProcess
                     // 文件置空
                     srFileRead = null;
 
+                    // 日志打印
+                    Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, "历史数据加载完成！");
+                    //MessageBox.Show("文件读取完成！", "提示", MessageBoxButtons.OK);
+                    XtraMessageBox.Show("文件读取完成！");
+
                     //-------------------------------------------------------//
                     // 禁用按钮
                     BtnSetting.Enabled = true;
                     BtnStartStop.Enabled = true;
                     btnLoadFile.Enabled = true;
+
+                    // 线程休眠使用间隔时间(等待数据处理完成，而不是读取完毕，立即关闭定时器刷新)
+                    Thread.Sleep(Interval);
 
                     // 停止绘图定时器刷新数据
                     setTimerUpdateChartStatus(false);
@@ -1126,11 +1137,6 @@ namespace YaoCeProcess
 
                     // 关闭状态刷新定时器
                     setUpdateTimerStatus(false);
-
-                    // 日志打印
-                    Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, "历史数据加载完成！");
-                    //MessageBox.Show("文件读取完成！", "提示", MessageBoxButtons.OK);
-                    XtraMessageBox.Show("文件读取完成！");
                 }
             }
         }
@@ -1260,7 +1266,8 @@ namespace YaoCeProcess
         private void timerOffLineXiTongStatus_Tick(object sender, EventArgs e)
         {
             // 清空数据
-            GenericFunction.reSetAllTextEdit(TabPage_XiTongPanJue);
+            // TODO 这里不需要清空最后一帧数据显示
+            // GenericFunction.reSetAllTextEdit(TabPage_XiTongPanJue);
 
             // 是否收到数据
             bRecvStatusData_XiTong = false;
@@ -1311,7 +1318,8 @@ namespace YaoCeProcess
         private void timerOffLineHuiLuJianCe_Tick(object sender, EventArgs e)
         {
             // 清空数据
-            GenericFunction.reSetAllTextEdit(xtraTabPage_HuiLuJianCe);
+            // TODO 这里不需要清空最后一帧数据显示
+            // GenericFunction.reSetAllTextEdit(xtraTabPage_HuiLuJianCe);
 
             // 是否收到数据
             bRecvStatusData_HuiLuJianCe = false;
