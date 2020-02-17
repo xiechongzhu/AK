@@ -164,6 +164,7 @@ namespace YaoCeProcess
                         if (canLen > 8)
                             return;
                         // 读取can数据
+                        // TODO 这里剩下的数据长度不包括校验的两个字节，如果想用校验，需要再读取两个字节的校验值
                         byte[] canData = br.ReadBytes(canLen);
                         // 偏移
                         // dataReadPos += (UInt16)canLen;

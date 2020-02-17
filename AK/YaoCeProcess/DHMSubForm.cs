@@ -62,10 +62,10 @@ namespace YaoCeProcess
         }
 
         // UTC 时间转北京时间
-        public DateTime ConvertIntDatetime(double utc)
+        public DateTime ConvertIntDatetime(uint utc)
         {
             System.DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(new System.DateTime(1970, 1, 1));
-            startTime = startTime.AddSeconds(utc);
+            startTime = startTime.AddSeconds((double)utc);
             startTime = startTime.AddHours(8);  // 转化为北京时间(北京时间=UTC时间+8小时 )
             return startTime;
         }
@@ -73,27 +73,34 @@ namespace YaoCeProcess
         private void showDHManSuTimeStatus(ref DAOHANGSHUJU_ManSu sObject)
         {
             // GPS时间 单位s,UTC秒部
-            DHManSu_GPSTime.Text = ConvertIntDatetime(sObject.GPSTime).ToString();
+            DHManSu_GPSTime.Text = /*ConvertIntDatetime(sObject.GPSTime).ToString()*/sObject.GPSTime.ToString();
             // GPS定位模式
             byte GPSDingWeiMoShi = sObject.GPSDingWeiMoShi;
             string tempValueSTR = "";
 
             // bit0 (1:采用GPS定位 0:没有采用GPS定位)
-            tempValueSTR += (GPSDingWeiMoShi >> 0 & 0x01) == 1 ? "采用GPS定位;" : "没有采用GPS定位;";
+            tempValueSTR = (GPSDingWeiMoShi >> 0 & 0x01) == 1 ? "采用GPS定位" : "没有采用GPS定位";
+            DHManSu_GPSDingWeiZhuangTai_GPS.Text = tempValueSTR;
             // bit1 (1:采用BD2定位 0:没有采用BD2定位)
-            tempValueSTR += (GPSDingWeiMoShi >> 1 & 0x01) == 1 ? "采用BD2定位;" : "没有采用BD2定位;";
+            tempValueSTR = (GPSDingWeiMoShi >> 1 & 0x01) == 1 ? "采用BD2定位" : "没有采用BD2定位";
+            DHManSu_GPSDingWeiZhuangTai_BD2.Text = tempValueSTR;
             // bit2 1：采用GLONASS定位 0：没有采用GLONASS定位
-            tempValueSTR += (GPSDingWeiMoShi >> 2 & 0x01) == 1 ? "采用GLONASS定位;" : "没有采用GLONASS定位;";
+            tempValueSTR = (GPSDingWeiMoShi >> 2 & 0x01) == 1 ? "采用GLONASS定位" : "没有采用GLONASS定位";
+            DHManSu_GPSDingWeiZhuangTai_GLONASS.Text = tempValueSTR;
             // bit3 0:没有DGNSS可用 1：DGNSS可用
-            tempValueSTR += (GPSDingWeiMoShi >> 3 & 0x01) == 1 ? "DGNSS可用;" : "没有DGNSS可用;";
+            tempValueSTR = (GPSDingWeiMoShi >> 3 & 0x01) == 1 ? "DGNSS可用" : "没有DGNSS可用";
+            DHManSu_GPSDingWeiZhuangTai_DGNSS.Text = tempValueSTR;
             // bit4 bit5 (00:No Fix 01:2DFix 11:3D Fix)
             byte tempValue = (byte)(GPSDingWeiMoShi >> 4 & 0x03);
-            tempValueSTR += tempValue == 0 ? "No Fix;" : (tempValue == 1 ? "2DFix" : (tempValue == 3 ? "3D Fix" : ""));
+            tempValueSTR = tempValue == 0 ? "No Fix" : (tempValue == 1 ? "2DFix" : (tempValue == 3 ? "3D Fix" : ""));
+            DHManSu_GPSDingWeiZhuangTai_Fix.Text = tempValueSTR;
             // bit6 0:GNSS修正无效 1：GNSS修正有效
-            tempValueSTR += (GPSDingWeiMoShi >> 6 & 0x01) == 1 ? "GNSS修正有效;" : "GNSS修正无效;";
+            tempValueSTR = (GPSDingWeiMoShi >> 6 & 0x01) == 1 ? "GNSS修正有效" : "GNSS修正无效";
+            DHManSu_GPSDingWeiZhuangTai_GNSSXiuZheng.Text = tempValueSTR;
             // bit7 0:BD2修正无效 1：BD2修正有效
-            tempValueSTR += (GPSDingWeiMoShi >> 7 & 0x01) == 1 ? "BD2修正有效;" : "BD2修正无效;";
-            DHManSu_GPSDingWeiZhuangTai.Text = tempValueSTR;
+            tempValueSTR = (GPSDingWeiMoShi >> 7 & 0x01) == 1 ? "BD2修正有效" : "BD2修正无效";
+            DHManSu_GPSDingWeiZhuangTai_BD2XiuZheng.Text = tempValueSTR;
+            // DHManSu_GPSDingWeiZhuangTai.Text = tempValueSTR;
 
 
             // GPS SV可用/参与定位数（低4位为可用数，高4位为参与定位数）
@@ -105,13 +112,19 @@ namespace YaoCeProcess
             textEdit32.Text = ((byte)(tempValue & 0xF)).ToString();
             DHManSu_BD2CanYuDingWei.Text = ((byte)(tempValue >> 4 & 0xF)).ToString();
 
-            // 经度（GPS测量）当量：1e-7
-            // 纬度（GPS测量）当量：1e-7
-            // 海拔高度（GPS测量）当量：1e-2
+            // sObject.jingDu;              // 经度（组合结果）当量：1e-7
+            DHManSu_JingDu.Text = ((double)(sObject.jingDu * Math.Pow(10, -7))).ToString();
+            // sObject.weiDu;               // 纬度（组合结果）当量：1e-7
+            DHManSu_WeiDu.Text = ((double)(sObject.weiDu * Math.Pow(10, -7))).ToString();
+            // sObject.haiBaGaoDu;          // 海拔高度（组合结果）当量：1e-2
+            DHManSu_GaoDu.Text = ((double)(sObject.haiBaGaoDu * Math.Pow(10, -2))).ToString();
 
-            // 东向速度（GPS测量）当量：1e-2
-            // 北向速度（GPS测量）当量：1e-2
-            // 天向速度（GPS测量）当量：1e-2
+            //sObject.dongXiangSuDu;        // 东向速度（组合结果）当量：1e-2
+            DHManSu_DongXiangSuDu.Text = ((double)(sObject.dongXiangSuDu * Math.Pow(10, -2))).ToString();
+            //sObject.beiXiangSuDu;         // 北向速度（组合结果）当量：1e-2
+            DHManSu_BeiXiangSuDu.Text = ((double)(sObject.beiXiangSuDu * Math.Pow(10, -2))).ToString();
+            //sObject.tianXiangSuDu;        // 天向速度（组合结果）当量：1e-2
+            DHManSu_TianXiangSuDu.Text = ((double)(sObject.tianXiangSuDu * Math.Pow(10, -2))).ToString();
 
             // PDOP 当量0.01
             DHManSu_PDOP.Text = ((double)(sObject.PDOP * 0.01)).ToString();
@@ -348,7 +361,8 @@ namespace YaoCeProcess
         private void timerOfflineDHMStatus_Tick(object sender, EventArgs e)
         {
             // 清空数据
-            GenericFunction.reSetAllTextEdit(this);
+            // TODO 这里不需要清空最后一帧数据显示
+            // GenericFunction.reSetAllTextEdit(this);
 
             // 是否收到数据
             bRecvStatusData = false;
