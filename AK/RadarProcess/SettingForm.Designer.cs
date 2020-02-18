@@ -220,24 +220,24 @@
             this.labelControl1.Location = new System.Drawing.Point(6, 11);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(2);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(60, 14);
+            this.labelControl1.Size = new System.Drawing.Size(94, 14);
             this.labelControl1.TabIndex = 1;
-            this.labelControl1.Text = "初始经度：";
+            this.labelControl1.Text = "初始经度(角度)：";
             // 
             // editLongitudeInit
             // 
-            this.editLongitudeInit.Location = new System.Drawing.Point(64, 6);
+            this.editLongitudeInit.Location = new System.Drawing.Point(94, 6);
             this.editLongitudeInit.Margin = new System.Windows.Forms.Padding(2);
             this.editLongitudeInit.Name = "editLongitudeInit";
-            this.editLongitudeInit.Size = new System.Drawing.Size(100, 20);
+            this.editLongitudeInit.Size = new System.Drawing.Size(70, 20);
             this.editLongitudeInit.TabIndex = 2;
             // 
             // editLatitudeInit
             // 
-            this.editLatitudeInit.Location = new System.Drawing.Point(228, 6);
+            this.editLatitudeInit.Location = new System.Drawing.Point(259, 6);
             this.editLatitudeInit.Margin = new System.Windows.Forms.Padding(2);
             this.editLatitudeInit.Name = "editLatitudeInit";
-            this.editLatitudeInit.Size = new System.Drawing.Size(106, 20);
+            this.editLatitudeInit.Size = new System.Drawing.Size(75, 20);
             this.editLatitudeInit.TabIndex = 4;
             // 
             // labelControl2
@@ -245,25 +245,25 @@
             this.labelControl2.Location = new System.Drawing.Point(172, 11);
             this.labelControl2.Margin = new System.Windows.Forms.Padding(2);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(60, 14);
+            this.labelControl2.Size = new System.Drawing.Size(94, 14);
             this.labelControl2.TabIndex = 3;
-            this.labelControl2.Text = "初始纬度：";
+            this.labelControl2.Text = "初始纬度(角度)：";
             // 
             // labelControl3
             // 
             this.labelControl3.Location = new System.Drawing.Point(6, 43);
             this.labelControl3.Margin = new System.Windows.Forms.Padding(2);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(72, 14);
+            this.labelControl3.Size = new System.Drawing.Size(106, 14);
             this.labelControl3.TabIndex = 5;
-            this.labelControl3.Text = "初始方位角：";
+            this.labelControl3.Text = "初始方位角(角度)：";
             // 
             // editAzimuthInit
             // 
-            this.editAzimuthInit.Location = new System.Drawing.Point(74, 38);
+            this.editAzimuthInit.Location = new System.Drawing.Point(111, 38);
             this.editAzimuthInit.Margin = new System.Windows.Forms.Padding(2);
             this.editAzimuthInit.Name = "editAzimuthInit";
-            this.editAzimuthInit.Size = new System.Drawing.Size(90, 20);
+            this.editAzimuthInit.Size = new System.Drawing.Size(53, 20);
             this.editAzimuthInit.TabIndex = 6;
             // 
             // editHeightInit

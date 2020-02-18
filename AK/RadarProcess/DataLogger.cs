@@ -35,6 +35,7 @@ namespace RadarProcess
         {
             isRuning = false;
             thread?.Join();
+            logWriter?.Close();
         }
 
         private void ThreadFunction()

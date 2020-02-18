@@ -44,7 +44,8 @@
             DevExpress.XtraCharts.Series series6 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.PointSeriesView pointSeriesView6 = new DevExpress.XtraCharts.PointSeriesView();
             DevExpress.XtraCharts.Series series7 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.AreaSeriesView areaSeriesView1 = new DevExpress.XtraCharts.AreaSeriesView();
+            DevExpress.XtraCharts.RangeAreaSeriesView rangeAreaSeriesView1 = new DevExpress.XtraCharts.RangeAreaSeriesView();
+            DevExpress.XtraCharts.ChartTitle chartTitle1 = new DevExpress.XtraCharts.ChartTitle();
             DevExpress.XtraCharts.TextAnnotation textAnnotation1 = new DevExpress.XtraCharts.TextAnnotation();
             DevExpress.XtraCharts.ChartAnchorPoint chartAnchorPoint1 = new DevExpress.XtraCharts.ChartAnchorPoint();
             DevExpress.XtraCharts.FreePosition freePosition1 = new DevExpress.XtraCharts.FreePosition();
@@ -55,7 +56,7 @@
             DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView2 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
             DevExpress.XtraCharts.Series series10 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView3 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
-            DevExpress.XtraCharts.ChartTitle chartTitle1 = new DevExpress.XtraCharts.ChartTitle();
+            DevExpress.XtraCharts.ChartTitle chartTitle2 = new DevExpress.XtraCharts.ChartTitle();
             DevExpress.XtraCharts.TextAnnotation textAnnotation2 = new DevExpress.XtraCharts.TextAnnotation();
             DevExpress.XtraCharts.ChartAnchorPoint chartAnchorPoint2 = new DevExpress.XtraCharts.ChartAnchorPoint();
             DevExpress.XtraCharts.FreePosition freePosition2 = new DevExpress.XtraCharts.FreePosition();
@@ -66,7 +67,7 @@
             DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView5 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
             DevExpress.XtraCharts.Series series13 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView6 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
-            DevExpress.XtraCharts.ChartTitle chartTitle2 = new DevExpress.XtraCharts.ChartTitle();
+            DevExpress.XtraCharts.ChartTitle chartTitle3 = new DevExpress.XtraCharts.ChartTitle();
             DevExpress.XtraCharts.TextAnnotation textAnnotation3 = new DevExpress.XtraCharts.TextAnnotation();
             DevExpress.XtraCharts.ChartAnchorPoint chartAnchorPoint3 = new DevExpress.XtraCharts.ChartAnchorPoint();
             DevExpress.XtraCharts.FreePosition freePosition3 = new DevExpress.XtraCharts.FreePosition();
@@ -77,7 +78,7 @@
             DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView8 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
             DevExpress.XtraCharts.Series series16 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView9 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
-            DevExpress.XtraCharts.ChartTitle chartTitle3 = new DevExpress.XtraCharts.ChartTitle();
+            DevExpress.XtraCharts.ChartTitle chartTitle4 = new DevExpress.XtraCharts.ChartTitle();
             DevExpress.XtraCharts.TextAnnotation textAnnotation4 = new DevExpress.XtraCharts.TextAnnotation();
             DevExpress.XtraCharts.ChartAnchorPoint chartAnchorPoint4 = new DevExpress.XtraCharts.ChartAnchorPoint();
             DevExpress.XtraCharts.FreePosition freePosition4 = new DevExpress.XtraCharts.FreePosition();
@@ -88,7 +89,7 @@
             DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView11 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
             DevExpress.XtraCharts.Series series19 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView12 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
-            DevExpress.XtraCharts.ChartTitle chartTitle4 = new DevExpress.XtraCharts.ChartTitle();
+            DevExpress.XtraCharts.ChartTitle chartTitle5 = new DevExpress.XtraCharts.ChartTitle();
             DevExpress.XtraCharts.TextAnnotation textAnnotation5 = new DevExpress.XtraCharts.TextAnnotation();
             DevExpress.XtraCharts.ChartAnchorPoint chartAnchorPoint5 = new DevExpress.XtraCharts.ChartAnchorPoint();
             DevExpress.XtraCharts.FreePosition freePosition5 = new DevExpress.XtraCharts.FreePosition();
@@ -99,7 +100,7 @@
             DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView14 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
             DevExpress.XtraCharts.Series series22 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView15 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
-            DevExpress.XtraCharts.ChartTitle chartTitle5 = new DevExpress.XtraCharts.ChartTitle();
+            DevExpress.XtraCharts.ChartTitle chartTitle6 = new DevExpress.XtraCharts.ChartTitle();
             DevExpress.XtraCharts.TextAnnotation textAnnotation6 = new DevExpress.XtraCharts.TextAnnotation();
             DevExpress.XtraCharts.ChartAnchorPoint chartAnchorPoint6 = new DevExpress.XtraCharts.ChartAnchorPoint();
             DevExpress.XtraCharts.FreePosition freePosition6 = new DevExpress.XtraCharts.FreePosition();
@@ -110,7 +111,7 @@
             DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView17 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
             DevExpress.XtraCharts.Series series25 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView18 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
-            DevExpress.XtraCharts.ChartTitle chartTitle6 = new DevExpress.XtraCharts.ChartTitle();
+            DevExpress.XtraCharts.ChartTitle chartTitle7 = new DevExpress.XtraCharts.ChartTitle();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.btnHistory = new DevExpress.XtraEditors.SimpleButton();
             this.btnSetting = new DevExpress.XtraEditors.SimpleButton();
@@ -140,7 +141,9 @@
             this.chartVz = new DevExpress.XtraCharts.ChartControl();
             this.chartZ = new DevExpress.XtraCharts.ChartControl();
             this.chartY = new DevExpress.XtraCharts.ChartControl();
+            this.chartX = new DevExpress.XtraCharts.ChartControl();
             this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -150,8 +153,6 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.chartUpateTimer = new System.Windows.Forms.Timer(this.components);
-            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.chartX = new DevExpress.XtraCharts.ChartControl();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
@@ -183,7 +184,7 @@
             ((System.ComponentModel.ISupportInitialize)(series6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(pointSeriesView6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(series7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(areaSeriesView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(rangeAreaSeriesView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl4)).BeginInit();
@@ -233,16 +234,6 @@
             ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(series22)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(textAnnotation6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram6)).BeginInit();
@@ -252,6 +243,16 @@
             ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(series25)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView18)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -520,7 +521,8 @@
             pointSeriesView6.Color = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             series6.View = pointSeriesView6;
             series7.Name = "必炸线";
-            series7.View = areaSeriesView1;
+            series7.SeriesPointsSorting = DevExpress.XtraCharts.SortingMode.Ascending;
+            series7.View = rangeAreaSeriesView1;
             this.chartPoints.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series1,
         series2,
@@ -531,6 +533,10 @@
         series7};
             this.chartPoints.Size = new System.Drawing.Size(370, 282);
             this.chartPoints.TabIndex = 4;
+            chartTitle1.Font = new System.Drawing.Font("Tahoma", 9F);
+            chartTitle1.Text = "";
+            this.chartPoints.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
+            chartTitle1});
             // 
             // layoutControlGroup4
             // 
@@ -608,11 +614,11 @@
         series10};
             this.chartVy.Size = new System.Drawing.Size(169, 139);
             this.chartVy.TabIndex = 9;
-            chartTitle1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartTitle1.Text = "";
-            chartTitle1.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            chartTitle2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartTitle2.Text = "";
+            chartTitle2.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.chartVy.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
-            chartTitle1});
+            chartTitle2});
             // 
             // chartVx
             // 
@@ -655,11 +661,11 @@
         series13};
             this.chartVx.Size = new System.Drawing.Size(169, 139);
             this.chartVx.TabIndex = 8;
-            chartTitle2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartTitle2.Text = "";
-            chartTitle2.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            chartTitle3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartTitle3.Text = "";
+            chartTitle3.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.chartVx.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
-            chartTitle2});
+            chartTitle3});
             // 
             // chartVz
             // 
@@ -702,10 +708,10 @@
         series16};
             this.chartVz.Size = new System.Drawing.Size(170, 139);
             this.chartVz.TabIndex = 7;
-            chartTitle3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartTitle3.Text = "";
+            chartTitle4.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartTitle4.Text = "";
             this.chartVz.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
-            chartTitle3});
+            chartTitle4});
             // 
             // chartZ
             // 
@@ -748,11 +754,11 @@
         series19};
             this.chartZ.Size = new System.Drawing.Size(170, 139);
             this.chartZ.TabIndex = 6;
-            chartTitle4.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartTitle4.Text = "";
-            chartTitle4.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            chartTitle5.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartTitle5.Text = "";
+            chartTitle5.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.chartZ.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
-            chartTitle4});
+            chartTitle5});
             // 
             // chartY
             // 
@@ -795,11 +801,58 @@
         series22};
             this.chartY.Size = new System.Drawing.Size(169, 139);
             this.chartY.TabIndex = 5;
-            chartTitle5.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartTitle5.Text = "";
-            chartTitle5.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            chartTitle6.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartTitle6.Text = "";
+            chartTitle6.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.chartY.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
-            chartTitle5});
+            chartTitle6});
+            // 
+            // chartX
+            // 
+            chartAnchorPoint6.Y = 43;
+            textAnnotation6.AnchorPoint = chartAnchorPoint6;
+            textAnnotation6.Border.Visibility = DevExpress.Utils.DefaultBoolean.False;
+            textAnnotation6.ConnectorStyle = DevExpress.XtraCharts.AnnotationConnectorStyle.None;
+            textAnnotation6.Name = "Text Annotation 1";
+            freePosition6.InnerIndents.Left = 0;
+            freePosition6.InnerIndents.Top = 0;
+            textAnnotation6.ShapePosition = freePosition6;
+            textAnnotation6.Text = "";
+            this.chartX.AnnotationRepository.AddRange(new DevExpress.XtraCharts.Annotation[] {
+            textAnnotation6});
+            swiftPlotDiagram6.AxisX.VisibleInPanesSerializable = "-1";
+            swiftPlotDiagram6.AxisY.Title.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            swiftPlotDiagram6.AxisY.Title.Text = "位置X(m)";
+            swiftPlotDiagram6.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            swiftPlotDiagram6.AxisY.VisibleInPanesSerializable = "-1";
+            swiftPlotDiagram6.DefaultPane.EnableAxisXScrolling = DevExpress.Utils.DefaultBoolean.True;
+            swiftPlotDiagram6.DefaultPane.EnableAxisXZooming = DevExpress.Utils.DefaultBoolean.True;
+            swiftPlotDiagram6.EnableAxisXScrolling = true;
+            swiftPlotDiagram6.EnableAxisXZooming = true;
+            this.chartX.Diagram = swiftPlotDiagram6;
+            this.chartX.Legend.Name = "Default Legend";
+            this.chartX.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
+            this.chartX.Location = new System.Drawing.Point(12, 12);
+            this.chartX.Name = "chartX";
+            series23.Name = "位置X";
+            series23.View = swiftPlotSeriesView16;
+            series24.Name = "位置X上限";
+            swiftPlotSeriesView17.LineStyle.Thickness = 3;
+            series24.View = swiftPlotSeriesView17;
+            series25.Name = "位置X下限";
+            swiftPlotSeriesView18.LineStyle.Thickness = 3;
+            series25.View = swiftPlotSeriesView18;
+            this.chartX.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
+        series23,
+        series24,
+        series25};
+            this.chartX.Size = new System.Drawing.Size(169, 139);
+            this.chartX.TabIndex = 4;
+            chartTitle7.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartTitle7.Text = "";
+            chartTitle7.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.chartX.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
+            chartTitle7});
             // 
             // layoutControlGroup3
             // 
@@ -815,6 +868,15 @@
             this.layoutControlGroup3.Name = "Root";
             this.layoutControlGroup3.Size = new System.Drawing.Size(540, 306);
             this.layoutControlGroup3.TextVisible = false;
+            // 
+            // layoutControlItem8
+            // 
+            this.layoutControlItem8.Control = this.chartX;
+            this.layoutControlItem8.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem8.Name = "layoutControlItem8";
+            this.layoutControlItem8.Size = new System.Drawing.Size(173, 143);
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem8.TextVisible = false;
             // 
             // layoutControlItem9
             // 
@@ -895,62 +957,6 @@
             this.chartUpateTimer.Interval = 200;
             this.chartUpateTimer.Tick += new System.EventHandler(this.chartUpateTimer_Tick);
             // 
-            // layoutControlItem8
-            // 
-            this.layoutControlItem8.Control = this.chartX;
-            this.layoutControlItem8.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(173, 143);
-            this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem8.TextVisible = false;
-            // 
-            // chartX
-            // 
-            chartAnchorPoint6.Y = 43;
-            textAnnotation6.AnchorPoint = chartAnchorPoint6;
-            textAnnotation6.Border.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            textAnnotation6.ConnectorStyle = DevExpress.XtraCharts.AnnotationConnectorStyle.None;
-            textAnnotation6.Name = "Text Annotation 1";
-            freePosition6.InnerIndents.Left = 0;
-            freePosition6.InnerIndents.Top = 0;
-            textAnnotation6.ShapePosition = freePosition6;
-            textAnnotation6.Text = "";
-            this.chartX.AnnotationRepository.AddRange(new DevExpress.XtraCharts.Annotation[] {
-            textAnnotation6});
-            swiftPlotDiagram6.AxisX.VisibleInPanesSerializable = "-1";
-            swiftPlotDiagram6.AxisY.Title.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            swiftPlotDiagram6.AxisY.Title.Text = "位置X(m)";
-            swiftPlotDiagram6.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            swiftPlotDiagram6.AxisY.VisibleInPanesSerializable = "-1";
-            swiftPlotDiagram6.DefaultPane.EnableAxisXScrolling = DevExpress.Utils.DefaultBoolean.True;
-            swiftPlotDiagram6.DefaultPane.EnableAxisXZooming = DevExpress.Utils.DefaultBoolean.True;
-            swiftPlotDiagram6.EnableAxisXScrolling = true;
-            swiftPlotDiagram6.EnableAxisXZooming = true;
-            this.chartX.Diagram = swiftPlotDiagram6;
-            this.chartX.Legend.Name = "Default Legend";
-            this.chartX.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            this.chartX.Location = new System.Drawing.Point(12, 12);
-            this.chartX.Name = "chartX";
-            series23.Name = "位置X";
-            series23.View = swiftPlotSeriesView16;
-            series24.Name = "位置X上限";
-            swiftPlotSeriesView17.LineStyle.Thickness = 3;
-            series24.View = swiftPlotSeriesView17;
-            series25.Name = "位置X下限";
-            swiftPlotSeriesView18.LineStyle.Thickness = 3;
-            series25.View = swiftPlotSeriesView18;
-            this.chartX.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series23,
-        series24,
-        series25};
-            this.chartX.Size = new System.Drawing.Size(169, 139);
-            this.chartX.TabIndex = 4;
-            chartTitle6.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartTitle6.Text = "";
-            chartTitle6.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.chartX.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
-            chartTitle6});
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -994,7 +1000,7 @@
             ((System.ComponentModel.ISupportInitialize)(series5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(pointSeriesView6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(series6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(areaSeriesView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(rangeAreaSeriesView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(series7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartPoints)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
@@ -1046,16 +1052,6 @@
             ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(series22)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartY)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(textAnnotation6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView16)).EndInit();
@@ -1065,6 +1061,16 @@
             ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView18)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(series25)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartX)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             this.ResumeLayout(false);
 
         }

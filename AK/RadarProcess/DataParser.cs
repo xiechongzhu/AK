@@ -64,7 +64,7 @@ namespace RadarProcess
             }
             using(MemoryStream stream = new MemoryStream(buffer))
             {
-                using(BinaryReader br = new BinaryReader(stream))
+                using (BinaryReader br = new BinaryReader(stream))
                 {
                     PACK_HEAD packHead = new PACK_HEAD
                     {

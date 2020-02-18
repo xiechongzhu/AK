@@ -55,7 +55,7 @@ namespace RadarProcess
     }
 
     [Serializable]
-    public struct FallPoint
+    public class FallPoint
     {
         public double x;
         public double y;
