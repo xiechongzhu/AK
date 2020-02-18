@@ -127,7 +127,8 @@ namespace YaoCeProcess
             UInt16 dataLength;
             if (!CheckPacket(buffer, out errMsg, out dataLength))
             {
-                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_ERROR, "数据包错误:" + errMsg);
+                // TODO 20200218 错误数据太多，影响界面刷新，卡顿
+                // Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_ERROR, "数据包错误:" + errMsg);
                 return;
             }
             // 如果dataLength长度等于0，直接不进行下面数据的处理

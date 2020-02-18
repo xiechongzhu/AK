@@ -35,6 +35,11 @@ namespace YaoCeProcess
         bool bRecvStatusData = false;
 
         //--------------------------------------------------------------//
+        public delegate void setStatusOnOffLine(uint statusType, bool bOn);
+        // 用来接收父窗体方法的委托变量
+        public setStatusOnOffLine testFunDelegate;
+        public uint statusType;
+        //--------------------------------------------------------------//
 
         public DHKSubForm()
         {
@@ -264,6 +269,7 @@ namespace YaoCeProcess
             {
                 // 填充实时数据
                 showDHKuaiSuTimeStatus(ref sObject_DHK);
+                testFunDelegate(statusType, true);
             }
         }
 
@@ -315,6 +321,7 @@ namespace YaoCeProcess
 
             // 是否收到数据
             bRecvStatusData = false;
+            testFunDelegate(statusType, false);
         }
     }
 }

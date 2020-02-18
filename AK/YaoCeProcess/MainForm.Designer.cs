@@ -30,119 +30,141 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DevExpress.XtraCharts.XYDiagram xyDiagram29 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series31 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView31 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.ChartTitle chartTitle27 = new DevExpress.XtraCharts.ChartTitle();
-            DevExpress.XtraCharts.XYDiagram xyDiagram30 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series32 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView32 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.ChartTitle chartTitle28 = new DevExpress.XtraCharts.ChartTitle();
-            DevExpress.XtraCharts.XYDiagram xyDiagram31 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series33 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView33 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.ChartTitle chartTitle29 = new DevExpress.XtraCharts.ChartTitle();
-            DevExpress.XtraLayout.ColumnDefinition columnDefinition23 = new DevExpress.XtraLayout.ColumnDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition69 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition70 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition71 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraCharts.XYDiagram xyDiagram32 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series34 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView34 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.ChartTitle chartTitle30 = new DevExpress.XtraCharts.ChartTitle();
-            DevExpress.XtraCharts.XYDiagram xyDiagram33 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series35 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView35 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.ChartTitle chartTitle31 = new DevExpress.XtraCharts.ChartTitle();
-            DevExpress.XtraCharts.XYDiagram xyDiagram34 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series36 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView36 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.ChartTitle chartTitle32 = new DevExpress.XtraCharts.ChartTitle();
             DevExpress.XtraLayout.ColumnDefinition columnDefinition24 = new DevExpress.XtraLayout.ColumnDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition72 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition73 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition74 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraCharts.XYDiagram xyDiagram35 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series37 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView37 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.ChartTitle chartTitle33 = new DevExpress.XtraCharts.ChartTitle();
-            DevExpress.XtraCharts.XYDiagram xyDiagram36 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series38 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView38 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.ChartTitle chartTitle34 = new DevExpress.XtraCharts.ChartTitle();
-            DevExpress.XtraCharts.XYDiagram xyDiagram37 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series39 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView39 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.ChartTitle chartTitle35 = new DevExpress.XtraCharts.ChartTitle();
             DevExpress.XtraLayout.ColumnDefinition columnDefinition25 = new DevExpress.XtraLayout.ColumnDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition75 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition76 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition77 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraCharts.XYDiagram xyDiagram38 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series40 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView40 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.ChartTitle chartTitle36 = new DevExpress.XtraCharts.ChartTitle();
-            DevExpress.XtraCharts.XYDiagram xyDiagram39 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series41 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView41 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.ChartTitle chartTitle37 = new DevExpress.XtraCharts.ChartTitle();
-            DevExpress.XtraCharts.XYDiagram xyDiagram40 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series42 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView42 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.ChartTitle chartTitle38 = new DevExpress.XtraCharts.ChartTitle();
-            DevExpress.XtraCharts.XYDiagram xyDiagram41 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series43 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView43 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.ChartTitle chartTitle39 = new DevExpress.XtraCharts.ChartTitle();
             DevExpress.XtraLayout.ColumnDefinition columnDefinition26 = new DevExpress.XtraLayout.ColumnDefinition();
             DevExpress.XtraLayout.ColumnDefinition columnDefinition27 = new DevExpress.XtraLayout.ColumnDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition78 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition79 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraCharts.XYDiagram xyDiagram42 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series44 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView44 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.Series series45 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView45 = new DevExpress.XtraCharts.SplineSeriesView();
             DevExpress.XtraLayout.ColumnDefinition columnDefinition28 = new DevExpress.XtraLayout.ColumnDefinition();
             DevExpress.XtraLayout.ColumnDefinition columnDefinition29 = new DevExpress.XtraLayout.ColumnDefinition();
             DevExpress.XtraLayout.ColumnDefinition columnDefinition30 = new DevExpress.XtraLayout.ColumnDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition80 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition81 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition82 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition83 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition84 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition85 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition86 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition87 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition88 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition89 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition90 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition91 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition92 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition93 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition94 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition95 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition96 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition97 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition98 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition99 = new DevExpress.XtraLayout.RowDefinition();
             DevExpress.XtraLayout.ColumnDefinition columnDefinition31 = new DevExpress.XtraLayout.ColumnDefinition();
             DevExpress.XtraLayout.ColumnDefinition columnDefinition32 = new DevExpress.XtraLayout.ColumnDefinition();
             DevExpress.XtraLayout.ColumnDefinition columnDefinition33 = new DevExpress.XtraLayout.ColumnDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition100 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition101 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition102 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.ColumnDefinition columnDefinition34 = new DevExpress.XtraLayout.ColumnDefinition();
+            DevExpress.XtraLayout.ColumnDefinition columnDefinition35 = new DevExpress.XtraLayout.ColumnDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition36 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraCharts.XYDiagram xyDiagram15 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series16 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView16 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.ChartTitle chartTitle14 = new DevExpress.XtraCharts.ChartTitle();
+            DevExpress.XtraCharts.XYDiagram xyDiagram16 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series17 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView17 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.ChartTitle chartTitle15 = new DevExpress.XtraCharts.ChartTitle();
+            DevExpress.XtraCharts.XYDiagram xyDiagram17 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series18 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView18 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.ChartTitle chartTitle16 = new DevExpress.XtraCharts.ChartTitle();
+            DevExpress.XtraLayout.ColumnDefinition columnDefinition36 = new DevExpress.XtraLayout.ColumnDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition37 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition38 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition39 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraCharts.XYDiagram xyDiagram18 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series19 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView19 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.ChartTitle chartTitle17 = new DevExpress.XtraCharts.ChartTitle();
+            DevExpress.XtraCharts.XYDiagram xyDiagram19 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series20 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView20 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.ChartTitle chartTitle18 = new DevExpress.XtraCharts.ChartTitle();
+            DevExpress.XtraCharts.XYDiagram xyDiagram20 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series21 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView21 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.ChartTitle chartTitle19 = new DevExpress.XtraCharts.ChartTitle();
+            DevExpress.XtraLayout.ColumnDefinition columnDefinition37 = new DevExpress.XtraLayout.ColumnDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition40 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition41 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition42 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraCharts.XYDiagram xyDiagram21 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series22 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView22 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.ChartTitle chartTitle20 = new DevExpress.XtraCharts.ChartTitle();
+            DevExpress.XtraCharts.XYDiagram xyDiagram22 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series23 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView23 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.ChartTitle chartTitle21 = new DevExpress.XtraCharts.ChartTitle();
+            DevExpress.XtraCharts.XYDiagram xyDiagram23 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series24 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView24 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.ChartTitle chartTitle22 = new DevExpress.XtraCharts.ChartTitle();
+            DevExpress.XtraLayout.ColumnDefinition columnDefinition38 = new DevExpress.XtraLayout.ColumnDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition43 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition44 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition45 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraCharts.XYDiagram xyDiagram24 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series25 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView25 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.ChartTitle chartTitle23 = new DevExpress.XtraCharts.ChartTitle();
+            DevExpress.XtraCharts.XYDiagram xyDiagram25 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series26 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView26 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.ChartTitle chartTitle24 = new DevExpress.XtraCharts.ChartTitle();
+            DevExpress.XtraCharts.XYDiagram xyDiagram26 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series27 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView27 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.ChartTitle chartTitle25 = new DevExpress.XtraCharts.ChartTitle();
+            DevExpress.XtraCharts.XYDiagram xyDiagram27 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series28 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView28 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.ChartTitle chartTitle26 = new DevExpress.XtraCharts.ChartTitle();
+            DevExpress.XtraLayout.ColumnDefinition columnDefinition39 = new DevExpress.XtraLayout.ColumnDefinition();
+            DevExpress.XtraLayout.ColumnDefinition columnDefinition40 = new DevExpress.XtraLayout.ColumnDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition46 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition47 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraCharts.XYDiagram xyDiagram28 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series29 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView29 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.Series series30 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView30 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraLayout.ColumnDefinition columnDefinition41 = new DevExpress.XtraLayout.ColumnDefinition();
+            DevExpress.XtraLayout.ColumnDefinition columnDefinition42 = new DevExpress.XtraLayout.ColumnDefinition();
+            DevExpress.XtraLayout.ColumnDefinition columnDefinition43 = new DevExpress.XtraLayout.ColumnDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition48 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition49 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition50 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition51 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition52 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition53 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition54 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition55 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition56 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition57 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition58 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition59 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition60 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition61 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition62 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition63 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition64 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition65 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition66 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition67 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.ColumnDefinition columnDefinition44 = new DevExpress.XtraLayout.ColumnDefinition();
+            DevExpress.XtraLayout.ColumnDefinition columnDefinition45 = new DevExpress.XtraLayout.ColumnDefinition();
+            DevExpress.XtraLayout.ColumnDefinition columnDefinition46 = new DevExpress.XtraLayout.ColumnDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition68 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition69 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition70 = new DevExpress.XtraLayout.RowDefinition();
             this.layoutControl_ToolBar = new DevExpress.XtraLayout.LayoutControl();
             this.btnLoadFile = new DevExpress.XtraEditors.SimpleButton();
             this.BtnStartStop = new DevExpress.XtraEditors.SimpleButton();
             this.BtnSetting = new DevExpress.XtraEditors.SimpleButton();
+            this.pictureEdit_XiTong = new DevExpress.XtraEditors.PictureEdit();
+            this.pictureEdit_HuiLu = new DevExpress.XtraEditors.PictureEdit();
+            this.pictureEdit_DHK = new DevExpress.XtraEditors.PictureEdit();
+            this.pictureEdit_DHM = new DevExpress.XtraEditors.PictureEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem136 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.simpleLabelItem1 = new DevExpress.XtraLayout.SimpleLabelItem();
+            this.layoutControlItem38 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.simpleLabelItem2 = new DevExpress.XtraLayout.SimpleLabelItem();
+            this.simpleLabelItem3 = new DevExpress.XtraLayout.SimpleLabelItem();
+            this.simpleLabelItem4 = new DevExpress.XtraLayout.SimpleLabelItem();
+            this.layoutControlItem39 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem40 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem41 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControl_MainContent = new DevExpress.XtraLayout.LayoutControl();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.LogListView = new System.Windows.Forms.ListView();
@@ -364,13 +386,22 @@
             this.timerOffLineHuiLuJianCe = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl_ToolBar)).BeginInit();
             this.layoutControl_ToolBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit_XiTong.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit_HuiLu.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit_DHK.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit_DHM.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem136)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.simpleLabelItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem38)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.simpleLabelItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.simpleLabelItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.simpleLabelItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem39)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem40)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem41)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl_MainContent)).BeginInit();
             this.layoutControl_MainContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
@@ -388,17 +419,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl15)).BeginInit();
             this.layoutControl15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_XiTong_ZuoBiao_GaoDu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram29)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series31)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView31)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_XiTong_ZuoBiao_WeiDu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram30)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series32)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView32)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_XiTong_ZuoBiao_JingDu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram31)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series33)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView33)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series18)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView18)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem149)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem150)).BeginInit();
@@ -407,17 +438,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl16)).BeginInit();
             this.layoutControl16.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_XiTong_SuDu_Tian)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram32)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series34)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView34)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram18)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series19)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_XiTong_SuDu_Bei)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram33)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series35)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView35)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram19)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series20)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_XiTong_SuDu_Dong)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram34)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series36)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView36)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram20)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series21)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView21)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem152)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem153)).BeginInit();
@@ -426,17 +457,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl17)).BeginInit();
             this.layoutControl17.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_XiTong_JiaoSuDu_Wz)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram35)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series37)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView37)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram21)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series22)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView22)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_XiTong_JiaoSuDu_Wy)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram36)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series38)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView38)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram22)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series23)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView23)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_XiTong_JiaoSuDu_Wx)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram37)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series39)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView39)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram23)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series24)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView24)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup18)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem155)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem156)).BeginInit();
@@ -445,21 +476,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl18)).BeginInit();
             this.layoutControl18.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_XiTong_FaSheXi_Z)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram38)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series40)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView40)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram24)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series25)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView25)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_XiTong_FaSheXi_Y)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram39)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series41)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView41)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram25)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series26)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView26)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_XiTong_FaSheXi_X)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram40)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series42)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView42)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram26)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series27)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView27)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_XiTong_FaSheXi_ZXGZ)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram41)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series43)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView43)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram27)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series28)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView28)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem158)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem159)).BeginInit();
@@ -467,11 +498,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem161)).BeginInit();
             this.TabPage_XiTongPlot_YuShiLuoDian.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_XiTong_YuShiLuoDian)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram42)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series44)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView44)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series45)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView45)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram28)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series29)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView29)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series30)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView30)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
@@ -643,22 +674,26 @@
             this.layoutControl_ToolBar.Controls.Add(this.btnLoadFile);
             this.layoutControl_ToolBar.Controls.Add(this.BtnStartStop);
             this.layoutControl_ToolBar.Controls.Add(this.BtnSetting);
+            this.layoutControl_ToolBar.Controls.Add(this.pictureEdit_XiTong);
+            this.layoutControl_ToolBar.Controls.Add(this.pictureEdit_HuiLu);
+            this.layoutControl_ToolBar.Controls.Add(this.pictureEdit_DHK);
+            this.layoutControl_ToolBar.Controls.Add(this.pictureEdit_DHM);
             this.layoutControl_ToolBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.layoutControl_ToolBar.Location = new System.Drawing.Point(0, 0);
             this.layoutControl_ToolBar.Name = "layoutControl_ToolBar";
             this.layoutControl_ToolBar.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1108, 0, 812, 500);
             this.layoutControl_ToolBar.Root = this.Root;
-            this.layoutControl_ToolBar.Size = new System.Drawing.Size(1634, 62);
+            this.layoutControl_ToolBar.Size = new System.Drawing.Size(1634, 64);
             this.layoutControl_ToolBar.TabIndex = 0;
             this.layoutControl_ToolBar.Text = "layoutControl1";
             // 
             // btnLoadFile
             // 
             this.btnLoadFile.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLoadFile.ImageOptions.Image")));
-            this.btnLoadFile.Location = new System.Drawing.Point(96, 12);
+            this.btnLoadFile.Location = new System.Drawing.Point(118, 12);
             this.btnLoadFile.Name = "btnLoadFile";
             this.btnLoadFile.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.btnLoadFile.Size = new System.Drawing.Size(41, 36);
+            this.btnLoadFile.Size = new System.Drawing.Size(49, 36);
             this.btnLoadFile.StyleController = this.layoutControl_ToolBar;
             this.btnLoadFile.TabIndex = 5;
             this.btnLoadFile.ToolTip = "加载文件";
@@ -667,10 +702,10 @@
             // BtnStartStop
             // 
             this.BtnStartStop.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BtnStartStop.ImageOptions.Image")));
-            this.BtnStartStop.Location = new System.Drawing.Point(54, 12);
+            this.BtnStartStop.Location = new System.Drawing.Point(65, 12);
             this.BtnStartStop.Name = "BtnStartStop";
             this.BtnStartStop.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.BtnStartStop.Size = new System.Drawing.Size(38, 36);
+            this.BtnStartStop.Size = new System.Drawing.Size(49, 36);
             this.BtnStartStop.StyleController = this.layoutControl_ToolBar;
             this.BtnStartStop.TabIndex = 5;
             this.BtnStartStop.Click += new System.EventHandler(this.BtnStartStop_Click);
@@ -681,11 +716,83 @@
             this.BtnSetting.Location = new System.Drawing.Point(12, 12);
             this.BtnSetting.Name = "BtnSetting";
             this.BtnSetting.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.BtnSetting.Size = new System.Drawing.Size(38, 36);
+            this.BtnSetting.Size = new System.Drawing.Size(49, 36);
             this.BtnSetting.StyleController = this.layoutControl_ToolBar;
             this.BtnSetting.TabIndex = 4;
             this.BtnSetting.ToolTip = "设置";
             this.BtnSetting.Click += new System.EventHandler(this.BtnSetting_Click);
+            // 
+            // pictureEdit_XiTong
+            // 
+            this.pictureEdit_XiTong.CausesValidation = false;
+            this.pictureEdit_XiTong.Cursor = System.Windows.Forms.Cursors.No;
+            this.pictureEdit_XiTong.EditValue = ((object)(resources.GetObject("pictureEdit_XiTong.EditValue")));
+            this.pictureEdit_XiTong.Location = new System.Drawing.Point(976, 12);
+            this.pictureEdit_XiTong.MaximumSize = new System.Drawing.Size(50, 50);
+            this.pictureEdit_XiTong.MinimumSize = new System.Drawing.Size(50, 50);
+            this.pictureEdit_XiTong.Name = "pictureEdit_XiTong";
+            this.pictureEdit_XiTong.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.pictureEdit_XiTong.Properties.Appearance.Options.UseBackColor = true;
+            this.pictureEdit_XiTong.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pictureEdit_XiTong.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pictureEdit_XiTong.Size = new System.Drawing.Size(50, 50);
+            this.pictureEdit_XiTong.StyleController = this.layoutControl_ToolBar;
+            this.pictureEdit_XiTong.TabIndex = 6;
+            this.pictureEdit_XiTong.UseDirectXPaint = DevExpress.Utils.DefaultBoolean.True;
+            // 
+            // pictureEdit_HuiLu
+            // 
+            this.pictureEdit_HuiLu.CausesValidation = false;
+            this.pictureEdit_HuiLu.Cursor = System.Windows.Forms.Cursors.No;
+            this.pictureEdit_HuiLu.EditValue = ((object)(resources.GetObject("pictureEdit_HuiLu.EditValue")));
+            this.pictureEdit_HuiLu.Location = new System.Drawing.Point(1166, 12);
+            this.pictureEdit_HuiLu.MaximumSize = new System.Drawing.Size(50, 50);
+            this.pictureEdit_HuiLu.MinimumSize = new System.Drawing.Size(50, 50);
+            this.pictureEdit_HuiLu.Name = "pictureEdit_HuiLu";
+            this.pictureEdit_HuiLu.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.pictureEdit_HuiLu.Properties.Appearance.Options.UseBackColor = true;
+            this.pictureEdit_HuiLu.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pictureEdit_HuiLu.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pictureEdit_HuiLu.Size = new System.Drawing.Size(50, 50);
+            this.pictureEdit_HuiLu.StyleController = this.layoutControl_ToolBar;
+            this.pictureEdit_HuiLu.TabIndex = 7;
+            this.pictureEdit_HuiLu.UseDirectXPaint = DevExpress.Utils.DefaultBoolean.True;
+            // 
+            // pictureEdit_DHK
+            // 
+            this.pictureEdit_DHK.CausesValidation = false;
+            this.pictureEdit_DHK.Cursor = System.Windows.Forms.Cursors.No;
+            this.pictureEdit_DHK.EditValue = ((object)(resources.GetObject("pictureEdit_DHK.EditValue")));
+            this.pictureEdit_DHK.Location = new System.Drawing.Point(1356, 12);
+            this.pictureEdit_DHK.MaximumSize = new System.Drawing.Size(50, 50);
+            this.pictureEdit_DHK.MinimumSize = new System.Drawing.Size(50, 50);
+            this.pictureEdit_DHK.Name = "pictureEdit_DHK";
+            this.pictureEdit_DHK.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.pictureEdit_DHK.Properties.Appearance.Options.UseBackColor = true;
+            this.pictureEdit_DHK.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pictureEdit_DHK.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pictureEdit_DHK.Size = new System.Drawing.Size(50, 50);
+            this.pictureEdit_DHK.StyleController = this.layoutControl_ToolBar;
+            this.pictureEdit_DHK.TabIndex = 8;
+            this.pictureEdit_DHK.UseDirectXPaint = DevExpress.Utils.DefaultBoolean.True;
+            // 
+            // pictureEdit_DHM
+            // 
+            this.pictureEdit_DHM.CausesValidation = false;
+            this.pictureEdit_DHM.Cursor = System.Windows.Forms.Cursors.No;
+            this.pictureEdit_DHM.EditValue = ((object)(resources.GetObject("pictureEdit_DHM.EditValue")));
+            this.pictureEdit_DHM.Location = new System.Drawing.Point(1546, 12);
+            this.pictureEdit_DHM.MaximumSize = new System.Drawing.Size(50, 50);
+            this.pictureEdit_DHM.MinimumSize = new System.Drawing.Size(50, 50);
+            this.pictureEdit_DHM.Name = "pictureEdit_DHM";
+            this.pictureEdit_DHM.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.pictureEdit_DHM.Properties.Appearance.Options.UseBackColor = true;
+            this.pictureEdit_DHM.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pictureEdit_DHM.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pictureEdit_DHM.Size = new System.Drawing.Size(50, 50);
+            this.pictureEdit_DHM.StyleController = this.layoutControl_ToolBar;
+            this.pictureEdit_DHM.TabIndex = 9;
+            this.pictureEdit_DHM.UseDirectXPaint = DevExpress.Utils.DefaultBoolean.True;
             // 
             // Root
             // 
@@ -693,13 +800,60 @@
             this.Root.GroupBordersVisible = false;
             this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1,
-            this.emptySpaceItem1,
             this.layoutControlItem2,
-            this.emptySpaceItem2,
             this.layoutControlItem136,
-            this.emptySpaceItem4});
+            this.simpleLabelItem1,
+            this.layoutControlItem38,
+            this.simpleLabelItem2,
+            this.simpleLabelItem3,
+            this.simpleLabelItem4,
+            this.layoutControlItem39,
+            this.layoutControlItem40,
+            this.layoutControlItem41});
+            this.Root.LayoutMode = DevExpress.XtraLayout.Utils.LayoutMode.Table;
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(1634, 70);
+            columnDefinition24.SizeType = System.Windows.Forms.SizeType.Absolute;
+            columnDefinition24.Width = 53D;
+            columnDefinition25.SizeType = System.Windows.Forms.SizeType.Absolute;
+            columnDefinition25.Width = 53D;
+            columnDefinition26.SizeType = System.Windows.Forms.SizeType.Absolute;
+            columnDefinition26.Width = 53D;
+            columnDefinition27.SizeType = System.Windows.Forms.SizeType.Percent;
+            columnDefinition27.Width = 100D;
+            columnDefinition28.SizeType = System.Windows.Forms.SizeType.Absolute;
+            columnDefinition28.Width = 110D;
+            columnDefinition29.SizeType = System.Windows.Forms.SizeType.Absolute;
+            columnDefinition29.Width = 80D;
+            columnDefinition30.SizeType = System.Windows.Forms.SizeType.Absolute;
+            columnDefinition30.Width = 110D;
+            columnDefinition31.SizeType = System.Windows.Forms.SizeType.Absolute;
+            columnDefinition31.Width = 80D;
+            columnDefinition32.SizeType = System.Windows.Forms.SizeType.Absolute;
+            columnDefinition32.Width = 110D;
+            columnDefinition33.SizeType = System.Windows.Forms.SizeType.Absolute;
+            columnDefinition33.Width = 80D;
+            columnDefinition34.SizeType = System.Windows.Forms.SizeType.Absolute;
+            columnDefinition34.Width = 110D;
+            columnDefinition35.SizeType = System.Windows.Forms.SizeType.Absolute;
+            columnDefinition35.Width = 80D;
+            this.Root.OptionsTableLayoutGroup.ColumnDefinitions.AddRange(new DevExpress.XtraLayout.ColumnDefinition[] {
+            columnDefinition24,
+            columnDefinition25,
+            columnDefinition26,
+            columnDefinition27,
+            columnDefinition28,
+            columnDefinition29,
+            columnDefinition30,
+            columnDefinition31,
+            columnDefinition32,
+            columnDefinition33,
+            columnDefinition34,
+            columnDefinition35});
+            rowDefinition36.Height = 100D;
+            rowDefinition36.SizeType = System.Windows.Forms.SizeType.Percent;
+            this.Root.OptionsTableLayoutGroup.RowDefinitions.AddRange(new DevExpress.XtraLayout.RowDefinition[] {
+            rowDefinition36});
+            this.Root.Size = new System.Drawing.Size(1634, 74);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem1
@@ -707,72 +861,127 @@
             this.layoutControlItem1.Control = this.BtnSetting;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(42, 40);
+            this.layoutControlItem1.Size = new System.Drawing.Size(53, 54);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
-            // 
-            // emptySpaceItem1
-            // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 40);
-            this.emptySpaceItem1.MaxSize = new System.Drawing.Size(84, 10);
-            this.emptySpaceItem1.MinSize = new System.Drawing.Size(84, 1);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(84, 10);
-            this.emptySpaceItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.BtnStartStop;
-            this.layoutControlItem2.Location = new System.Drawing.Point(42, 0);
+            this.layoutControlItem2.Location = new System.Drawing.Point(53, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(42, 40);
+            this.layoutControlItem2.OptionsTableLayoutItem.ColumnIndex = 1;
+            this.layoutControlItem2.Size = new System.Drawing.Size(53, 54);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
-            // 
-            // emptySpaceItem2
-            // 
-            this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(84, 40);
-            this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(45, 10);
-            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem136
             // 
             this.layoutControlItem136.Control = this.btnLoadFile;
-            this.layoutControlItem136.Location = new System.Drawing.Point(84, 0);
+            this.layoutControlItem136.Location = new System.Drawing.Point(106, 0);
             this.layoutControlItem136.Name = "layoutControlItem136";
-            this.layoutControlItem136.Size = new System.Drawing.Size(45, 40);
+            this.layoutControlItem136.OptionsTableLayoutItem.ColumnIndex = 2;
+            this.layoutControlItem136.Size = new System.Drawing.Size(53, 54);
             this.layoutControlItem136.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem136.TextVisible = false;
             // 
-            // emptySpaceItem4
+            // simpleLabelItem1
             // 
-            this.emptySpaceItem4.AllowHotTrack = false;
-            this.emptySpaceItem4.Location = new System.Drawing.Point(129, 0);
-            this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(1485, 50);
-            this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.simpleLabelItem1.AllowHotTrack = false;
+            this.simpleLabelItem1.Location = new System.Drawing.Point(854, 0);
+            this.simpleLabelItem1.Name = "simpleLabelItem1";
+            this.simpleLabelItem1.OptionsTableLayoutItem.ColumnIndex = 4;
+            this.simpleLabelItem1.Size = new System.Drawing.Size(110, 54);
+            this.simpleLabelItem1.Text = "系统判决状态";
+            this.simpleLabelItem1.TextSize = new System.Drawing.Size(90, 18);
+            // 
+            // layoutControlItem38
+            // 
+            this.layoutControlItem38.Control = this.pictureEdit_XiTong;
+            this.layoutControlItem38.Location = new System.Drawing.Point(964, 0);
+            this.layoutControlItem38.Name = "layoutControlItem38";
+            this.layoutControlItem38.OptionsTableLayoutItem.ColumnIndex = 5;
+            this.layoutControlItem38.Size = new System.Drawing.Size(80, 54);
+            this.layoutControlItem38.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem38.TextVisible = false;
+            // 
+            // simpleLabelItem2
+            // 
+            this.simpleLabelItem2.AllowHotTrack = false;
+            this.simpleLabelItem2.Location = new System.Drawing.Point(1044, 0);
+            this.simpleLabelItem2.Name = "simpleLabelItem2";
+            this.simpleLabelItem2.OptionsTableLayoutItem.ColumnIndex = 6;
+            this.simpleLabelItem2.Size = new System.Drawing.Size(110, 54);
+            this.simpleLabelItem2.Text = "回路检测";
+            this.simpleLabelItem2.TextSize = new System.Drawing.Size(90, 18);
+            // 
+            // simpleLabelItem3
+            // 
+            this.simpleLabelItem3.AllowHotTrack = false;
+            this.simpleLabelItem3.Location = new System.Drawing.Point(1234, 0);
+            this.simpleLabelItem3.Name = "simpleLabelItem3";
+            this.simpleLabelItem3.OptionsTableLayoutItem.ColumnIndex = 8;
+            this.simpleLabelItem3.Size = new System.Drawing.Size(110, 54);
+            this.simpleLabelItem3.Text = "导航快速";
+            this.simpleLabelItem3.TextSize = new System.Drawing.Size(90, 18);
+            // 
+            // simpleLabelItem4
+            // 
+            this.simpleLabelItem4.AllowHotTrack = false;
+            this.simpleLabelItem4.Location = new System.Drawing.Point(1424, 0);
+            this.simpleLabelItem4.Name = "simpleLabelItem4";
+            this.simpleLabelItem4.OptionsTableLayoutItem.ColumnIndex = 10;
+            this.simpleLabelItem4.Size = new System.Drawing.Size(110, 54);
+            this.simpleLabelItem4.Text = "导航慢速";
+            this.simpleLabelItem4.TextSize = new System.Drawing.Size(90, 18);
+            // 
+            // layoutControlItem39
+            // 
+            this.layoutControlItem39.Control = this.pictureEdit_HuiLu;
+            this.layoutControlItem39.Location = new System.Drawing.Point(1154, 0);
+            this.layoutControlItem39.Name = "layoutControlItem39";
+            this.layoutControlItem39.OptionsTableLayoutItem.ColumnIndex = 7;
+            this.layoutControlItem39.Size = new System.Drawing.Size(80, 54);
+            this.layoutControlItem39.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem39.TextVisible = false;
+            // 
+            // layoutControlItem40
+            // 
+            this.layoutControlItem40.Control = this.pictureEdit_DHK;
+            this.layoutControlItem40.Location = new System.Drawing.Point(1344, 0);
+            this.layoutControlItem40.Name = "layoutControlItem40";
+            this.layoutControlItem40.OptionsTableLayoutItem.ColumnIndex = 9;
+            this.layoutControlItem40.Size = new System.Drawing.Size(80, 54);
+            this.layoutControlItem40.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem40.TextVisible = false;
+            // 
+            // layoutControlItem41
+            // 
+            this.layoutControlItem41.Control = this.pictureEdit_DHM;
+            this.layoutControlItem41.Location = new System.Drawing.Point(1534, 0);
+            this.layoutControlItem41.Name = "layoutControlItem41";
+            this.layoutControlItem41.OptionsTableLayoutItem.ColumnIndex = 11;
+            this.layoutControlItem41.Size = new System.Drawing.Size(80, 54);
+            this.layoutControlItem41.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem41.TextVisible = false;
             // 
             // layoutControl_MainContent
             // 
             this.layoutControl_MainContent.Controls.Add(this.layoutControl1);
             this.layoutControl_MainContent.Controls.Add(this.TabControl_SoftStatus);
             this.layoutControl_MainContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl_MainContent.Location = new System.Drawing.Point(0, 62);
+            this.layoutControl_MainContent.Location = new System.Drawing.Point(0, 64);
             this.layoutControl_MainContent.Name = "layoutControl_MainContent";
             this.layoutControl_MainContent.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(687, 146, 812, 500);
             this.layoutControl_MainContent.Root = this.layoutControlGroup1;
-            this.layoutControl_MainContent.Size = new System.Drawing.Size(1634, 877);
+            this.layoutControl_MainContent.Size = new System.Drawing.Size(1634, 875);
             this.layoutControl_MainContent.TabIndex = 1;
             this.layoutControl_MainContent.Text = "layoutControl2";
             // 
             // layoutControl1
             // 
             this.layoutControl1.Controls.Add(this.LogListView);
-            this.layoutControl1.Location = new System.Drawing.Point(12, 645);
+            this.layoutControl1.Location = new System.Drawing.Point(12, 643);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup2;
             this.layoutControl1.Size = new System.Drawing.Size(1610, 220);
@@ -834,7 +1043,7 @@
             this.TabControl_SoftStatus.Location = new System.Drawing.Point(12, 12);
             this.TabControl_SoftStatus.Name = "TabControl_SoftStatus";
             this.TabControl_SoftStatus.SelectedTabPage = this.TabPage_XiTongPanJue;
-            this.TabControl_SoftStatus.Size = new System.Drawing.Size(1610, 629);
+            this.TabControl_SoftStatus.Size = new System.Drawing.Size(1610, 627);
             this.TabControl_SoftStatus.TabIndex = 4;
             this.TabControl_SoftStatus.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.TabPage_XiTongPanJue,
@@ -847,7 +1056,7 @@
             this.TabPage_XiTongPanJue.Controls.Add(this.layoutControl3);
             this.TabPage_XiTongPanJue.Controls.Add(this.layoutControl2);
             this.TabPage_XiTongPanJue.Name = "TabPage_XiTongPanJue";
-            this.TabPage_XiTongPanJue.Size = new System.Drawing.Size(1608, 597);
+            this.TabPage_XiTongPanJue.Size = new System.Drawing.Size(1608, 595);
             this.TabPage_XiTongPanJue.Text = "系统判决状态";
             // 
             // layoutControl3
@@ -857,7 +1066,7 @@
             this.layoutControl3.Location = new System.Drawing.Point(1214, 0);
             this.layoutControl3.Name = "layoutControl3";
             this.layoutControl3.Root = this.layoutControlGroup4;
-            this.layoutControl3.Size = new System.Drawing.Size(394, 597);
+            this.layoutControl3.Size = new System.Drawing.Size(394, 595);
             this.layoutControl3.TabIndex = 1;
             this.layoutControl3.Text = "layoutControl3";
             // 
@@ -866,7 +1075,7 @@
             this.Tab_XiTongPlot.Location = new System.Drawing.Point(12, 12);
             this.Tab_XiTongPlot.Name = "Tab_XiTongPlot";
             this.Tab_XiTongPlot.SelectedTabPage = this.TabPage_XiTongPlot_ZuoBiao;
-            this.Tab_XiTongPlot.Size = new System.Drawing.Size(370, 573);
+            this.Tab_XiTongPlot.Size = new System.Drawing.Size(370, 571);
             this.Tab_XiTongPlot.TabIndex = 4;
             this.Tab_XiTongPlot.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.TabPage_XiTongPlot_ZuoBiao,
@@ -879,7 +1088,7 @@
             // 
             this.TabPage_XiTongPlot_ZuoBiao.Controls.Add(this.layoutControl15);
             this.TabPage_XiTongPlot_ZuoBiao.Name = "TabPage_XiTongPlot_ZuoBiao";
-            this.TabPage_XiTongPlot_ZuoBiao.Size = new System.Drawing.Size(368, 541);
+            this.TabPage_XiTongPlot_ZuoBiao.Size = new System.Drawing.Size(368, 539);
             this.TabPage_XiTongPlot_ZuoBiao.Text = "坐标";
             // 
             // layoutControl15
@@ -891,93 +1100,93 @@
             this.layoutControl15.Location = new System.Drawing.Point(0, 0);
             this.layoutControl15.Name = "layoutControl15";
             this.layoutControl15.Root = this.layoutControlGroup16;
-            this.layoutControl15.Size = new System.Drawing.Size(368, 541);
+            this.layoutControl15.Size = new System.Drawing.Size(368, 539);
             this.layoutControl15.TabIndex = 1;
             this.layoutControl15.Text = "layoutControl15";
             // 
             // chart_XiTong_ZuoBiao_GaoDu
             // 
             this.chart_XiTong_ZuoBiao_GaoDu.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            xyDiagram29.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram29.AxisY.VisibleInPanesSerializable = "-1";
-            xyDiagram29.EnableAxisXScrolling = true;
-            xyDiagram29.EnableAxisXZooming = true;
-            xyDiagram29.EnableAxisYScrolling = true;
-            xyDiagram29.EnableAxisYZooming = true;
-            this.chart_XiTong_ZuoBiao_GaoDu.Diagram = xyDiagram29;
+            xyDiagram15.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram15.AxisY.VisibleInPanesSerializable = "-1";
+            xyDiagram15.EnableAxisXScrolling = true;
+            xyDiagram15.EnableAxisXZooming = true;
+            xyDiagram15.EnableAxisYScrolling = true;
+            xyDiagram15.EnableAxisYZooming = true;
+            this.chart_XiTong_ZuoBiao_GaoDu.Diagram = xyDiagram15;
             this.chart_XiTong_ZuoBiao_GaoDu.Legend.Border.Visibility = DevExpress.Utils.DefaultBoolean.True;
             this.chart_XiTong_ZuoBiao_GaoDu.Legend.MarkerMode = DevExpress.XtraCharts.LegendMarkerMode.CheckBoxAndMarker;
             this.chart_XiTong_ZuoBiao_GaoDu.Legend.Name = "Default Legend";
             this.chart_XiTong_ZuoBiao_GaoDu.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            this.chart_XiTong_ZuoBiao_GaoDu.Location = new System.Drawing.Point(12, 359);
+            this.chart_XiTong_ZuoBiao_GaoDu.Location = new System.Drawing.Point(12, 358);
             this.chart_XiTong_ZuoBiao_GaoDu.Name = "chart_XiTong_ZuoBiao_GaoDu";
-            series31.Name = "海拔高度";
-            series31.View = splineSeriesView31;
+            series16.Name = "海拔高度";
+            series16.View = splineSeriesView16;
             this.chart_XiTong_ZuoBiao_GaoDu.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series31};
-            this.chart_XiTong_ZuoBiao_GaoDu.Size = new System.Drawing.Size(344, 170);
+        series16};
+            this.chart_XiTong_ZuoBiao_GaoDu.Size = new System.Drawing.Size(344, 169);
             this.chart_XiTong_ZuoBiao_GaoDu.TabIndex = 2;
-            chartTitle27.Dock = DevExpress.XtraCharts.ChartTitleDockStyle.Left;
-            chartTitle27.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartTitle27.Text = "海拔高度";
+            chartTitle14.Dock = DevExpress.XtraCharts.ChartTitleDockStyle.Left;
+            chartTitle14.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartTitle14.Text = "海拔高度";
             this.chart_XiTong_ZuoBiao_GaoDu.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
-            chartTitle27});
+            chartTitle14});
             // 
             // chart_XiTong_ZuoBiao_WeiDu
             // 
             this.chart_XiTong_ZuoBiao_WeiDu.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            xyDiagram30.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram30.AxisY.VisibleInPanesSerializable = "-1";
-            xyDiagram30.EnableAxisXScrolling = true;
-            xyDiagram30.EnableAxisXZooming = true;
-            xyDiagram30.EnableAxisYScrolling = true;
-            xyDiagram30.EnableAxisYZooming = true;
-            this.chart_XiTong_ZuoBiao_WeiDu.Diagram = xyDiagram30;
+            xyDiagram16.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram16.AxisY.VisibleInPanesSerializable = "-1";
+            xyDiagram16.EnableAxisXScrolling = true;
+            xyDiagram16.EnableAxisXZooming = true;
+            xyDiagram16.EnableAxisYScrolling = true;
+            xyDiagram16.EnableAxisYZooming = true;
+            this.chart_XiTong_ZuoBiao_WeiDu.Diagram = xyDiagram16;
             this.chart_XiTong_ZuoBiao_WeiDu.Legend.Border.Visibility = DevExpress.Utils.DefaultBoolean.True;
             this.chart_XiTong_ZuoBiao_WeiDu.Legend.MarkerMode = DevExpress.XtraCharts.LegendMarkerMode.CheckBoxAndMarker;
             this.chart_XiTong_ZuoBiao_WeiDu.Legend.Name = "Default Legend";
             this.chart_XiTong_ZuoBiao_WeiDu.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
             this.chart_XiTong_ZuoBiao_WeiDu.Location = new System.Drawing.Point(12, 185);
             this.chart_XiTong_ZuoBiao_WeiDu.Name = "chart_XiTong_ZuoBiao_WeiDu";
-            series32.Name = "纬度";
-            series32.View = splineSeriesView32;
+            series17.Name = "纬度";
+            series17.View = splineSeriesView17;
             this.chart_XiTong_ZuoBiao_WeiDu.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series32};
-            this.chart_XiTong_ZuoBiao_WeiDu.Size = new System.Drawing.Size(344, 170);
+        series17};
+            this.chart_XiTong_ZuoBiao_WeiDu.Size = new System.Drawing.Size(344, 169);
             this.chart_XiTong_ZuoBiao_WeiDu.TabIndex = 2;
-            chartTitle28.Dock = DevExpress.XtraCharts.ChartTitleDockStyle.Left;
-            chartTitle28.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartTitle28.Text = "纬度";
+            chartTitle15.Dock = DevExpress.XtraCharts.ChartTitleDockStyle.Left;
+            chartTitle15.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartTitle15.Text = "纬度";
             this.chart_XiTong_ZuoBiao_WeiDu.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
-            chartTitle28});
+            chartTitle15});
             // 
             // chart_XiTong_ZuoBiao_JingDu
             // 
             this.chart_XiTong_ZuoBiao_JingDu.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            xyDiagram31.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram31.AxisY.VisibleInPanesSerializable = "-1";
-            xyDiagram31.EnableAxisXScrolling = true;
-            xyDiagram31.EnableAxisXZooming = true;
-            xyDiagram31.EnableAxisYScrolling = true;
-            xyDiagram31.EnableAxisYZooming = true;
-            this.chart_XiTong_ZuoBiao_JingDu.Diagram = xyDiagram31;
+            xyDiagram17.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram17.AxisY.VisibleInPanesSerializable = "-1";
+            xyDiagram17.EnableAxisXScrolling = true;
+            xyDiagram17.EnableAxisXZooming = true;
+            xyDiagram17.EnableAxisYScrolling = true;
+            xyDiagram17.EnableAxisYZooming = true;
+            this.chart_XiTong_ZuoBiao_JingDu.Diagram = xyDiagram17;
             this.chart_XiTong_ZuoBiao_JingDu.Legend.Border.Visibility = DevExpress.Utils.DefaultBoolean.True;
             this.chart_XiTong_ZuoBiao_JingDu.Legend.MarkerMode = DevExpress.XtraCharts.LegendMarkerMode.CheckBoxAndMarker;
             this.chart_XiTong_ZuoBiao_JingDu.Legend.Name = "Default Legend";
             this.chart_XiTong_ZuoBiao_JingDu.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
             this.chart_XiTong_ZuoBiao_JingDu.Location = new System.Drawing.Point(12, 12);
             this.chart_XiTong_ZuoBiao_JingDu.Name = "chart_XiTong_ZuoBiao_JingDu";
-            series33.Name = "经度";
-            series33.View = splineSeriesView33;
+            series18.Name = "经度";
+            series18.View = splineSeriesView18;
             this.chart_XiTong_ZuoBiao_JingDu.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series33};
+        series18};
             this.chart_XiTong_ZuoBiao_JingDu.Size = new System.Drawing.Size(344, 169);
             this.chart_XiTong_ZuoBiao_JingDu.TabIndex = 0;
-            chartTitle29.Dock = DevExpress.XtraCharts.ChartTitleDockStyle.Left;
-            chartTitle29.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartTitle29.Text = "经度";
+            chartTitle16.Dock = DevExpress.XtraCharts.ChartTitleDockStyle.Left;
+            chartTitle16.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartTitle16.Text = "经度";
             this.chart_XiTong_ZuoBiao_JingDu.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
-            chartTitle29});
+            chartTitle16});
             // 
             // layoutControlGroup16
             // 
@@ -989,21 +1198,21 @@
             this.layoutControlItem151});
             this.layoutControlGroup16.LayoutMode = DevExpress.XtraLayout.Utils.LayoutMode.Table;
             this.layoutControlGroup16.Name = "layoutControlGroup16";
-            columnDefinition23.SizeType = System.Windows.Forms.SizeType.Percent;
-            columnDefinition23.Width = 100D;
+            columnDefinition36.SizeType = System.Windows.Forms.SizeType.Percent;
+            columnDefinition36.Width = 100D;
             this.layoutControlGroup16.OptionsTableLayoutGroup.ColumnDefinitions.AddRange(new DevExpress.XtraLayout.ColumnDefinition[] {
-            columnDefinition23});
-            rowDefinition69.Height = 33.333333333333336D;
-            rowDefinition69.SizeType = System.Windows.Forms.SizeType.Percent;
-            rowDefinition70.Height = 33.333333333333336D;
-            rowDefinition70.SizeType = System.Windows.Forms.SizeType.Percent;
-            rowDefinition71.Height = 33.333333333333336D;
-            rowDefinition71.SizeType = System.Windows.Forms.SizeType.Percent;
+            columnDefinition36});
+            rowDefinition37.Height = 33.333333333333336D;
+            rowDefinition37.SizeType = System.Windows.Forms.SizeType.Percent;
+            rowDefinition38.Height = 33.333333333333336D;
+            rowDefinition38.SizeType = System.Windows.Forms.SizeType.Percent;
+            rowDefinition39.Height = 33.333333333333336D;
+            rowDefinition39.SizeType = System.Windows.Forms.SizeType.Percent;
             this.layoutControlGroup16.OptionsTableLayoutGroup.RowDefinitions.AddRange(new DevExpress.XtraLayout.RowDefinition[] {
-            rowDefinition69,
-            rowDefinition70,
-            rowDefinition71});
-            this.layoutControlGroup16.Size = new System.Drawing.Size(368, 541);
+            rowDefinition37,
+            rowDefinition38,
+            rowDefinition39});
+            this.layoutControlGroup16.Size = new System.Drawing.Size(368, 539);
             this.layoutControlGroup16.TextVisible = false;
             // 
             // layoutControlItem149
@@ -1021,17 +1230,17 @@
             this.layoutControlItem150.Location = new System.Drawing.Point(0, 173);
             this.layoutControlItem150.Name = "layoutControlItem150";
             this.layoutControlItem150.OptionsTableLayoutItem.RowIndex = 1;
-            this.layoutControlItem150.Size = new System.Drawing.Size(348, 174);
+            this.layoutControlItem150.Size = new System.Drawing.Size(348, 173);
             this.layoutControlItem150.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem150.TextVisible = false;
             // 
             // layoutControlItem151
             // 
             this.layoutControlItem151.Control = this.chart_XiTong_ZuoBiao_GaoDu;
-            this.layoutControlItem151.Location = new System.Drawing.Point(0, 347);
+            this.layoutControlItem151.Location = new System.Drawing.Point(0, 346);
             this.layoutControlItem151.Name = "layoutControlItem151";
             this.layoutControlItem151.OptionsTableLayoutItem.RowIndex = 2;
-            this.layoutControlItem151.Size = new System.Drawing.Size(348, 174);
+            this.layoutControlItem151.Size = new System.Drawing.Size(348, 173);
             this.layoutControlItem151.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem151.TextVisible = false;
             // 
@@ -1039,7 +1248,7 @@
             // 
             this.TabPage_XiTongPlot_SuDu.Controls.Add(this.layoutControl16);
             this.TabPage_XiTongPlot_SuDu.Name = "TabPage_XiTongPlot_SuDu";
-            this.TabPage_XiTongPlot_SuDu.Size = new System.Drawing.Size(368, 541);
+            this.TabPage_XiTongPlot_SuDu.Size = new System.Drawing.Size(368, 429);
             this.TabPage_XiTongPlot_SuDu.Text = "速度";
             // 
             // layoutControl16
@@ -1051,93 +1260,93 @@
             this.layoutControl16.Location = new System.Drawing.Point(0, 0);
             this.layoutControl16.Name = "layoutControl16";
             this.layoutControl16.Root = this.layoutControlGroup17;
-            this.layoutControl16.Size = new System.Drawing.Size(368, 541);
+            this.layoutControl16.Size = new System.Drawing.Size(368, 429);
             this.layoutControl16.TabIndex = 2;
             this.layoutControl16.Text = "layoutControl16";
             // 
             // chart_XiTong_SuDu_Tian
             // 
             this.chart_XiTong_SuDu_Tian.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            xyDiagram32.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram32.AxisY.VisibleInPanesSerializable = "-1";
-            xyDiagram32.EnableAxisXScrolling = true;
-            xyDiagram32.EnableAxisXZooming = true;
-            xyDiagram32.EnableAxisYScrolling = true;
-            xyDiagram32.EnableAxisYZooming = true;
-            this.chart_XiTong_SuDu_Tian.Diagram = xyDiagram32;
+            xyDiagram18.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram18.AxisY.VisibleInPanesSerializable = "-1";
+            xyDiagram18.EnableAxisXScrolling = true;
+            xyDiagram18.EnableAxisXZooming = true;
+            xyDiagram18.EnableAxisYScrolling = true;
+            xyDiagram18.EnableAxisYZooming = true;
+            this.chart_XiTong_SuDu_Tian.Diagram = xyDiagram18;
             this.chart_XiTong_SuDu_Tian.Legend.Border.Visibility = DevExpress.Utils.DefaultBoolean.True;
             this.chart_XiTong_SuDu_Tian.Legend.MarkerMode = DevExpress.XtraCharts.LegendMarkerMode.CheckBoxAndMarker;
             this.chart_XiTong_SuDu_Tian.Legend.Name = "Default Legend";
             this.chart_XiTong_SuDu_Tian.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            this.chart_XiTong_SuDu_Tian.Location = new System.Drawing.Point(12, 359);
+            this.chart_XiTong_SuDu_Tian.Location = new System.Drawing.Point(12, 284);
             this.chart_XiTong_SuDu_Tian.Name = "chart_XiTong_SuDu_Tian";
-            series34.Name = "天向速度";
-            series34.View = splineSeriesView34;
+            series19.Name = "天向速度";
+            series19.View = splineSeriesView19;
             this.chart_XiTong_SuDu_Tian.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series34};
-            this.chart_XiTong_SuDu_Tian.Size = new System.Drawing.Size(344, 170);
+        series19};
+            this.chart_XiTong_SuDu_Tian.Size = new System.Drawing.Size(344, 133);
             this.chart_XiTong_SuDu_Tian.TabIndex = 3;
-            chartTitle30.Dock = DevExpress.XtraCharts.ChartTitleDockStyle.Left;
-            chartTitle30.Font = new System.Drawing.Font("Tahoma", 12F);
-            chartTitle30.Text = "天向速度";
+            chartTitle17.Dock = DevExpress.XtraCharts.ChartTitleDockStyle.Left;
+            chartTitle17.Font = new System.Drawing.Font("Tahoma", 12F);
+            chartTitle17.Text = "天向速度";
             this.chart_XiTong_SuDu_Tian.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
-            chartTitle30});
+            chartTitle17});
             // 
             // chart_XiTong_SuDu_Bei
             // 
             this.chart_XiTong_SuDu_Bei.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            xyDiagram33.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram33.AxisY.VisibleInPanesSerializable = "-1";
-            xyDiagram33.EnableAxisXScrolling = true;
-            xyDiagram33.EnableAxisXZooming = true;
-            xyDiagram33.EnableAxisYScrolling = true;
-            xyDiagram33.EnableAxisYZooming = true;
-            this.chart_XiTong_SuDu_Bei.Diagram = xyDiagram33;
+            xyDiagram19.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram19.AxisY.VisibleInPanesSerializable = "-1";
+            xyDiagram19.EnableAxisXScrolling = true;
+            xyDiagram19.EnableAxisXZooming = true;
+            xyDiagram19.EnableAxisYScrolling = true;
+            xyDiagram19.EnableAxisYZooming = true;
+            this.chart_XiTong_SuDu_Bei.Diagram = xyDiagram19;
             this.chart_XiTong_SuDu_Bei.Legend.Border.Visibility = DevExpress.Utils.DefaultBoolean.True;
             this.chart_XiTong_SuDu_Bei.Legend.MarkerMode = DevExpress.XtraCharts.LegendMarkerMode.CheckBoxAndMarker;
             this.chart_XiTong_SuDu_Bei.Legend.Name = "Default Legend";
             this.chart_XiTong_SuDu_Bei.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            this.chart_XiTong_SuDu_Bei.Location = new System.Drawing.Point(12, 185);
+            this.chart_XiTong_SuDu_Bei.Location = new System.Drawing.Point(12, 148);
             this.chart_XiTong_SuDu_Bei.Name = "chart_XiTong_SuDu_Bei";
-            series35.Name = "北向速度";
-            series35.View = splineSeriesView35;
+            series20.Name = "北向速度";
+            series20.View = splineSeriesView20;
             this.chart_XiTong_SuDu_Bei.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series35};
-            this.chart_XiTong_SuDu_Bei.Size = new System.Drawing.Size(344, 170);
+        series20};
+            this.chart_XiTong_SuDu_Bei.Size = new System.Drawing.Size(344, 132);
             this.chart_XiTong_SuDu_Bei.TabIndex = 3;
-            chartTitle31.Dock = DevExpress.XtraCharts.ChartTitleDockStyle.Left;
-            chartTitle31.Font = new System.Drawing.Font("Tahoma", 12F);
-            chartTitle31.Text = "北向速度";
+            chartTitle18.Dock = DevExpress.XtraCharts.ChartTitleDockStyle.Left;
+            chartTitle18.Font = new System.Drawing.Font("Tahoma", 12F);
+            chartTitle18.Text = "北向速度";
             this.chart_XiTong_SuDu_Bei.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
-            chartTitle31});
+            chartTitle18});
             // 
             // chart_XiTong_SuDu_Dong
             // 
             this.chart_XiTong_SuDu_Dong.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            xyDiagram34.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram34.AxisY.VisibleInPanesSerializable = "-1";
-            xyDiagram34.EnableAxisXScrolling = true;
-            xyDiagram34.EnableAxisXZooming = true;
-            xyDiagram34.EnableAxisYScrolling = true;
-            xyDiagram34.EnableAxisYZooming = true;
-            this.chart_XiTong_SuDu_Dong.Diagram = xyDiagram34;
+            xyDiagram20.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram20.AxisY.VisibleInPanesSerializable = "-1";
+            xyDiagram20.EnableAxisXScrolling = true;
+            xyDiagram20.EnableAxisXZooming = true;
+            xyDiagram20.EnableAxisYScrolling = true;
+            xyDiagram20.EnableAxisYZooming = true;
+            this.chart_XiTong_SuDu_Dong.Diagram = xyDiagram20;
             this.chart_XiTong_SuDu_Dong.Legend.Border.Visibility = DevExpress.Utils.DefaultBoolean.True;
             this.chart_XiTong_SuDu_Dong.Legend.MarkerMode = DevExpress.XtraCharts.LegendMarkerMode.CheckBoxAndMarker;
             this.chart_XiTong_SuDu_Dong.Legend.Name = "Default Legend";
             this.chart_XiTong_SuDu_Dong.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
             this.chart_XiTong_SuDu_Dong.Location = new System.Drawing.Point(12, 12);
             this.chart_XiTong_SuDu_Dong.Name = "chart_XiTong_SuDu_Dong";
-            series36.Name = "东向速度";
-            series36.View = splineSeriesView36;
+            series21.Name = "东向速度";
+            series21.View = splineSeriesView21;
             this.chart_XiTong_SuDu_Dong.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series36};
-            this.chart_XiTong_SuDu_Dong.Size = new System.Drawing.Size(344, 169);
+        series21};
+            this.chart_XiTong_SuDu_Dong.Size = new System.Drawing.Size(344, 132);
             this.chart_XiTong_SuDu_Dong.TabIndex = 1;
-            chartTitle32.Dock = DevExpress.XtraCharts.ChartTitleDockStyle.Left;
-            chartTitle32.Font = new System.Drawing.Font("Tahoma", 12F);
-            chartTitle32.Text = "东向速度";
+            chartTitle19.Dock = DevExpress.XtraCharts.ChartTitleDockStyle.Left;
+            chartTitle19.Font = new System.Drawing.Font("Tahoma", 12F);
+            chartTitle19.Text = "东向速度";
             this.chart_XiTong_SuDu_Dong.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
-            chartTitle32});
+            chartTitle19});
             // 
             // layoutControlGroup17
             // 
@@ -1149,21 +1358,21 @@
             this.layoutControlItem154});
             this.layoutControlGroup17.LayoutMode = DevExpress.XtraLayout.Utils.LayoutMode.Table;
             this.layoutControlGroup17.Name = "layoutControlGroup17";
-            columnDefinition24.SizeType = System.Windows.Forms.SizeType.Percent;
-            columnDefinition24.Width = 100D;
+            columnDefinition37.SizeType = System.Windows.Forms.SizeType.Percent;
+            columnDefinition37.Width = 100D;
             this.layoutControlGroup17.OptionsTableLayoutGroup.ColumnDefinitions.AddRange(new DevExpress.XtraLayout.ColumnDefinition[] {
-            columnDefinition24});
-            rowDefinition72.Height = 33.333333333333336D;
-            rowDefinition72.SizeType = System.Windows.Forms.SizeType.Percent;
-            rowDefinition73.Height = 33.333333333333336D;
-            rowDefinition73.SizeType = System.Windows.Forms.SizeType.Percent;
-            rowDefinition74.Height = 33.333333333333336D;
-            rowDefinition74.SizeType = System.Windows.Forms.SizeType.Percent;
+            columnDefinition37});
+            rowDefinition40.Height = 33.333333333333336D;
+            rowDefinition40.SizeType = System.Windows.Forms.SizeType.Percent;
+            rowDefinition41.Height = 33.333333333333336D;
+            rowDefinition41.SizeType = System.Windows.Forms.SizeType.Percent;
+            rowDefinition42.Height = 33.333333333333336D;
+            rowDefinition42.SizeType = System.Windows.Forms.SizeType.Percent;
             this.layoutControlGroup17.OptionsTableLayoutGroup.RowDefinitions.AddRange(new DevExpress.XtraLayout.RowDefinition[] {
-            rowDefinition72,
-            rowDefinition73,
-            rowDefinition74});
-            this.layoutControlGroup17.Size = new System.Drawing.Size(368, 541);
+            rowDefinition40,
+            rowDefinition41,
+            rowDefinition42});
+            this.layoutControlGroup17.Size = new System.Drawing.Size(368, 429);
             this.layoutControlGroup17.TextVisible = false;
             // 
             // layoutControlItem152
@@ -1171,27 +1380,27 @@
             this.layoutControlItem152.Control = this.chart_XiTong_SuDu_Dong;
             this.layoutControlItem152.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem152.Name = "layoutControlItem152";
-            this.layoutControlItem152.Size = new System.Drawing.Size(348, 173);
+            this.layoutControlItem152.Size = new System.Drawing.Size(348, 136);
             this.layoutControlItem152.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem152.TextVisible = false;
             // 
             // layoutControlItem153
             // 
             this.layoutControlItem153.Control = this.chart_XiTong_SuDu_Bei;
-            this.layoutControlItem153.Location = new System.Drawing.Point(0, 173);
+            this.layoutControlItem153.Location = new System.Drawing.Point(0, 136);
             this.layoutControlItem153.Name = "layoutControlItem153";
             this.layoutControlItem153.OptionsTableLayoutItem.RowIndex = 1;
-            this.layoutControlItem153.Size = new System.Drawing.Size(348, 174);
+            this.layoutControlItem153.Size = new System.Drawing.Size(348, 136);
             this.layoutControlItem153.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem153.TextVisible = false;
             // 
             // layoutControlItem154
             // 
             this.layoutControlItem154.Control = this.chart_XiTong_SuDu_Tian;
-            this.layoutControlItem154.Location = new System.Drawing.Point(0, 347);
+            this.layoutControlItem154.Location = new System.Drawing.Point(0, 272);
             this.layoutControlItem154.Name = "layoutControlItem154";
             this.layoutControlItem154.OptionsTableLayoutItem.RowIndex = 2;
-            this.layoutControlItem154.Size = new System.Drawing.Size(348, 174);
+            this.layoutControlItem154.Size = new System.Drawing.Size(348, 137);
             this.layoutControlItem154.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem154.TextVisible = false;
             // 
@@ -1199,7 +1408,7 @@
             // 
             this.TabPage_XiTongPlot_JiaoSuDu.Controls.Add(this.layoutControl17);
             this.TabPage_XiTongPlot_JiaoSuDu.Name = "TabPage_XiTongPlot_JiaoSuDu";
-            this.TabPage_XiTongPlot_JiaoSuDu.Size = new System.Drawing.Size(368, 541);
+            this.TabPage_XiTongPlot_JiaoSuDu.Size = new System.Drawing.Size(368, 429);
             this.TabPage_XiTongPlot_JiaoSuDu.Text = "角速度";
             // 
             // layoutControl17
@@ -1211,93 +1420,93 @@
             this.layoutControl17.Location = new System.Drawing.Point(0, 0);
             this.layoutControl17.Name = "layoutControl17";
             this.layoutControl17.Root = this.layoutControlGroup18;
-            this.layoutControl17.Size = new System.Drawing.Size(368, 541);
+            this.layoutControl17.Size = new System.Drawing.Size(368, 429);
             this.layoutControl17.TabIndex = 3;
             this.layoutControl17.Text = "layoutControl17";
             // 
             // chart_XiTong_JiaoSuDu_Wz
             // 
             this.chart_XiTong_JiaoSuDu_Wz.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            xyDiagram35.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram35.AxisY.VisibleInPanesSerializable = "-1";
-            xyDiagram35.EnableAxisXScrolling = true;
-            xyDiagram35.EnableAxisXZooming = true;
-            xyDiagram35.EnableAxisYScrolling = true;
-            xyDiagram35.EnableAxisYZooming = true;
-            this.chart_XiTong_JiaoSuDu_Wz.Diagram = xyDiagram35;
+            xyDiagram21.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram21.AxisY.VisibleInPanesSerializable = "-1";
+            xyDiagram21.EnableAxisXScrolling = true;
+            xyDiagram21.EnableAxisXZooming = true;
+            xyDiagram21.EnableAxisYScrolling = true;
+            xyDiagram21.EnableAxisYZooming = true;
+            this.chart_XiTong_JiaoSuDu_Wz.Diagram = xyDiagram21;
             this.chart_XiTong_JiaoSuDu_Wz.Legend.Border.Visibility = DevExpress.Utils.DefaultBoolean.True;
             this.chart_XiTong_JiaoSuDu_Wz.Legend.MarkerMode = DevExpress.XtraCharts.LegendMarkerMode.CheckBoxAndMarker;
             this.chart_XiTong_JiaoSuDu_Wz.Legend.Name = "Default Legend";
             this.chart_XiTong_JiaoSuDu_Wz.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            this.chart_XiTong_JiaoSuDu_Wz.Location = new System.Drawing.Point(12, 359);
+            this.chart_XiTong_JiaoSuDu_Wz.Location = new System.Drawing.Point(12, 284);
             this.chart_XiTong_JiaoSuDu_Wz.Name = "chart_XiTong_JiaoSuDu_Wz";
-            series37.Name = "Wz角速度";
-            series37.View = splineSeriesView37;
+            series22.Name = "Wz角速度";
+            series22.View = splineSeriesView22;
             this.chart_XiTong_JiaoSuDu_Wz.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series37};
-            this.chart_XiTong_JiaoSuDu_Wz.Size = new System.Drawing.Size(344, 170);
+        series22};
+            this.chart_XiTong_JiaoSuDu_Wz.Size = new System.Drawing.Size(344, 133);
             this.chart_XiTong_JiaoSuDu_Wz.TabIndex = 4;
-            chartTitle33.Dock = DevExpress.XtraCharts.ChartTitleDockStyle.Left;
-            chartTitle33.Font = new System.Drawing.Font("Tahoma", 12F);
-            chartTitle33.Text = "Wz角速度";
+            chartTitle20.Dock = DevExpress.XtraCharts.ChartTitleDockStyle.Left;
+            chartTitle20.Font = new System.Drawing.Font("Tahoma", 12F);
+            chartTitle20.Text = "Wz角速度";
             this.chart_XiTong_JiaoSuDu_Wz.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
-            chartTitle33});
+            chartTitle20});
             // 
             // chart_XiTong_JiaoSuDu_Wy
             // 
             this.chart_XiTong_JiaoSuDu_Wy.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            xyDiagram36.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram36.AxisY.VisibleInPanesSerializable = "-1";
-            xyDiagram36.EnableAxisXScrolling = true;
-            xyDiagram36.EnableAxisXZooming = true;
-            xyDiagram36.EnableAxisYScrolling = true;
-            xyDiagram36.EnableAxisYZooming = true;
-            this.chart_XiTong_JiaoSuDu_Wy.Diagram = xyDiagram36;
+            xyDiagram22.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram22.AxisY.VisibleInPanesSerializable = "-1";
+            xyDiagram22.EnableAxisXScrolling = true;
+            xyDiagram22.EnableAxisXZooming = true;
+            xyDiagram22.EnableAxisYScrolling = true;
+            xyDiagram22.EnableAxisYZooming = true;
+            this.chart_XiTong_JiaoSuDu_Wy.Diagram = xyDiagram22;
             this.chart_XiTong_JiaoSuDu_Wy.Legend.Border.Visibility = DevExpress.Utils.DefaultBoolean.True;
             this.chart_XiTong_JiaoSuDu_Wy.Legend.MarkerMode = DevExpress.XtraCharts.LegendMarkerMode.CheckBoxAndMarker;
             this.chart_XiTong_JiaoSuDu_Wy.Legend.Name = "Default Legend";
             this.chart_XiTong_JiaoSuDu_Wy.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            this.chart_XiTong_JiaoSuDu_Wy.Location = new System.Drawing.Point(12, 185);
+            this.chart_XiTong_JiaoSuDu_Wy.Location = new System.Drawing.Point(12, 148);
             this.chart_XiTong_JiaoSuDu_Wy.Name = "chart_XiTong_JiaoSuDu_Wy";
-            series38.Name = "Wy角速度";
-            series38.View = splineSeriesView38;
+            series23.Name = "Wy角速度";
+            series23.View = splineSeriesView23;
             this.chart_XiTong_JiaoSuDu_Wy.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series38};
-            this.chart_XiTong_JiaoSuDu_Wy.Size = new System.Drawing.Size(344, 170);
+        series23};
+            this.chart_XiTong_JiaoSuDu_Wy.Size = new System.Drawing.Size(344, 132);
             this.chart_XiTong_JiaoSuDu_Wy.TabIndex = 4;
-            chartTitle34.Dock = DevExpress.XtraCharts.ChartTitleDockStyle.Left;
-            chartTitle34.Font = new System.Drawing.Font("Tahoma", 12F);
-            chartTitle34.Text = "Wy角速度";
+            chartTitle21.Dock = DevExpress.XtraCharts.ChartTitleDockStyle.Left;
+            chartTitle21.Font = new System.Drawing.Font("Tahoma", 12F);
+            chartTitle21.Text = "Wy角速度";
             this.chart_XiTong_JiaoSuDu_Wy.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
-            chartTitle34});
+            chartTitle21});
             // 
             // chart_XiTong_JiaoSuDu_Wx
             // 
             this.chart_XiTong_JiaoSuDu_Wx.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            xyDiagram37.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram37.AxisY.VisibleInPanesSerializable = "-1";
-            xyDiagram37.EnableAxisXScrolling = true;
-            xyDiagram37.EnableAxisXZooming = true;
-            xyDiagram37.EnableAxisYScrolling = true;
-            xyDiagram37.EnableAxisYZooming = true;
-            this.chart_XiTong_JiaoSuDu_Wx.Diagram = xyDiagram37;
+            xyDiagram23.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram23.AxisY.VisibleInPanesSerializable = "-1";
+            xyDiagram23.EnableAxisXScrolling = true;
+            xyDiagram23.EnableAxisXZooming = true;
+            xyDiagram23.EnableAxisYScrolling = true;
+            xyDiagram23.EnableAxisYZooming = true;
+            this.chart_XiTong_JiaoSuDu_Wx.Diagram = xyDiagram23;
             this.chart_XiTong_JiaoSuDu_Wx.Legend.Border.Visibility = DevExpress.Utils.DefaultBoolean.True;
             this.chart_XiTong_JiaoSuDu_Wx.Legend.MarkerMode = DevExpress.XtraCharts.LegendMarkerMode.CheckBoxAndMarker;
             this.chart_XiTong_JiaoSuDu_Wx.Legend.Name = "Default Legend";
             this.chart_XiTong_JiaoSuDu_Wx.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
             this.chart_XiTong_JiaoSuDu_Wx.Location = new System.Drawing.Point(12, 12);
             this.chart_XiTong_JiaoSuDu_Wx.Name = "chart_XiTong_JiaoSuDu_Wx";
-            series39.Name = "Wx角速度";
-            series39.View = splineSeriesView39;
+            series24.Name = "Wx角速度";
+            series24.View = splineSeriesView24;
             this.chart_XiTong_JiaoSuDu_Wx.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series39};
-            this.chart_XiTong_JiaoSuDu_Wx.Size = new System.Drawing.Size(344, 169);
+        series24};
+            this.chart_XiTong_JiaoSuDu_Wx.Size = new System.Drawing.Size(344, 132);
             this.chart_XiTong_JiaoSuDu_Wx.TabIndex = 2;
-            chartTitle35.Dock = DevExpress.XtraCharts.ChartTitleDockStyle.Left;
-            chartTitle35.Font = new System.Drawing.Font("Tahoma", 12F);
-            chartTitle35.Text = "Wx角速度";
+            chartTitle22.Dock = DevExpress.XtraCharts.ChartTitleDockStyle.Left;
+            chartTitle22.Font = new System.Drawing.Font("Tahoma", 12F);
+            chartTitle22.Text = "Wx角速度";
             this.chart_XiTong_JiaoSuDu_Wx.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
-            chartTitle35});
+            chartTitle22});
             // 
             // layoutControlGroup18
             // 
@@ -1309,21 +1518,21 @@
             this.layoutControlItem157});
             this.layoutControlGroup18.LayoutMode = DevExpress.XtraLayout.Utils.LayoutMode.Table;
             this.layoutControlGroup18.Name = "layoutControlGroup18";
-            columnDefinition25.SizeType = System.Windows.Forms.SizeType.Percent;
-            columnDefinition25.Width = 100D;
+            columnDefinition38.SizeType = System.Windows.Forms.SizeType.Percent;
+            columnDefinition38.Width = 100D;
             this.layoutControlGroup18.OptionsTableLayoutGroup.ColumnDefinitions.AddRange(new DevExpress.XtraLayout.ColumnDefinition[] {
-            columnDefinition25});
-            rowDefinition75.Height = 33.333333333333336D;
-            rowDefinition75.SizeType = System.Windows.Forms.SizeType.Percent;
-            rowDefinition76.Height = 33.333333333333336D;
-            rowDefinition76.SizeType = System.Windows.Forms.SizeType.Percent;
-            rowDefinition77.Height = 33.333333333333336D;
-            rowDefinition77.SizeType = System.Windows.Forms.SizeType.Percent;
+            columnDefinition38});
+            rowDefinition43.Height = 33.333333333333336D;
+            rowDefinition43.SizeType = System.Windows.Forms.SizeType.Percent;
+            rowDefinition44.Height = 33.333333333333336D;
+            rowDefinition44.SizeType = System.Windows.Forms.SizeType.Percent;
+            rowDefinition45.Height = 33.333333333333336D;
+            rowDefinition45.SizeType = System.Windows.Forms.SizeType.Percent;
             this.layoutControlGroup18.OptionsTableLayoutGroup.RowDefinitions.AddRange(new DevExpress.XtraLayout.RowDefinition[] {
-            rowDefinition75,
-            rowDefinition76,
-            rowDefinition77});
-            this.layoutControlGroup18.Size = new System.Drawing.Size(368, 541);
+            rowDefinition43,
+            rowDefinition44,
+            rowDefinition45});
+            this.layoutControlGroup18.Size = new System.Drawing.Size(368, 429);
             this.layoutControlGroup18.TextVisible = false;
             // 
             // layoutControlItem155
@@ -1331,27 +1540,27 @@
             this.layoutControlItem155.Control = this.chart_XiTong_JiaoSuDu_Wx;
             this.layoutControlItem155.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem155.Name = "layoutControlItem155";
-            this.layoutControlItem155.Size = new System.Drawing.Size(348, 173);
+            this.layoutControlItem155.Size = new System.Drawing.Size(348, 136);
             this.layoutControlItem155.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem155.TextVisible = false;
             // 
             // layoutControlItem156
             // 
             this.layoutControlItem156.Control = this.chart_XiTong_JiaoSuDu_Wy;
-            this.layoutControlItem156.Location = new System.Drawing.Point(0, 173);
+            this.layoutControlItem156.Location = new System.Drawing.Point(0, 136);
             this.layoutControlItem156.Name = "layoutControlItem156";
             this.layoutControlItem156.OptionsTableLayoutItem.RowIndex = 1;
-            this.layoutControlItem156.Size = new System.Drawing.Size(348, 174);
+            this.layoutControlItem156.Size = new System.Drawing.Size(348, 136);
             this.layoutControlItem156.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem156.TextVisible = false;
             // 
             // layoutControlItem157
             // 
             this.layoutControlItem157.Control = this.chart_XiTong_JiaoSuDu_Wz;
-            this.layoutControlItem157.Location = new System.Drawing.Point(0, 347);
+            this.layoutControlItem157.Location = new System.Drawing.Point(0, 272);
             this.layoutControlItem157.Name = "layoutControlItem157";
             this.layoutControlItem157.OptionsTableLayoutItem.RowIndex = 2;
-            this.layoutControlItem157.Size = new System.Drawing.Size(348, 174);
+            this.layoutControlItem157.Size = new System.Drawing.Size(348, 137);
             this.layoutControlItem157.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem157.TextVisible = false;
             // 
@@ -1359,7 +1568,7 @@
             // 
             this.TabPage_XiTongPlot_FaSheXi.Controls.Add(this.layoutControl18);
             this.TabPage_XiTongPlot_FaSheXi.Name = "TabPage_XiTongPlot_FaSheXi";
-            this.TabPage_XiTongPlot_FaSheXi.Size = new System.Drawing.Size(368, 541);
+            this.TabPage_XiTongPlot_FaSheXi.Size = new System.Drawing.Size(368, 429);
             this.TabPage_XiTongPlot_FaSheXi.Text = "当前发射系";
             // 
             // layoutControl18
@@ -1372,121 +1581,121 @@
             this.layoutControl18.Location = new System.Drawing.Point(0, 0);
             this.layoutControl18.Name = "layoutControl18";
             this.layoutControl18.Root = this.layoutControlGroup19;
-            this.layoutControl18.Size = new System.Drawing.Size(368, 541);
+            this.layoutControl18.Size = new System.Drawing.Size(368, 429);
             this.layoutControl18.TabIndex = 4;
             this.layoutControl18.Text = "layoutControl18";
             // 
             // chart_XiTong_FaSheXi_Z
             // 
             this.chart_XiTong_FaSheXi_Z.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            xyDiagram38.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram38.AxisY.VisibleInPanesSerializable = "-1";
-            xyDiagram38.EnableAxisXScrolling = true;
-            xyDiagram38.EnableAxisXZooming = true;
-            xyDiagram38.EnableAxisYScrolling = true;
-            xyDiagram38.EnableAxisYZooming = true;
-            this.chart_XiTong_FaSheXi_Z.Diagram = xyDiagram38;
+            xyDiagram24.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram24.AxisY.VisibleInPanesSerializable = "-1";
+            xyDiagram24.EnableAxisXScrolling = true;
+            xyDiagram24.EnableAxisXZooming = true;
+            xyDiagram24.EnableAxisYScrolling = true;
+            xyDiagram24.EnableAxisYZooming = true;
+            this.chart_XiTong_FaSheXi_Z.Diagram = xyDiagram24;
             this.chart_XiTong_FaSheXi_Z.Legend.Border.Visibility = DevExpress.Utils.DefaultBoolean.True;
             this.chart_XiTong_FaSheXi_Z.Legend.MarkerMode = DevExpress.XtraCharts.LegendMarkerMode.CheckBoxAndMarker;
             this.chart_XiTong_FaSheXi_Z.Legend.Name = "Default Legend";
             this.chart_XiTong_FaSheXi_Z.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            this.chart_XiTong_FaSheXi_Z.Location = new System.Drawing.Point(186, 272);
+            this.chart_XiTong_FaSheXi_Z.Location = new System.Drawing.Point(186, 216);
             this.chart_XiTong_FaSheXi_Z.Name = "chart_XiTong_FaSheXi_Z";
-            series40.Name = "当前发射系Z";
-            series40.View = splineSeriesView40;
+            series25.Name = "当前发射系Z";
+            series25.View = splineSeriesView25;
             this.chart_XiTong_FaSheXi_Z.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series40};
-            this.chart_XiTong_FaSheXi_Z.Size = new System.Drawing.Size(170, 257);
+        series25};
+            this.chart_XiTong_FaSheXi_Z.Size = new System.Drawing.Size(170, 201);
             this.chart_XiTong_FaSheXi_Z.TabIndex = 5;
-            chartTitle36.Dock = DevExpress.XtraCharts.ChartTitleDockStyle.Left;
-            chartTitle36.Font = new System.Drawing.Font("Tahoma", 12F);
-            chartTitle36.Text = "当前发射系Z";
+            chartTitle23.Dock = DevExpress.XtraCharts.ChartTitleDockStyle.Left;
+            chartTitle23.Font = new System.Drawing.Font("Tahoma", 12F);
+            chartTitle23.Text = "当前发射系Z";
             this.chart_XiTong_FaSheXi_Z.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
-            chartTitle36});
+            chartTitle23});
             // 
             // chart_XiTong_FaSheXi_Y
             // 
             this.chart_XiTong_FaSheXi_Y.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            xyDiagram39.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram39.AxisY.VisibleInPanesSerializable = "-1";
-            xyDiagram39.EnableAxisXScrolling = true;
-            xyDiagram39.EnableAxisXZooming = true;
-            xyDiagram39.EnableAxisYScrolling = true;
-            xyDiagram39.EnableAxisYZooming = true;
-            this.chart_XiTong_FaSheXi_Y.Diagram = xyDiagram39;
+            xyDiagram25.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram25.AxisY.VisibleInPanesSerializable = "-1";
+            xyDiagram25.EnableAxisXScrolling = true;
+            xyDiagram25.EnableAxisXZooming = true;
+            xyDiagram25.EnableAxisYScrolling = true;
+            xyDiagram25.EnableAxisYZooming = true;
+            this.chart_XiTong_FaSheXi_Y.Diagram = xyDiagram25;
             this.chart_XiTong_FaSheXi_Y.Legend.Border.Visibility = DevExpress.Utils.DefaultBoolean.True;
             this.chart_XiTong_FaSheXi_Y.Legend.MarkerMode = DevExpress.XtraCharts.LegendMarkerMode.CheckBoxAndMarker;
             this.chart_XiTong_FaSheXi_Y.Legend.Name = "Default Legend";
             this.chart_XiTong_FaSheXi_Y.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            this.chart_XiTong_FaSheXi_Y.Location = new System.Drawing.Point(12, 272);
+            this.chart_XiTong_FaSheXi_Y.Location = new System.Drawing.Point(12, 216);
             this.chart_XiTong_FaSheXi_Y.Name = "chart_XiTong_FaSheXi_Y";
-            series41.Name = "当前发射系Y";
-            series41.View = splineSeriesView41;
+            series26.Name = "当前发射系Y";
+            series26.View = splineSeriesView26;
             this.chart_XiTong_FaSheXi_Y.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series41};
-            this.chart_XiTong_FaSheXi_Y.Size = new System.Drawing.Size(170, 257);
+        series26};
+            this.chart_XiTong_FaSheXi_Y.Size = new System.Drawing.Size(170, 201);
             this.chart_XiTong_FaSheXi_Y.TabIndex = 5;
-            chartTitle37.Dock = DevExpress.XtraCharts.ChartTitleDockStyle.Left;
-            chartTitle37.Font = new System.Drawing.Font("Tahoma", 12F);
-            chartTitle37.Text = "当前发射系Y";
+            chartTitle24.Dock = DevExpress.XtraCharts.ChartTitleDockStyle.Left;
+            chartTitle24.Font = new System.Drawing.Font("Tahoma", 12F);
+            chartTitle24.Text = "当前发射系Y";
             this.chart_XiTong_FaSheXi_Y.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
-            chartTitle37});
+            chartTitle24});
             // 
             // chart_XiTong_FaSheXi_X
             // 
             this.chart_XiTong_FaSheXi_X.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            xyDiagram40.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram40.AxisY.VisibleInPanesSerializable = "-1";
-            xyDiagram40.EnableAxisXScrolling = true;
-            xyDiagram40.EnableAxisXZooming = true;
-            xyDiagram40.EnableAxisYScrolling = true;
-            xyDiagram40.EnableAxisYZooming = true;
-            this.chart_XiTong_FaSheXi_X.Diagram = xyDiagram40;
+            xyDiagram26.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram26.AxisY.VisibleInPanesSerializable = "-1";
+            xyDiagram26.EnableAxisXScrolling = true;
+            xyDiagram26.EnableAxisXZooming = true;
+            xyDiagram26.EnableAxisYScrolling = true;
+            xyDiagram26.EnableAxisYZooming = true;
+            this.chart_XiTong_FaSheXi_X.Diagram = xyDiagram26;
             this.chart_XiTong_FaSheXi_X.Legend.Border.Visibility = DevExpress.Utils.DefaultBoolean.True;
             this.chart_XiTong_FaSheXi_X.Legend.MarkerMode = DevExpress.XtraCharts.LegendMarkerMode.CheckBoxAndMarker;
             this.chart_XiTong_FaSheXi_X.Legend.Name = "Default Legend";
             this.chart_XiTong_FaSheXi_X.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
             this.chart_XiTong_FaSheXi_X.Location = new System.Drawing.Point(186, 12);
             this.chart_XiTong_FaSheXi_X.Name = "chart_XiTong_FaSheXi_X";
-            series42.Name = "当前发射系X";
-            series42.View = splineSeriesView42;
+            series27.Name = "当前发射系X";
+            series27.View = splineSeriesView27;
             this.chart_XiTong_FaSheXi_X.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series42};
-            this.chart_XiTong_FaSheXi_X.Size = new System.Drawing.Size(170, 256);
+        series27};
+            this.chart_XiTong_FaSheXi_X.Size = new System.Drawing.Size(170, 200);
             this.chart_XiTong_FaSheXi_X.TabIndex = 5;
-            chartTitle38.Dock = DevExpress.XtraCharts.ChartTitleDockStyle.Left;
-            chartTitle38.Font = new System.Drawing.Font("Tahoma", 12F);
-            chartTitle38.Text = "当前发射系X";
+            chartTitle25.Dock = DevExpress.XtraCharts.ChartTitleDockStyle.Left;
+            chartTitle25.Font = new System.Drawing.Font("Tahoma", 12F);
+            chartTitle25.Text = "当前发射系X";
             this.chart_XiTong_FaSheXi_X.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
-            chartTitle38});
+            chartTitle25});
             // 
             // chart_XiTong_FaSheXi_ZXGZ
             // 
             this.chart_XiTong_FaSheXi_ZXGZ.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            xyDiagram41.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram41.AxisY.VisibleInPanesSerializable = "-1";
-            xyDiagram41.EnableAxisXScrolling = true;
-            xyDiagram41.EnableAxisXZooming = true;
-            xyDiagram41.EnableAxisYScrolling = true;
-            xyDiagram41.EnableAxisYZooming = true;
-            this.chart_XiTong_FaSheXi_ZXGZ.Diagram = xyDiagram41;
+            xyDiagram27.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram27.AxisY.VisibleInPanesSerializable = "-1";
+            xyDiagram27.EnableAxisXScrolling = true;
+            xyDiagram27.EnableAxisXZooming = true;
+            xyDiagram27.EnableAxisYScrolling = true;
+            xyDiagram27.EnableAxisYZooming = true;
+            this.chart_XiTong_FaSheXi_ZXGZ.Diagram = xyDiagram27;
             this.chart_XiTong_FaSheXi_ZXGZ.Legend.Border.Visibility = DevExpress.Utils.DefaultBoolean.True;
             this.chart_XiTong_FaSheXi_ZXGZ.Legend.MarkerMode = DevExpress.XtraCharts.LegendMarkerMode.CheckBoxAndMarker;
             this.chart_XiTong_FaSheXi_ZXGZ.Legend.Name = "Default Legend";
             this.chart_XiTong_FaSheXi_ZXGZ.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
             this.chart_XiTong_FaSheXi_ZXGZ.Location = new System.Drawing.Point(12, 12);
             this.chart_XiTong_FaSheXi_ZXGZ.Name = "chart_XiTong_FaSheXi_ZXGZ";
-            series43.Name = "轴向过载";
-            series43.View = splineSeriesView43;
+            series28.Name = "轴向过载";
+            series28.View = splineSeriesView28;
             this.chart_XiTong_FaSheXi_ZXGZ.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series43};
-            this.chart_XiTong_FaSheXi_ZXGZ.Size = new System.Drawing.Size(170, 256);
+        series28};
+            this.chart_XiTong_FaSheXi_ZXGZ.Size = new System.Drawing.Size(170, 200);
             this.chart_XiTong_FaSheXi_ZXGZ.TabIndex = 3;
-            chartTitle39.Dock = DevExpress.XtraCharts.ChartTitleDockStyle.Left;
-            chartTitle39.Font = new System.Drawing.Font("Tahoma", 12F);
-            chartTitle39.Text = "轴向过载";
+            chartTitle26.Dock = DevExpress.XtraCharts.ChartTitleDockStyle.Left;
+            chartTitle26.Font = new System.Drawing.Font("Tahoma", 12F);
+            chartTitle26.Text = "轴向过载";
             this.chart_XiTong_FaSheXi_ZXGZ.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
-            chartTitle39});
+            chartTitle26});
             // 
             // layoutControlGroup19
             // 
@@ -1499,21 +1708,21 @@
             this.layoutControlItem161});
             this.layoutControlGroup19.LayoutMode = DevExpress.XtraLayout.Utils.LayoutMode.Table;
             this.layoutControlGroup19.Name = "layoutControlGroup19";
-            columnDefinition26.SizeType = System.Windows.Forms.SizeType.Percent;
-            columnDefinition26.Width = 50D;
-            columnDefinition27.SizeType = System.Windows.Forms.SizeType.Percent;
-            columnDefinition27.Width = 50D;
+            columnDefinition39.SizeType = System.Windows.Forms.SizeType.Percent;
+            columnDefinition39.Width = 50D;
+            columnDefinition40.SizeType = System.Windows.Forms.SizeType.Percent;
+            columnDefinition40.Width = 50D;
             this.layoutControlGroup19.OptionsTableLayoutGroup.ColumnDefinitions.AddRange(new DevExpress.XtraLayout.ColumnDefinition[] {
-            columnDefinition26,
-            columnDefinition27});
-            rowDefinition78.Height = 50D;
-            rowDefinition78.SizeType = System.Windows.Forms.SizeType.Percent;
-            rowDefinition79.Height = 50D;
-            rowDefinition79.SizeType = System.Windows.Forms.SizeType.Percent;
+            columnDefinition39,
+            columnDefinition40});
+            rowDefinition46.Height = 50D;
+            rowDefinition46.SizeType = System.Windows.Forms.SizeType.Percent;
+            rowDefinition47.Height = 50D;
+            rowDefinition47.SizeType = System.Windows.Forms.SizeType.Percent;
             this.layoutControlGroup19.OptionsTableLayoutGroup.RowDefinitions.AddRange(new DevExpress.XtraLayout.RowDefinition[] {
-            rowDefinition78,
-            rowDefinition79});
-            this.layoutControlGroup19.Size = new System.Drawing.Size(368, 541);
+            rowDefinition46,
+            rowDefinition47});
+            this.layoutControlGroup19.Size = new System.Drawing.Size(368, 429);
             this.layoutControlGroup19.TextVisible = false;
             // 
             // layoutControlItem158
@@ -1521,7 +1730,7 @@
             this.layoutControlItem158.Control = this.chart_XiTong_FaSheXi_ZXGZ;
             this.layoutControlItem158.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem158.Name = "layoutControlItem158";
-            this.layoutControlItem158.Size = new System.Drawing.Size(174, 260);
+            this.layoutControlItem158.Size = new System.Drawing.Size(174, 204);
             this.layoutControlItem158.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem158.TextVisible = false;
             // 
@@ -1531,28 +1740,28 @@
             this.layoutControlItem159.Location = new System.Drawing.Point(174, 0);
             this.layoutControlItem159.Name = "layoutControlItem159";
             this.layoutControlItem159.OptionsTableLayoutItem.ColumnIndex = 1;
-            this.layoutControlItem159.Size = new System.Drawing.Size(174, 260);
+            this.layoutControlItem159.Size = new System.Drawing.Size(174, 204);
             this.layoutControlItem159.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem159.TextVisible = false;
             // 
             // layoutControlItem160
             // 
             this.layoutControlItem160.Control = this.chart_XiTong_FaSheXi_Y;
-            this.layoutControlItem160.Location = new System.Drawing.Point(0, 260);
+            this.layoutControlItem160.Location = new System.Drawing.Point(0, 204);
             this.layoutControlItem160.Name = "layoutControlItem160";
             this.layoutControlItem160.OptionsTableLayoutItem.RowIndex = 1;
-            this.layoutControlItem160.Size = new System.Drawing.Size(174, 261);
+            this.layoutControlItem160.Size = new System.Drawing.Size(174, 205);
             this.layoutControlItem160.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem160.TextVisible = false;
             // 
             // layoutControlItem161
             // 
             this.layoutControlItem161.Control = this.chart_XiTong_FaSheXi_Z;
-            this.layoutControlItem161.Location = new System.Drawing.Point(174, 260);
+            this.layoutControlItem161.Location = new System.Drawing.Point(174, 204);
             this.layoutControlItem161.Name = "layoutControlItem161";
             this.layoutControlItem161.OptionsTableLayoutItem.ColumnIndex = 1;
             this.layoutControlItem161.OptionsTableLayoutItem.RowIndex = 1;
-            this.layoutControlItem161.Size = new System.Drawing.Size(174, 261);
+            this.layoutControlItem161.Size = new System.Drawing.Size(174, 205);
             this.layoutControlItem161.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem161.TextVisible = false;
             // 
@@ -1560,19 +1769,19 @@
             // 
             this.TabPage_XiTongPlot_YuShiLuoDian.Controls.Add(this.chart_XiTong_YuShiLuoDian);
             this.TabPage_XiTongPlot_YuShiLuoDian.Name = "TabPage_XiTongPlot_YuShiLuoDian";
-            this.TabPage_XiTongPlot_YuShiLuoDian.Size = new System.Drawing.Size(368, 541);
+            this.TabPage_XiTongPlot_YuShiLuoDian.Size = new System.Drawing.Size(368, 429);
             this.TabPage_XiTongPlot_YuShiLuoDian.Text = "预示落点";
             // 
             // chart_XiTong_YuShiLuoDian
             // 
             this.chart_XiTong_YuShiLuoDian.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            xyDiagram42.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram42.AxisY.VisibleInPanesSerializable = "-1";
-            xyDiagram42.EnableAxisXScrolling = true;
-            xyDiagram42.EnableAxisXZooming = true;
-            xyDiagram42.EnableAxisYScrolling = true;
-            xyDiagram42.EnableAxisYZooming = true;
-            this.chart_XiTong_YuShiLuoDian.Diagram = xyDiagram42;
+            xyDiagram28.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram28.AxisY.VisibleInPanesSerializable = "-1";
+            xyDiagram28.EnableAxisXScrolling = true;
+            xyDiagram28.EnableAxisXZooming = true;
+            xyDiagram28.EnableAxisYScrolling = true;
+            xyDiagram28.EnableAxisYZooming = true;
+            this.chart_XiTong_YuShiLuoDian.Diagram = xyDiagram28;
             this.chart_XiTong_YuShiLuoDian.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chart_XiTong_YuShiLuoDian.Legend.Border.Visibility = DevExpress.Utils.DefaultBoolean.True;
             this.chart_XiTong_YuShiLuoDian.Legend.MarkerMode = DevExpress.XtraCharts.LegendMarkerMode.CheckBoxAndMarker;
@@ -1580,14 +1789,14 @@
             this.chart_XiTong_YuShiLuoDian.Legend.Visibility = DevExpress.Utils.DefaultBoolean.True;
             this.chart_XiTong_YuShiLuoDian.Location = new System.Drawing.Point(0, 0);
             this.chart_XiTong_YuShiLuoDian.Name = "chart_XiTong_YuShiLuoDian";
-            series44.Name = "预示落点射程";
-            series44.View = splineSeriesView44;
-            series45.Name = "预示落点Z";
-            series45.View = splineSeriesView45;
+            series29.Name = "预示落点射程";
+            series29.View = splineSeriesView29;
+            series30.Name = "预示落点Z";
+            series30.View = splineSeriesView30;
             this.chart_XiTong_YuShiLuoDian.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series44,
-        series45};
-            this.chart_XiTong_YuShiLuoDian.Size = new System.Drawing.Size(368, 541);
+        series29,
+        series30};
+            this.chart_XiTong_YuShiLuoDian.Size = new System.Drawing.Size(368, 429);
             this.chart_XiTong_YuShiLuoDian.TabIndex = 4;
             // 
             // layoutControlGroup4
@@ -1597,7 +1806,7 @@
             this.layoutControlGroup4.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem7});
             this.layoutControlGroup4.Name = "layoutControlGroup4";
-            this.layoutControlGroup4.Size = new System.Drawing.Size(394, 597);
+            this.layoutControlGroup4.Size = new System.Drawing.Size(394, 595);
             this.layoutControlGroup4.TextVisible = false;
             // 
             // layoutControlItem7
@@ -1605,7 +1814,7 @@
             this.layoutControlItem7.Control = this.Tab_XiTongPlot;
             this.layoutControlItem7.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(374, 577);
+            this.layoutControlItem7.Size = new System.Drawing.Size(374, 575);
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
             // 
@@ -1617,7 +1826,7 @@
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(549, 255, 812, 500);
             this.layoutControl2.Root = this.layoutControlGroup3;
-            this.layoutControl2.Size = new System.Drawing.Size(1214, 597);
+            this.layoutControl2.Size = new System.Drawing.Size(1214, 595);
             this.layoutControl2.TabIndex = 0;
             this.layoutControl2.Text = "layoutControl2";
             // 
@@ -2296,77 +2505,77 @@
             this.layoutControlItem130});
             this.layoutControlGroup5.LayoutMode = DevExpress.XtraLayout.Utils.LayoutMode.Table;
             this.layoutControlGroup5.Name = "Root";
-            columnDefinition28.SizeType = System.Windows.Forms.SizeType.Percent;
-            columnDefinition28.Width = 50D;
-            columnDefinition29.SizeType = System.Windows.Forms.SizeType.Percent;
-            columnDefinition29.Width = 50D;
-            columnDefinition30.SizeType = System.Windows.Forms.SizeType.AutoSize;
-            columnDefinition30.Width = 383D;
+            columnDefinition41.SizeType = System.Windows.Forms.SizeType.Percent;
+            columnDefinition41.Width = 50D;
+            columnDefinition42.SizeType = System.Windows.Forms.SizeType.Percent;
+            columnDefinition42.Width = 50D;
+            columnDefinition43.SizeType = System.Windows.Forms.SizeType.AutoSize;
+            columnDefinition43.Width = 383D;
             this.layoutControlGroup5.OptionsTableLayoutGroup.ColumnDefinitions.AddRange(new DevExpress.XtraLayout.ColumnDefinition[] {
-            columnDefinition28,
-            columnDefinition29,
-            columnDefinition30});
-            rowDefinition80.Height = 38D;
-            rowDefinition80.SizeType = System.Windows.Forms.SizeType.AutoSize;
-            rowDefinition81.Height = 38D;
-            rowDefinition81.SizeType = System.Windows.Forms.SizeType.AutoSize;
-            rowDefinition82.Height = 38D;
-            rowDefinition82.SizeType = System.Windows.Forms.SizeType.AutoSize;
-            rowDefinition83.Height = 38D;
-            rowDefinition83.SizeType = System.Windows.Forms.SizeType.AutoSize;
-            rowDefinition84.Height = 38D;
-            rowDefinition84.SizeType = System.Windows.Forms.SizeType.AutoSize;
-            rowDefinition85.Height = 38D;
-            rowDefinition85.SizeType = System.Windows.Forms.SizeType.AutoSize;
-            rowDefinition86.Height = 38D;
-            rowDefinition86.SizeType = System.Windows.Forms.SizeType.AutoSize;
-            rowDefinition87.Height = 38D;
-            rowDefinition87.SizeType = System.Windows.Forms.SizeType.AutoSize;
-            rowDefinition88.Height = 38D;
-            rowDefinition88.SizeType = System.Windows.Forms.SizeType.AutoSize;
-            rowDefinition89.Height = 38D;
-            rowDefinition89.SizeType = System.Windows.Forms.SizeType.AutoSize;
-            rowDefinition90.Height = 38D;
-            rowDefinition90.SizeType = System.Windows.Forms.SizeType.AutoSize;
-            rowDefinition91.Height = 38D;
-            rowDefinition91.SizeType = System.Windows.Forms.SizeType.AutoSize;
-            rowDefinition92.Height = 38D;
-            rowDefinition92.SizeType = System.Windows.Forms.SizeType.AutoSize;
-            rowDefinition93.Height = 38D;
-            rowDefinition93.SizeType = System.Windows.Forms.SizeType.AutoSize;
-            rowDefinition94.Height = 38D;
-            rowDefinition94.SizeType = System.Windows.Forms.SizeType.AutoSize;
-            rowDefinition95.Height = 38D;
-            rowDefinition95.SizeType = System.Windows.Forms.SizeType.AutoSize;
-            rowDefinition96.Height = 38D;
-            rowDefinition96.SizeType = System.Windows.Forms.SizeType.AutoSize;
-            rowDefinition97.Height = 38D;
-            rowDefinition97.SizeType = System.Windows.Forms.SizeType.AutoSize;
-            rowDefinition98.Height = 38D;
-            rowDefinition98.SizeType = System.Windows.Forms.SizeType.AutoSize;
-            rowDefinition99.Height = 38D;
-            rowDefinition99.SizeType = System.Windows.Forms.SizeType.AutoSize;
+            columnDefinition41,
+            columnDefinition42,
+            columnDefinition43});
+            rowDefinition48.Height = 38D;
+            rowDefinition48.SizeType = System.Windows.Forms.SizeType.AutoSize;
+            rowDefinition49.Height = 38D;
+            rowDefinition49.SizeType = System.Windows.Forms.SizeType.AutoSize;
+            rowDefinition50.Height = 38D;
+            rowDefinition50.SizeType = System.Windows.Forms.SizeType.AutoSize;
+            rowDefinition51.Height = 38D;
+            rowDefinition51.SizeType = System.Windows.Forms.SizeType.AutoSize;
+            rowDefinition52.Height = 38D;
+            rowDefinition52.SizeType = System.Windows.Forms.SizeType.AutoSize;
+            rowDefinition53.Height = 38D;
+            rowDefinition53.SizeType = System.Windows.Forms.SizeType.AutoSize;
+            rowDefinition54.Height = 38D;
+            rowDefinition54.SizeType = System.Windows.Forms.SizeType.AutoSize;
+            rowDefinition55.Height = 38D;
+            rowDefinition55.SizeType = System.Windows.Forms.SizeType.AutoSize;
+            rowDefinition56.Height = 38D;
+            rowDefinition56.SizeType = System.Windows.Forms.SizeType.AutoSize;
+            rowDefinition57.Height = 38D;
+            rowDefinition57.SizeType = System.Windows.Forms.SizeType.AutoSize;
+            rowDefinition58.Height = 38D;
+            rowDefinition58.SizeType = System.Windows.Forms.SizeType.AutoSize;
+            rowDefinition59.Height = 38D;
+            rowDefinition59.SizeType = System.Windows.Forms.SizeType.AutoSize;
+            rowDefinition60.Height = 38D;
+            rowDefinition60.SizeType = System.Windows.Forms.SizeType.AutoSize;
+            rowDefinition61.Height = 38D;
+            rowDefinition61.SizeType = System.Windows.Forms.SizeType.AutoSize;
+            rowDefinition62.Height = 38D;
+            rowDefinition62.SizeType = System.Windows.Forms.SizeType.AutoSize;
+            rowDefinition63.Height = 38D;
+            rowDefinition63.SizeType = System.Windows.Forms.SizeType.AutoSize;
+            rowDefinition64.Height = 38D;
+            rowDefinition64.SizeType = System.Windows.Forms.SizeType.AutoSize;
+            rowDefinition65.Height = 38D;
+            rowDefinition65.SizeType = System.Windows.Forms.SizeType.AutoSize;
+            rowDefinition66.Height = 38D;
+            rowDefinition66.SizeType = System.Windows.Forms.SizeType.AutoSize;
+            rowDefinition67.Height = 38D;
+            rowDefinition67.SizeType = System.Windows.Forms.SizeType.AutoSize;
             this.layoutControlGroup5.OptionsTableLayoutGroup.RowDefinitions.AddRange(new DevExpress.XtraLayout.RowDefinition[] {
-            rowDefinition80,
-            rowDefinition81,
-            rowDefinition82,
-            rowDefinition83,
-            rowDefinition84,
-            rowDefinition85,
-            rowDefinition86,
-            rowDefinition87,
-            rowDefinition88,
-            rowDefinition89,
-            rowDefinition90,
-            rowDefinition91,
-            rowDefinition92,
-            rowDefinition93,
-            rowDefinition94,
-            rowDefinition95,
-            rowDefinition96,
-            rowDefinition97,
-            rowDefinition98,
-            rowDefinition99});
+            rowDefinition48,
+            rowDefinition49,
+            rowDefinition50,
+            rowDefinition51,
+            rowDefinition52,
+            rowDefinition53,
+            rowDefinition54,
+            rowDefinition55,
+            rowDefinition56,
+            rowDefinition57,
+            rowDefinition58,
+            rowDefinition59,
+            rowDefinition60,
+            rowDefinition61,
+            rowDefinition62,
+            rowDefinition63,
+            rowDefinition64,
+            rowDefinition65,
+            rowDefinition66,
+            rowDefinition67});
             this.layoutControlGroup5.Size = new System.Drawing.Size(1169, 780);
             this.layoutControlGroup5.TextVisible = false;
             // 
@@ -3059,7 +3268,7 @@
             // 
             this.TabPage_DaoHangKuaiSu.Controls.Add(this.layoutControl5);
             this.TabPage_DaoHangKuaiSu.Name = "TabPage_DaoHangKuaiSu";
-            this.TabPage_DaoHangKuaiSu.Size = new System.Drawing.Size(1608, 597);
+            this.TabPage_DaoHangKuaiSu.Size = new System.Drawing.Size(1608, 485);
             this.TabPage_DaoHangKuaiSu.Text = "导航数据（快速）";
             // 
             // layoutControl5
@@ -3069,7 +3278,7 @@
             this.layoutControl5.Location = new System.Drawing.Point(0, 0);
             this.layoutControl5.Name = "layoutControl5";
             this.layoutControl5.Root = this.layoutControlGroup6;
-            this.layoutControl5.Size = new System.Drawing.Size(1608, 597);
+            this.layoutControl5.Size = new System.Drawing.Size(1608, 485);
             this.layoutControl5.TabIndex = 0;
             this.layoutControl5.Text = "layoutControl5";
             // 
@@ -3078,7 +3287,7 @@
             this.xtraTab_DaoHangKuaiSu.Location = new System.Drawing.Point(12, 12);
             this.xtraTab_DaoHangKuaiSu.Name = "xtraTab_DaoHangKuaiSu";
             this.xtraTab_DaoHangKuaiSu.SelectedTabPage = this.xtraTabPage_DHK_DanTi;
-            this.xtraTab_DaoHangKuaiSu.Size = new System.Drawing.Size(1584, 573);
+            this.xtraTab_DaoHangKuaiSu.Size = new System.Drawing.Size(1584, 461);
             this.xtraTab_DaoHangKuaiSu.TabIndex = 4;
             this.xtraTab_DaoHangKuaiSu.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage_DHK_DanTi,
@@ -3087,13 +3296,13 @@
             // xtraTabPage_DHK_DanTi
             // 
             this.xtraTabPage_DHK_DanTi.Name = "xtraTabPage_DHK_DanTi";
-            this.xtraTabPage_DHK_DanTi.Size = new System.Drawing.Size(1582, 541);
+            this.xtraTabPage_DHK_DanTi.Size = new System.Drawing.Size(1582, 429);
             this.xtraTabPage_DHK_DanTi.Text = "弹体";
             // 
             // xtraTabPage_DHK_DanTou
             // 
             this.xtraTabPage_DHK_DanTou.Name = "xtraTabPage_DHK_DanTou";
-            this.xtraTabPage_DHK_DanTou.Size = new System.Drawing.Size(1582, 541);
+            this.xtraTabPage_DHK_DanTou.Size = new System.Drawing.Size(1582, 429);
             this.xtraTabPage_DHK_DanTou.Text = "弹头";
             // 
             // layoutControlGroup6
@@ -3103,7 +3312,7 @@
             this.layoutControlGroup6.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem30});
             this.layoutControlGroup6.Name = "layoutControlGroup6";
-            this.layoutControlGroup6.Size = new System.Drawing.Size(1608, 597);
+            this.layoutControlGroup6.Size = new System.Drawing.Size(1608, 485);
             this.layoutControlGroup6.TextVisible = false;
             // 
             // layoutControlItem30
@@ -3111,7 +3320,7 @@
             this.layoutControlItem30.Control = this.xtraTab_DaoHangKuaiSu;
             this.layoutControlItem30.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem30.Name = "layoutControlItem30";
-            this.layoutControlItem30.Size = new System.Drawing.Size(1588, 577);
+            this.layoutControlItem30.Size = new System.Drawing.Size(1588, 465);
             this.layoutControlItem30.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem30.TextVisible = false;
             // 
@@ -3119,7 +3328,7 @@
             // 
             this.TabPage_DaoHangManSu.Controls.Add(this.layoutControl6);
             this.TabPage_DaoHangManSu.Name = "TabPage_DaoHangManSu";
-            this.TabPage_DaoHangManSu.Size = new System.Drawing.Size(1608, 597);
+            this.TabPage_DaoHangManSu.Size = new System.Drawing.Size(1608, 485);
             this.TabPage_DaoHangManSu.Text = "导航数据（慢速）";
             // 
             // layoutControl6
@@ -3129,7 +3338,7 @@
             this.layoutControl6.Location = new System.Drawing.Point(0, 0);
             this.layoutControl6.Name = "layoutControl6";
             this.layoutControl6.Root = this.layoutControlGroup7;
-            this.layoutControl6.Size = new System.Drawing.Size(1608, 597);
+            this.layoutControl6.Size = new System.Drawing.Size(1608, 485);
             this.layoutControl6.TabIndex = 0;
             this.layoutControl6.Text = "layoutControl6";
             // 
@@ -3138,7 +3347,7 @@
             this.xtraTab_DaoHangManSu.Location = new System.Drawing.Point(12, 12);
             this.xtraTab_DaoHangManSu.Name = "xtraTab_DaoHangManSu";
             this.xtraTab_DaoHangManSu.SelectedTabPage = this.xtraTabPage_DHM_DanTi;
-            this.xtraTab_DaoHangManSu.Size = new System.Drawing.Size(1584, 573);
+            this.xtraTab_DaoHangManSu.Size = new System.Drawing.Size(1584, 461);
             this.xtraTab_DaoHangManSu.TabIndex = 4;
             this.xtraTab_DaoHangManSu.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage_DHM_DanTi,
@@ -3147,13 +3356,13 @@
             // xtraTabPage_DHM_DanTi
             // 
             this.xtraTabPage_DHM_DanTi.Name = "xtraTabPage_DHM_DanTi";
-            this.xtraTabPage_DHM_DanTi.Size = new System.Drawing.Size(1582, 541);
+            this.xtraTabPage_DHM_DanTi.Size = new System.Drawing.Size(1582, 429);
             this.xtraTabPage_DHM_DanTi.Text = "弹体";
             // 
             // xtraTabPage_DHM_DanTou
             // 
             this.xtraTabPage_DHM_DanTou.Name = "xtraTabPage_DHM_DanTou";
-            this.xtraTabPage_DHM_DanTou.Size = new System.Drawing.Size(1582, 541);
+            this.xtraTabPage_DHM_DanTou.Size = new System.Drawing.Size(1582, 429);
             this.xtraTabPage_DHM_DanTou.Text = "弹头";
             // 
             // layoutControlGroup7
@@ -3163,7 +3372,7 @@
             this.layoutControlGroup7.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem31});
             this.layoutControlGroup7.Name = "layoutControlGroup7";
-            this.layoutControlGroup7.Size = new System.Drawing.Size(1608, 597);
+            this.layoutControlGroup7.Size = new System.Drawing.Size(1608, 485);
             this.layoutControlGroup7.TextVisible = false;
             // 
             // layoutControlItem31
@@ -3171,7 +3380,7 @@
             this.layoutControlItem31.Control = this.xtraTab_DaoHangManSu;
             this.layoutControlItem31.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem31.Name = "layoutControlItem31";
-            this.layoutControlItem31.Size = new System.Drawing.Size(1588, 577);
+            this.layoutControlItem31.Size = new System.Drawing.Size(1588, 465);
             this.layoutControlItem31.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem31.TextVisible = false;
             // 
@@ -3179,7 +3388,7 @@
             // 
             this.xtraTabPage_HuiLuJianCe.Controls.Add(this.layoutControl7);
             this.xtraTabPage_HuiLuJianCe.Name = "xtraTabPage_HuiLuJianCe";
-            this.xtraTabPage_HuiLuJianCe.Size = new System.Drawing.Size(1608, 597);
+            this.xtraTabPage_HuiLuJianCe.Size = new System.Drawing.Size(1608, 485);
             this.xtraTabPage_HuiLuJianCe.Text = "回路检测";
             // 
             // layoutControl7
@@ -3194,7 +3403,7 @@
             this.layoutControl7.Location = new System.Drawing.Point(0, 0);
             this.layoutControl7.Name = "layoutControl7";
             this.layoutControl7.Root = this.layoutControlGroup8;
-            this.layoutControl7.Size = new System.Drawing.Size(1608, 597);
+            this.layoutControl7.Size = new System.Drawing.Size(1608, 485);
             this.layoutControl7.TabIndex = 0;
             this.layoutControl7.Text = "layoutControl7";
             // 
@@ -3224,7 +3433,7 @@
             // 
             // edit_QBDH1BHuiLuDianZu
             // 
-            this.edit_QBDH1BHuiLuDianZu.Location = new System.Drawing.Point(188, 98);
+            this.edit_QBDH1BHuiLuDianZu.Location = new System.Drawing.Point(188, 82);
             this.edit_QBDH1BHuiLuDianZu.Name = "edit_QBDH1BHuiLuDianZu";
             this.edit_QBDH1BHuiLuDianZu.Size = new System.Drawing.Size(299, 24);
             this.edit_QBDH1BHuiLuDianZu.StyleController = this.layoutControl7;
@@ -3232,7 +3441,7 @@
             // 
             // edit_QBDH2AHuiLuDianZu
             // 
-            this.edit_QBDH2AHuiLuDianZu.Location = new System.Drawing.Point(717, 98);
+            this.edit_QBDH2AHuiLuDianZu.Location = new System.Drawing.Point(717, 82);
             this.edit_QBDH2AHuiLuDianZu.Name = "edit_QBDH2AHuiLuDianZu";
             this.edit_QBDH2AHuiLuDianZu.Size = new System.Drawing.Size(299, 24);
             this.edit_QBDH2AHuiLuDianZu.StyleController = this.layoutControl7;
@@ -3240,7 +3449,7 @@
             // 
             // edit_QBDH2BHuiLuDianZu
             // 
-            this.edit_QBDH2BHuiLuDianZu.Location = new System.Drawing.Point(1246, 98);
+            this.edit_QBDH2BHuiLuDianZu.Location = new System.Drawing.Point(1246, 82);
             this.edit_QBDH2BHuiLuDianZu.Name = "edit_QBDH2BHuiLuDianZu";
             this.edit_QBDH2BHuiLuDianZu.Size = new System.Drawing.Size(350, 24);
             this.edit_QBDH2BHuiLuDianZu.StyleController = this.layoutControl7;
@@ -3260,27 +3469,27 @@
             this.emptySpaceItem5});
             this.layoutControlGroup8.LayoutMode = DevExpress.XtraLayout.Utils.LayoutMode.Table;
             this.layoutControlGroup8.Name = "layoutControlGroup8";
-            columnDefinition31.SizeType = System.Windows.Forms.SizeType.Percent;
-            columnDefinition31.Width = 33.333333333333336D;
-            columnDefinition32.SizeType = System.Windows.Forms.SizeType.Percent;
-            columnDefinition32.Width = 33.333333333333336D;
-            columnDefinition33.SizeType = System.Windows.Forms.SizeType.Percent;
-            columnDefinition33.Width = 33.333333333333336D;
+            columnDefinition44.SizeType = System.Windows.Forms.SizeType.Percent;
+            columnDefinition44.Width = 33.333333333333336D;
+            columnDefinition45.SizeType = System.Windows.Forms.SizeType.Percent;
+            columnDefinition45.Width = 33.333333333333336D;
+            columnDefinition46.SizeType = System.Windows.Forms.SizeType.Percent;
+            columnDefinition46.Width = 33.333333333333336D;
             this.layoutControlGroup8.OptionsTableLayoutGroup.ColumnDefinitions.AddRange(new DevExpress.XtraLayout.ColumnDefinition[] {
-            columnDefinition31,
-            columnDefinition32,
-            columnDefinition33});
-            rowDefinition100.Height = 15D;
-            rowDefinition100.SizeType = System.Windows.Forms.SizeType.Percent;
-            rowDefinition101.Height = 15D;
-            rowDefinition101.SizeType = System.Windows.Forms.SizeType.Percent;
-            rowDefinition102.Height = 70D;
-            rowDefinition102.SizeType = System.Windows.Forms.SizeType.Percent;
+            columnDefinition44,
+            columnDefinition45,
+            columnDefinition46});
+            rowDefinition68.Height = 15D;
+            rowDefinition68.SizeType = System.Windows.Forms.SizeType.Percent;
+            rowDefinition69.Height = 15D;
+            rowDefinition69.SizeType = System.Windows.Forms.SizeType.Percent;
+            rowDefinition70.Height = 70D;
+            rowDefinition70.SizeType = System.Windows.Forms.SizeType.Percent;
             this.layoutControlGroup8.OptionsTableLayoutGroup.RowDefinitions.AddRange(new DevExpress.XtraLayout.RowDefinition[] {
-            rowDefinition100,
-            rowDefinition101,
-            rowDefinition102});
-            this.layoutControlGroup8.Size = new System.Drawing.Size(1608, 597);
+            rowDefinition68,
+            rowDefinition69,
+            rowDefinition70});
+            this.layoutControlGroup8.Size = new System.Drawing.Size(1608, 485);
             this.layoutControlGroup8.TextVisible = false;
             // 
             // layoutControlItem32
@@ -3289,7 +3498,7 @@
             this.layoutControlItem32.Enabled = false;
             this.layoutControlItem32.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem32.Name = "layoutControlItem32";
-            this.layoutControlItem32.Size = new System.Drawing.Size(529, 86);
+            this.layoutControlItem32.Size = new System.Drawing.Size(529, 70);
             this.layoutControlItem32.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
             this.layoutControlItem32.Text = "电机驱动输出1回路电阻：";
             this.layoutControlItem32.TextSize = new System.Drawing.Size(173, 18);
@@ -3301,7 +3510,7 @@
             this.layoutControlItem33.Location = new System.Drawing.Point(529, 0);
             this.layoutControlItem33.Name = "layoutControlItem33";
             this.layoutControlItem33.OptionsTableLayoutItem.ColumnIndex = 1;
-            this.layoutControlItem33.Size = new System.Drawing.Size(529, 86);
+            this.layoutControlItem33.Size = new System.Drawing.Size(529, 70);
             this.layoutControlItem33.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
             this.layoutControlItem33.Text = "电机驱动输出2回路电阻：";
             this.layoutControlItem33.TextSize = new System.Drawing.Size(173, 18);
@@ -3313,7 +3522,7 @@
             this.layoutControlItem34.Location = new System.Drawing.Point(1058, 0);
             this.layoutControlItem34.Name = "layoutControlItem34";
             this.layoutControlItem34.OptionsTableLayoutItem.ColumnIndex = 2;
-            this.layoutControlItem34.Size = new System.Drawing.Size(530, 86);
+            this.layoutControlItem34.Size = new System.Drawing.Size(530, 70);
             this.layoutControlItem34.Text = "起爆点火1A回路电阻：";
             this.layoutControlItem34.TextSize = new System.Drawing.Size(173, 18);
             // 
@@ -3321,10 +3530,10 @@
             // 
             this.layoutControlItem35.Control = this.edit_QBDH1BHuiLuDianZu;
             this.layoutControlItem35.Enabled = false;
-            this.layoutControlItem35.Location = new System.Drawing.Point(0, 86);
+            this.layoutControlItem35.Location = new System.Drawing.Point(0, 70);
             this.layoutControlItem35.Name = "layoutControlItem35";
             this.layoutControlItem35.OptionsTableLayoutItem.RowIndex = 1;
-            this.layoutControlItem35.Size = new System.Drawing.Size(529, 87);
+            this.layoutControlItem35.Size = new System.Drawing.Size(529, 70);
             this.layoutControlItem35.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
             this.layoutControlItem35.Text = "起爆点火1B回路电阻：";
             this.layoutControlItem35.TextSize = new System.Drawing.Size(173, 18);
@@ -3333,11 +3542,11 @@
             // 
             this.layoutControlItem36.Control = this.edit_QBDH2AHuiLuDianZu;
             this.layoutControlItem36.Enabled = false;
-            this.layoutControlItem36.Location = new System.Drawing.Point(529, 86);
+            this.layoutControlItem36.Location = new System.Drawing.Point(529, 70);
             this.layoutControlItem36.Name = "layoutControlItem36";
             this.layoutControlItem36.OptionsTableLayoutItem.ColumnIndex = 1;
             this.layoutControlItem36.OptionsTableLayoutItem.RowIndex = 1;
-            this.layoutControlItem36.Size = new System.Drawing.Size(529, 87);
+            this.layoutControlItem36.Size = new System.Drawing.Size(529, 70);
             this.layoutControlItem36.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 50, 0, 0);
             this.layoutControlItem36.Text = "起爆点火2A回路电阻：";
             this.layoutControlItem36.TextSize = new System.Drawing.Size(173, 18);
@@ -3346,21 +3555,21 @@
             // 
             this.layoutControlItem37.Control = this.edit_QBDH2BHuiLuDianZu;
             this.layoutControlItem37.Enabled = false;
-            this.layoutControlItem37.Location = new System.Drawing.Point(1058, 86);
+            this.layoutControlItem37.Location = new System.Drawing.Point(1058, 70);
             this.layoutControlItem37.Name = "layoutControlItem37";
             this.layoutControlItem37.OptionsTableLayoutItem.ColumnIndex = 2;
             this.layoutControlItem37.OptionsTableLayoutItem.RowIndex = 1;
-            this.layoutControlItem37.Size = new System.Drawing.Size(530, 87);
+            this.layoutControlItem37.Size = new System.Drawing.Size(530, 70);
             this.layoutControlItem37.Text = "起爆点火2B回路电阻：";
             this.layoutControlItem37.TextSize = new System.Drawing.Size(173, 18);
             // 
             // emptySpaceItem5
             // 
             this.emptySpaceItem5.AllowHotTrack = false;
-            this.emptySpaceItem5.Location = new System.Drawing.Point(0, 173);
+            this.emptySpaceItem5.Location = new System.Drawing.Point(0, 140);
             this.emptySpaceItem5.Name = "emptySpaceItem5";
             this.emptySpaceItem5.OptionsTableLayoutItem.RowIndex = 2;
-            this.emptySpaceItem5.Size = new System.Drawing.Size(529, 404);
+            this.emptySpaceItem5.Size = new System.Drawing.Size(529, 325);
             this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlGroup1
@@ -3371,7 +3580,7 @@
             this.layoutControlItem3,
             this.layoutControlItem4});
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1634, 877);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1634, 875);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem3
@@ -3379,14 +3588,14 @@
             this.layoutControlItem3.Control = this.TabControl_SoftStatus;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(1614, 633);
+            this.layoutControlItem3.Size = new System.Drawing.Size(1614, 631);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.layoutControl1;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 633);
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 631);
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Size = new System.Drawing.Size(1614, 224);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
@@ -3416,7 +3625,7 @@
             // 
             // timerOffLineXiTongStatus
             // 
-            this.timerOffLineXiTongStatus.Interval = 2000;
+            this.timerOffLineXiTongStatus.Interval = 3000;
             this.timerOffLineXiTongStatus.Tick += new System.EventHandler(this.timerOffLineXiTongStatus_Tick);
             // 
             // timerUpdateHuiLuJianCe
@@ -3442,13 +3651,22 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl_ToolBar)).EndInit();
             this.layoutControl_ToolBar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit_XiTong.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit_HuiLu.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit_DHK.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit_DHM.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem136)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.simpleLabelItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem38)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.simpleLabelItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.simpleLabelItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.simpleLabelItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem39)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem40)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem41)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl_MainContent)).EndInit();
             this.layoutControl_MainContent.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
@@ -3465,17 +3683,17 @@
             this.TabPage_XiTongPlot_ZuoBiao.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl15)).EndInit();
             this.layoutControl15.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram29)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView31)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series31)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_XiTong_ZuoBiao_GaoDu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram30)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView32)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series32)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_XiTong_ZuoBiao_WeiDu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram31)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView33)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series33)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView18)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series18)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_XiTong_ZuoBiao_JingDu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem149)).EndInit();
@@ -3484,17 +3702,17 @@
             this.TabPage_XiTongPlot_SuDu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl16)).EndInit();
             this.layoutControl16.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram32)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView34)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series34)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram18)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView19)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series19)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_XiTong_SuDu_Tian)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram33)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView35)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series35)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram19)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView20)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series20)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_XiTong_SuDu_Bei)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram34)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView36)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series36)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram20)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView21)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series21)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_XiTong_SuDu_Dong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem152)).EndInit();
@@ -3503,17 +3721,17 @@
             this.TabPage_XiTongPlot_JiaoSuDu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl17)).EndInit();
             this.layoutControl17.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram35)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView37)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series37)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram21)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView22)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series22)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_XiTong_JiaoSuDu_Wz)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram36)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView38)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series38)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram22)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView23)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series23)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_XiTong_JiaoSuDu_Wy)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram37)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView39)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series39)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram23)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView24)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series24)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_XiTong_JiaoSuDu_Wx)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup18)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem155)).EndInit();
@@ -3522,21 +3740,21 @@
             this.TabPage_XiTongPlot_FaSheXi.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl18)).EndInit();
             this.layoutControl18.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram38)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView40)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series40)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram24)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView25)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series25)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_XiTong_FaSheXi_Z)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram39)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView41)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series41)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram25)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView26)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series26)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_XiTong_FaSheXi_Y)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram40)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView42)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series42)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram26)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView27)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series27)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_XiTong_FaSheXi_X)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram41)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView43)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series43)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram27)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView28)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series28)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_XiTong_FaSheXi_ZXGZ)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup19)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem158)).EndInit();
@@ -3544,11 +3762,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem160)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem161)).EndInit();
             this.TabPage_XiTongPlot_YuShiLuoDian.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram42)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView44)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series44)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView45)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series45)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram28)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView29)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series29)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView30)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series30)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_XiTong_YuShiLuoDian)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
@@ -3724,15 +3942,12 @@
         private DevExpress.XtraEditors.SimpleButton BtnSetting;
         private DevExpress.XtraLayout.LayoutControlGroup Root;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
         private DevExpress.XtraLayout.LayoutControl layoutControl_MainContent;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.XtraTab.XtraTabControl TabControl_SoftStatus;
         private DevExpress.XtraTab.XtraTabPage TabPage_XiTongPanJue;
         private DevExpress.XtraTab.XtraTabPage TabPage_DaoHangKuaiSu;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraTab.XtraTabPage TabPage_DaoHangManSu;
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
@@ -3825,9 +4040,7 @@
         private DevExpress.XtraEditors.TextEdit XiTong_CanShiZhuangTai;
         private DevExpress.XtraEditors.TextEdit XiTong_1JiQiBao2;
         private DevExpress.XtraEditors.SimpleButton btnLoadFile;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem136;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
         private System.Windows.Forms.ToolTip toolTip1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem11;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem12;
@@ -3949,6 +4162,20 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem5;
         private System.Windows.Forms.Timer timerUpdateHuiLuJianCe;
         private System.Windows.Forms.Timer timerOffLineHuiLuJianCe;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem136;
+        private DevExpress.XtraEditors.PictureEdit pictureEdit_XiTong;
+        private DevExpress.XtraEditors.PictureEdit pictureEdit_HuiLu;
+        private DevExpress.XtraEditors.PictureEdit pictureEdit_DHK;
+        private DevExpress.XtraEditors.PictureEdit pictureEdit_DHM;
+        private DevExpress.XtraLayout.SimpleLabelItem simpleLabelItem1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem38;
+        private DevExpress.XtraLayout.SimpleLabelItem simpleLabelItem2;
+        private DevExpress.XtraLayout.SimpleLabelItem simpleLabelItem3;
+        private DevExpress.XtraLayout.SimpleLabelItem simpleLabelItem4;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem39;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem40;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem41;
     }
 }
 

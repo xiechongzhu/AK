@@ -103,6 +103,91 @@ namespace YaoCeProcess
         public DHMSubForm dHMSubForm_Tou;
         //-----------------------------------------------------//
 
+        public const uint E_STATUSTYPE_XiTong = 0x01;
+        public const uint E_STATUSTYPE_HuiLuJianCe = 0x02;
+        public const uint E_STATUSTYPE_DaoHangKuaiSu_Ti = 0x03;
+        public const uint E_STATUSTYPE_DaoHangKuaiSu_Tou = 0x04;
+        public const uint E_STATUSTYPE_DaoHangManSu_Ti = 0x05;
+        public const uint E_STATUSTYPE_DaoHangManSu_Tou = 0x06;
+        bool bDaoHangKuaiSuOnLine_Ti = false;
+        bool bDaoHangKuaiSuOnLine_Tou = false;
+        bool bDaoHangManSuOnLine_Ti = false;
+        bool bDaoHangManSuOnLine_Tou = false;
+
+        public void setDaoHangStatusOnOffLine(uint statusType, bool bOn)
+        {
+            switch(statusType)
+            {
+                case E_STATUSTYPE_DaoHangKuaiSu_Ti:
+                    bDaoHangKuaiSuOnLine_Ti = bOn;
+                    break;
+                case E_STATUSTYPE_DaoHangKuaiSu_Tou:
+                    bDaoHangKuaiSuOnLine_Tou = bOn;
+                    break;
+                case E_STATUSTYPE_DaoHangManSu_Ti:
+                    bDaoHangManSuOnLine_Ti = bOn;
+                    break;
+                case E_STATUSTYPE_DaoHangManSu_Tou:
+                    bDaoHangManSuOnLine_Tou = bOn;
+                    break;
+                default:
+                    break;
+            }
+            setStatusOnOffLine(E_STATUSTYPE_DaoHangKuaiSu_Ti, bDaoHangKuaiSuOnLine_Ti | bDaoHangKuaiSuOnLine_Tou);
+            setStatusOnOffLine(E_STATUSTYPE_DaoHangManSu_Ti, bDaoHangManSuOnLine_Ti | bDaoHangManSuOnLine_Tou);
+        }
+
+        public void setStatusOnOffLine(uint statusType, bool bOn)
+        {
+            switch(statusType)
+            {
+                case E_STATUSTYPE_XiTong:
+                    if (bOn)
+                    {
+                        pictureEdit_XiTong.Image = Image.FromFile(Application.StartupPath + @"\Image\LED_green.png");
+                    }
+                    else
+                    {
+                        pictureEdit_XiTong.Image = Image.FromFile(Application.StartupPath + @"\Image\LED_gray.png");
+                    }
+                    break;
+                case E_STATUSTYPE_HuiLuJianCe:
+                    if (bOn)
+                    {
+                        pictureEdit_HuiLu.Image = Image.FromFile(Application.StartupPath + @"\Image\LED_green.png");
+                    }
+                    else
+                    {
+                        pictureEdit_HuiLu.Image = Image.FromFile(Application.StartupPath + @"\Image\LED_gray.png");
+                    }
+                    break;
+                case E_STATUSTYPE_DaoHangKuaiSu_Ti:
+                case E_STATUSTYPE_DaoHangKuaiSu_Tou:
+                    if (bOn)
+                    {
+                        pictureEdit_DHK.Image = Image.FromFile(Application.StartupPath + @"\Image\LED_green.png");
+                    }
+                    else
+                    {
+                        pictureEdit_DHK.Image = Image.FromFile(Application.StartupPath + @"\Image\LED_gray.png");
+                    }
+                    break;
+                case E_STATUSTYPE_DaoHangManSu_Ti:
+                case E_STATUSTYPE_DaoHangManSu_Tou:
+                    if (bOn)
+                    {
+                        pictureEdit_DHM.Image = Image.FromFile(Application.StartupPath + @"\Image\LED_green.png");
+                    }
+                    else
+                    {
+                        pictureEdit_DHM.Image = Image.FromFile(Application.StartupPath + @"\Image\LED_gray.png");
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+
         public MainForm()
         {
             InitializeComponent();
@@ -110,14 +195,22 @@ namespace YaoCeProcess
             // 导航快速子窗口初始化
             dHKSubForm_Ti = new DHKSubForm();
             dHKSubForm_Ti.Into(xtraTabPage_DHK_DanTi);
+            dHKSubForm_Ti.testFunDelegate = setDaoHangStatusOnOffLine;
+            dHKSubForm_Ti.statusType = E_STATUSTYPE_DaoHangKuaiSu_Ti;
             dHKSubForm_Tou = new DHKSubForm();
             dHKSubForm_Tou.Into(xtraTabPage_DHK_DanTou);
+            dHKSubForm_Tou.testFunDelegate = setDaoHangStatusOnOffLine;
+            dHKSubForm_Tou.statusType = E_STATUSTYPE_DaoHangKuaiSu_Tou;
 
             // 导航快速子窗口初始化
             dHMSubForm_Ti = new DHMSubForm();
             dHMSubForm_Ti.Into(xtraTabPage_DHM_DanTi);
+            dHMSubForm_Ti.testFunDelegate = setDaoHangStatusOnOffLine;
+            dHMSubForm_Ti.statusType = E_STATUSTYPE_DaoHangManSu_Ti;
             dHMSubForm_Tou = new DHMSubForm();
             dHMSubForm_Tou.Into(xtraTabPage_DHM_DanTou);
+            dHMSubForm_Tou.testFunDelegate = setDaoHangStatusOnOffLine;
+            dHMSubForm_Tou.statusType = E_STATUSTYPE_DaoHangManSu_Tou;
 
             // 窗口居中显示
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -131,6 +224,13 @@ namespace YaoCeProcess
             // 初始清空数据
             GenericFunction.reSetAllTextEdit(TabPage_XiTongPanJue);
             GenericFunction.reSetAllTextEdit(xtraTabPage_HuiLuJianCe);
+
+            //------------------------------------------------------//
+
+            pictureEdit_XiTong.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
+            pictureEdit_HuiLu.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
+            pictureEdit_DHK.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
+            pictureEdit_DHM.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
 
             //------------------------------------------------------//
 
@@ -1260,6 +1360,7 @@ namespace YaoCeProcess
             {
                 // 填充实时数据
                 showSystemTimeStatus(ref sObject_XiTong);
+                setStatusOnOffLine(E_STATUSTYPE_XiTong, true);
             }
         }
 
@@ -1271,6 +1372,7 @@ namespace YaoCeProcess
 
             // 是否收到数据
             bRecvStatusData_XiTong = false;
+            setStatusOnOffLine(E_STATUSTYPE_XiTong, false);
         }
 
         private void setUpdateTimerStatus(bool bOpen)
@@ -1312,6 +1414,7 @@ namespace YaoCeProcess
             {
                 // 填充实时数据
                 showHuiLuJianCeStatus(ref sObject_huiLuJianCe);
+                setStatusOnOffLine(E_STATUSTYPE_HuiLuJianCe, true);
             }
         }
 
@@ -1323,6 +1426,7 @@ namespace YaoCeProcess
 
             // 是否收到数据
             bRecvStatusData_HuiLuJianCe = false;
+            setStatusOnOffLine(E_STATUSTYPE_HuiLuJianCe, false);
         }
     }
 
