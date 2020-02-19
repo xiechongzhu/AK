@@ -116,7 +116,7 @@ namespace YaoCeProcess
 
         public void setDaoHangStatusOnOffLine(uint statusType, bool bOn)
         {
-            switch(statusType)
+            switch (statusType)
             {
                 case E_STATUSTYPE_DaoHangKuaiSu_Ti:
                     bDaoHangKuaiSuOnLine_Ti = bOn;
@@ -139,7 +139,7 @@ namespace YaoCeProcess
 
         public void setStatusOnOffLine(uint statusType, bool bOn)
         {
-            switch(statusType)
+            switch (statusType)
             {
                 case E_STATUSTYPE_XiTong:
                     if (bOn)
@@ -491,6 +491,35 @@ namespace YaoCeProcess
         // 系统实时状态显示
         private void showSystemTimeStatus(ref SYSTEMPARSE_STATUS sObject)
         {
+            // 经度
+            XiTong_JingDu.Text = sObject.jingDu.ToString();
+            // 纬度
+            XiTong_WeiDu.Text = sObject.weiDu.ToString();
+            // 海拔高度
+            XiTong_GaoDu.Text = sObject.haiBaGaoDu.ToString();
+             
+            // 东向速度
+            XiTong_DongXiangSuDu.Text = sObject.dongXiangSuDu.ToString();
+            // 北向速度
+            XiTong_BeiXiangSuDu.Text = sObject.beiXiangSuDu.ToString();
+            // 天向速度
+            XiTong_TianXiangSuDu.Text = sObject.tianXiangSuDu.ToString();
+             
+            // Wx角速度
+            XiTong_WxJiaoSuDuValue.Text = sObject.WxJiaoSuDu.ToString();
+            // Wy角速度
+            XiTong_WyJiaoSuDuValue.Text = sObject.WyJiaoSuDu.ToString();
+            // Wz角速度
+            XiTong_WzJiaoSuDuValue.Text = sObject.WzJiaoSuDu.ToString();
+             
+            // 当前发射系X
+            XiTong_XFaSheXi.Text = sObject.curFaSheXi_X.ToString();
+            // 当前发射系Y
+            XiTong_YFaSheXi.Text = sObject.curFaSheXi_Y.ToString();
+            // 当前发射系Z
+            XiTong_ZFaSheXi.Text = sObject.curFaSheXi_Z.ToString();
+
+
             // GNSS时间
             XiTong_GNSSTime.Text = sObject.GNSSTime.ToString();
             // 飞行总时间
@@ -596,10 +625,10 @@ namespace YaoCeProcess
                     tempSTR = "时间间隔均正常";
                     break;
                 case 1:
-                    tempSTR = "1号时间间隔异常，2号时间间隔正常";
+                    tempSTR = "1号异常，2号正常";
                     break;
                 case 2:
-                    tempSTR = "1号时间间隔正常，2号时间间隔异常";
+                    tempSTR = "1号正常，2号异常";
                     break;
                 case 3:
                     tempSTR = "时间间隔均不正常";
@@ -706,11 +735,11 @@ namespace YaoCeProcess
             // bit1 侧向（1：有效）
             XiTong_CeXiang.Text = (jueCePanJueJieGuo1 >> 1 & 0x1) == 1 ? "有效" : "无效";
             // bit2 Wx角速度（1：有效）
-            XiTong_WxJiaoSuDu.Text = (jueCePanJueJieGuo1 >> 2 & 0x1) == 1 ? "有效" : "无效";
+            XiTong_WxJiaoSuDuStatus.Text = (jueCePanJueJieGuo1 >> 2 & 0x1) == 1 ? "有效" : "无效";
             // bit3 Wy角速度（1：有效）
-            XiTong_WyJiaoSuDu.Text = (jueCePanJueJieGuo1 >> 3 & 0x1) == 1 ? "有效" : "无效";
+            XiTong_WyJiaoSuDuStatus.Text = (jueCePanJueJieGuo1 >> 3 & 0x1) == 1 ? "有效" : "无效";
             // bit4 Wz角速度（1：有效）
-            XiTong_WzJiaoSuDu.Text = (jueCePanJueJieGuo1 >> 4 & 0x1) == 1 ? "有效" : "无效";
+            XiTong_WzJiaoSuDuStatus.Text = (jueCePanJueJieGuo1 >> 4 & 0x1) == 1 ? "有效" : "无效";
             // bit5 后向（1：有效）
             XiTong_HouXiang.Text = (jueCePanJueJieGuo1 >> 5 & 0x1) == 1 ? "有效" : "无效";
             // bit6 坠落（1：有效）
@@ -1377,10 +1406,13 @@ namespace YaoCeProcess
 
         private void setUpdateTimerStatus(bool bOpen)
         {
-            if (bOpen) {
+            if (bOpen)
+            {
                 timerUpdateXiTongStatus.Start();
                 timerUpdateHuiLuJianCe.Start();
-            } else {
+            }
+            else
+            {
                 timerUpdateXiTongStatus.Stop();
                 timerUpdateHuiLuJianCe.Stop();
             }
@@ -1394,9 +1426,12 @@ namespace YaoCeProcess
 
         private void setTimerUpdateChartStatus(bool bOpen)
         {
-            if (bOpen) {
+            if (bOpen)
+            {
                 timerUpdateChart.Start();
-            } else {
+            }
+            else
+            {
                 timerUpdateChart.Stop();
             }
 

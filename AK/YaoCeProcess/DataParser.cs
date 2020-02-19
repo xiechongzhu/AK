@@ -25,6 +25,9 @@ namespace YaoCeProcess
         private ConcurrentQueue<byte[]> queue = new ConcurrentQueue<byte[]>();
         private bool isRuning = false;
         Thread thread;
+
+        // 每一个UDP帧固定长度651
+        private const int UDPLENGTH = 651;
         //------------------------------------------------------------------------------------//
         //---------------缓存的CAN长帧数据---------------//
         const byte frameType_systemStatus_1 = 0x15;       // 系统判据状态
@@ -112,7 +115,7 @@ namespace YaoCeProcess
                 byte[] dataBuffer;
                 if (queue.TryDequeue(out dataBuffer))
                 {
-                    ParseData(dataBuffer);
+                    ParseDatas(dataBuffer);
                 }
                 else
                 {
@@ -121,8 +124,34 @@ namespace YaoCeProcess
             }
         }
 
+        private void ParseDatas(byte[] buffer)
+        {
+            if (buffer.Length < UDPLENGTH) {
+                return;
+            }
+            //--------------------------------------------------------------------------------//
+            // TODO 针对粘包的情况进行处理（几个UDP包粘在了一起）
+            int alreadRead = 0;
+            while(true)
+            {
+                if (buffer.Length - alreadRead >= UDPLENGTH)
+                {
+                    byte[] subBuffer = buffer.Skip(alreadRead).Take(UDPLENGTH).ToArray();
+                    alreadRead += subBuffer.Length;
+                    ParseData(subBuffer);
+                } 
+                else 
+                {
+                    break;
+                }
+            }
+            //--------------------------------------------------------------------------------//
+        }
+
         private void ParseData(byte[] buffer)
         {
+            //--------------------------------------------------------------------------------//
+
             String errMsg;
             UInt16 dataLength;
             if (!CheckPacket(buffer, out errMsg, out dataLength))
@@ -204,7 +233,7 @@ namespace YaoCeProcess
             dataLength = 0;
 
             int length = buffer.Length;
-            if (length > 651)
+            if (length > UDPLENGTH)
             {
                 errMsg = "数据不是合法数据，大于了标准帧长";
                 return false;
@@ -228,7 +257,7 @@ namespace YaoCeProcess
             dataLength = (UInt16)(((UInt16)buffer[4] << 8) + buffer[5]);
             if ((length - Marshal.SizeOf(typeof(UDPHead))) < dataLength)
             {
-                errMsg = "数据包含不完整";
+                errMsg = "数据包不完整";
                 return false;
             }
 
