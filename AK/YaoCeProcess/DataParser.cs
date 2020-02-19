@@ -28,6 +28,8 @@ namespace YaoCeProcess
 
         // 每一个UDP帧固定长度651
         private const int UDPLENGTH = 651;
+        // 每一个状态长帧结尾的校验
+        private const int CRCLENGTH = 2;
         //------------------------------------------------------------------------------------//
         //---------------缓存的CAN长帧数据---------------//
         const byte frameType_systemStatus_1 = 0x15;       // 系统判据状态
@@ -37,6 +39,8 @@ namespace YaoCeProcess
         const byte frameType_daoHangKuaiSu_Tou = 0x31;    // 导航快速（弹头）
         const byte frameType_daoHangManSu_Ti = 0x25;      // 导航慢速（弹体）
         const byte frameType_daoHangManSu_Tou = 0x35;     // 导航慢速（弹头）
+        const byte frameType_XiTongJiShi_Ti = 0x26;       // 系统状态即时反馈（弹体）   帧总长11  数据段总长度64 帧类型0x0B
+        const byte frameType_XiTongJiShi_Tou = 0x36;      // 系统状态即时反馈（弹头）
 
         // 系统判决状态15
         bool bRecvHeader_XiTong15 = false;
@@ -87,6 +91,19 @@ namespace YaoCeProcess
         byte[] statusBuffer_DHM35 = null;        // 状态数据
         byte totalCountCan_DHM35 = 0;            // 帧总长度
         byte frameLength_DHM35 = 0;              // 数据段总长度
+
+        // TODO 20200219 新增
+        // 系统即时状态反馈 弹体
+        bool bRecvHeader_XiTongJiShi26 = false;
+        byte[] statusBuffer_XiTongJiShi26 = null;        // 状态数据
+        byte totalCountCan_XiTongJiShi26 = 0;            // 帧总长度
+        byte frameLength_XiTongJiShi26 = 0;              // 数据段总长度
+
+        // 系统即时状态反馈 弹头
+        bool bRecvHeader_XiTongJiShi36 = false;
+        byte[] statusBuffer_XiTongJiShi36 = null;        // 状态数据
+        byte totalCountCan_XiTongJiShi36 = 0;            // 帧总长度
+        byte frameLength_XiTongJiShi36 = 0;              // 数据段总长度
         //------------------------------------------------------------------------------------//
 
         public void Enqueue(byte[] data)
@@ -126,21 +143,22 @@ namespace YaoCeProcess
 
         private void ParseDatas(byte[] buffer)
         {
-            if (buffer.Length < UDPLENGTH) {
+            if (buffer.Length < UDPLENGTH)
+            {
                 return;
             }
             //--------------------------------------------------------------------------------//
             // TODO 针对粘包的情况进行处理（几个UDP包粘在了一起）
             int alreadRead = 0;
-            while(true)
+            while (true)
             {
                 if (buffer.Length - alreadRead >= UDPLENGTH)
                 {
                     byte[] subBuffer = buffer.Skip(alreadRead).Take(UDPLENGTH).ToArray();
                     alreadRead += subBuffer.Length;
                     ParseData(subBuffer);
-                } 
-                else 
+                }
+                else
                 {
                     break;
                 }
@@ -216,6 +234,9 @@ namespace YaoCeProcess
                             case frameType_daoHangKuaiSu_Tou:
                             case frameType_daoHangManSu_Ti:
                             case frameType_daoHangManSu_Tou:
+                            // TODO 20200219 新增系统即时反馈状态
+                            case frameType_XiTongJiShi_Ti:
+                            case frameType_XiTongJiShi_Tou:
                                 // 将数据放入CAN数据处理模块，进行长帧的拼包工作
                                 ParseCANData(canData, canDataId);
                                 break;
@@ -271,7 +292,7 @@ namespace YaoCeProcess
             ref byte totalCountCan,
             ref byte frameLength,
             ref bool bRecvHeader,
-            byte[] buffer, 
+            byte[] buffer,
             byte frameType = 0x00)
         {
             // 子帧序号
@@ -378,6 +399,15 @@ namespace YaoCeProcess
                     HandleCanDataPinJie(canDataId, ref statusBuffer_DHM35,
                         ref totalCountCan_DHM35, ref frameLength_DHM35, ref bRecvHeader_DHM35, buffer);
                     break;
+                // TODO 20200219 新增
+                case frameType_XiTongJiShi_Ti:
+                    HandleCanDataPinJie(canDataId, ref statusBuffer_XiTongJiShi26,
+                        ref totalCountCan_XiTongJiShi26, ref frameLength_XiTongJiShi26, ref bRecvHeader_XiTongJiShi26, buffer);
+                    break;
+                case frameType_XiTongJiShi_Tou:
+                    HandleCanDataPinJie(canDataId, ref statusBuffer_XiTongJiShi36,
+                        ref totalCountCan_XiTongJiShi36, ref frameLength_XiTongJiShi36, ref bRecvHeader_XiTongJiShi36, buffer);
+                    break;
                 default:
                     break;
             }
@@ -399,10 +429,12 @@ namespace YaoCeProcess
                     ParseStatusData_SystemStatus(buffer);
                     break;
                 case frameType_systemStatus_2:                  // 系统判据状态
-                    if (frameType == frameType_XTPJFK) {
+                    if (frameType == frameType_XTPJFK)
+                    {
                         ParseStatusData_SystemStatus(buffer);
                     }
-                    else if (frameType == frameType_HLJCFK) {
+                    else if (frameType == frameType_HLJCFK)
+                    {
                         ParseStatusData_huiLuJianCe(buffer);
                     }
                     // 重新置为0
@@ -417,6 +449,11 @@ namespace YaoCeProcess
                 case frameType_daoHangManSu_Ti:                 // 导航慢速（弹体）
                 case frameType_daoHangManSu_Tou:                // 导航慢速（弹头）
                     ParseStatusData_daoHangManSu(buffer, canId);
+                    break;
+                // TODO 20200219 新增
+                case frameType_XiTongJiShi_Ti:                 // 系统状态即时反馈（弹体）
+                case frameType_XiTongJiShi_Tou:                // 系统状态即时反馈（弹头）
+                    ParseStatusData_XiTongJiShi(buffer, canId);
                     break;
                 default:
                     break;
@@ -446,6 +483,9 @@ namespace YaoCeProcess
 
         private void ParseStatusData_SystemStatus(byte[] buffer)
         {
+            if (buffer.Length < Marshal.SizeOf(typeof(SYSTEMPARSE_STATUS)) + CRCLENGTH) {
+                return;
+            }
             using (MemoryStream stream = new MemoryStream(buffer))
             {
                 using (BinaryReader br = new BinaryReader(stream))
@@ -503,6 +543,9 @@ namespace YaoCeProcess
 
         private void ParseStatusData_daoHangKuaiSu(byte[] buffer, byte frameType)
         {
+            if (buffer.Length < Marshal.SizeOf(typeof(DAOHANGSHUJU_KuaiSu)) + CRCLENGTH) {
+                return;
+            }
             using (MemoryStream stream = new MemoryStream(buffer))
             {
                 using (BinaryReader br = new BinaryReader(stream))
@@ -563,6 +606,9 @@ namespace YaoCeProcess
 
         private void ParseStatusData_daoHangManSu(byte[] buffer, byte frameType)
         {
+            if (buffer.Length < Marshal.SizeOf(typeof(DAOHANGSHUJU_ManSu)) + CRCLENGTH) {
+                return;
+            }
             using (MemoryStream stream = new MemoryStream(buffer))
             {
                 using (BinaryReader br = new BinaryReader(stream))
@@ -638,6 +684,9 @@ namespace YaoCeProcess
 
         private void ParseStatusData_huiLuJianCe(byte[] buffer)
         {
+            if (buffer.Length < Marshal.SizeOf(typeof(HUILUJIANCE_STATUS)) + CRCLENGTH) {
+                return;
+            }
             using (MemoryStream stream = new MemoryStream(buffer))
             {
                 using (BinaryReader br = new BinaryReader(stream))
@@ -657,6 +706,63 @@ namespace YaoCeProcess
                     IntPtr ptr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(HUILUJIANCE_STATUS)));
                     Marshal.StructureToPtr(sObject, ptr, true);
                     PostMessage(mainFormHandle, MainForm.WM_YAOCE_HuiLuJianCe_DATA, 0, ptr);
+                }
+            }
+        }
+
+        private void ParseStatusData_XiTongJiShi(byte[] buffer, byte frameType)
+        {
+            if (buffer.Length < Marshal.SizeOf(typeof(SYSTEMImmediate_STATUS)) + CRCLENGTH) {
+                return;
+            }
+            using (MemoryStream stream = new MemoryStream(buffer))
+            {
+                using (BinaryReader br = new BinaryReader(stream))
+                {
+                    SYSTEMImmediate_STATUS sObject = new SYSTEMImmediate_STATUS
+                    {
+                        guZhangBiaoZhi = br.ReadByte(),         // 故障标志位
+
+                        tuoLuoWenDu_X = br.ReadByte(),          // X陀螺温度
+                        tuoLuoWenDu_Y = br.ReadByte(),          // Y陀螺温度
+                        tuoLuoWenDu_Z = br.ReadByte(),          // Z陀螺温度
+
+                        GPS_SV = br.ReadByte(),                 // GPS SV可用/参与定位数（低4位为可用数，高4位为参与定位数）
+                        GPSDingWeiMoShi = br.ReadByte(),        // GPS定位模式
+
+                        PDOP = br.ReadUInt16(),                 // PDOP 
+                        HDOP = br.ReadUInt16(),                 // HDOP 
+                        VDOP = br.ReadUInt16(),                 // VDOP 
+
+                        GPSTime = br.ReadUInt32(),              // GPS时间 单位s,UTC秒，当量：0.1
+
+                        jingDu = br.ReadInt32(),                // 经度           当量：1e-7
+                        weiDu = br.ReadInt32(),                 // 纬度           当量：1e-7
+                        haiBaGaoDu = br.ReadInt32(),            // 海拔高度       当量：1e-2
+
+                        dongXiangSuDu = br.ReadInt32(),         // 东向速度       当量：1e-2
+                        beiXiangSuDu = br.ReadInt32(),          // 北向速度       当量：1e-2
+                        tianXiangSuDu = br.ReadInt32(),         // 天向速度       当量：1e-2
+
+                        zhouXiangGuoZai = br.ReadSingle(),      // 轴向过载
+                        faXiangGuoZai = br.ReadSingle(),        // 法向过载
+                        ceXiangGuoZai = br.ReadSingle(),        // 侧向过载
+
+                        WxJiaoSuDu = br.ReadSingle(),           // Wx角速度
+                        WyJiaoSuDu = br.ReadSingle(),           // Wy角速度
+                        WzJiaoSuDu = br.ReadSingle(),           // Wz角速度
+                    };
+                    // 向界面传递数据
+                    IntPtr ptr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(SYSTEMImmediate_STATUS)));
+                    Marshal.StructureToPtr(sObject, ptr, true);
+                    if (frameType == frameType_XiTongJiShi_Ti)
+                    {
+                        PostMessage(mainFormHandle, MainForm.WM_YAOCE_XiTongJiShi_Ti_DATA, 0, ptr);
+                    }
+                    else
+                    {
+                        PostMessage(mainFormHandle, MainForm.WM_YAOCE_XiTongJiShi_Tou_DATA, 0, ptr);
+                    }
                 }
             }
         }

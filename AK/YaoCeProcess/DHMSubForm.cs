@@ -28,7 +28,7 @@ namespace YaoCeProcess
         private List<SeriesPoint> DHManSu_SuDu_TianXiang_Buffer = new List<SeriesPoint>();      // 天向速度
 
         // 状态数据缓存
-        public DAOHANGSHUJU_ManSu sObject_DHM_Ti;
+        public DAOHANGSHUJU_ManSu sObject_DHM;
 
         // 是否收到数据
         bool bRecvStatusData = false;
@@ -114,7 +114,7 @@ namespace YaoCeProcess
             DHManSu_GPSCanYuDingWei.Text = ((byte)(tempValue >> 4 & 0xF)).ToString();
             // BD2 SV可用/参与定位数（低4位为可用数，高4位为参与定位数）
             tempValue = sObject.BD2_SV;
-            textEdit32.Text = ((byte)(tempValue & 0xF)).ToString();
+            DHManSu_BD2KeYong.Text = ((byte)(tempValue & 0xF)).ToString();
             DHManSu_BD2CanYuDingWei.Text = ((byte)(tempValue >> 4 & 0xF)).ToString();
 
             // sObject.jingDu;              // 经度（组合结果）当量：1e-7
@@ -318,7 +318,7 @@ namespace YaoCeProcess
             if (bRecvStatusData)
             {
                 // 填充实时数据
-                showDHManSuTimeStatus(ref sObject_DHM_Ti);
+                showDHManSuTimeStatus(ref sObject_DHM);
                 testFunDelegate(statusType, true);
             }
         }
@@ -349,7 +349,7 @@ namespace YaoCeProcess
 
         public void SetDHMStatus(ref DAOHANGSHUJU_ManSu sObject)
         {
-            sObject_DHM_Ti = sObject;
+            sObject_DHM = sObject;
 
             // 重新启动离线定时器
             timerOfflineDHMStatus.Stop();

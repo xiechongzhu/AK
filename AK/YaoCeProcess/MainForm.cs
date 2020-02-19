@@ -33,6 +33,11 @@ namespace YaoCeProcess
         public const int WM_YAOCE_daoHangManSu_Tou_DATA = WM_USER + 106;
         // 回路检测数据标识
         public const int WM_YAOCE_HuiLuJianCe_DATA = WM_USER + 107;
+        // TODO 20200219 新增
+        // 系统状态即时反馈数据（弹体）标识
+        public const int WM_YAOCE_XiTongJiShi_Ti_DATA = WM_USER + 108;
+        // 系统状态即时反馈（弹头）标识
+        public const int WM_YAOCE_XiTongJiShi_Tou_DATA = WM_USER + 109;
 
         private static readonly TimeSpan Interval = TimeSpan.FromMilliseconds(500);
 
@@ -101,6 +106,10 @@ namespace YaoCeProcess
         // 导航慢速子窗口
         public DHMSubForm dHMSubForm_Ti;
         public DHMSubForm dHMSubForm_Tou;
+
+        // 系统状态即时反馈子窗口
+        public XiTongJiShiSubForm xiTongJiShiSubForm_Ti;
+        public XiTongJiShiSubForm xiTongJiShiSubForm_Tou;
         //-----------------------------------------------------//
 
         public const uint E_STATUSTYPE_XiTong = 0x01;
@@ -109,10 +118,14 @@ namespace YaoCeProcess
         public const uint E_STATUSTYPE_DaoHangKuaiSu_Tou = 0x04;
         public const uint E_STATUSTYPE_DaoHangManSu_Ti = 0x05;
         public const uint E_STATUSTYPE_DaoHangManSu_Tou = 0x06;
+        public const uint E_STATUSTYPE_XiTongJiShi_Ti = 0x07;
+        public const uint E_STATUSTYPE_XiTongJiShi_Tou = 0x08;
         bool bDaoHangKuaiSuOnLine_Ti = false;
         bool bDaoHangKuaiSuOnLine_Tou = false;
         bool bDaoHangManSuOnLine_Ti = false;
         bool bDaoHangManSuOnLine_Tou = false;
+        bool bXiTongJiShiOnLine_Ti = false;
+        bool bXiTongJiShiOnLine_Tou = false;
 
         public void setDaoHangStatusOnOffLine(uint statusType, bool bOn)
         {
@@ -130,11 +143,19 @@ namespace YaoCeProcess
                 case E_STATUSTYPE_DaoHangManSu_Tou:
                     bDaoHangManSuOnLine_Tou = bOn;
                     break;
+                // TODO 20200219 新增
+                case E_STATUSTYPE_XiTongJiShi_Ti:
+                    bXiTongJiShiOnLine_Ti = bOn;
+                    break;
+                case E_STATUSTYPE_XiTongJiShi_Tou:
+                    bXiTongJiShiOnLine_Tou = bOn;
+                    break;
                 default:
                     break;
             }
             setStatusOnOffLine(E_STATUSTYPE_DaoHangKuaiSu_Ti, bDaoHangKuaiSuOnLine_Ti | bDaoHangKuaiSuOnLine_Tou);
             setStatusOnOffLine(E_STATUSTYPE_DaoHangManSu_Ti, bDaoHangManSuOnLine_Ti | bDaoHangManSuOnLine_Tou);
+            setStatusOnOffLine(E_STATUSTYPE_XiTongJiShi_Ti, bXiTongJiShiOnLine_Ti | bXiTongJiShiOnLine_Tou);
         }
 
         public void setStatusOnOffLine(uint statusType, bool bOn)
@@ -183,6 +204,18 @@ namespace YaoCeProcess
                         pictureEdit_DHM.Image = Image.FromFile(Application.StartupPath + @"\Image\LED_gray.png");
                     }
                     break;
+                // TODO 20200219 新增
+                case E_STATUSTYPE_XiTongJiShi_Ti:
+                case E_STATUSTYPE_XiTongJiShi_Tou:
+                    if (bOn)
+                    {
+                        pictureEdit_XiTongJiShi.Image = Image.FromFile(Application.StartupPath + @"\Image\LED_green.png");
+                    }
+                    else
+                    {
+                        pictureEdit_XiTongJiShi.Image = Image.FromFile(Application.StartupPath + @"\Image\LED_gray.png");
+                    }
+                    break;
                 default:
                     break;
             }
@@ -202,7 +235,7 @@ namespace YaoCeProcess
             dHKSubForm_Tou.testFunDelegate = setDaoHangStatusOnOffLine;
             dHKSubForm_Tou.statusType = E_STATUSTYPE_DaoHangKuaiSu_Tou;
 
-            // 导航快速子窗口初始化
+            // 导航慢速子窗口初始化
             dHMSubForm_Ti = new DHMSubForm();
             dHMSubForm_Ti.Into(xtraTabPage_DHM_DanTi);
             dHMSubForm_Ti.testFunDelegate = setDaoHangStatusOnOffLine;
@@ -211,6 +244,17 @@ namespace YaoCeProcess
             dHMSubForm_Tou.Into(xtraTabPage_DHM_DanTou);
             dHMSubForm_Tou.testFunDelegate = setDaoHangStatusOnOffLine;
             dHMSubForm_Tou.statusType = E_STATUSTYPE_DaoHangManSu_Tou;
+
+            // TODO 20200219 新增
+            // 系统状态即时反馈初始化
+            xiTongJiShiSubForm_Ti = new XiTongJiShiSubForm();
+            xiTongJiShiSubForm_Ti.Into(xtraTabPage_XiTongJiShi_DanTi);
+            xiTongJiShiSubForm_Ti.testFunDelegate = setDaoHangStatusOnOffLine;
+            xiTongJiShiSubForm_Ti.statusType = E_STATUSTYPE_XiTongJiShi_Ti;
+            xiTongJiShiSubForm_Tou = new XiTongJiShiSubForm();
+            xiTongJiShiSubForm_Tou.Into(xtraTabPage_XiTongJiShi_DanTou);
+            xiTongJiShiSubForm_Tou.testFunDelegate = setDaoHangStatusOnOffLine;
+            xiTongJiShiSubForm_Tou.statusType = E_STATUSTYPE_XiTongJiShi_Tou;
 
             // 窗口居中显示
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -231,6 +275,7 @@ namespace YaoCeProcess
             pictureEdit_HuiLu.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
             pictureEdit_DHK.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
             pictureEdit_DHM.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
+            pictureEdit_XiTongJiShi.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
 
             //------------------------------------------------------//
 
@@ -480,7 +525,53 @@ namespace YaoCeProcess
 
                         //----------------------------------------------------------//
                     }
+                    break;
+                // TODO 20200219 新增
+                case WM_YAOCE_XiTongJiShi_Ti_DATA:
+                    {
+                        //----------------------------------------------------------//
 
+                        IntPtr ptr = m.LParam;
+                        SYSTEMImmediate_STATUS sObject = Marshal.PtrToStructure<SYSTEMImmediate_STATUS>(ptr);
+
+                        // 缓存状态数据
+                        xiTongJiShiSubForm_Ti.SetXiTongJiShiStatus(ref sObject);
+
+                        // 绘图
+                        xiTongJiShiSubForm_Ti.setCHARTITEMINDEXAdd();
+
+                        xiTongJiShiSubForm_Ti.AddXiTongJiShiZuoBiao(sObject.jingDu, sObject.weiDu, sObject.haiBaGaoDu);
+                        xiTongJiShiSubForm_Ti.AddXiTongJiShiSuDu(sObject.dongXiangSuDu, sObject.beiXiangSuDu, sObject.tianXiangSuDu);
+                        xiTongJiShiSubForm_Ti.AddXiTongJiShiJiaoSuDu(sObject.WxJiaoSuDu, sObject.WyJiaoSuDu, sObject.WzJiaoSuDu);
+                        xiTongJiShiSubForm_Ti.AddXiTongJiShiGuoZai(sObject.zhouXiangGuoZai, sObject.faXiangGuoZai, sObject.ceXiangGuoZai);
+
+                        Marshal.FreeHGlobal(ptr);
+
+                        //----------------------------------------------------------//
+                    }
+                    break;
+                case WM_YAOCE_XiTongJiShi_Tou_DATA:
+                    {
+                        //----------------------------------------------------------//
+
+                        IntPtr ptr = m.LParam;
+                        SYSTEMImmediate_STATUS sObject = Marshal.PtrToStructure<SYSTEMImmediate_STATUS>(ptr);
+
+                        // 缓存状态数据
+                        xiTongJiShiSubForm_Tou.SetXiTongJiShiStatus(ref sObject);
+
+                        // 绘图
+                        xiTongJiShiSubForm_Tou.setCHARTITEMINDEXAdd();
+
+                        xiTongJiShiSubForm_Tou.AddXiTongJiShiZuoBiao(sObject.jingDu, sObject.weiDu, sObject.haiBaGaoDu);
+                        xiTongJiShiSubForm_Tou.AddXiTongJiShiSuDu(sObject.dongXiangSuDu, sObject.beiXiangSuDu, sObject.tianXiangSuDu);
+                        xiTongJiShiSubForm_Tou.AddXiTongJiShiJiaoSuDu(sObject.WxJiaoSuDu, sObject.WyJiaoSuDu, sObject.WzJiaoSuDu);
+                        xiTongJiShiSubForm_Tou.AddXiTongJiShiGuoZai(sObject.zhouXiangGuoZai, sObject.faXiangGuoZai, sObject.ceXiangGuoZai);
+
+                        Marshal.FreeHGlobal(ptr);
+
+                        //----------------------------------------------------------//
+                    }
                     break;
                 default:
                     base.DefWndProc(ref m);
@@ -497,21 +588,21 @@ namespace YaoCeProcess
             XiTong_WeiDu.Text = sObject.weiDu.ToString();
             // 海拔高度
             XiTong_GaoDu.Text = sObject.haiBaGaoDu.ToString();
-             
+
             // 东向速度
             XiTong_DongXiangSuDu.Text = sObject.dongXiangSuDu.ToString();
             // 北向速度
             XiTong_BeiXiangSuDu.Text = sObject.beiXiangSuDu.ToString();
             // 天向速度
             XiTong_TianXiangSuDu.Text = sObject.tianXiangSuDu.ToString();
-             
+
             // Wx角速度
             XiTong_WxJiaoSuDuValue.Text = sObject.WxJiaoSuDu.ToString();
             // Wy角速度
             XiTong_WyJiaoSuDuValue.Text = sObject.WyJiaoSuDu.ToString();
             // Wz角速度
             XiTong_WzJiaoSuDuValue.Text = sObject.WzJiaoSuDu.ToString();
-             
+
             // 当前发射系X
             XiTong_XFaSheXi.Text = sObject.curFaSheXi_X.ToString();
             // 当前发射系Y
@@ -1368,6 +1459,10 @@ namespace YaoCeProcess
             // 导航数据（慢速）状态曲线
             dHMSubForm_Ti.clearAllChart();
             dHMSubForm_Tou.clearAllChart();
+
+            // 系统即时状态曲线
+            xiTongJiShiSubForm_Ti.clearAllChart();
+            xiTongJiShiSubForm_Ti.clearAllChart();
         }
 
         private void timerUpdateLoadFileProgress_Tick(object sender, EventArgs e)
@@ -1422,6 +1517,9 @@ namespace YaoCeProcess
 
             dHMSubForm_Ti.setUpdateTimerStatus(bOpen);
             dHMSubForm_Tou.setUpdateTimerStatus(bOpen);
+
+            xiTongJiShiSubForm_Ti.setUpdateTimerStatus(bOpen);
+            xiTongJiShiSubForm_Tou.setUpdateTimerStatus(bOpen);
         }
 
         private void setTimerUpdateChartStatus(bool bOpen)
@@ -1440,6 +1538,9 @@ namespace YaoCeProcess
 
             dHMSubForm_Ti.startTimerUpdateChart(bOpen);
             dHMSubForm_Tou.startTimerUpdateChart(bOpen);
+
+            xiTongJiShiSubForm_Ti.startTimerUpdateChart(bOpen);
+            xiTongJiShiSubForm_Ti.startTimerUpdateChart(bOpen);
         }
 
         private void timerUpdateHuiLuJianCe_Tick(object sender, EventArgs e)

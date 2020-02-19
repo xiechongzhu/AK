@@ -322,4 +322,53 @@ namespace YaoCeProcess
         public float  QBDH2AHuiLuDianZu;     // 起爆点火2A回路电阻
         public float  QBDH2BHuiLuDianZu;     // 起爆点火2B回路电阻
     }
+
+    // 系统状态即时反馈
+    [Serializable]
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public struct SYSTEMImmediate_STATUS
+    {
+        public byte guZhangBiaoZhi;         // 故障标志位
+                                            // bit0 陀螺x故障标志（0：正常；1：故障）
+                                            // bit1 陀螺y故障标志（0：正常；1：故障）
+                                            // bit2 陀螺z故障标志（0：正常；1：故障）
+                                            // bit3 RS422故障标志（0：正常；1：故障）
+                                            // bit4 1553B故障标志（0：正常；1：故障）
+
+        public byte tuoLuoWenDu_X;          // X陀螺温度
+        public byte tuoLuoWenDu_Y;          // Y陀螺温度
+        public byte tuoLuoWenDu_Z;          // Z陀螺温度
+
+        public byte GPS_SV;                 // GPS SV可用/参与定位数（低4位为可用数，高4位为参与定位数）
+        public byte GPSDingWeiMoShi;        // GPS定位模式
+                                            // bit0 (1:采用GPS定位 0:没有采用GPS定位)
+                                            // bit1 (1:采用BD2定位 0:没有采用BD2定位)
+                                            // bit2 1：采用GLONASS定位 0：没有采用GLONASS定位
+                                            // bit3 0:没有DGNSS可用 1：DGNSS可用
+                                            // bit4 bit5 (00:No Fix 01:2DFix 11:3D Fix)
+                                            // bit6 0:GNSS修正无效 1：GNSS修正有效
+                                            // bit7 0:BD2修正无效 1：BD2修正有效
+
+        public ushort PDOP;                 // PDOP 
+        public ushort HDOP;                 // HDOP 
+        public ushort VDOP;                 // VDOP 
+
+        public uint GPSTime;                // GPS时间 单位s,UTC秒，当量：0.1
+
+        public Int32 jingDu;                // 经度           当量：1e-7
+        public Int32 weiDu;                 // 纬度           当量：1e-7
+        public Int32 haiBaGaoDu;            // 海拔高度       当量：1e-2
+
+        public Int32 dongXiangSuDu;         // 东向速度       当量：1e-2
+        public Int32 beiXiangSuDu;          // 北向速度       当量：1e-2
+        public Int32 tianXiangSuDu;         // 天向速度       当量：1e-2
+
+        public float zhouXiangGuoZai;       // 轴向过载
+        public float faXiangGuoZai;         // 法向过载
+        public float ceXiangGuoZai;         // 侧向过载
+
+        public float WxJiaoSuDu;            // Wx角速度
+        public float WyJiaoSuDu;            // Wy角速度
+        public float WzJiaoSuDu;            // Wz角速度
+    }
 }

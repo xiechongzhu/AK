@@ -94,7 +94,7 @@
             this.DHManSu_GPSSVKeYong = new DevExpress.XtraEditors.TextEdit();
             this.DHManSu_XTuoLuoFu5VDianYa = new DevExpress.XtraEditors.TextEdit();
             this.DHManSu_GPSCanYuDingWei = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit32 = new DevExpress.XtraEditors.TextEdit();
+            this.DHManSu_BD2KeYong = new DevExpress.XtraEditors.TextEdit();
             this.DHManSu_BD2CanYuDingWei = new DevExpress.XtraEditors.TextEdit();
             this.DHManSu_PDOP = new DevExpress.XtraEditors.TextEdit();
             this.DHManSu_HDOP = new DevExpress.XtraEditors.TextEdit();
@@ -229,7 +229,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DHManSu_GPSSVKeYong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DHManSu_XTuoLuoFu5VDianYa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DHManSu_GPSCanYuDingWei.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit32.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DHManSu_BD2KeYong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DHManSu_BD2CanYuDingWei.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DHManSu_PDOP.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DHManSu_HDOP.Properties)).BeginInit();
@@ -393,7 +393,7 @@
             this.layoutControl9.Controls.Add(this.DHManSu_GPSSVKeYong);
             this.layoutControl9.Controls.Add(this.DHManSu_XTuoLuoFu5VDianYa);
             this.layoutControl9.Controls.Add(this.DHManSu_GPSCanYuDingWei);
-            this.layoutControl9.Controls.Add(this.textEdit32);
+            this.layoutControl9.Controls.Add(this.DHManSu_BD2KeYong);
             this.layoutControl9.Controls.Add(this.DHManSu_BD2CanYuDingWei);
             this.layoutControl9.Controls.Add(this.DHManSu_PDOP);
             this.layoutControl9.Controls.Add(this.DHManSu_HDOP);
@@ -502,14 +502,14 @@
             this.DHManSu_GPSCanYuDingWei.StyleController = this.layoutControl9;
             this.DHManSu_GPSCanYuDingWei.TabIndex = 10;
             // 
-            // textEdit32
+            // DHManSu_BD2KeYong
             // 
-            this.textEdit32.Enabled = false;
-            this.textEdit32.Location = new System.Drawing.Point(128, 50);
-            this.textEdit32.Name = "textEdit32";
-            this.textEdit32.Size = new System.Drawing.Size(79, 24);
-            this.textEdit32.StyleController = this.layoutControl9;
-            this.textEdit32.TabIndex = 11;
+            this.DHManSu_BD2KeYong.Enabled = false;
+            this.DHManSu_BD2KeYong.Location = new System.Drawing.Point(128, 50);
+            this.DHManSu_BD2KeYong.Name = "DHManSu_BD2KeYong";
+            this.DHManSu_BD2KeYong.Size = new System.Drawing.Size(79, 24);
+            this.DHManSu_BD2KeYong.StyleController = this.layoutControl9;
+            this.DHManSu_BD2KeYong.TabIndex = 11;
             // 
             // DHManSu_BD2CanYuDingWei
             // 
@@ -1106,7 +1106,7 @@
             // 
             // layoutControlItem63
             // 
-            this.layoutControlItem63.Control = this.textEdit32;
+            this.layoutControlItem63.Control = this.DHManSu_BD2KeYong;
             this.layoutControlItem63.Location = new System.Drawing.Point(0, 38);
             this.layoutControlItem63.Name = "layoutControlItem63";
             this.layoutControlItem63.OptionsTableLayoutItem.RowIndex = 1;
@@ -2062,7 +2062,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DHManSu_GPSSVKeYong.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DHManSu_XTuoLuoFu5VDianYa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DHManSu_GPSCanYuDingWei.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit32.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DHManSu_BD2KeYong.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DHManSu_BD2CanYuDingWei.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DHManSu_PDOP.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DHManSu_HDOP.Properties)).EndInit();
@@ -2221,7 +2221,7 @@
         private DevExpress.XtraEditors.TextEdit DHManSu_GPSSVKeYong;
         private DevExpress.XtraEditors.TextEdit DHManSu_XTuoLuoFu5VDianYa;
         private DevExpress.XtraEditors.TextEdit DHManSu_GPSCanYuDingWei;
-        private DevExpress.XtraEditors.TextEdit textEdit32;
+        private DevExpress.XtraEditors.TextEdit DHManSu_BD2KeYong;
         private DevExpress.XtraEditors.TextEdit DHManSu_BD2CanYuDingWei;
         private DevExpress.XtraEditors.TextEdit DHManSu_PDOP;
         private DevExpress.XtraEditors.TextEdit DHManSu_HDOP;
