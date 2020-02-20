@@ -20,6 +20,9 @@ namespace YaoCeProcess
 {
     public partial class MainForm : Form
     {
+        // 每一个UDP帧固定长度651
+        private const int UDPLENGTH = 651;
+        // 自定义消息
         private const int WM_USER = 0x400;
         // 系统判决状态数据标识
         public const int WM_YAOCE_SystemStatus_DATA = WM_USER + 102;
@@ -39,7 +42,14 @@ namespace YaoCeProcess
         // 系统状态即时反馈（弹头）标识
         public const int WM_YAOCE_XiTongJiShi_Tou_DATA = WM_USER + 109;
 
+        // 读取完成后休眠时间
         private static readonly TimeSpan Interval = TimeSpan.FromMilliseconds(500);
+        // 读取文件动作
+        public const int E_LOADFILE_START = 0;
+        public const int E_LOADFILE_PAUSE = 1;
+        public const int E_LOADFILE_CONTINUE = 2;
+        public const int E_LOADFILE_STOP = 3;
+        public const int E_LOADFILE_SKIPPROGRAM = 4;
 
         //-----------------------------------------------------//
         // 成员变量
@@ -110,6 +120,9 @@ namespace YaoCeProcess
         // 系统状态即时反馈子窗口
         public XiTongJiShiSubForm xiTongJiShiSubForm_Ti;
         public XiTongJiShiSubForm xiTongJiShiSubForm_Tou;
+
+        // 加载离线文件的子窗口
+        public LoadDataForm loadFileForm = new LoadDataForm();
         //-----------------------------------------------------//
 
         public const uint E_STATUSTYPE_XiTong = 0x01;
@@ -255,6 +268,10 @@ namespace YaoCeProcess
             xiTongJiShiSubForm_Tou.Into(xtraTabPage_XiTongJiShi_DanTou);
             xiTongJiShiSubForm_Tou.testFunDelegate = setDaoHangStatusOnOffLine;
             xiTongJiShiSubForm_Tou.statusType = E_STATUSTYPE_XiTongJiShi_Tou;
+
+            // 加载离线文件的子窗口
+            loadFileForm.setPlayStatus = setOffLineFilePlayStatus;
+            loadFileForm.StartPosition = FormStartPosition.CenterScreen;
 
             // 窗口居中显示
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -1204,12 +1221,17 @@ namespace YaoCeProcess
 
         private void btnLoadFile_Click(object sender, EventArgs e)
         {
-            /*
-            LoadDataForm form = new LoadDataForm();
-            form.Show();
+            if (loadFileForm == null)
+            {
+                loadFileForm = new LoadDataForm();
+                loadFileForm.setPlayStatus = setOffLineFilePlayStatus;
+            }
+            loadFileForm.Show();
             return;
-            */
 
+            //-------------------------------------------------------//
+            // 直接加载文件
+            /*
             OpenFileDialog dialog = new OpenFileDialog();
             // 是否可以选择多个文件
             dialog.Multiselect = false;
@@ -1263,6 +1285,7 @@ namespace YaoCeProcess
                 // 开启状态刷新定时器
                 setUpdateTimerStatus(true);
             }
+            */
         }
 
         delegate void OnReadFileTimedEventCallBack(Object source, ElapsedEventArgs e);
@@ -1272,7 +1295,7 @@ namespace YaoCeProcess
             // 则需要invoke到创建控件的线程，是就为false，直接操作控件
             if (this.InvokeRequired)
             {
-                // ?? 解决程序关闭时this会变得不可用问题
+                // TODO ?? 解决程序关闭时this会变得不可用问题
                 try
                 {
                     // c# 关于invoke的无法访问已释放的对象
@@ -1302,7 +1325,7 @@ namespace YaoCeProcess
                 }
                 */
                 // 按字节读取数据
-                const int fsLen = 651;
+                const int fsLen = UDPLENGTH;
                 byte[] heByte = new byte[fsLen];
                 int readLength = 0;
                 if ((readLength = srFileRead.Read(heByte, 0, heByte.Length)) > 0)
@@ -1332,31 +1355,38 @@ namespace YaoCeProcess
                     // 文件置空
                     srFileRead = null;
 
+                    // 禁用按钮
+                    BtnSetting.Enabled = true;
+                    BtnStartStop.Enabled = true;
+                    btnLoadFile.Enabled = true;
+
+                    // 停止加载文件进度
+                    timerUpdateLoadFileProgress.Stop();
+
                     // 日志打印
                     Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, "历史数据加载完成！");
                     //MessageBox.Show("文件读取完成！", "提示", MessageBoxButtons.OK);
                     XtraMessageBox.Show("文件读取完成！");
 
                     //-------------------------------------------------------//
-                    // 禁用按钮
-                    BtnSetting.Enabled = true;
-                    BtnStartStop.Enabled = true;
-                    btnLoadFile.Enabled = true;
 
                     // 线程休眠使用间隔时间(等待数据处理完成，而不是读取完毕，立即关闭定时器刷新)
                     Thread.Sleep(Interval);
 
-                    // 停止绘图定时器刷新数据
-                    setTimerUpdateChartStatus(false);
-
-                    // 停止加载文件进度
-                    timerUpdateLoadFileProgress.Stop();
-
                     // 关闭数据解析
                     dataParser.Stop();
 
+                    // 停止绘图定时器刷新数据
+                    setTimerUpdateChartStatus(false);
+
                     // 关闭状态刷新定时器
                     setUpdateTimerStatus(false);
+
+                    //------------------------------------------------------//
+
+                    // 更新进度条
+                    loadFileForm.setProgressBarValue(0, loadFileLength, loadFileLength);
+                    loadFileForm.loadFileFinish();
                 }
             }
         }
@@ -1472,6 +1502,9 @@ namespace YaoCeProcess
             // 日志打印
             // Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, "数据加载：" + ((UInt32)percent).ToString() + "%");
             Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, "数据加载：" + percent.ToString("f2") + "%");    // 保留两位小数
+
+            // 更新进度条
+            loadFileForm.setProgressBarValue(0, loadFileLength, alreadReadFileLength);
         }
 
         //-----------------------------------------------------------------------//
@@ -1563,6 +1596,139 @@ namespace YaoCeProcess
             // 是否收到数据
             bRecvStatusData_HuiLuJianCe = false;
             setStatusOnOffLine(E_STATUSTYPE_HuiLuJianCe, false);
+        }
+
+        // 通过加载离线文件界面控制文件的读取与播放
+        public void setOffLineFilePlayStatus(int action, int param1 = 0)
+        {
+            switch (action)
+            {
+                case E_LOADFILE_START:
+                    {
+                        string fileName = loadFileForm.getLoadFileName();
+                        if (System.IO.File.Exists(fileName))
+                        {
+                            startLoadOffLineFile(fileName);
+                        }
+                    }
+                    break;
+                case E_LOADFILE_PAUSE:
+                    {
+                        Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, "暂停加载历史数据！");
+                        // 停止文件读取定时器
+                        readFileTimer.Stop();
+
+                        // 刷新加载文件进度
+                        timerUpdateLoadFileProgress.Stop();
+                    }
+                    break;
+                case E_LOADFILE_CONTINUE:
+                    {
+                        Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, "启动加载历史数据！");
+                        // 打开文件读取定时器
+                        readFileTimer.Start();
+
+                        // 刷新加载文件进度
+                        timerUpdateLoadFileProgress.Start();
+                    }
+                    break;
+                case E_LOADFILE_STOP:
+                    {
+                        Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, "停止加载历史数据！");
+
+                        // 关闭文件
+                        srFileRead.Close();
+
+                        // 文件置空
+                        srFileRead = null;
+
+                        // 停止文件读取定时器
+                        readFileTimer.Stop();
+
+                        // 刷新加载文件进度
+                        timerUpdateLoadFileProgress.Stop();
+
+                        // 线程休眠使用间隔时间(等待数据处理完成，而不是读取完毕，立即关闭定时器刷新)
+                        Thread.Sleep(Interval);
+
+                        // 禁用按钮
+                        BtnSetting.Enabled = true;
+                        BtnStartStop.Enabled = true;
+                        btnLoadFile.Enabled = true;
+
+                        // 关闭数据解析
+                        dataParser.Stop();
+
+                        // 关闭绘图定时器刷新数据
+                        setTimerUpdateChartStatus(false);
+
+                        // 关闭状态刷新定时器
+                        setUpdateTimerStatus(false);
+                    }
+                    break;
+                // 进度跳转
+                case E_LOADFILE_SKIPPROGRAM:
+                    {
+                        // 停止文件读取定时器
+                        readFileTimer.Stop();
+
+                        // 取UDP长度的整数倍
+                        long skipValue = (long)((double)loadFileLength / 100.0f * param1);
+                        skipValue = (long)(skipValue / UDPLENGTH) * UDPLENGTH;
+                        // 文件读取指针偏移
+                        srFileRead.Seek(skipValue, 0);
+                        // 更改已经读取的文件大小
+                        alreadReadFileLength = skipValue;
+
+                        // 开启文件读取定时器
+                        readFileTimer.Start();
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void startLoadOffLineFile(string filePath)
+        {
+            // 创建新的日志文件
+            // Logger.GetInstance().NewFile();
+            Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, "开始加载历史数据！");
+
+            // 打开文件
+            // srFileRead = new StreamReader(filePath, Encoding.Default);
+            srFileRead = new FileStream(filePath, FileMode.Open);
+
+            // 文件大小
+            FileInfo fileInfo = new FileInfo(filePath);
+            loadFileLength = fileInfo.Length;
+            // 已经读取的文件大小
+            alreadReadFileLength = 0;
+
+            // 打开文件读取定时器
+            readFileTimer.Start();
+
+            //-------------------------------------------------------//
+            // 禁用按钮
+            BtnSetting.Enabled = false;
+            BtnStartStop.Enabled = false;
+            // btnLoadFile.Enabled = false;
+
+            // 开启数据解析
+            dataParser.Start();
+
+            //-----------------------------------------------------//
+            //清空所有的曲线
+            clearAllChart();
+
+            // 启动绘图定时器刷新数据
+            setTimerUpdateChartStatus(true);
+
+            // 刷新加载文件进度
+            timerUpdateLoadFileProgress.Start();
+
+            // 开启状态刷新定时器
+            setUpdateTimerStatus(true);
         }
     }
 
