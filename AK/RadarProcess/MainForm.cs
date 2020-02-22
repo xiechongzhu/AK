@@ -210,10 +210,6 @@ namespace RadarProcess
             }
             else
             {
-                if(logItemList.Count == 100)
-                {
-                    logItemList.RemoveAt(0);
-                }
                 ListViewItem item = new ListViewItem
                 {
                     Text = time.ToString("G")
@@ -621,12 +617,18 @@ namespace RadarProcess
         {
             if (logItemList.Count > 0)
             {
+                LogListView.BeginUpdate();
+                while (LogListView.Items.Count > 100)
+                {
+                    LogListView.Items.RemoveAt(0);
+                }
                 LogListView.Items.AddRange(logItemList.ToArray());
                 logItemList.Clear();
                 if (LogListView.Items.Count > 0)
                 {
                     LogListView.EnsureVisible(LogListView.Items.Count - 1);
                 }
+                LogListView.EndUpdate();
             }
         }
 
