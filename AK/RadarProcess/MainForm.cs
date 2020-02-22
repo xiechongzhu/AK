@@ -98,12 +98,23 @@ namespace RadarProcess
             fallPointAlertTime = DateTime.MinValue;
             player.MediaEnded += Player_MediaEnded;
             player.Open(new Uri(AppDomain.CurrentDomain.BaseDirectory + @"\resource\alert.mp3"));
+            if (Config.GetInstance().LoadConfigFile(out _))
+            {
+                InitChartPoints();
+            }
         }
 
         private void btnSetting_Click(object sender, EventArgs e)
         {
             SettingForm settingForm = new SettingForm();
-            settingForm.ShowDialog();
+            if(settingForm.ShowDialog() == DialogResult.OK)
+            {
+                if (Config.GetInstance().LoadConfigFile(out _))
+                {
+                    ClearChartData(chartPoints);
+                    InitChartPoints();
+                }
+            }
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -143,7 +154,6 @@ namespace RadarProcess
             }
             CHART_ITEM_INDEX = 0;
             ClearAllChart();
-            ideaPoint = Algorithm.CalcIdeaPointOfFall(Config.GetInstance().flightshot);
             InitChartPoints();
             btnSetting.Enabled = false;
             btnStop.Enabled = true;
@@ -578,6 +588,7 @@ namespace RadarProcess
 
         private void InitChartPoints()
         {
+            ideaPoint = Algorithm.CalcIdeaPointOfFall(Config.GetInstance().flightshot);
             chartPoints.Series["理想落点"].Points.Add(new SeriesPoint(ideaPoint.x, ideaPoint.y));
             historyData.IdeaFallPoint = ideaPoint;
             chartPoints.Series["必炸线"].Points.Add(new SeriesPoint(ideaPoint.x - Config.GetInstance().sideLine,
