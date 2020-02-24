@@ -86,6 +86,7 @@ namespace RadarProcess
         private FallPoint ideaPoint;
         private ConstantCalculateOutput constantCalculateOutput;
         private AlertForm alertForm = new AlertForm();
+        List<ListViewItem> logItemList = new List<ListViewItem>();
 
         public MainForm()
         {
@@ -98,12 +99,23 @@ namespace RadarProcess
             fallPointAlertTime = DateTime.MinValue;
             player.MediaEnded += Player_MediaEnded;
             player.Open(new Uri(AppDomain.CurrentDomain.BaseDirectory + @"\resource\alert.mp3"));
+            if (Config.GetInstance().LoadConfigFile(out _))
+            {
+                InitChartPoints();
+            }
         }
 
         private void btnSetting_Click(object sender, EventArgs e)
         {
             SettingForm settingForm = new SettingForm();
-            settingForm.ShowDialog();
+            if(settingForm.ShowDialog() == DialogResult.OK)
+            {
+                if (Config.GetInstance().LoadConfigFile(out _))
+                {
+                    ClearChartData(chartPoints);
+                    InitChartPoints();
+                }
+            }
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -143,7 +155,6 @@ namespace RadarProcess
             }
             CHART_ITEM_INDEX = 0;
             ClearAllChart();
-            ideaPoint = Algorithm.CalcIdeaPointOfFall(Config.GetInstance().flightshot);
             InitChartPoints();
             btnSetting.Enabled = false;
             btnStop.Enabled = true;
@@ -199,10 +210,6 @@ namespace RadarProcess
             }
             else
             {
-                if(LogListView.Items.Count == 100)
-                {
-                    LogListView.Items.RemoveAt(0);
-                }
                 ListViewItem item = new ListViewItem
                 {
                     Text = time.ToString("G")
@@ -227,8 +234,7 @@ namespace RadarProcess
                 }
                 item.SubItems.Add(strLevel);
                 item.SubItems.Add(msg);
-                LogListView.Items.Add(item);
-                LogListView.EnsureVisible(LogListView.Items.Count - 1);
+                logItemList.Add(item);
             }
         }
 
@@ -370,10 +376,6 @@ namespace RadarProcess
 
         private void CheckPosition(double x, double y, double z)
         {
-            if(DateTime.Now < positionAlertTime.AddSeconds(10))
-            {
-                return;
-            }
             if(x > Config.GetInstance().locMaxX || x < Config.GetInstance().locMinX)
             {
                 ShowAlert();
@@ -396,7 +398,7 @@ namespace RadarProcess
 
         private void chartUpateTimer_Tick(object sender, EventArgs e)
         {
-            if(displayDataList.Count == 0)
+            if (displayDataList.Count == 0)
             {
                 return;
             }
@@ -503,10 +505,6 @@ namespace RadarProcess
 
         private void CheckSpeed(double vx, double vy, double vz)
         {
-            if (DateTime.Now < speedAlertTime.AddSeconds(10))
-            {
-                return;
-            }
             if (vx > Config.GetInstance().speedMaxX || vx < Config.GetInstance().speedMinX)
             {
                 ShowAlert();
@@ -529,10 +527,6 @@ namespace RadarProcess
 
         private void CheckFallPoint(FallPoint fallPoint, double fallTime)
         {
-            if (DateTime.Now < fallPointAlertTime.AddSeconds(10))
-            {
-                return;
-            }
             if(fallPoint.x < ideaPoint.x - Config.GetInstance().sideLine ||
                 fallPoint.x > ideaPoint.x + Config.GetInstance().sideLine ||
                 fallPoint.y < ideaPoint.y - Config.GetInstance().backwardLine ||
@@ -578,6 +572,7 @@ namespace RadarProcess
 
         private void InitChartPoints()
         {
+            ideaPoint = Algorithm.CalcIdeaPointOfFall(Config.GetInstance().flightshot);
             chartPoints.Series["理想落点"].Points.Add(new SeriesPoint(ideaPoint.x, ideaPoint.y));
             historyData.IdeaFallPoint = ideaPoint;
             chartPoints.Series["必炸线"].Points.Add(new SeriesPoint(ideaPoint.x - Config.GetInstance().sideLine,
@@ -616,6 +611,25 @@ namespace RadarProcess
             fInfo.uCount = 3;//闪烁窗口的次数
             fInfo.dwTimeout = 0; //窗口闪烁的频度，毫秒为单位；若该值为0，则为默认图标的闪烁频度
             return FlashWindowEx(ref fInfo);
+        }
+
+        private void logTimer_Tick(object sender, EventArgs e)
+        {
+            if (logItemList.Count > 0)
+            {
+                LogListView.BeginUpdate();
+                while (LogListView.Items.Count > 100)
+                {
+                    LogListView.Items.RemoveAt(0);
+                }
+                LogListView.Items.AddRange(logItemList.ToArray());
+                logItemList.Clear();
+                if (LogListView.Items.Count > 0)
+                {
+                    LogListView.EnsureVisible(LogListView.Items.Count - 1);
+                }
+                LogListView.EndUpdate();
+            }
         }
 
         private void Player_MediaEnded(object sender, EventArgs e)
