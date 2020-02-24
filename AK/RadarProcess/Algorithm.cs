@@ -54,8 +54,8 @@ namespace RadarProcess
     {
         public double[] dxyz = new double[3];
         public double dT;//剩余飞行时间
-        public double dt_range; //预示落点射程RC
-        public double dt_z;//预示落点侧偏
+        public double dt_range; //预示落点射程RC 纵坐标
+        public double dt_z;//预示落点侧偏 横坐标
     }
 
     public class Algorithm
@@ -413,8 +413,8 @@ namespace RadarProcess
             CalculateOutput output = new CalculateOutput();
             CalculateFlyParams(input, ref output);
             fallPoint = new FallPoint { 
-                x = output.dxyz[0],
-                y = output.dxyz[1]
+                x = output.dt_z,
+                y = output.dt_range
             };
             fallTime = output.dT;
             return true;
