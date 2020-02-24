@@ -396,7 +396,7 @@ namespace RadarProcess
             return;
         }
 
-        public static bool CalcResult(ConstantCalculateOutput constantCalculateOutput, double x, double y, double z,
+        public static bool CalcResult(double shotLength, ConstantCalculateOutput constantCalculateOutput, double x, double y, double z,
             double vx, double vy, double vz, double dhEnd, double dlambda_0, out FallPoint fallPoint, out double fallTime)
         {
             CalculateInput input = new CalculateInput
@@ -414,18 +414,18 @@ namespace RadarProcess
             CalculateFlyParams(input, ref output);
             fallPoint = new FallPoint { 
                 x = output.dt_z,
-                y = output.dt_range
+                y = output.dt_range - shotLength
             };
             fallTime = output.dT;
             return true;
         }
 
-        public static FallPoint CalcIdeaPointOfFall(double shotLength)
+        public static FallPoint CalcIdeaPointOfFall()
         {
             return new FallPoint
             {
                 x = 0,
-                y = shotLength
+                y = 0
             };
         }
     }
