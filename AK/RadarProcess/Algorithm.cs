@@ -16,7 +16,6 @@ namespace RadarProcess
         static public readonly double AE = 6378140.0;
         static public readonly double BE = 6356755.0;
         static public readonly double miu = 3.986004418e14;
-        static public readonly double we = 7.292115e-5;
     }
 
     public class DHINPUT
@@ -55,8 +54,8 @@ namespace RadarProcess
     {
         public double[] dxyz = new double[3];
         public double dT;//剩余飞行时间
-        public double dt_range; //预示落点射程RC
-        public double dt_z;//预示落点侧偏
+        public double dt_range; //预示落点射程RC 纵坐标
+        public double dt_z;//预示落点侧偏 横坐标
     }
 
     public class Algorithm
@@ -152,7 +151,7 @@ namespace RadarProcess
             return output;
         }
 
-        static public bool CalculateFlyParams(CalculateInput input, ref CalculateOutput output)
+        static public void CalculateFlyParams(CalculateInput input, ref CalculateOutput output)
         {
             double[,] dTemp = new double[,] { { 0.0 }, { 0.0 }, {0.0 } };
             double dTemp1 = 0.0;
@@ -169,9 +168,9 @@ namespace RadarProcess
             double drk_0 = Math.Sqrt(Math.Pow(drk_v[0,0], 2) + Math.Pow(drk_v[1,0], 2) + Math.Pow(drk_v[2,0], 2));//得到RK
             /******************************************公式3*****************************************/
             //计算点积和
-            dTemp1 = drk_v[0,0] * input.constantCalculateOutput.dRf0[0] + drk_v[1,0] * input.constantCalculateOutput.dRf0[1]
-                    + drk_v[2,0] * input.constantCalculateOutput.dRf0[2];
-            dTemp2 = drk_0 * input.constantCalculateOutput.dR0;
+            dTemp1 = drk_v[0,0] * input.constantCalculateOutput.dWef[0] + drk_v[1,0] * input.constantCalculateOutput.dWef[1]
+                    + drk_v[2,0] * input.constantCalculateOutput.dWef[2];
+            dTemp2 = drk_0 * Constant.WE;
             dTemp3 = dTemp1 / dTemp2;
             double dTheta_k = Math.Asin(dTemp3);
             /******************************************公式4*****************************************/
@@ -223,7 +222,7 @@ namespace RadarProcess
             /******************************************公式11*****************************************/
             //	计算矩阵Gfnue
             double[,] dGfnue=new double[,] { { 0.0, 0.0, 0.0 }, { 0.0, 0.0, 0.0 }, { 0.0, 0.0, 0.0 } };
-            MatrixMul(dGe2nue, 3, 3, input.constantCalculateOutput.dGfe, 3, ref dGfnue);
+            MatrixMul(input.constantCalculateOutput.dGfe, 3, 3, dGe2nue, 3, ref dGfnue);
             /******************************************公式12*****************************************/
             //	计算矩阵dV_nue
             double[,] dV_nue = new double[3,1];
@@ -245,7 +244,7 @@ namespace RadarProcess
             /******************************************公式14*****************************************/
             if (Math.Abs(dV_XA[0]) < 1E-3)
             {//当dvnpow绝对值小于1E-3时
-                dV_XA[0] += 1E-3;
+                dV_XA[0] = 1E-3;
             }
             //	计算VkA
             double dVkA = Math.Sqrt(Math.Pow(dV_XA[0], 2) + Math.Pow(dV_XA[1], 2) + Math.Pow(dV_XA[2], 2));
@@ -279,7 +278,7 @@ namespace RadarProcess
             {
                 output.dt_range = 0.0;
                 output.dt_z = 0.0;
-                return false;
+                return;
             }
             /****************************************公式18*******************************************/
             double dVk = Math.Pow(dVkA, 2) * drk_0 / Constant.miu;
@@ -293,7 +292,7 @@ namespace RadarProcess
             {
                 output.dt_range = 0.0;
                 output.dt_z = 0.0;
-                return false;
+                return;
             }
             /****************************************公式20*******************************************/
             dTemp1 = drk_0 * dVk * dTemp2;   //
@@ -303,7 +302,7 @@ namespace RadarProcess
             {
                 output.dt_range = 0.0;
                 output.dt_z = 0.0;
-                return false;
+                return;
             }
             /****************************************公式21*******************************************/
             dTemp1 = Math.Sin(dthetakA) / Math.Cos(dthetakA);
@@ -353,7 +352,7 @@ namespace RadarProcess
             }
             /****************************************公式29*******************************************/
             dTemp1 = delta_lambda_A + lambda_k;//lambda_k为公式7输出
-            double lambda_C = dTemp1 - Constant.we * output.dT;
+            double lambda_C = dTemp1 - Constant.WE * output.dT;
             /****************************************公式30*******************************************/
             double dRnc = Constant.RC / Math.Sqrt(1 - Math.Pow(Constant.EE, 2) * Math.Pow(Math.Sin(dBc), 2));
             /****************************************公式31*******************************************/
@@ -394,10 +393,10 @@ namespace RadarProcess
             /****************************************公式36*******************************************/
             output.dt_range = dBetaOC * input.constantCalculateOutput.dR0;
 
-            return true;
+            return;
         }
 
-        public static bool CalcResult(ConstantCalculateOutput constantCalculateOutput, double x, double y, double z,
+        public static bool CalcResult(double shotLength, ConstantCalculateOutput constantCalculateOutput, double x, double y, double z,
             double vx, double vy, double vz, double dhEnd, double dlambda_0, out FallPoint fallPoint, out double fallTime)
         {
             CalculateInput input = new CalculateInput
@@ -412,26 +411,21 @@ namespace RadarProcess
                 constantCalculateOutput = constantCalculateOutput
             };
             CalculateOutput output = new CalculateOutput();
-            if (!CalculateFlyParams(input, ref output))
-            {
-                fallPoint = null;
-                fallTime = 0;
-                return false;
-            }
+            CalculateFlyParams(input, ref output);
             fallPoint = new FallPoint { 
-                x = output.dxyz[0],
-                y = output.dxyz[1]
+                x = output.dt_z,
+                y = output.dt_range - shotLength
             };
             fallTime = output.dT;
             return true;
         }
 
-        public static FallPoint CalcIdeaPointOfFall(double shotLength)
+        public static FallPoint CalcIdeaPointOfFall()
         {
             return new FallPoint
             {
                 x = 0,
-                y = shotLength
+                y = 0
             };
         }
     }

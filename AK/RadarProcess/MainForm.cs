@@ -321,7 +321,7 @@ namespace RadarProcess
                     historyData.AddObject(sObject);
                     FallPoint fallPoint;
                     double fallTime;
-                    if (Algorithm.CalcResult(constantCalculateOutput, sObject.X, sObject.Y, sObject.Z,
+                    if (Algorithm.CalcResult(Config.GetInstance().flightshot, constantCalculateOutput, sObject.X, sObject.Y, sObject.Z,
                         sObject.VX, sObject.VY, sObject.VZ, Config.GetInstance().placementHeight,
                         Config.GetInstance().azimuthInit,out fallPoint, out fallTime))
                     {
@@ -572,7 +572,7 @@ namespace RadarProcess
 
         private void InitChartPoints()
         {
-            ideaPoint = Algorithm.CalcIdeaPointOfFall(Config.GetInstance().flightshot);
+            ideaPoint = Algorithm.CalcIdeaPointOfFall();
             chartPoints.Series["理想落点"].Points.Add(new SeriesPoint(ideaPoint.x, ideaPoint.y));
             historyData.IdeaFallPoint = ideaPoint;
             chartPoints.Series["必炸线"].Points.Add(new SeriesPoint(ideaPoint.x - Config.GetInstance().sideLine,
