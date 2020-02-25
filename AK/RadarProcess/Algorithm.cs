@@ -54,8 +54,8 @@ namespace RadarProcess
     {
         public double[] dxyz = new double[3];
         public double dT;//剩余飞行时间
-        public double dt_range; //预示落点射程RC 纵坐标
-        public double dt_z;//预示落点侧偏 横坐标
+        public double dt_range; //预示落点射程RC
+        public double dt_z;//预示落点侧偏
     }
 
     public class Algorithm
@@ -366,6 +366,9 @@ namespace RadarProcess
             dTemp[1,0] = d_xyz_eC[1] - input.constantCalculateOutput.xyz_e0[1];
             dTemp[2,0] = d_xyz_eC[2] - input.constantCalculateOutput.xyz_e0[2];
             MatrixMul(input.constantCalculateOutput.dGe, 3, 3, dTemp, 1, ref d_xyz_fC);
+            output.dxyz[0] = d_xyz_fC[0, 0];
+            output.dxyz[1] = d_xyz_fC[0, 1];
+            output.dxyz[2] = d_xyz_fC[0, 2];
             output.dt_z = d_xyz_fC[2,0];
             /****************************************公式33*******************************************/
             double[] drc_f = new double[]{ 0.0, 0.0, 0.0 };
@@ -397,7 +400,7 @@ namespace RadarProcess
         }
 
         public static bool CalcResult(double shotLength, ConstantCalculateOutput constantCalculateOutput, double x, double y, double z,
-            double vx, double vy, double vz, double dhEnd, double dlambda_0, out FallPoint fallPoint, out double fallTime)
+            double vx, double vy, double vz, double dhEnd, double dlambda_0, out FallPoint fallPoint, out double fallTime, out double distance)
         {
             CalculateInput input = new CalculateInput
             {
@@ -412,11 +415,12 @@ namespace RadarProcess
             };
             CalculateOutput output = new CalculateOutput();
             CalculateFlyParams(input, ref output);
-            fallPoint = new FallPoint { 
+            fallPoint = new FallPoint {
                 x = output.dt_z,
-                y = output.dt_range - shotLength
+                y = output.dxyz[0]
             };
             fallTime = output.dT;
+            distance = output.dt_range;
             return true;
         }
 

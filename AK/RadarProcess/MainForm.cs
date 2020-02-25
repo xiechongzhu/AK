@@ -29,6 +29,7 @@ namespace RadarProcess
             public double vz;
             public FallPoint fallPoint;
             public double fallTime;
+            public double distance;
         }
 
         public enum FlashType : uint
@@ -320,15 +321,16 @@ namespace RadarProcess
                     S_OBJECT sObject = Marshal.PtrToStructure<S_OBJECT>(ptr);
                     historyData.AddObject(sObject);
                     FallPoint fallPoint;
-                    double fallTime;
+                    double fallTime, distance;
                     if (Algorithm.CalcResult(Config.GetInstance().flightshot, constantCalculateOutput, sObject.X, sObject.Y, sObject.Z,
                         sObject.VX, sObject.VY, sObject.VZ, Config.GetInstance().placementHeight,
-                        Config.GetInstance().azimuthInit,out fallPoint, out fallTime))
+                        Config.GetInstance().azimuthInit, out fallPoint, out fallTime, out distance))
                     {
                         CheckFallPoint(fallPoint, fallTime);
                         historyData.AddFallPoint(fallPoint);
                     }
-                    AddDisplayData(CHART_ITEM_INDEX++, sObject.X, sObject.Y, sObject.Z, sObject.VX, sObject.VY, sObject.VZ, fallPoint, fallTime);
+                    AddDisplayData(CHART_ITEM_INDEX++, sObject.X, sObject.Y, sObject.Z, 
+                        sObject.VX, sObject.VY, sObject.VZ, fallPoint, fallTime, distance);
                     CheckPosition(sObject.X, sObject.Y, sObject.Z);
                     CheckSpeed(sObject.VX, sObject.VY, sObject.VZ);
                     Marshal.FreeHGlobal(ptr);
@@ -339,7 +341,8 @@ namespace RadarProcess
             }
         }
 
-        private void AddDisplayData(int coordinate, double x, double y, double z, double vx, double vy, double vz, FallPoint fallPoint, double fallTime)
+        private void AddDisplayData(int coordinate, double x, double y, double z, double vx, double vy, double vz, 
+            FallPoint fallPoint, double fallTime, double distance)
         {
             displayDataList.Add(new DisplayData
             {
@@ -351,7 +354,8 @@ namespace RadarProcess
                 vy = vy,
                 vz = vz,
                 fallPoint = fallPoint,
-                fallTime = fallTime
+                fallTime = fallTime,
+                distance = distance
             });
         }
 
@@ -420,7 +424,7 @@ namespace RadarProcess
                 speedVzBuffer.Add(new SeriesPoint(displayData.coordinate, displayData.vz));
                 AddPointOfFall(displayData.fallPoint);   
             }
-            DisplayFallTime(displayDataList[displayDataList.Count-1].fallTime);
+            DisplayFallTimeAndDistance(displayDataList[displayDataList.Count-1].fallTime, displayDataList[displayDataList.Count - 1].distance);
 
             chartX.Series["位置X"].Points.AddRange(positionXBuffer.ToArray());
             chartX.Series["位置X上限"].Points.AddRange(new SeriesPoint[] {
@@ -637,9 +641,9 @@ namespace RadarProcess
             isAlertPlaying = false;
         }
 
-        private void DisplayFallTime(double fallTime)
+        private void DisplayFallTimeAndDistance(double fallTime, double distance)
         {
-            chartPoints.Titles[0].Text = String.Format("预计落地时间:{0:F}s", fallTime);
+            chartPoints.Titles[0].Text = String.Format("剩余落地时间:{0:F}s, 射程:{1:F}m", fallTime, distance);
         }
     }
 }
