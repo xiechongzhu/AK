@@ -159,6 +159,7 @@
             this.pictureEdit_HuiLu = new DevExpress.XtraEditors.PictureEdit();
             this.pictureEdit_DHK = new DevExpress.XtraEditors.PictureEdit();
             this.pictureEdit_DHM = new DevExpress.XtraEditors.PictureEdit();
+            this.pictureEdit_XiTongJiShi = new DevExpress.XtraEditors.PictureEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -171,6 +172,8 @@
             this.layoutControlItem39 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem40 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem41 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.simpleLabelItem5 = new DevExpress.XtraLayout.SimpleLabelItem();
+            this.layoutControlItem55 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControl_MainContent = new DevExpress.XtraLayout.LayoutControl();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.LogListView = new System.Windows.Forms.ListView();
@@ -421,15 +424,14 @@
             this.timerOffLineXiTongStatus = new System.Windows.Forms.Timer(this.components);
             this.timerUpdateHuiLuJianCe = new System.Windows.Forms.Timer(this.components);
             this.timerOffLineHuiLuJianCe = new System.Windows.Forms.Timer(this.components);
-            this.simpleLabelItem5 = new DevExpress.XtraLayout.SimpleLabelItem();
-            this.pictureEdit_XiTongJiShi = new DevExpress.XtraEditors.PictureEdit();
-            this.layoutControlItem55 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.xtraTabPage_FrameInfo = new DevExpress.XtraTab.XtraTabPage();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl_ToolBar)).BeginInit();
             this.layoutControl_ToolBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit_XiTong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit_HuiLu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit_DHK.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit_DHM.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit_XiTongJiShi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
@@ -442,6 +444,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem39)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem40)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem41)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.simpleLabelItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem55)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl_MainContent)).BeginInit();
             this.layoutControl_MainContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
@@ -737,9 +741,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.simpleLabelItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit_XiTongJiShi.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem55)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl_ToolBar
@@ -868,6 +869,24 @@
             this.pictureEdit_DHM.StyleController = this.layoutControl_ToolBar;
             this.pictureEdit_DHM.TabIndex = 9;
             this.pictureEdit_DHM.UseDirectXPaint = DevExpress.Utils.DefaultBoolean.True;
+            // 
+            // pictureEdit_XiTongJiShi
+            // 
+            this.pictureEdit_XiTongJiShi.CausesValidation = false;
+            this.pictureEdit_XiTongJiShi.Cursor = System.Windows.Forms.Cursors.No;
+            this.pictureEdit_XiTongJiShi.EditValue = ((object)(resources.GetObject("pictureEdit_XiTongJiShi.EditValue")));
+            this.pictureEdit_XiTongJiShi.Location = new System.Drawing.Point(1546, 12);
+            this.pictureEdit_XiTongJiShi.MaximumSize = new System.Drawing.Size(50, 50);
+            this.pictureEdit_XiTongJiShi.MinimumSize = new System.Drawing.Size(50, 50);
+            this.pictureEdit_XiTongJiShi.Name = "pictureEdit_XiTongJiShi";
+            this.pictureEdit_XiTongJiShi.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.pictureEdit_XiTongJiShi.Properties.Appearance.Options.UseBackColor = true;
+            this.pictureEdit_XiTongJiShi.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pictureEdit_XiTongJiShi.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pictureEdit_XiTongJiShi.Size = new System.Drawing.Size(50, 50);
+            this.pictureEdit_XiTongJiShi.StyleController = this.layoutControl_ToolBar;
+            this.pictureEdit_XiTongJiShi.TabIndex = 10;
+            this.pictureEdit_XiTongJiShi.UseDirectXPaint = DevExpress.Utils.DefaultBoolean.True;
             // 
             // Root
             // 
@@ -1048,6 +1067,26 @@
             this.layoutControlItem41.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem41.TextVisible = false;
             // 
+            // simpleLabelItem5
+            // 
+            this.simpleLabelItem5.AllowHotTrack = false;
+            this.simpleLabelItem5.Location = new System.Drawing.Point(1424, 0);
+            this.simpleLabelItem5.Name = "simpleLabelItem5";
+            this.simpleLabelItem5.OptionsTableLayoutItem.ColumnIndex = 12;
+            this.simpleLabelItem5.Size = new System.Drawing.Size(110, 54);
+            this.simpleLabelItem5.Text = "系统状态即时";
+            this.simpleLabelItem5.TextSize = new System.Drawing.Size(90, 18);
+            // 
+            // layoutControlItem55
+            // 
+            this.layoutControlItem55.Control = this.pictureEdit_XiTongJiShi;
+            this.layoutControlItem55.Location = new System.Drawing.Point(1534, 0);
+            this.layoutControlItem55.Name = "layoutControlItem55";
+            this.layoutControlItem55.OptionsTableLayoutItem.ColumnIndex = 13;
+            this.layoutControlItem55.Size = new System.Drawing.Size(80, 54);
+            this.layoutControlItem55.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem55.TextVisible = false;
+            // 
             // layoutControl_MainContent
             // 
             this.layoutControl_MainContent.Controls.Add(this.layoutControl1);
@@ -1133,7 +1172,8 @@
             this.TabPage_DaoHangKuaiSu,
             this.TabPage_DaoHangManSu,
             this.xtraTabPage_HuiLuJianCe,
-            this.xtraTabPage1});
+            this.xtraTabPage1,
+            this.xtraTabPage_FrameInfo});
             // 
             // TabPage_XiTongPanJue
             // 
@@ -4060,43 +4100,12 @@
             // 
             this.timerOffLineHuiLuJianCe.Tick += new System.EventHandler(this.timerOffLineHuiLuJianCe_Tick);
             // 
-            // simpleLabelItem5
+            // xtraTabPage_FrameInfo
             // 
-            this.simpleLabelItem5.AllowHotTrack = false;
-            this.simpleLabelItem5.Location = new System.Drawing.Point(1424, 0);
-            this.simpleLabelItem5.Name = "simpleLabelItem5";
-            this.simpleLabelItem5.OptionsTableLayoutItem.ColumnIndex = 12;
-            this.simpleLabelItem5.Size = new System.Drawing.Size(110, 54);
-            this.simpleLabelItem5.Text = "系统状态即时";
-            this.simpleLabelItem5.TextSize = new System.Drawing.Size(90, 18);
-            // 
-            // pictureEdit_XiTongJiShi
-            // 
-            this.pictureEdit_XiTongJiShi.CausesValidation = false;
-            this.pictureEdit_XiTongJiShi.Cursor = System.Windows.Forms.Cursors.No;
-            this.pictureEdit_XiTongJiShi.EditValue = ((object)(resources.GetObject("pictureEdit_XiTongJiShi.EditValue")));
-            this.pictureEdit_XiTongJiShi.Location = new System.Drawing.Point(1546, 12);
-            this.pictureEdit_XiTongJiShi.MaximumSize = new System.Drawing.Size(50, 50);
-            this.pictureEdit_XiTongJiShi.MinimumSize = new System.Drawing.Size(50, 50);
-            this.pictureEdit_XiTongJiShi.Name = "pictureEdit_XiTongJiShi";
-            this.pictureEdit_XiTongJiShi.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.pictureEdit_XiTongJiShi.Properties.Appearance.Options.UseBackColor = true;
-            this.pictureEdit_XiTongJiShi.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.pictureEdit_XiTongJiShi.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pictureEdit_XiTongJiShi.Size = new System.Drawing.Size(50, 50);
-            this.pictureEdit_XiTongJiShi.StyleController = this.layoutControl_ToolBar;
-            this.pictureEdit_XiTongJiShi.TabIndex = 10;
-            this.pictureEdit_XiTongJiShi.UseDirectXPaint = DevExpress.Utils.DefaultBoolean.True;
-            // 
-            // layoutControlItem55
-            // 
-            this.layoutControlItem55.Control = this.pictureEdit_XiTongJiShi;
-            this.layoutControlItem55.Location = new System.Drawing.Point(1534, 0);
-            this.layoutControlItem55.Name = "layoutControlItem55";
-            this.layoutControlItem55.OptionsTableLayoutItem.ColumnIndex = 13;
-            this.layoutControlItem55.Size = new System.Drawing.Size(80, 54);
-            this.layoutControlItem55.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem55.TextVisible = false;
+            this.xtraTabPage_FrameInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.xtraTabPage_FrameInfo.Name = "xtraTabPage_FrameInfo";
+            this.xtraTabPage_FrameInfo.Size = new System.Drawing.Size(1608, 595);
+            this.xtraTabPage_FrameInfo.Text = "帧序号";
             // 
             // MainForm
             // 
@@ -4117,6 +4126,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit_HuiLu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit_DHK.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit_DHM.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit_XiTongJiShi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
@@ -4129,6 +4139,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem39)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem40)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem41)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.simpleLabelItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem55)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl_MainContent)).EndInit();
             this.layoutControl_MainContent.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
@@ -4424,9 +4436,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.simpleLabelItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit_XiTongJiShi.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem55)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -4706,6 +4715,7 @@
         private DevExpress.XtraLayout.SimpleLabelItem simpleLabelItem5;
         private DevExpress.XtraEditors.PictureEdit pictureEdit_XiTongJiShi;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem55;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage_FrameInfo;
     }
 }
 

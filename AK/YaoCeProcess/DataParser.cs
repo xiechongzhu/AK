@@ -47,24 +47,28 @@ namespace YaoCeProcess
         byte[] statusBuffer_XiTong15 = null;     // 状态数据
         byte totalCountCan_XiTong15 = 0;         // 帧总长度
         byte frameLength_XiTong15 = 0;           // 数据段总长度
+        UInt16 frameNO_XiTong15 = 0;             // 帧编号
 
         // 系统判决状态16
         bool bRecvHeader_XiTong16 = false;
         byte[] statusBuffer_XiTong16 = null;     // 状态数据
         byte totalCountCan_XiTong16 = 0;         // 帧总长度
         byte frameLength_XiTong16 = 0;           // 数据段总长度
+        UInt16 frameNO_XiTong16 = 0;             // 帧编号
 
         // 回路检测反馈数据16
         bool bRecvHeader_HuiLuJianCe16 = false;
         byte[] statusBuffer_HuiLuJianCe16 = null;     // 状态数据
         byte totalCountCan_HuiLuJianCe16 = 0;         // 帧总长度
         byte frameLength_HuiLuJianCe16 = 0;           // 数据段总长度
+        UInt16 frameNO_HuiLuJianCe16 = 0;             // 帧编号
 
         // 当前帧类型（针对Id为0x16时，需要用到帧类型来区分）
         // 系统判决状态 0x15->0x01
         // 系统判决状态查询反馈 0x16->0x05
         // 回路检测反馈数据 0x16->0x06
         byte curFrameType = 0;
+        const byte frameType_XTPJZT = 0x01;
         const byte frameType_XTPJFK = 0x05;
         const byte frameType_HLJCFK = 0x06;
 
@@ -73,24 +77,28 @@ namespace YaoCeProcess
         byte[] statusBuffer_DHK21 = null;        // 状态数据
         byte totalCountCan_DHK21 = 0;            // 帧总长度
         byte frameLength_DHK21 = 0;              // 数据段总长度
+        UInt16 frameNO_DHK21 = 0;                // 帧编号
 
         // 导航快速 弹头
         bool bRecvHeader_DHK31 = false;
         byte[] statusBuffer_DHK31 = null;        // 状态数据
         byte totalCountCan_DHK31 = 0;            // 帧总长度
         byte frameLength_DHK31 = 0;              // 数据段总长度
+        UInt16 frameNO_DHK31 = 0;                // 帧编号
 
         // 导航慢速 弹体
         bool bRecvHeader_DHM25 = false;
         byte[] statusBuffer_DHM25 = null;        // 状态数据
         byte totalCountCan_DHM25 = 0;            // 帧总长度
         byte frameLength_DHM25 = 0;              // 数据段总长度
+        UInt16 frameNO_DHM25 = 0;                // 帧编号
 
         // 导航慢速 弹头
         bool bRecvHeader_DHM35 = false;
         byte[] statusBuffer_DHM35 = null;        // 状态数据
         byte totalCountCan_DHM35 = 0;            // 帧总长度
         byte frameLength_DHM35 = 0;              // 数据段总长度
+        UInt16 frameNO_DHM35 = 0;                // 帧编号
 
         // TODO 20200219 新增
         // 系统即时状态反馈 弹体
@@ -98,12 +106,14 @@ namespace YaoCeProcess
         byte[] statusBuffer_XiTongJiShi26 = null;        // 状态数据
         byte totalCountCan_XiTongJiShi26 = 0;            // 帧总长度
         byte frameLength_XiTongJiShi26 = 0;              // 数据段总长度
+        UInt16 frameNO_XiTongJiShi26 = 0;                // 帧编号
 
         // 系统即时状态反馈 弹头
         bool bRecvHeader_XiTongJiShi36 = false;
         byte[] statusBuffer_XiTongJiShi36 = null;        // 状态数据
         byte totalCountCan_XiTongJiShi36 = 0;            // 帧总长度
         byte frameLength_XiTongJiShi36 = 0;              // 数据段总长度
+        UInt16 frameNO_XiTongJiShi36 = 0;                // 帧编号
         //------------------------------------------------------------------------------------//
 
         public void Enqueue(byte[] data)
@@ -292,6 +302,7 @@ namespace YaoCeProcess
             ref byte totalCountCan,
             ref byte frameLength,
             ref bool bRecvHeader,
+            ref UInt16 frameNO,
             byte[] buffer,
             byte frameType = 0x00)
         {
@@ -307,6 +318,7 @@ namespace YaoCeProcess
                 frameLength = buffer[4];    // 数据段总长度
                 statusBuffer = new byte[0];
                 bRecvHeader = true;
+                frameNO = (UInt16)(((UInt16)buffer[3] << 8) + buffer[2]);
             }
             else
             {
@@ -342,7 +354,7 @@ namespace YaoCeProcess
 
                     //---------------------------------------------------//
                     // 拼接完成，分类型进行数据的处理
-                    ParseStatusData(statusBuffer, canDataId, frameType);
+                    ParseStatusData(statusBuffer, canDataId, frameType, frameNO);
                     bRecvHeader = false;
                     //---------------------------------------------------//
                 }
@@ -361,7 +373,8 @@ namespace YaoCeProcess
                 // 系统判据状态
                 case frameType_systemStatus_1:
                     HandleCanDataPinJie(canDataId, ref statusBuffer_XiTong15,
-                        ref totalCountCan_XiTong15, ref frameLength_XiTong15, ref bRecvHeader_XiTong15, buffer);
+                        ref totalCountCan_XiTong15, ref frameLength_XiTong15, ref bRecvHeader_XiTong15,
+                        ref frameNO_XiTong15, buffer);
                     break;
                 // 系统判据状态 0x16(中间存在两种情况，需要通过帧类型来做进一步的区分)
                 case frameType_systemStatus_2:
@@ -374,46 +387,54 @@ namespace YaoCeProcess
                         if (curFrameType == frameType_XTPJFK)
                         {
                             HandleCanDataPinJie(canDataId, ref statusBuffer_XiTong16,
-                        ref totalCountCan_XiTong16, ref frameLength_XiTong16, ref bRecvHeader_XiTong16, buffer, curFrameType);
+                        ref totalCountCan_XiTong16, ref frameLength_XiTong16, ref bRecvHeader_XiTong16,
+                        ref frameNO_XiTong16, buffer, curFrameType);
                         }
                         else if (curFrameType == frameType_HLJCFK)
                         {
                             HandleCanDataPinJie(canDataId, ref statusBuffer_HuiLuJianCe16,
-                        ref totalCountCan_HuiLuJianCe16, ref frameLength_HuiLuJianCe16, ref bRecvHeader_HuiLuJianCe16, buffer, curFrameType);
+                        ref totalCountCan_HuiLuJianCe16, ref frameLength_HuiLuJianCe16, ref bRecvHeader_HuiLuJianCe16,
+                        ref frameNO_HuiLuJianCe16, buffer, curFrameType);
                         }
                     }
                     break;
                 case frameType_daoHangKuaiSu_Ti:
                     HandleCanDataPinJie(canDataId, ref statusBuffer_DHK21,
-                        ref totalCountCan_DHK21, ref frameLength_DHK21, ref bRecvHeader_DHK21, buffer);
+                        ref totalCountCan_DHK21, ref frameLength_DHK21, ref bRecvHeader_DHK21,
+                        ref frameNO_DHK21, buffer);
                     break;
                 case frameType_daoHangKuaiSu_Tou:
                     HandleCanDataPinJie(canDataId, ref statusBuffer_DHK31,
-                        ref totalCountCan_DHK31, ref frameLength_DHK31, ref bRecvHeader_DHK31, buffer);
+                        ref totalCountCan_DHK31, ref frameLength_DHK31, ref bRecvHeader_DHK31,
+                        ref frameNO_DHK31, buffer);
                     break;
                 case frameType_daoHangManSu_Ti:
                     HandleCanDataPinJie(canDataId, ref statusBuffer_DHM25,
-                        ref totalCountCan_DHM25, ref frameLength_DHM25, ref bRecvHeader_DHM25, buffer);
+                        ref totalCountCan_DHM25, ref frameLength_DHM25, ref bRecvHeader_DHM25,
+                        ref frameNO_DHM25, buffer);
                     break;
                 case frameType_daoHangManSu_Tou:
                     HandleCanDataPinJie(canDataId, ref statusBuffer_DHM35,
-                        ref totalCountCan_DHM35, ref frameLength_DHM35, ref bRecvHeader_DHM35, buffer);
+                        ref totalCountCan_DHM35, ref frameLength_DHM35, ref bRecvHeader_DHM35,
+                        ref frameNO_DHM35, buffer);
                     break;
                 // TODO 20200219 新增
                 case frameType_XiTongJiShi_Ti:
                     HandleCanDataPinJie(canDataId, ref statusBuffer_XiTongJiShi26,
-                        ref totalCountCan_XiTongJiShi26, ref frameLength_XiTongJiShi26, ref bRecvHeader_XiTongJiShi26, buffer);
+                        ref totalCountCan_XiTongJiShi26, ref frameLength_XiTongJiShi26, ref bRecvHeader_XiTongJiShi26,
+                        ref frameNO_XiTongJiShi26, buffer);
                     break;
                 case frameType_XiTongJiShi_Tou:
                     HandleCanDataPinJie(canDataId, ref statusBuffer_XiTongJiShi36,
-                        ref totalCountCan_XiTongJiShi36, ref frameLength_XiTongJiShi36, ref bRecvHeader_XiTongJiShi36, buffer);
+                        ref totalCountCan_XiTongJiShi36, ref frameLength_XiTongJiShi36, ref bRecvHeader_XiTongJiShi36,
+                        ref frameNO_XiTongJiShi36, buffer);
                     break;
                 default:
                     break;
             }
         }
 
-        private void ParseStatusData(byte[] buffer, byte canId, byte frameType)
+        private void ParseStatusData(byte[] buffer, byte canId, byte frameType, UInt16 frameNO)
         {
             // TODO 添加CRC16校验待定，此处需要在原数据获取上，添加两个字节
             if (!ParseDataCRC16(buffer))
@@ -426,16 +447,16 @@ namespace YaoCeProcess
             switch (canId)
             {
                 case frameType_systemStatus_1:                  // 系统判据状态
-                    ParseStatusData_SystemStatus(buffer);
+                    ParseStatusData_SystemStatus(buffer, canId, frameType_XTPJZT, frameNO);
                     break;
                 case frameType_systemStatus_2:                  // 系统判据状态
                     if (frameType == frameType_XTPJFK)
                     {
-                        ParseStatusData_SystemStatus(buffer);
+                        ParseStatusData_SystemStatus(buffer, canId, frameType, frameNO);
                     }
                     else if (frameType == frameType_HLJCFK)
                     {
-                        ParseStatusData_huiLuJianCe(buffer);
+                        ParseStatusData_huiLuJianCe(buffer, canId, frameType, frameNO);
                     }
                     // 重新置为0
                     curFrameType = 0x00;
@@ -443,17 +464,17 @@ namespace YaoCeProcess
                 // TODO 注意导航快速数据需要分别显示在弹头弹体上
                 case frameType_daoHangKuaiSu_Ti:                // 导航快速（弹体）
                 case frameType_daoHangKuaiSu_Tou:               // 导航快速（弹头）
-                    ParseStatusData_daoHangKuaiSu(buffer, canId);
+                    ParseStatusData_daoHangKuaiSu(buffer, canId, frameNO);
                     break;
                 // TODO 注意导航慢速数据需要分别显示在弹头弹体上
                 case frameType_daoHangManSu_Ti:                 // 导航慢速（弹体）
                 case frameType_daoHangManSu_Tou:                // 导航慢速（弹头）
-                    ParseStatusData_daoHangManSu(buffer, canId);
+                    ParseStatusData_daoHangManSu(buffer, canId, frameNO);
                     break;
                 // TODO 20200219 新增
                 case frameType_XiTongJiShi_Ti:                 // 系统状态即时反馈（弹体）
                 case frameType_XiTongJiShi_Tou:                // 系统状态即时反馈（弹头）
-                    ParseStatusData_XiTongJiShi(buffer, canId);
+                    ParseStatusData_XiTongJiShi(buffer, canId, frameNO);
                     break;
                 default:
                     break;
@@ -481,9 +502,10 @@ namespace YaoCeProcess
             return true;
         }
 
-        private void ParseStatusData_SystemStatus(byte[] buffer)
+        private void ParseStatusData_SystemStatus(byte[] buffer, byte canId, byte frameType, UInt16 frameNO)
         {
-            if (buffer.Length < Marshal.SizeOf(typeof(SYSTEMPARSE_STATUS)) + CRCLENGTH) {
+            if (buffer.Length < Marshal.SizeOf(typeof(SYSTEMPARSE_STATUS)) + CRCLENGTH)
+            {
                 return;
             }
             using (MemoryStream stream = new MemoryStream(buffer))
@@ -537,13 +559,17 @@ namespace YaoCeProcess
                     IntPtr ptr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(SYSTEMPARSE_STATUS)));
                     Marshal.StructureToPtr(sObject, ptr, true);
                     PostMessage(mainFormHandle, MainForm.WM_YAOCE_SystemStatus_DATA, 0, ptr);
+
+                    // 发送帧序号信息
+                    postFrameInfo(canId, frameNO, frameType);
                 }
             }
         }
 
-        private void ParseStatusData_daoHangKuaiSu(byte[] buffer, byte frameType)
+        private void ParseStatusData_daoHangKuaiSu(byte[] buffer, byte canId, UInt16 frameNO)
         {
-            if (buffer.Length < Marshal.SizeOf(typeof(DAOHANGSHUJU_KuaiSu)) + CRCLENGTH) {
+            if (buffer.Length < Marshal.SizeOf(typeof(DAOHANGSHUJU_KuaiSu)) + CRCLENGTH)
+            {
                 return;
             }
             using (MemoryStream stream = new MemoryStream(buffer))
@@ -592,7 +618,7 @@ namespace YaoCeProcess
                     // 向界面传递数据
                     IntPtr ptr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(DAOHANGSHUJU_KuaiSu)));
                     Marshal.StructureToPtr(sObject, ptr, true);
-                    if (frameType == frameType_daoHangKuaiSu_Ti)
+                    if (canId == frameType_daoHangKuaiSu_Ti)
                     {
                         PostMessage(mainFormHandle, MainForm.WM_YAOCE_daoHangKuaiSu_Ti_DATA, 0, ptr);
                     }
@@ -600,13 +626,17 @@ namespace YaoCeProcess
                     {
                         PostMessage(mainFormHandle, MainForm.WM_YAOCE_daoHangKuaiSu_Tou_DATA, 0, ptr);
                     }
+                    //-------------------------------------------------------------------------------//
+                    // 发送帧序号信息
+                    postFrameInfo(canId, frameNO);
                 }
             }
         }
 
-        private void ParseStatusData_daoHangManSu(byte[] buffer, byte frameType)
+        private void ParseStatusData_daoHangManSu(byte[] buffer, byte canId, UInt16 frameNO)
         {
-            if (buffer.Length < Marshal.SizeOf(typeof(DAOHANGSHUJU_ManSu)) + CRCLENGTH) {
+            if (buffer.Length < Marshal.SizeOf(typeof(DAOHANGSHUJU_ManSu)) + CRCLENGTH)
+            {
                 return;
             }
             using (MemoryStream stream = new MemoryStream(buffer))
@@ -670,7 +700,7 @@ namespace YaoCeProcess
                     // 向界面传递数据
                     IntPtr ptr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(DAOHANGSHUJU_ManSu)));
                     Marshal.StructureToPtr(sObject, ptr, true);
-                    if (frameType == frameType_daoHangManSu_Ti)
+                    if (canId == frameType_daoHangManSu_Ti)
                     {
                         PostMessage(mainFormHandle, MainForm.WM_YAOCE_daoHangManSu_Ti_DATA, 0, ptr);
                     }
@@ -678,13 +708,17 @@ namespace YaoCeProcess
                     {
                         PostMessage(mainFormHandle, MainForm.WM_YAOCE_daoHangManSu_Tou_DATA, 0, ptr);
                     }
+                    //-------------------------------------------------------------------------------//
+                    // 发送帧序号信息
+                    postFrameInfo(canId, frameNO);
                 }
             }
         }
 
-        private void ParseStatusData_huiLuJianCe(byte[] buffer)
+        private void ParseStatusData_huiLuJianCe(byte[] buffer, byte canId, byte frameType, UInt16 frameNO)
         {
-            if (buffer.Length < Marshal.SizeOf(typeof(HUILUJIANCE_STATUS)) + CRCLENGTH) {
+            if (buffer.Length < Marshal.SizeOf(typeof(HUILUJIANCE_STATUS)) + CRCLENGTH)
+            {
                 return;
             }
             using (MemoryStream stream = new MemoryStream(buffer))
@@ -706,13 +740,17 @@ namespace YaoCeProcess
                     IntPtr ptr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(HUILUJIANCE_STATUS)));
                     Marshal.StructureToPtr(sObject, ptr, true);
                     PostMessage(mainFormHandle, MainForm.WM_YAOCE_HuiLuJianCe_DATA, 0, ptr);
+                    //-------------------------------------------------------------------------------//
+                    // 发送帧序号信息
+                    postFrameInfo(canId, frameNO, frameType);
                 }
             }
         }
 
-        private void ParseStatusData_XiTongJiShi(byte[] buffer, byte frameType)
+        private void ParseStatusData_XiTongJiShi(byte[] buffer, byte canId, UInt16 frameNO)
         {
-            if (buffer.Length < Marshal.SizeOf(typeof(SYSTEMImmediate_STATUS)) + CRCLENGTH) {
+            if (buffer.Length < Marshal.SizeOf(typeof(SYSTEMImmediate_STATUS)) + CRCLENGTH)
+            {
                 return;
             }
             using (MemoryStream stream = new MemoryStream(buffer))
@@ -755,16 +793,33 @@ namespace YaoCeProcess
                     // 向界面传递数据
                     IntPtr ptr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(SYSTEMImmediate_STATUS)));
                     Marshal.StructureToPtr(sObject, ptr, true);
-                    if (frameType == frameType_XiTongJiShi_Ti)
+                    if (canId == frameType_XiTongJiShi_Ti)
                     {
                         PostMessage(mainFormHandle, MainForm.WM_YAOCE_XiTongJiShi_Ti_DATA, 0, ptr);
+                        // System.Diagnostics.Debug.WriteLine("XiTongJiShi_Ti frameNO:" + frameNO.ToString());
                     }
                     else
                     {
                         PostMessage(mainFormHandle, MainForm.WM_YAOCE_XiTongJiShi_Tou_DATA, 0, ptr);
                     }
+                    //-------------------------------------------------------------------------------//
+                    // 发送帧序号信息
+                    postFrameInfo(canId, frameNO);
                 }
             }
+        }
+
+        private void postFrameInfo(byte canId, UInt16 frameNO, byte frameType = 0)
+        {
+            FRAME_PROPERTY frameObject = new FRAME_PROPERTY
+            {
+                CanId = canId,              // 帧ID
+                frameType = frameType,      // 帧类型
+                frameNo = frameNO,          // 帧序号
+            };
+            IntPtr ptrFrame = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(FRAME_PROPERTY)));
+            Marshal.StructureToPtr(frameObject, ptrFrame, true);
+            PostMessage(mainFormHandle, MainForm.WM_YAOCE_FRAMEPROPERTY_DATA, 0, ptrFrame);
         }
     }
 }

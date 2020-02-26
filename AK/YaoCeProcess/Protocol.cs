@@ -313,14 +313,14 @@ namespace YaoCeProcess
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     struct HUILUJIANCE_STATUS
     {
-        public float  shuChu1HuiLuDianZu;    // 电机驱动输出1回路电阻
+        public float shuChu1HuiLuDianZu;    // 电机驱动输出1回路电阻
         public UInt32 reserve1;              // 保留1
-        public float  shuChu2HuiLuDianZu;    // 电机驱动输出2回路电阻
+        public float shuChu2HuiLuDianZu;    // 电机驱动输出2回路电阻
         public UInt32 reserve2;              // 保留2
-        public float  QBDH1AHuiLuDianZu;     // 起爆点火1A回路电阻
-        public float  QBDH1BHuiLuDianZu;     // 起爆点火1B回路电阻
-        public float  QBDH2AHuiLuDianZu;     // 起爆点火2A回路电阻
-        public float  QBDH2BHuiLuDianZu;     // 起爆点火2B回路电阻
+        public float QBDH1AHuiLuDianZu;     // 起爆点火1A回路电阻
+        public float QBDH1BHuiLuDianZu;     // 起爆点火1B回路电阻
+        public float QBDH2AHuiLuDianZu;     // 起爆点火2A回路电阻
+        public float QBDH2BHuiLuDianZu;     // 起爆点火2B回路电阻
     }
 
     // 系统状态即时反馈
@@ -370,5 +370,15 @@ namespace YaoCeProcess
         public float WxJiaoSuDu;            // Wx角速度
         public float WyJiaoSuDu;            // Wy角速度
         public float WzJiaoSuDu;            // Wz角速度
+    }
+
+    // 帧属性
+    [Serializable]
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public struct FRAME_PROPERTY
+    {
+        public byte CanId;                  // 帧ID
+        public byte frameType;              // 帧类型
+        public UInt16 frameNo;              // 帧序号
     }
 }

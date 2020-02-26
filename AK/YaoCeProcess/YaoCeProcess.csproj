@@ -78,6 +78,12 @@
     <Compile Include="DHMSubForm.Designer.cs">
       <DependentUpon>DHMSubForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrameInfoSubForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrameInfoSubForm.Designer.cs">
+      <DependentUpon>FrameInfoSubForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="GenericFunction.cs" />
     <Compile Include="LoadDataForm.cs">
       <SubType>Form</SubType>
@@ -112,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DHMSubForm.resx">
       <DependentUpon>DHMSubForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrameInfoSubForm.resx">
+      <DependentUpon>FrameInfoSubForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoadDataForm.resx">
       <DependentUpon>LoadDataForm.cs</DependentUpon>

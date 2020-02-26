@@ -41,6 +41,8 @@ namespace YaoCeProcess
         public const int WM_YAOCE_XiTongJiShi_Ti_DATA = WM_USER + 108;
         // 系统状态即时反馈（弹头）标识
         public const int WM_YAOCE_XiTongJiShi_Tou_DATA = WM_USER + 109;
+        // 数据帧信息
+        public const int WM_YAOCE_FRAMEPROPERTY_DATA = WM_USER + 110;
 
         // 读取完成后休眠时间
         private static readonly TimeSpan Interval = TimeSpan.FromMilliseconds(500);
@@ -120,6 +122,9 @@ namespace YaoCeProcess
         // 系统状态即时反馈子窗口
         public XiTongJiShiSubForm xiTongJiShiSubForm_Ti;
         public XiTongJiShiSubForm xiTongJiShiSubForm_Tou;
+
+        // 帧序号
+        public FrameInfoSubForm frameInfoForm;
 
         // 加载离线文件的子窗口
         public LoadDataForm loadFileForm = new LoadDataForm();
@@ -268,6 +273,10 @@ namespace YaoCeProcess
             xiTongJiShiSubForm_Tou.Into(xtraTabPage_XiTongJiShi_DanTou);
             xiTongJiShiSubForm_Tou.testFunDelegate = setDaoHangStatusOnOffLine;
             xiTongJiShiSubForm_Tou.statusType = E_STATUSTYPE_XiTongJiShi_Tou;
+
+            // 帧序号
+            frameInfoForm = new FrameInfoSubForm();
+            frameInfoForm.Into(xtraTabPage_FrameInfo);
 
             // 加载离线文件的子窗口
             loadFileForm.setPlayStatus = setOffLineFilePlayStatus;
@@ -584,6 +593,21 @@ namespace YaoCeProcess
                         xiTongJiShiSubForm_Tou.AddXiTongJiShiSuDu(sObject.dongXiangSuDu, sObject.beiXiangSuDu, sObject.tianXiangSuDu);
                         xiTongJiShiSubForm_Tou.AddXiTongJiShiJiaoSuDu(sObject.WxJiaoSuDu, sObject.WyJiaoSuDu, sObject.WzJiaoSuDu);
                         xiTongJiShiSubForm_Tou.AddXiTongJiShiGuoZai(sObject.zhouXiangGuoZai, sObject.faXiangGuoZai, sObject.ceXiangGuoZai);
+
+                        Marshal.FreeHGlobal(ptr);
+
+                        //----------------------------------------------------------//
+                    }
+                    break;
+                case WM_YAOCE_FRAMEPROPERTY_DATA:
+                    {
+                        //----------------------------------------------------------//
+
+                        IntPtr ptr = m.LParam;
+                        FRAME_PROPERTY sObject = Marshal.PtrToStructure<FRAME_PROPERTY>(ptr);
+
+                        // 缓存状态数据
+                        frameInfoForm.addFrameInfo(ref sObject);
 
                         Marshal.FreeHGlobal(ptr);
 
@@ -1492,7 +1516,10 @@ namespace YaoCeProcess
 
             // 系统即时状态曲线
             xiTongJiShiSubForm_Ti.clearAllChart();
-            xiTongJiShiSubForm_Ti.clearAllChart();
+            xiTongJiShiSubForm_Tou.clearAllChart();
+
+            // 帧信息曲线
+            frameInfoForm.clearAllChart();
         }
 
         private void timerUpdateLoadFileProgress_Tick(object sender, EventArgs e)
@@ -1573,7 +1600,9 @@ namespace YaoCeProcess
             dHMSubForm_Tou.startTimerUpdateChart(bOpen);
 
             xiTongJiShiSubForm_Ti.startTimerUpdateChart(bOpen);
-            xiTongJiShiSubForm_Ti.startTimerUpdateChart(bOpen);
+            xiTongJiShiSubForm_Tou.startTimerUpdateChart(bOpen);
+
+            frameInfoForm.startTimerUpdateChart(bOpen);
         }
 
         private void timerUpdateHuiLuJianCe_Tick(object sender, EventArgs e)
