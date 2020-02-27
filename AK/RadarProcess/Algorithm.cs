@@ -367,8 +367,8 @@ namespace RadarProcess
             dTemp[2,0] = d_xyz_eC[2] - input.constantCalculateOutput.xyz_e0[2];
             MatrixMul(input.constantCalculateOutput.dGe, 3, 3, dTemp, 1, ref d_xyz_fC);
             output.dxyz[0] = d_xyz_fC[0, 0];
-            output.dxyz[1] = d_xyz_fC[0, 1];
-            output.dxyz[2] = d_xyz_fC[0, 2];
+            output.dxyz[1] = d_xyz_fC[1, 0];
+            output.dxyz[2] = d_xyz_fC[2, 0];
             output.dt_z = d_xyz_fC[2,0];
             /****************************************公式33*******************************************/
             double[] drc_f = new double[]{ 0.0, 0.0, 0.0 };
