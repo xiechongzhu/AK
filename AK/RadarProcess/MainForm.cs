@@ -367,6 +367,7 @@ namespace RadarProcess
             }
             fallPoints.Add(fallPoint);
             List<FallPoint> temp = new List<FallPoint>(fallPoints.ToArray());
+            chartPoints.BeginInit();
             int i = 0;
             while(temp.Count > 0)
             {
@@ -376,6 +377,7 @@ namespace RadarProcess
                 i++;
                 temp.RemoveAt(0);
             }
+            chartPoints.EndInit();
         }
 
         private void CheckPosition(double x, double y, double z)
@@ -426,6 +428,7 @@ namespace RadarProcess
             }
             DisplayFallTimeAndDistance(displayDataList[displayDataList.Count-1].fallTime, displayDataList[displayDataList.Count - 1].distance);
 
+            chartX.BeginInit();
             chartX.Series["位置X"].Points.AddRange(positionXBuffer.ToArray());
             chartX.Series["位置X上限"].Points.AddRange(new SeriesPoint[] {
                 new SeriesPoint(positionXBuffer[0].Argument, Config.GetInstance().locMaxX),
@@ -438,7 +441,9 @@ namespace RadarProcess
             chartX.Titles[0].Text = String.Format("上限差值={0:F},下限差值={1:F}", distanceHigh, distanceLow);
             chartX.Titles[0].TextColor = distanceHigh < 0 || distanceLow < 0 ? Color.Red : Color.Black;
             ((TextAnnotation)chartX.Annotations[0]).Text = String.Format("{0:F}", positionXBuffer[positionXBuffer.Count - 1].Values[0]);
-                
+            chartX.EndInit();
+
+            chartY.BeginInit();
             chartY.Series["位置Y"].Points.AddRange(positionYBuffer.ToArray());
             chartY.Series["位置Y上限"].Points.AddRange(new SeriesPoint[] {
                 new SeriesPoint(positionYBuffer[0].Argument, Config.GetInstance().locMaxY),
@@ -451,7 +456,9 @@ namespace RadarProcess
             chartY.Titles[0].Text = String.Format("上限差值={0:F},下限差值={1:F}", distanceHigh, distanceLow);
             chartY.Titles[0].TextColor = distanceHigh < 0 || distanceLow < 0 ? Color.Red : Color.Black;
             ((TextAnnotation)chartY.Annotations[0]).Text = String.Format("{0:F}", positionYBuffer[positionYBuffer.Count - 1].Values[0]);
+            chartY.EndInit();
 
+            chartZ.BeginInit();
             chartZ.Series["位置Z"].Points.AddRange(positionZBuffer.ToArray());
             chartZ.Series["位置Z上限"].Points.AddRange(new SeriesPoint[] {
                 new SeriesPoint(positionZBuffer[0].Argument, Config.GetInstance().locMaxZ),
@@ -464,7 +471,9 @@ namespace RadarProcess
             chartZ.Titles[0].Text = String.Format("上限差值={0:F},下限差值={1:F}", distanceHigh, distanceLow);
             chartZ.Titles[0].TextColor = distanceHigh < 0 || distanceLow < 0 ? Color.Red : Color.Black;
             ((TextAnnotation)chartZ.Annotations[0]).Text = String.Format("{0:F}", positionZBuffer[positionZBuffer.Count - 1].Values[0]);
+            chartZ.EndInit();
 
+            chartVx.BeginInit();
             chartVx.Series["速度VX"].Points.AddRange(speedVxBuffer.ToArray());
             chartVx.Series["速度VX上限"].Points.AddRange(new SeriesPoint[] {
                 new SeriesPoint(speedVxBuffer[0].Argument, Config.GetInstance().speedMaxX),
@@ -477,7 +486,9 @@ namespace RadarProcess
             chartVx.Titles[0].Text = String.Format("上限差值={0:F},下限差值={1:F}", distanceHigh, distanceLow);
             chartVx.Titles[0].TextColor = distanceHigh < 0 || distanceLow < 0 ? Color.Red : Color.Black;
             ((TextAnnotation)chartVx.Annotations[0]).Text = String.Format("{0:F}", speedVxBuffer[speedVxBuffer.Count - 1].Values[0]);
+            chartVx.EndInit();
 
+            chartVy.BeginInit();
             chartVy.Series["速度VY"].Points.AddRange(speedVyBuffer.ToArray());
             chartVy.Series["速度VY上限"].Points.AddRange(new SeriesPoint[] {
                 new SeriesPoint(speedVyBuffer[0].Argument, Config.GetInstance().speedMaxY),
@@ -490,7 +501,9 @@ namespace RadarProcess
             chartVy.Titles[0].Text = String.Format("上限差值={0:F},下限差值={1:F}", distanceHigh, distanceLow);
             chartVy.Titles[0].TextColor = distanceHigh < 0 || distanceLow < 0 ? Color.Red : Color.Black;
             ((TextAnnotation)chartVy.Annotations[0]).Text = String.Format("{0:F}", speedVyBuffer[speedVyBuffer.Count - 1].Values[0]);
+            chartVy.EndInit();
 
+            chartVz.BeginInit();
             chartVz.Series["速度VZ"].Points.AddRange(speedVzBuffer.ToArray());
             chartVz.Series["速度VZ上限"].Points.AddRange(new SeriesPoint[] {
                 new SeriesPoint(speedVzBuffer[0].Argument, Config.GetInstance().speedMaxZ),
@@ -503,6 +516,7 @@ namespace RadarProcess
             chartVz.Titles[0].Text = String.Format("上限差值={0:F},下限差值={1:F}", distanceHigh, distanceLow);
             chartVz.Titles[0].TextColor = distanceHigh < 0 || distanceLow < 0 ? Color.Red : Color.Black;
             ((TextAnnotation)chartVz.Annotations[0]).Text = String.Format("{0:F}", speedVzBuffer[speedVzBuffer.Count - 1].Values[0]);
+            chartVz.EndInit();
 
             displayDataList.Clear();
         }
