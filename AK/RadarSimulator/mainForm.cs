@@ -32,7 +32,7 @@ namespace RadarSimulator
         // 读取工作簿第一张表(此处参数可为下标,也可为表名)
         ISheet sheet = null;
         // 读取当前行数(从1行开始读取，第0行为标题)
-        int curReadLine = 29;
+        int curReadLine = 1;
 
         public mainForm()
         {
@@ -72,25 +72,24 @@ namespace RadarSimulator
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine(ex.Message);
+                        MessageBox.Show(ex.Message);
                         return;
                     }
+                    timer.Interval = int.Parse(editInterval.Text);
+                    timer.Start();
+                    btnSendLoop.Text = "停止";
+                    btnSendOne.Enabled = false;
+                    isLoopSend = true;
                 }
-
-                //-------------------------------------------//
-                timer.Interval = int.Parse(editInterval.Text);
-                timer.Start();
-                btnSendLoop.Text = "停止";
-                btnSendOne.Enabled = false;
-                isLoopSend = true;
             }
             else
             {
                 timer.Stop();
-                btnSendLoop.Text = "循环发送";
+                btnSendLoop.Text = "发送文件";
                 btnSendOne.Enabled = true;
                 isLoopSend = false;
             }
+            curReadLine = 1;
         }
 
         private void btnOpen_Click(object sender, EventArgs e)
@@ -181,10 +180,9 @@ namespace RadarSimulator
                 double Vx = System.Convert.ToDouble(row.GetCell(5).ToString());
                 double Vy = System.Convert.ToDouble(row.GetCell(6).ToString());
                 double Vz = System.Convert.ToDouble(row.GetCell(7).ToString());
-
                 // 发送数据
-                byte[] sendBuffer = BuildPacket(x * 1000, y * 1000, z * 1000,
-                Vx * 1000, Vy * 1000, Vz * 1000);
+                byte[] sendBuffer = BuildPacket(x , y, z,
+                Vx, Vy, Vz);
                 udpClient?.Send(sendBuffer, sendBuffer.Length, editIp.Text, int.Parse(editPort.Text));
             }
             else 
@@ -193,9 +191,9 @@ namespace RadarSimulator
                 fileStream = null;
                 workbook = null;
                 sheet = null;
-
+                curReadLine = 1;
                 timer.Stop();
-                btnSendLoop.Text = "循环发送";
+                btnSendLoop.Text = "发送文件";
                 btnSendOne.Enabled = true;
                 isLoopSend = false;
             }

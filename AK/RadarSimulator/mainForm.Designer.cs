@@ -205,7 +205,7 @@
             this.btnSendLoop.Name = "btnSendLoop";
             this.btnSendLoop.Size = new System.Drawing.Size(75, 23);
             this.btnSendLoop.TabIndex = 17;
-            this.btnSendLoop.Text = "循环发送";
+            this.btnSendLoop.Text = "发送文件";
             this.btnSendLoop.UseVisualStyleBackColor = true;
             this.btnSendLoop.Click += new System.EventHandler(this.btnSendLoop_Click);
             // 

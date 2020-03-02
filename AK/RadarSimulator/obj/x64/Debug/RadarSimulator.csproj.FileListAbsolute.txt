@@ -7,3 +7,10 @@ D:\Git\AK\AK\RadarSimulator\obj\x64\Debug\RadarSimulator.Properties.Resources.re
 D:\Git\AK\AK\RadarSimulator\obj\x64\Debug\RadarSimulator.csproj.GenerateResource.cache
 D:\Git\AK\AK\RadarSimulator\obj\x64\Debug\RadarSimulator.exe
 D:\Git\AK\AK\RadarSimulator\obj\x64\Debug\RadarSimulator.pdb
+D:\Git\AK\AK\RadarSimulator\bin\x64\Debug\ICSharpCode.SharpZipLib.dll
+D:\Git\AK\AK\RadarSimulator\bin\x64\Debug\NPOI.dll
+D:\Git\AK\AK\RadarSimulator\bin\x64\Debug\NPOI.OOXML.dll
+D:\Git\AK\AK\RadarSimulator\bin\x64\Debug\NPOI.OpenXml4Net.dll
+D:\Git\AK\AK\RadarSimulator\bin\x64\Debug\NPOI.OpenXmlFormats.dll
+D:\Git\AK\AK\RadarSimulator\bin\x64\Debug\ICSharpCode.SharpZipLib.xml
+D:\Git\AK\AK\RadarSimulator\obj\x64\Debug\RadarSimulator.csproj.CopyComplete

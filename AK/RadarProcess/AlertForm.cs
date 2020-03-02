@@ -31,11 +31,11 @@ namespace RadarProcess
             }
             if(fallPoint.y < ideaPoint.y - Config.GetInstance().backwardLine)
             {
-                sb.AppendFormat("当前X超出后向必炸线{0:F}m\n", Math.Abs(fallPoint.y - (ideaPoint.y - Config.GetInstance().backwardLine)));
+                sb.AppendFormat("当前Y超出后向必炸线{0:F}m\n", Math.Abs(fallPoint.y - (ideaPoint.y - Config.GetInstance().backwardLine)));
             }
             if(fallPoint.y > ideaPoint.y + Config.GetInstance().forwardLine)
             {
-                sb.AppendFormat("当前X超出前向必炸线{0:F}m\n", Math.Abs(fallPoint.y - (ideaPoint.y + Config.GetInstance().forwardLine)));
+                sb.AppendFormat("当前Y超出前向必炸线{0:F}m\n", Math.Abs(fallPoint.y - (ideaPoint.y + Config.GetInstance().forwardLine)));
             }
             sb.AppendFormat("剩余落地时间:{0:F}s",fallTime);
             AlertLabel.Text = sb.ToString();

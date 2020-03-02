@@ -44,74 +44,82 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(13, 13);
+            this.labelControl1.Location = new System.Drawing.Point(6, 6);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(120, 29);
+            this.labelControl1.Size = new System.Drawing.Size(60, 12);
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "试验名称：";
             // 
             // editTestName
             // 
-            this.editTestName.Location = new System.Drawing.Point(149, 6);
+            this.editTestName.Location = new System.Drawing.Point(74, 3);
+            this.editTestName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.editTestName.Name = "editTestName";
-            this.editTestName.Size = new System.Drawing.Size(200, 44);
+            this.editTestName.Size = new System.Drawing.Size(100, 18);
             this.editTestName.TabIndex = 1;
             // 
             // editOperator
             // 
-            this.editOperator.Location = new System.Drawing.Point(515, 6);
+            this.editOperator.Location = new System.Drawing.Point(258, 3);
+            this.editOperator.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.editOperator.Name = "editOperator";
-            this.editOperator.Size = new System.Drawing.Size(200, 44);
+            this.editOperator.Size = new System.Drawing.Size(100, 18);
             this.editOperator.TabIndex = 3;
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(379, 13);
+            this.labelControl2.Location = new System.Drawing.Point(190, 6);
+            this.labelControl2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(120, 29);
+            this.labelControl2.Size = new System.Drawing.Size(60, 12);
             this.labelControl2.TabIndex = 2;
             this.labelControl2.Text = "试验人员：";
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(13, 64);
+            this.labelControl3.Location = new System.Drawing.Point(6, 32);
+            this.labelControl3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(72, 29);
+            this.labelControl3.Size = new System.Drawing.Size(36, 12);
             this.labelControl3.TabIndex = 4;
             this.labelControl3.Text = "备注：";
             // 
             // editComment
             // 
-            this.editComment.Location = new System.Drawing.Point(149, 75);
+            this.editComment.Location = new System.Drawing.Point(74, 38);
+            this.editComment.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.editComment.Name = "editComment";
-            this.editComment.Size = new System.Drawing.Size(566, 289);
+            this.editComment.Size = new System.Drawing.Size(283, 144);
             this.editComment.TabIndex = 5;
             // 
             // btnOK
             // 
-            this.btnOK.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.btnOK.Location = new System.Drawing.Point(390, 370);
+            this.btnOK.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnOK.ImageOptions.Image")));
+            this.btnOK.Location = new System.Drawing.Point(195, 185);
+            this.btnOK.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(150, 68);
+            this.btnOK.Size = new System.Drawing.Size(75, 34);
             this.btnOK.TabIndex = 6;
             this.btnOK.Text = "确定";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // btnCancel
             // 
-            this.btnCancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
-            this.btnCancel.Location = new System.Drawing.Point(565, 370);
+            this.btnCancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.ImageOptions.Image")));
+            this.btnCancel.Location = new System.Drawing.Point(282, 185);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(150, 68);
+            this.btnCancel.Size = new System.Drawing.Size(75, 34);
             this.btnCancel.TabIndex = 7;
             this.btnCancel.Text = "取消";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // TestInfoForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(743, 450);
+            this.ClientSize = new System.Drawing.Size(372, 225);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.editComment);
@@ -121,6 +129,7 @@
             this.Controls.Add(this.editTestName);
             this.Controls.Add(this.labelControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "TestInfoForm";

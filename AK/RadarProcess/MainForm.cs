@@ -29,7 +29,6 @@ namespace RadarProcess
             public double vz;
             public FallPoint fallPoint;
             public double fallTime;
-            public double distance;
         }
 
         public enum FlashType : uint
@@ -324,21 +323,22 @@ namespace RadarProcess
                     IntPtr ptr = m.LParam;
                     S_OBJECT sObject = Marshal.PtrToStructure<S_OBJECT>(ptr);
                     historyData.AddObject(sObject);
+                    FallPoint fallPoint = null;
+                    double fallTime = 0;
                     try
                     {
-                        FallPoint fallPoint;
-                        double fallTime;
                         algorithm.CalcResult(Config.GetInstance().longitudeInit, sObject.X, sObject.Y, sObject.Z,
                             sObject.VX, sObject.VY, sObject.VZ, constLaunchFsx,
                             Config.GetInstance().placementHeight, out fallPoint, out fallTime);
                         CheckFallPoint(fallPoint, fallTime);
                         historyData.AddFallPoint(fallPoint);
-                        AddDisplayData(CHART_ITEM_INDEX++, sObject.X, sObject.Y, sObject.Z,
-                            sObject.VX, sObject.VY, sObject.VZ, fallPoint, fallTime, fallPoint.y);
-                        CheckPosition(sObject.X, sObject.Y, sObject.Z);
-                        CheckSpeed(sObject.VX, sObject.VY, sObject.VZ);
                     }
                     catch (Exception) { }
+                    
+                    AddDisplayData(CHART_ITEM_INDEX++, sObject.X, sObject.Y, sObject.Z,
+                        sObject.VX, sObject.VY, sObject.VZ, fallPoint, fallTime, fallPoint == null ? 0: fallPoint.y);
+                    CheckPosition(sObject.X, sObject.Y, sObject.Z);
+                    CheckSpeed(sObject.VX, sObject.VY, sObject.VZ);
                     Marshal.FreeHGlobal(ptr);
                     break;
                 default:
@@ -360,30 +360,17 @@ namespace RadarProcess
                 vy = vy,
                 vz = vz,
                 fallPoint = fallPoint,
-                fallTime = fallTime,
-                distance = distance
+                fallTime = fallTime
             });
         }
 
         private void AddPointOfFall(FallPoint fallPoint)
         {
-            if(fallPoints.Count == 5)
+            if (fallPoint != null)
             {
-                fallPoints.RemoveAt(0);
+                chartPoints.Series["预测落点"].Points.Clear();
+                chartPoints.Series["预测落点"].Points.Add(new SeriesPoint(fallPoint.x, fallPoint.y));
             }
-            fallPoints.Add(fallPoint);
-            List<FallPoint> temp = new List<FallPoint>(fallPoints.ToArray());
-            chartPoints.BeginInit();
-            int i = 0;
-            while(temp.Count > 0)
-            {
-                FallPoint point = temp[0];
-                chartPoints.Series[String.Format("落点{0}", i+1)].Points.Clear();
-                chartPoints.Series[String.Format("落点{0}", i+1)].Points.Add(new SeriesPoint(point.x, point.y));
-                i++;
-                temp.RemoveAt(0);
-            }
-            chartPoints.EndInit();
         }
 
         private void CheckPosition(double x, double y, double z)
@@ -432,7 +419,10 @@ namespace RadarProcess
                 speedVzBuffer.Add(new SeriesPoint(displayData.coordinate, displayData.vz));
                 AddPointOfFall(displayData.fallPoint);   
             }
-            DisplayFallTimeAndDistance(displayDataList[displayDataList.Count-1].fallTime, displayDataList[displayDataList.Count - 1].distance);
+            if (displayDataList[displayDataList.Count - 1].fallPoint != null)
+            {
+                DisplayFallTimeAndDistance(displayDataList[displayDataList.Count - 1].fallTime, displayDataList[displayDataList.Count - 1].fallPoint.y);
+            }
 
             chartX.BeginInit();
             chartX.Series["位置X"].Points.AddRange(positionXBuffer.ToArray());
@@ -551,10 +541,10 @@ namespace RadarProcess
 
         private void CheckFallPoint(FallPoint fallPoint, double fallTime)
         {
-            if(fallPoint.x < ideaPoint.x - Config.GetInstance().sideLine ||
-                fallPoint.x > ideaPoint.x + Config.GetInstance().sideLine ||
-                fallPoint.y < ideaPoint.y - Config.GetInstance().backwardLine ||
-                fallPoint.y > ideaPoint.y + Config.GetInstance().forwardLine)
+            if(fallPoint.x < Config.GetInstance().sideLine ||
+                fallPoint.x >Config.GetInstance().sideLine ||
+                fallPoint.y < Config.GetInstance().backwardLine ||
+                fallPoint.y > Config.GetInstance().forwardLine)
             {
                 ShowAlert();
                 alertForm.SetAlert(ideaPoint, fallPoint, fallTime);
@@ -599,10 +589,10 @@ namespace RadarProcess
             ideaPoint = Algorithm.CalcIdeaPointOfFall();
             chartPoints.Series["理想落点"].Points.Add(new SeriesPoint(ideaPoint.x, ideaPoint.y));
             historyData.IdeaFallPoint = ideaPoint;
-            chartPoints.Series["必炸线"].Points.Add(new SeriesPoint(ideaPoint.x - Config.GetInstance().sideLine,
-                ideaPoint.y + Config.GetInstance().forwardLine, ideaPoint.y - Config.GetInstance().backwardLine));
-            chartPoints.Series["必炸线"].Points.Add(new SeriesPoint(ideaPoint.x + Config.GetInstance().sideLine,
-                ideaPoint.y + Config.GetInstance().forwardLine, ideaPoint.y - Config.GetInstance().backwardLine));
+            chartPoints.Series["必炸线"].Points.Add(new SeriesPoint(- Config.GetInstance().sideLine,
+                Config.GetInstance().forwardLine, Config.GetInstance().backwardLine));
+            chartPoints.Series["必炸线"].Points.Add(new SeriesPoint(Config.GetInstance().sideLine,
+                Config.GetInstance().forwardLine, Config.GetInstance().backwardLine));
         }
 
         private void InitSpeedMaxMin()

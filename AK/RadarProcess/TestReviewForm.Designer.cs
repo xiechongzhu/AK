@@ -241,31 +241,31 @@
             // 
             // editTestDate
             // 
-            this.editTestDate.Location = new System.Drawing.Point(584, 12);
+            this.editTestDate.Location = new System.Drawing.Point(586, 12);
             this.editTestDate.Margin = new System.Windows.Forms.Padding(2);
             this.editTestDate.Name = "editTestDate";
             this.editTestDate.Properties.ReadOnly = true;
-            this.editTestDate.Size = new System.Drawing.Size(240, 20);
+            this.editTestDate.Size = new System.Drawing.Size(238, 18);
             this.editTestDate.StyleController = this.layoutControl1;
             this.editTestDate.TabIndex = 7;
             // 
             // editOperator
             // 
-            this.editOperator.Location = new System.Drawing.Point(298, 12);
+            this.editOperator.Location = new System.Drawing.Point(300, 12);
             this.editOperator.Margin = new System.Windows.Forms.Padding(2);
             this.editOperator.Name = "editOperator";
             this.editOperator.Properties.ReadOnly = true;
-            this.editOperator.Size = new System.Drawing.Size(227, 20);
+            this.editOperator.Size = new System.Drawing.Size(225, 18);
             this.editOperator.StyleController = this.layoutControl1;
             this.editOperator.TabIndex = 6;
             // 
             // editTestName
             // 
-            this.editTestName.Location = new System.Drawing.Point(67, 12);
+            this.editTestName.Location = new System.Drawing.Point(69, 12);
             this.editTestName.Margin = new System.Windows.Forms.Padding(2);
             this.editTestName.Name = "editTestName";
             this.editTestName.Properties.ReadOnly = true;
-            this.editTestName.Size = new System.Drawing.Size(172, 20);
+            this.editTestName.Size = new System.Drawing.Size(170, 18);
             this.editTestName.StyleController = this.layoutControl1;
             this.editTestName.TabIndex = 5;
             // 
@@ -280,7 +280,7 @@
             this.layoutControlItem1,
             this.layoutControlItem3});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(1408, 44);
+            this.Root.Size = new System.Drawing.Size(1408, 42);
             this.Root.TextVisible = false;
             // 
             // emptySpaceItem1
@@ -288,7 +288,7 @@
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(816, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(572, 24);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(572, 22);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem2
@@ -296,27 +296,27 @@
             this.layoutControlItem2.Control = this.editTestName;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(231, 24);
+            this.layoutControlItem2.Size = new System.Drawing.Size(231, 22);
             this.layoutControlItem2.Text = "试验名称:";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(52, 14);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(54, 12);
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.editOperator;
             this.layoutControlItem1.Location = new System.Drawing.Point(231, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(286, 24);
+            this.layoutControlItem1.Size = new System.Drawing.Size(286, 22);
             this.layoutControlItem1.Text = "试验人员:";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(52, 14);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(54, 12);
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.editTestDate;
             this.layoutControlItem3.Location = new System.Drawing.Point(517, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(299, 24);
+            this.layoutControlItem3.Size = new System.Drawing.Size(299, 22);
             this.layoutControlItem3.Text = "试验时间:";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(52, 14);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(54, 12);
             // 
             // layoutControl2
             // 
@@ -344,11 +344,11 @@
             // 
             // editComment
             // 
-            this.editComment.Location = new System.Drawing.Point(43, 12);
+            this.editComment.Location = new System.Drawing.Point(45, 12);
             this.editComment.Margin = new System.Windows.Forms.Padding(2);
             this.editComment.Name = "editComment";
             this.editComment.Properties.ReadOnly = true;
-            this.editComment.Size = new System.Drawing.Size(1264, 36);
+            this.editComment.Size = new System.Drawing.Size(1262, 36);
             this.editComment.StyleController = this.layoutControl2;
             this.editComment.TabIndex = 4;
             // 
@@ -370,7 +370,7 @@
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Size = new System.Drawing.Size(1299, 40);
             this.layoutControlItem4.Text = "备注:";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(28, 14);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(30, 12);
             // 
             // layoutControlItem14
             // 

@@ -231,7 +231,7 @@
             this.editLongitudeInit.Location = new System.Drawing.Point(122, 6);
             this.editLongitudeInit.Margin = new System.Windows.Forms.Padding(2);
             this.editLongitudeInit.Name = "editLongitudeInit";
-            this.editLongitudeInit.Size = new System.Drawing.Size(101, 20);
+            this.editLongitudeInit.Size = new System.Drawing.Size(101, 18);
             this.editLongitudeInit.TabIndex = 2;
             // 
             // editLatitudeInit
@@ -239,7 +239,7 @@
             this.editLatitudeInit.Location = new System.Drawing.Point(354, 6);
             this.editLatitudeInit.Margin = new System.Windows.Forms.Padding(2);
             this.editLatitudeInit.Name = "editLatitudeInit";
-            this.editLatitudeInit.Size = new System.Drawing.Size(102, 20);
+            this.editLatitudeInit.Size = new System.Drawing.Size(102, 18);
             this.editLatitudeInit.TabIndex = 4;
             // 
             // labelControl2
@@ -269,7 +269,7 @@
             this.editAzimuthInit.Location = new System.Drawing.Point(122, 43);
             this.editAzimuthInit.Margin = new System.Windows.Forms.Padding(2);
             this.editAzimuthInit.Name = "editAzimuthInit";
-            this.editAzimuthInit.Size = new System.Drawing.Size(101, 20);
+            this.editAzimuthInit.Size = new System.Drawing.Size(101, 18);
             this.editAzimuthInit.TabIndex = 6;
             // 
             // editHeightInit
@@ -277,7 +277,7 @@
             this.editHeightInit.Location = new System.Drawing.Point(592, 6);
             this.editHeightInit.Margin = new System.Windows.Forms.Padding(2);
             this.editHeightInit.Name = "editHeightInit";
-            this.editHeightInit.Size = new System.Drawing.Size(100, 20);
+            this.editHeightInit.Size = new System.Drawing.Size(100, 18);
             this.editHeightInit.TabIndex = 8;
             // 
             // labelControl4
@@ -296,7 +296,7 @@
             this.editPlacementHeight.Location = new System.Drawing.Point(354, 44);
             this.editPlacementHeight.Margin = new System.Windows.Forms.Padding(2);
             this.editPlacementHeight.Name = "editPlacementHeight";
-            this.editPlacementHeight.Size = new System.Drawing.Size(102, 20);
+            this.editPlacementHeight.Size = new System.Drawing.Size(102, 18);
             this.editPlacementHeight.TabIndex = 10;
             // 
             // labelControl5
@@ -315,7 +315,7 @@
             this.editForwardLine.Location = new System.Drawing.Point(122, 80);
             this.editForwardLine.Margin = new System.Windows.Forms.Padding(2);
             this.editForwardLine.Name = "editForwardLine";
-            this.editForwardLine.Size = new System.Drawing.Size(101, 20);
+            this.editForwardLine.Size = new System.Drawing.Size(101, 18);
             this.editForwardLine.TabIndex = 12;
             // 
             // labelControl6
@@ -334,7 +334,7 @@
             this.editBackLine.Location = new System.Drawing.Point(354, 80);
             this.editBackLine.Margin = new System.Windows.Forms.Padding(2);
             this.editBackLine.Name = "editBackLine";
-            this.editBackLine.Size = new System.Drawing.Size(102, 20);
+            this.editBackLine.Size = new System.Drawing.Size(102, 18);
             this.editBackLine.TabIndex = 14;
             // 
             // labelControl7
@@ -353,7 +353,7 @@
             this.editSideLine.Location = new System.Drawing.Point(592, 80);
             this.editSideLine.Margin = new System.Windows.Forms.Padding(2);
             this.editSideLine.Name = "editSideLine";
-            this.editSideLine.Size = new System.Drawing.Size(100, 20);
+            this.editSideLine.Size = new System.Drawing.Size(100, 18);
             this.editSideLine.TabIndex = 16;
             // 
             // labelControl8
@@ -372,7 +372,7 @@
             this.editLocMaxX.Location = new System.Drawing.Point(122, 116);
             this.editLocMaxX.Margin = new System.Windows.Forms.Padding(2);
             this.editLocMaxX.Name = "editLocMaxX";
-            this.editLocMaxX.Size = new System.Drawing.Size(101, 20);
+            this.editLocMaxX.Size = new System.Drawing.Size(101, 18);
             this.editLocMaxX.TabIndex = 18;
             // 
             // labelControl9
@@ -391,7 +391,7 @@
             this.editLocMaxY.Location = new System.Drawing.Point(354, 116);
             this.editLocMaxY.Margin = new System.Windows.Forms.Padding(2);
             this.editLocMaxY.Name = "editLocMaxY";
-            this.editLocMaxY.Size = new System.Drawing.Size(102, 20);
+            this.editLocMaxY.Size = new System.Drawing.Size(102, 18);
             this.editLocMaxY.TabIndex = 20;
             // 
             // labelControl10
@@ -410,7 +410,7 @@
             this.editLocMaxZ.Location = new System.Drawing.Point(592, 116);
             this.editLocMaxZ.Margin = new System.Windows.Forms.Padding(2);
             this.editLocMaxZ.Name = "editLocMaxZ";
-            this.editLocMaxZ.Size = new System.Drawing.Size(100, 20);
+            this.editLocMaxZ.Size = new System.Drawing.Size(100, 18);
             this.editLocMaxZ.TabIndex = 22;
             // 
             // labelControl11
@@ -429,7 +429,7 @@
             this.editLocMinZ.Location = new System.Drawing.Point(592, 152);
             this.editLocMinZ.Margin = new System.Windows.Forms.Padding(2);
             this.editLocMinZ.Name = "editLocMinZ";
-            this.editLocMinZ.Size = new System.Drawing.Size(100, 20);
+            this.editLocMinZ.Size = new System.Drawing.Size(100, 18);
             this.editLocMinZ.TabIndex = 28;
             // 
             // labelControl12
@@ -448,7 +448,7 @@
             this.editLocMinY.Location = new System.Drawing.Point(354, 152);
             this.editLocMinY.Margin = new System.Windows.Forms.Padding(2);
             this.editLocMinY.Name = "editLocMinY";
-            this.editLocMinY.Size = new System.Drawing.Size(102, 20);
+            this.editLocMinY.Size = new System.Drawing.Size(102, 18);
             this.editLocMinY.TabIndex = 26;
             // 
             // labelControl13
@@ -467,7 +467,7 @@
             this.editLocMinX.Location = new System.Drawing.Point(122, 152);
             this.editLocMinX.Margin = new System.Windows.Forms.Padding(2);
             this.editLocMinX.Name = "editLocMinX";
-            this.editLocMinX.Size = new System.Drawing.Size(101, 20);
+            this.editLocMinX.Size = new System.Drawing.Size(101, 18);
             this.editLocMinX.TabIndex = 24;
             // 
             // labelControl14
@@ -486,7 +486,7 @@
             this.editSpeedMinZ.Location = new System.Drawing.Point(592, 223);
             this.editSpeedMinZ.Margin = new System.Windows.Forms.Padding(2);
             this.editSpeedMinZ.Name = "editSpeedMinZ";
-            this.editSpeedMinZ.Size = new System.Drawing.Size(101, 20);
+            this.editSpeedMinZ.Size = new System.Drawing.Size(101, 18);
             this.editSpeedMinZ.TabIndex = 40;
             // 
             // labelControl15
@@ -505,7 +505,7 @@
             this.editSpeedMinY.Location = new System.Drawing.Point(354, 222);
             this.editSpeedMinY.Margin = new System.Windows.Forms.Padding(2);
             this.editSpeedMinY.Name = "editSpeedMinY";
-            this.editSpeedMinY.Size = new System.Drawing.Size(102, 20);
+            this.editSpeedMinY.Size = new System.Drawing.Size(102, 18);
             this.editSpeedMinY.TabIndex = 38;
             // 
             // labelControl16
@@ -524,7 +524,7 @@
             this.editSpeedMinX.Location = new System.Drawing.Point(122, 222);
             this.editSpeedMinX.Margin = new System.Windows.Forms.Padding(2);
             this.editSpeedMinX.Name = "editSpeedMinX";
-            this.editSpeedMinX.Size = new System.Drawing.Size(101, 20);
+            this.editSpeedMinX.Size = new System.Drawing.Size(101, 18);
             this.editSpeedMinX.TabIndex = 36;
             // 
             // labelControl17
@@ -543,7 +543,7 @@
             this.editSpeedMaxZ.Location = new System.Drawing.Point(592, 187);
             this.editSpeedMaxZ.Margin = new System.Windows.Forms.Padding(2);
             this.editSpeedMaxZ.Name = "editSpeedMaxZ";
-            this.editSpeedMaxZ.Size = new System.Drawing.Size(102, 20);
+            this.editSpeedMaxZ.Size = new System.Drawing.Size(102, 18);
             this.editSpeedMaxZ.TabIndex = 34;
             // 
             // labelControl18
@@ -562,7 +562,7 @@
             this.editSpeedMaxY.Location = new System.Drawing.Point(354, 187);
             this.editSpeedMaxY.Margin = new System.Windows.Forms.Padding(2);
             this.editSpeedMaxY.Name = "editSpeedMaxY";
-            this.editSpeedMaxY.Size = new System.Drawing.Size(102, 20);
+            this.editSpeedMaxY.Size = new System.Drawing.Size(102, 18);
             this.editSpeedMaxY.TabIndex = 32;
             // 
             // labelControl19
@@ -581,7 +581,7 @@
             this.editSpeedMaxX.Location = new System.Drawing.Point(122, 187);
             this.editSpeedMaxX.Margin = new System.Windows.Forms.Padding(2);
             this.editSpeedMaxX.Name = "editSpeedMaxX";
-            this.editSpeedMaxX.Size = new System.Drawing.Size(101, 20);
+            this.editSpeedMaxX.Size = new System.Drawing.Size(101, 18);
             this.editSpeedMaxX.TabIndex = 30;
             // 
             // labelControl20
@@ -600,7 +600,7 @@
             this.editMultiCastIp.Location = new System.Drawing.Point(64, 272);
             this.editMultiCastIp.Margin = new System.Windows.Forms.Padding(2);
             this.editMultiCastIp.Name = "editMultiCastIp";
-            this.editMultiCastIp.Size = new System.Drawing.Size(118, 20);
+            this.editMultiCastIp.Size = new System.Drawing.Size(118, 18);
             this.editMultiCastIp.TabIndex = 42;
             // 
             // labelControl21
@@ -630,7 +630,7 @@
             this.editPort.Location = new System.Drawing.Point(234, 272);
             this.editPort.Margin = new System.Windows.Forms.Padding(2);
             this.editPort.Name = "editPort";
-            this.editPort.Size = new System.Drawing.Size(88, 20);
+            this.editPort.Size = new System.Drawing.Size(88, 18);
             this.editPort.TabIndex = 44;
             // 
             // labelControl23
@@ -649,7 +649,7 @@
             this.editFligtShot.Location = new System.Drawing.Point(592, 43);
             this.editFligtShot.Margin = new System.Windows.Forms.Padding(2);
             this.editFligtShot.Name = "editFligtShot";
-            this.editFligtShot.Size = new System.Drawing.Size(100, 20);
+            this.editFligtShot.Size = new System.Drawing.Size(100, 18);
             this.editFligtShot.TabIndex = 46;
             // 
             // SettingForm
