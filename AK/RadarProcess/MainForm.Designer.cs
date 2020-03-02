@@ -491,12 +491,12 @@
             pointSeriesView1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(187)))), ((int)(((byte)(89)))));
             series1.View = pointSeriesView1;
             series2.Name = "预测落点";
-            pointSeriesView2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(80)))), ((int)(((byte)(77)))));
+            pointSeriesView2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             series2.View = pointSeriesView2;
             series3.Name = "必炸线";
             series3.SeriesPointsSorting = DevExpress.XtraCharts.SortingMode.Ascending;
-            rangeAreaSeriesView1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(198)))), ((int)(((byte)(217)))), ((int)(((byte)(240)))));
-            rangeAreaSeriesView1.Transparency = ((byte)(100));
+            rangeAreaSeriesView1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(198)))), ((int)(((byte)(217)))), ((int)(((byte)(240)))));
+            rangeAreaSeriesView1.Transparency = ((byte)(200));
             series3.View = rangeAreaSeriesView1;
             this.chartPoints.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series1,

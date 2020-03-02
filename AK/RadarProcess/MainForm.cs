@@ -541,7 +541,7 @@ namespace RadarProcess
 
         private void CheckFallPoint(FallPoint fallPoint, double fallTime)
         {
-            if(fallPoint.x < Config.GetInstance().sideLine ||
+            if(fallPoint.x < -Config.GetInstance().sideLine ||
                 fallPoint.x >Config.GetInstance().sideLine ||
                 fallPoint.y < Config.GetInstance().backwardLine ||
                 fallPoint.y > Config.GetInstance().forwardLine)
@@ -549,7 +549,7 @@ namespace RadarProcess
                 ShowAlert();
                 alertForm.SetAlert(ideaPoint, fallPoint, fallTime);
                 alertForm.Show();
-                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, String.Format("落点超出范围:X={0},Y={1}", fallPoint.x, fallPoint.y));
+                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_ERROR, String.Format("落点超出范围:X={0},Y={1}", fallPoint.x, fallPoint.y));
             }
             else
             {
