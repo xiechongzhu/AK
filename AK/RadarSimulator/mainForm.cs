@@ -185,7 +185,11 @@ namespace RadarSimulator
                 Vx, Vy, Vz);
                 udpClient?.Send(sendBuffer, sendBuffer.Length, editIp.Text, int.Parse(editPort.Text));
             }
-            else 
+            else
+            {
+                curReadLine = 1;
+            }
+            /*else 
             {
                 // 释放资源
                 fileStream = null;
@@ -196,7 +200,7 @@ namespace RadarSimulator
                 btnSendLoop.Text = "发送文件";
                 btnSendOne.Enabled = true;
                 isLoopSend = false;
-            }
+            }*/
         }
 
         //统一对话框

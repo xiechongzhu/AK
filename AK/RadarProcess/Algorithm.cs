@@ -76,13 +76,14 @@ namespace RadarProcess
 
 
         public void CalcResult(double lambda0, double x, double y, double z, double vx, double vy, double vz, ConstLaunchFsx launchFsx, double h_end,
-            out FallPoint fallPoint, out double fallTime)
+            out FallPoint fallPoint, out double fallTime, out double distance)
         {
             CalculateOutput output = calc_target_fsx(lambda0, x, y, z, vx, vy, vz, launchFsx, h_end);
             fallPoint = new FallPoint {
-                x = output.t_z,
-                y = output.t_range
+                x = output.z,
+                y = output.x
             };
+            distance = output.t_range;
             fallTime = output.flighttime;
         }
 

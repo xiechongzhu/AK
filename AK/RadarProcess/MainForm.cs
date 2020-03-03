@@ -29,6 +29,7 @@ namespace RadarProcess
             public double vz;
             public FallPoint fallPoint;
             public double fallTime;
+            public double distance;
         }
 
         public enum FlashType : uint
@@ -88,6 +89,7 @@ namespace RadarProcess
         private ConstLaunchFsx constLaunchFsx;
         private AlertForm alertForm = new AlertForm();
         List<ListViewItem> logItemList = new List<ListViewItem>();
+        private readonly int MAX_CHART_POINTS = 3000; 
 
         public MainForm()
         {
@@ -324,19 +326,20 @@ namespace RadarProcess
                     S_OBJECT sObject = Marshal.PtrToStructure<S_OBJECT>(ptr);
                     historyData.AddObject(sObject);
                     FallPoint fallPoint = null;
+                    double distance = 0;
                     double fallTime = 0;
                     try
                     {
                         algorithm.CalcResult(Config.GetInstance().longitudeInit, sObject.X, sObject.Y, sObject.Z,
                             sObject.VX, sObject.VY, sObject.VZ, constLaunchFsx,
-                            Config.GetInstance().placementHeight, out fallPoint, out fallTime);
+                            Config.GetInstance().placementHeight, out fallPoint, out fallTime, out distance);
                         CheckFallPoint(fallPoint, fallTime);
                         historyData.AddFallPoint(fallPoint);
                     }
                     catch (Exception) { }
                     
                     AddDisplayData(CHART_ITEM_INDEX++, sObject.X, sObject.Y, sObject.Z,
-                        sObject.VX, sObject.VY, sObject.VZ, fallPoint, fallTime, fallPoint == null ? 0: fallPoint.y);
+                        sObject.VX, sObject.VY, sObject.VZ, fallPoint, fallTime, distance);
                     CheckPosition(sObject.X, sObject.Y, sObject.Z);
                     CheckSpeed(sObject.VX, sObject.VY, sObject.VZ);
                     Marshal.FreeHGlobal(ptr);
@@ -360,7 +363,8 @@ namespace RadarProcess
                 vy = vy,
                 vz = vz,
                 fallPoint = fallPoint,
-                fallTime = fallTime
+                fallTime = fallTime,
+                distance = distance
             });
         }
 
@@ -419,19 +423,23 @@ namespace RadarProcess
                 speedVzBuffer.Add(new SeriesPoint(displayData.coordinate, displayData.vz));
                 AddPointOfFall(displayData.fallPoint);   
             }
-            if (displayDataList[displayDataList.Count - 1].fallPoint != null)
-            {
-                DisplayFallTimeAndDistance(displayDataList[displayDataList.Count - 1].fallTime, displayDataList[displayDataList.Count - 1].fallPoint.y);
-            }
+
+            DisplayFallTimeAndDistance(displayDataList[displayDataList.Count - 1].fallTime, displayDataList[displayDataList.Count - 1].distance);
 
             chartX.BeginInit();
             chartX.Series["位置X"].Points.AddRange(positionXBuffer.ToArray());
+            if(chartX.Series["位置X"].Points.Count > MAX_CHART_POINTS)
+            {
+                chartX.Series["位置X"].Points.RemoveRange(0, chartX.Series["位置X"].Points.Count - MAX_CHART_POINTS);
+            }
+            chartX.Series["位置X上限"].Points.Clear();
             chartX.Series["位置X上限"].Points.AddRange(new SeriesPoint[] {
-                new SeriesPoint(positionXBuffer[0].Argument, Config.GetInstance().locMaxX),
-                new SeriesPoint(positionXBuffer[positionXBuffer.Count-1].Argument, Config.GetInstance().locMaxX) });
+                new SeriesPoint(chartX.Series["位置X"].Points[0].Argument, Config.GetInstance().locMaxX),
+                new SeriesPoint(chartX.Series["位置X"].Points[chartX.Series["位置X"].Points.Count-1].Argument, Config.GetInstance().locMaxX) });
+            chartX.Series["位置X下限"].Points.Clear();
             chartX.Series["位置X下限"].Points.AddRange(new SeriesPoint[] {
-                new SeriesPoint(positionXBuffer[0].Argument, Config.GetInstance().locMinX),
-                new SeriesPoint(positionXBuffer[positionXBuffer.Count-1].Argument, Config.GetInstance().locMinX) });
+                new SeriesPoint(chartX.Series["位置X"].Points[0].Argument, Config.GetInstance().locMinX),
+                new SeriesPoint(chartX.Series["位置X"].Points[chartX.Series["位置X"].Points.Count-1].Argument, Config.GetInstance().locMinX) });
             double distanceHigh = Config.GetInstance().locMaxX - positionXBuffer[positionXBuffer.Count - 1].Values[0];
             double distanceLow = positionXBuffer[positionXBuffer.Count - 1].Values[0] - Config.GetInstance().locMinX;
             chartX.Titles[0].Text = String.Format("上限差值={0:F},下限差值={1:F}", distanceHigh, distanceLow);
@@ -441,12 +449,18 @@ namespace RadarProcess
 
             chartY.BeginInit();
             chartY.Series["位置Y"].Points.AddRange(positionYBuffer.ToArray());
+            if(chartY.Series["位置Y"].Points.Count > MAX_CHART_POINTS)
+            {
+                chartY.Series["位置Y"].Points.RemoveRange(0, chartY.Series["位置Y"].Points.Count - MAX_CHART_POINTS);
+            }
+            chartY.Series["位置Y上限"].Points.Clear();
             chartY.Series["位置Y上限"].Points.AddRange(new SeriesPoint[] {
-                new SeriesPoint(positionYBuffer[0].Argument, Config.GetInstance().locMaxY),
-                new SeriesPoint(positionYBuffer[positionYBuffer.Count-1].Argument, Config.GetInstance().locMaxY) });
+                new SeriesPoint(chartY.Series["位置Y"].Points[0].Argument, Config.GetInstance().locMaxY),
+                new SeriesPoint(chartY.Series["位置Y"].Points[chartY.Series["位置Y"].Points.Count-1].Argument, Config.GetInstance().locMaxY) });
+            chartY.Series["位置Y下限"].Points.Clear();
             chartY.Series["位置Y下限"].Points.AddRange(new SeriesPoint[] {
-                new SeriesPoint(positionYBuffer[0].Argument, Config.GetInstance().locMinY),
-                new SeriesPoint(positionYBuffer[positionYBuffer.Count-1].Argument, Config.GetInstance().locMinY) });
+                new SeriesPoint(chartY.Series["位置Y"].Points[0].Argument, Config.GetInstance().locMinY),
+                new SeriesPoint(chartY.Series["位置Y"].Points[chartY.Series["位置Y"].Points.Count-1].Argument, Config.GetInstance().locMinY) });
             distanceHigh = Config.GetInstance().locMaxY - positionYBuffer[positionYBuffer.Count - 1].Values[0];
             distanceLow = positionYBuffer[positionYBuffer.Count - 1].Values[0] - Config.GetInstance().locMinY;
             chartY.Titles[0].Text = String.Format("上限差值={0:F},下限差值={1:F}", distanceHigh, distanceLow);
@@ -456,12 +470,18 @@ namespace RadarProcess
 
             chartZ.BeginInit();
             chartZ.Series["位置Z"].Points.AddRange(positionZBuffer.ToArray());
+            if (chartZ.Series["位置Z"].Points.Count > MAX_CHART_POINTS)
+            {
+                chartZ.Series["位置Z"].Points.RemoveRange(0, chartZ.Series["位置Z"].Points.Count - MAX_CHART_POINTS);
+            }
+            chartZ.Series["位置Z上限"].Points.Clear();
             chartZ.Series["位置Z上限"].Points.AddRange(new SeriesPoint[] {
-                new SeriesPoint(positionZBuffer[0].Argument, Config.GetInstance().locMaxZ),
-                new SeriesPoint(positionZBuffer[positionZBuffer.Count-1].Argument, Config.GetInstance().locMaxZ) });
+                new SeriesPoint(chartZ.Series["位置Z"].Points[0].Argument, Config.GetInstance().locMaxZ),
+                new SeriesPoint(chartZ.Series["位置Z"].Points[chartZ.Series["位置Z"].Points.Count-1].Argument, Config.GetInstance().locMaxZ) });
+            chartZ.Series["位置Z下限"].Points.Clear();
             chartZ.Series["位置Z下限"].Points.AddRange(new SeriesPoint[] {
-                new SeriesPoint(positionZBuffer[0].Argument, Config.GetInstance().locMinZ),
-                new SeriesPoint(positionZBuffer[positionZBuffer.Count-1].Argument, Config.GetInstance().locMinZ) });
+                new SeriesPoint(chartZ.Series["位置Z"].Points[0].Argument, Config.GetInstance().locMinZ),
+                new SeriesPoint(chartZ.Series["位置Z"].Points[chartZ.Series["位置Z"].Points.Count-1].Argument, Config.GetInstance().locMinZ) });
             distanceHigh = Config.GetInstance().locMaxZ - positionZBuffer[positionXBuffer.Count - 1].Values[0];
             distanceLow = positionZBuffer[positionZBuffer.Count - 1].Values[0] - Config.GetInstance().locMinZ;
             chartZ.Titles[0].Text = String.Format("上限差值={0:F},下限差值={1:F}", distanceHigh, distanceLow);
@@ -471,12 +491,18 @@ namespace RadarProcess
 
             chartVx.BeginInit();
             chartVx.Series["速度VX"].Points.AddRange(speedVxBuffer.ToArray());
+            if(chartVx.Series["速度VX"].Points.Count > MAX_CHART_POINTS)
+            {
+                chartVx.Series["速度VX"].Points.RemoveRange(0, chartVx.Series["速度VX"].Points.Count - MAX_CHART_POINTS);
+            }
+            chartVx.Series["速度VX上限"].Points.Clear();
             chartVx.Series["速度VX上限"].Points.AddRange(new SeriesPoint[] {
-                new SeriesPoint(speedVxBuffer[0].Argument, Config.GetInstance().speedMaxX),
-                new SeriesPoint(speedVxBuffer[speedVxBuffer.Count-1].Argument, Config.GetInstance().speedMaxX) });
+                new SeriesPoint(chartVx.Series["速度VX"].Points[0].Argument, Config.GetInstance().speedMaxX),
+                new SeriesPoint(chartVx.Series["速度VX"].Points[chartVx.Series["速度VX"].Points.Count-1].Argument, Config.GetInstance().speedMaxX) });
+            chartVx.Series["速度VX下限"].Points.Clear();
             chartVx.Series["速度VX下限"].Points.AddRange(new SeriesPoint[] {
-                new SeriesPoint(speedVxBuffer[0].Argument, Config.GetInstance().speedMinX),
-                new SeriesPoint(speedVxBuffer[speedVxBuffer.Count-1].Argument, Config.GetInstance().speedMinX) });
+                new SeriesPoint(chartVx.Series["速度VX"].Points[0].Argument, Config.GetInstance().speedMinX),
+                new SeriesPoint(chartVx.Series["速度VX"].Points[chartVx.Series["速度VX"].Points.Count-1].Argument, Config.GetInstance().speedMinX) });
             distanceHigh = Config.GetInstance().speedMaxX - speedVxBuffer[speedVxBuffer.Count - 1].Values[0];
             distanceLow = speedVxBuffer[speedVxBuffer.Count - 1].Values[0] - Config.GetInstance().speedMinX;
             chartVx.Titles[0].Text = String.Format("上限差值={0:F},下限差值={1:F}", distanceHigh, distanceLow);
@@ -486,12 +512,18 @@ namespace RadarProcess
 
             chartVy.BeginInit();
             chartVy.Series["速度VY"].Points.AddRange(speedVyBuffer.ToArray());
+            if(chartVy.Series["速度VY"].Points.Count > MAX_CHART_POINTS)
+            {
+                chartVy.Series["速度VY"].Points.RemoveRange(0, chartVy.Series["速度VY"].Points.Count - MAX_CHART_POINTS);
+            }
+            chartVy.Series["速度VY上限"].Points.Clear();
             chartVy.Series["速度VY上限"].Points.AddRange(new SeriesPoint[] {
-                new SeriesPoint(speedVyBuffer[0].Argument, Config.GetInstance().speedMaxY),
-                new SeriesPoint(speedVyBuffer[speedVyBuffer.Count-1].Argument, Config.GetInstance().speedMaxY) });
+                new SeriesPoint(chartVy.Series["速度VY"].Points[0].Argument, Config.GetInstance().speedMaxY),
+                new SeriesPoint(chartVy.Series["速度VY"].Points[chartVy.Series["速度VY"].Points.Count-1].Argument, Config.GetInstance().speedMaxY) });
+            chartVy.Series["速度VY下限"].Points.Clear();
             chartVy.Series["速度VY下限"].Points.AddRange(new SeriesPoint[] {
-                new SeriesPoint(speedVyBuffer[0].Argument, Config.GetInstance().speedMinY),
-                new SeriesPoint(speedVyBuffer[speedVyBuffer.Count-1].Argument, Config.GetInstance().speedMinY) });
+                new SeriesPoint(chartVy.Series["速度VY"].Points[0].Argument, Config.GetInstance().speedMinY),
+                new SeriesPoint(chartVy.Series["速度VY"].Points[chartVy.Series["速度VY"].Points.Count-1].Argument, Config.GetInstance().speedMinY) });
             distanceHigh = Config.GetInstance().speedMaxY - speedVyBuffer[speedVyBuffer.Count - 1].Values[0];
             distanceLow = speedVyBuffer[speedVyBuffer.Count - 1].Values[0] - Config.GetInstance().speedMinY;
             chartVy.Titles[0].Text = String.Format("上限差值={0:F},下限差值={1:F}", distanceHigh, distanceLow);
@@ -501,12 +533,18 @@ namespace RadarProcess
 
             chartVz.BeginInit();
             chartVz.Series["速度VZ"].Points.AddRange(speedVzBuffer.ToArray());
+            if(chartVz.Series["速度VZ"].Points.Count > MAX_CHART_POINTS)
+            {
+                chartVz.Series["速度VZ"].Points.RemoveRange(0, chartVz.Series["速度VZ"].Points.Count - MAX_CHART_POINTS);
+            }
+            chartVz.Series["速度VZ上限"].Points.Clear();
             chartVz.Series["速度VZ上限"].Points.AddRange(new SeriesPoint[] {
-                new SeriesPoint(speedVzBuffer[0].Argument, Config.GetInstance().speedMaxZ),
-                new SeriesPoint(speedVzBuffer[speedVzBuffer.Count-1].Argument, Config.GetInstance().speedMaxZ) });
+                new SeriesPoint(chartVz.Series["速度VZ"].Points[0].Argument, Config.GetInstance().speedMaxZ),
+                new SeriesPoint(chartVz.Series["速度VZ"].Points[chartVz.Series["速度VZ"].Points.Count-1].Argument, Config.GetInstance().speedMaxZ) });
+            chartVz.Series["速度VZ下限"].Points.Clear();
             chartVz.Series["速度VZ下限"].Points.AddRange(new SeriesPoint[] {
-                new SeriesPoint(speedVzBuffer[0].Argument, Config.GetInstance().speedMinZ),
-                new SeriesPoint(speedVzBuffer[speedVzBuffer.Count-1].Argument, Config.GetInstance().speedMinZ) });
+                new SeriesPoint(chartVz.Series["速度VZ"].Points[0].Argument, Config.GetInstance().speedMinZ),
+                new SeriesPoint(chartVz.Series["速度VZ"].Points[chartVz.Series["速度VZ"].Points.Count-1].Argument, Config.GetInstance().speedMinZ) });
             distanceHigh = Config.GetInstance().speedMaxZ - speedVzBuffer[speedVzBuffer.Count - 1].Values[0];
             distanceLow = speedVzBuffer[speedVzBuffer.Count - 1].Values[0] - Config.GetInstance().speedMinZ;
             chartVz.Titles[0].Text = String.Format("上限差值={0:F},下限差值={1:F}", distanceHigh, distanceLow);

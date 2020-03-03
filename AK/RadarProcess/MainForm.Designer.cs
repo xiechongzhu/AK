@@ -34,6 +34,7 @@
             DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.PointSeriesView pointSeriesView1 = new DevExpress.XtraCharts.PointSeriesView();
             DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.PointSeriesLabel pointSeriesLabel1 = new DevExpress.XtraCharts.PointSeriesLabel();
             DevExpress.XtraCharts.PointSeriesView pointSeriesView2 = new DevExpress.XtraCharts.PointSeriesView();
             DevExpress.XtraCharts.Series series3 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.RangeAreaSeriesView rangeAreaSeriesView1 = new DevExpress.XtraCharts.RangeAreaSeriesView();
@@ -167,6 +168,7 @@
             ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(pointSeriesView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(series2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pointSeriesLabel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(pointSeriesView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(series3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(rangeAreaSeriesView1)).BeginInit();
@@ -471,7 +473,7 @@
             xyDiagram1.AxisX.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
             xyDiagram1.AxisX.VisibleInPanesSerializable = "-1";
             xyDiagram1.AxisY.Title.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            xyDiagram1.AxisY.Title.Text = "射程(m)";
+            xyDiagram1.AxisY.Title.Text = "前向距离(m)";
             xyDiagram1.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
             xyDiagram1.AxisY.VisibleInPanesSerializable = "-1";
             xyDiagram1.DefaultPane.EnableAxisXScrolling = DevExpress.Utils.DefaultBoolean.True;
@@ -490,7 +492,12 @@
             series1.Name = "理想落点";
             pointSeriesView1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(187)))), ((int)(((byte)(89)))));
             series1.View = pointSeriesView1;
+            series2.CrosshairLabelPattern = "{A} {V}";
+            pointSeriesLabel1.TextPattern = "{A:#.00}\n{V:#.00}";
+            series2.Label = pointSeriesLabel1;
+            series2.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
             series2.Name = "预测落点";
+            series2.ToolTipSeriesPattern = "{A} {V}";
             pointSeriesView2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             series2.View = pointSeriesView2;
             series3.Name = "必炸线";
@@ -572,6 +579,7 @@
             this.chartVy.Location = new System.Drawing.Point(185, 155);
             this.chartVy.Name = "chartVy";
             series4.Name = "速度VY";
+            swiftPlotSeriesView1.LineStyle.Thickness = 3;
             series4.View = swiftPlotSeriesView1;
             series5.Name = "速度VY上限";
             swiftPlotSeriesView2.LineStyle.Thickness = 3;
@@ -620,6 +628,7 @@
             this.chartVx.Location = new System.Drawing.Point(12, 155);
             this.chartVx.Name = "chartVx";
             series7.Name = "速度VX";
+            swiftPlotSeriesView4.LineStyle.Thickness = 3;
             series7.View = swiftPlotSeriesView4;
             series8.Name = "速度VX上限";
             swiftPlotSeriesView5.LineStyle.Thickness = 3;
@@ -668,6 +677,7 @@
             this.chartVz.Location = new System.Drawing.Point(358, 155);
             this.chartVz.Name = "chartVz";
             series10.Name = "速度VZ";
+            swiftPlotSeriesView7.LineStyle.Thickness = 3;
             series10.View = swiftPlotSeriesView7;
             series11.Name = "速度VZ上限";
             swiftPlotSeriesView8.LineStyle.Thickness = 3;
@@ -715,6 +725,7 @@
             this.chartZ.Location = new System.Drawing.Point(358, 12);
             this.chartZ.Name = "chartZ";
             series13.Name = "位置Z";
+            swiftPlotSeriesView10.LineStyle.Thickness = 3;
             series13.View = swiftPlotSeriesView10;
             series14.Name = "位置Z上限";
             swiftPlotSeriesView11.LineStyle.Thickness = 3;
@@ -750,7 +761,7 @@
             textAnnotation5});
             swiftPlotDiagram5.AxisX.VisibleInPanesSerializable = "-1";
             swiftPlotDiagram5.AxisY.Title.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            swiftPlotDiagram5.AxisY.Title.Text = "位置Y(M)";
+            swiftPlotDiagram5.AxisY.Title.Text = "位置Y(m)";
             swiftPlotDiagram5.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
             swiftPlotDiagram5.AxisY.VisibleInPanesSerializable = "-1";
             swiftPlotDiagram5.DefaultPane.EnableAxisXScrolling = DevExpress.Utils.DefaultBoolean.True;
@@ -763,6 +774,7 @@
             this.chartY.Location = new System.Drawing.Point(185, 12);
             this.chartY.Name = "chartY";
             series16.Name = "位置Y";
+            swiftPlotSeriesView13.LineStyle.Thickness = 3;
             series16.View = swiftPlotSeriesView13;
             series17.Name = "位置Y上限";
             swiftPlotSeriesView14.LineStyle.Thickness = 3;
@@ -811,6 +823,7 @@
             this.chartX.Location = new System.Drawing.Point(12, 12);
             this.chartX.Name = "chartX";
             series19.Name = "位置X";
+            swiftPlotSeriesView16.LineStyle.Thickness = 3;
             series19.View = swiftPlotSeriesView16;
             series20.Name = "位置X上限";
             swiftPlotSeriesView17.LineStyle.Thickness = 3;
@@ -972,6 +985,7 @@
             ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(pointSeriesView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pointSeriesLabel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(pointSeriesView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(series2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(rangeAreaSeriesView1)).EndInit();
