@@ -2,13 +2,11 @@
 # 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
 ################################################################################
 
-/AK/RadarProcess/bin
-/AK/RadarProcess/obj
-/AK/.vs/AK/v16
-/AK/YaoCeProcess/bin
-/AK/YaoCeProcess/obj
-/AK/.cr
-/AK/RadarSimulator/bin/Debug
-/AK/RadarSimulator/obj/Debug
-/AK/RadarSimulator/bin/Release
-/AK/RadarSimulator/obj/Release
+AK/RadarProcess/bin
+AK/RadarProcess/obj
+AK/.vs
+AK/YaoCeProcess/bin
+AK/YaoCeProcess/obj
+AK/.cr
+AK/RadarSimulator/bin
+AK/RadarSimulator/obj
