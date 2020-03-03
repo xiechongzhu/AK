@@ -77,14 +77,6 @@
             DevExpress.XtraCharts.Series series20 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.PointSeriesView pointSeriesView2 = new DevExpress.XtraCharts.PointSeriesView();
             DevExpress.XtraCharts.Series series21 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.PointSeriesView pointSeriesView3 = new DevExpress.XtraCharts.PointSeriesView();
-            DevExpress.XtraCharts.Series series22 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.PointSeriesView pointSeriesView4 = new DevExpress.XtraCharts.PointSeriesView();
-            DevExpress.XtraCharts.Series series23 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.PointSeriesView pointSeriesView5 = new DevExpress.XtraCharts.PointSeriesView();
-            DevExpress.XtraCharts.Series series24 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.PointSeriesView pointSeriesView6 = new DevExpress.XtraCharts.PointSeriesView();
-            DevExpress.XtraCharts.Series series25 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.RangeAreaSeriesView rangeAreaSeriesView1 = new DevExpress.XtraCharts.RangeAreaSeriesView();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.editTestDate = new DevExpress.XtraEditors.TextEdit();
@@ -209,14 +201,6 @@
             ((System.ComponentModel.ISupportInitialize)(series20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(pointSeriesView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(series21)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pointSeriesView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series22)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pointSeriesView4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series23)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pointSeriesView5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series24)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pointSeriesView6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series25)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(rangeAreaSeriesView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
@@ -692,11 +676,11 @@
             // chartPoints
             // 
             xyDiagram1.AxisX.Title.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            xyDiagram1.AxisX.Title.Text = "位置X(m)";
+            xyDiagram1.AxisX.Title.Text = "侧偏(m)";
             xyDiagram1.AxisX.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
             xyDiagram1.AxisX.VisibleInPanesSerializable = "-1";
             xyDiagram1.AxisY.Title.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            xyDiagram1.AxisY.Title.Text = "位置Y(m)";
+            xyDiagram1.AxisY.Title.Text = "射程(m)";
             xyDiagram1.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
             xyDiagram1.AxisY.VisibleInPanesSerializable = "-1";
             xyDiagram1.DefaultPane.EnableAxisXScrolling = DevExpress.Utils.DefaultBoolean.True;
@@ -713,33 +697,19 @@
             this.chartPoints.Location = new System.Drawing.Point(12, 12);
             this.chartPoints.Name = "chartPoints";
             series19.Name = "理想落点";
-            pointSeriesView1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(73)))), ((int)(((byte)(125)))));
+            pointSeriesView1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(187)))), ((int)(((byte)(89)))));
             series19.View = pointSeriesView1;
-            series20.Name = "落点1";
-            pointSeriesView2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            series20.Name = "预示落点";
+            pointSeriesView2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             series20.View = pointSeriesView2;
-            series21.Name = "落点2";
-            pointSeriesView3.Color = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(135)))), ((int)(((byte)(131)))));
-            series21.View = pointSeriesView3;
-            series22.Name = "落点3";
-            pointSeriesView4.Color = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(58)))), ((int)(((byte)(56)))));
-            series22.View = pointSeriesView4;
-            series23.Name = "落点4";
-            pointSeriesView5.Color = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(3)))), ((int)(((byte)(0)))));
-            series23.View = pointSeriesView5;
-            series24.Name = "落点5";
-            pointSeriesView6.Color = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            series24.View = pointSeriesView6;
-            series25.Name = "必炸线";
-            series25.View = rangeAreaSeriesView1;
+            series21.Name = "必炸线";
+            rangeAreaSeriesView1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(198)))), ((int)(((byte)(217)))), ((int)(((byte)(240)))));
+            rangeAreaSeriesView1.Transparency = ((byte)(200));
+            series21.View = rangeAreaSeriesView1;
             this.chartPoints.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series19,
         series20,
-        series21,
-        series22,
-        series23,
-        series24,
-        series25};
+        series21};
             this.chartPoints.Size = new System.Drawing.Size(579, 729);
             this.chartPoints.TabIndex = 5;
             // 
@@ -871,16 +841,8 @@
             ((System.ComponentModel.ISupportInitialize)(series19)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(pointSeriesView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(series20)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pointSeriesView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series21)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pointSeriesView4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series22)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pointSeriesView5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series23)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pointSeriesView6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series24)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(rangeAreaSeriesView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series25)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series21)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartPoints)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();

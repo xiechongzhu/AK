@@ -471,7 +471,7 @@
             xyDiagram1.AxisX.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
             xyDiagram1.AxisX.VisibleInPanesSerializable = "-1";
             xyDiagram1.AxisY.Title.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            xyDiagram1.AxisY.Title.Text = "位置X(m)";
+            xyDiagram1.AxisY.Title.Text = "射程(m)";
             xyDiagram1.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
             xyDiagram1.AxisY.VisibleInPanesSerializable = "-1";
             xyDiagram1.DefaultPane.EnableAxisXScrolling = DevExpress.Utils.DefaultBoolean.True;

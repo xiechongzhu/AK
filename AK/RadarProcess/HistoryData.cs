@@ -11,7 +11,7 @@ namespace RadarProcess
     {
         private List<S_OBJECT> listSObject = new List<S_OBJECT>();
         private FallPoint ideaFallPoint = new FallPoint();
-        private List<FallPoint> listFallPoints = new List<FallPoint>();
+        private FallPoint fallPoint = new FallPoint();
         private double longitudeInit;        //初始位置经度
         private double latitudeInit;         //初始位置纬度
         private double heightInit;           //初始位置高度
@@ -39,7 +39,6 @@ namespace RadarProcess
         public void Clear()
         {
             listSObject.Clear();
-            listFallPoints.Clear();
         }
 
         public void AddObject(S_OBJECT sObject)
@@ -49,11 +48,7 @@ namespace RadarProcess
 
         public void AddFallPoint(FallPoint fallPoint)
         {
-            if (listFallPoints.Count == 5)
-            {
-                listFallPoints.RemoveAt(0);
-            }
-            listFallPoints.Add(fallPoint);
+            this.fallPoint = fallPoint;
         }
 
         public List<S_OBJECT> Objects
@@ -61,9 +56,9 @@ namespace RadarProcess
             get { return listSObject; }
         }
 
-        public List<FallPoint> FallPoints
+        public FallPoint FallPoint
         {
-            get { return listFallPoints; }
+            get { return fallPoint; }
         }
 
         public FallPoint IdeaFallPoint

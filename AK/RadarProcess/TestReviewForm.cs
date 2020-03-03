@@ -27,10 +27,10 @@ namespace RadarProcess
             }
             if (historyData != null)
             {
-                chartPoints.Series["必炸线"].Points.Add(new SeriesPoint(historyData.IdeaFallPoint.x - historyData.SideLine,
-                    historyData.IdeaFallPoint.y + historyData.ForwardLine, historyData.IdeaFallPoint.y - historyData.BackwardLine));
-                chartPoints.Series["必炸线"].Points.Add(new SeriesPoint(historyData.IdeaFallPoint.x + historyData.SideLine,
-                    historyData.IdeaFallPoint.y + historyData.ForwardLine, historyData.IdeaFallPoint.y - historyData.BackwardLine));
+                chartPoints.Series["必炸线"].Points.Add(new SeriesPoint(- historyData.SideLine,
+                    historyData.ForwardLine, historyData.BackwardLine));
+                chartPoints.Series["必炸线"].Points.Add(new SeriesPoint(historyData.SideLine,
+                    historyData.ForwardLine, historyData.BackwardLine));
                 chartPoints.Series["理想落点"].Points.Add(new SeriesPoint(historyData.IdeaFallPoint.x, historyData.IdeaFallPoint.y));
             }
         }
@@ -155,14 +155,10 @@ namespace RadarProcess
                     }
                     int i = 0;
                     chartPoints.BeginInit();
-                    while (historyData.FallPoints.Count > 0)
-                    {
-                        FallPoint point = historyData.FallPoints[0];
-                        chartPoints.Series[String.Format("落点{0}", i + 1)].Points.Clear();
-                        chartPoints.Series[String.Format("落点{0}", i + 1)].Points.Add(new SeriesPoint(point.x, point.y));
-                        i++;
-                        historyData.FallPoints.RemoveAt(0);
-                    }
+                    FallPoint point = historyData.FallPoint;
+                    chartPoints.Series["预示落点"].Points.Clear();
+                    chartPoints.Series["预示落点"].Points.Add(new SeriesPoint(point.x, point.y));
+                    i++;
                     chartPoints.EndInit();
                 }
             }
