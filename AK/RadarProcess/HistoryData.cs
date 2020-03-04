@@ -21,6 +21,7 @@ namespace RadarProcess
         private double forwardLine;          //预示落点射程前向必炸线
         private double backwardLine;         //当前点发射系位置x后向必炸线
         private double sideLine;             //侧向必炸线
+        XmlDictionary<int, MinMaxValue> minMaxValues;
         private double locMaxX;              //位置x分量上限
         private double locMinX;              //位置x分量下限
         private double locMaxY;              //位置y分量上限
@@ -35,6 +36,7 @@ namespace RadarProcess
         private double speedMinZ;              //速度z分量下限
         private String strMultiCastIpAddr;       //组播地址
         private UInt16 port;                     //组播端口
+        private int stationId;                  //雷达站编号
 
         public void Clear()
         {
@@ -90,5 +92,7 @@ namespace RadarProcess
         public double Flightshot { get => flightshot; set => flightshot = value; }
         public string StrMultiCastIpAddr { get => strMultiCastIpAddr; set => strMultiCastIpAddr = value; }
         public ushort Port { get => port; set => port = value; }
+        public int StationId { get => stationId; set => stationId = value; }
+        public XmlDictionary<int, MinMaxValue> MinMaxValues { get => minMaxValues; set => minMaxValues = value; }
     }
 }

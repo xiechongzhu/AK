@@ -8,6 +8,7 @@ using System.Xml.Serialization;
 
 namespace RadarProcess
 {
+    [Serializable]
     public class Config
     {
         private static String configFile = "./Config.xml";
@@ -39,8 +40,10 @@ namespace RadarProcess
         public double speedMinY;              //速度y分量下限
         public double speedMaxZ;              //速度z分量上限
         public double speedMinZ;              //速度z分量下限
+        public XmlDictionary<int, MinMaxValue> minMaxValues;
         public String strMultiCastIpAddr;       //组播地址
         public UInt16 port;                     //组播端口
+        public int stationId;                   //雷达站编号
 
         public bool LoadConfigFile(out String errMsg)
         {
@@ -81,5 +84,22 @@ namespace RadarProcess
             errMsg = String.Empty;
             return true;
         }
+    }
+
+    [Serializable]
+    public class MinMaxValue
+    {
+        public double MinX;
+        public double MaxX;
+        public double MinY;
+        public double MaxY;
+        public double MinZ;
+        public double MaxZ;
+        public double MinVx;
+        public double MaxVx;
+        public double MinVy;
+        public double MaxVy;
+        public double MinVz;
+        public double MaxVz;
     }
 }

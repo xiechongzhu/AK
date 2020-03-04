@@ -21,6 +21,7 @@ namespace RadarProcess
         public struct DisplayData
         {
             public int coordinate;
+            public int time;
             public double x;
             public double y;
             public double z;
@@ -89,7 +90,7 @@ namespace RadarProcess
         private ConstLaunchFsx constLaunchFsx;
         private AlertForm alertForm = new AlertForm();
         List<ListViewItem> logItemList = new List<ListViewItem>();
-        private readonly int MAX_CHART_POINTS = 3000;
+        private readonly int MAX_CHART_POINTS = 1000;
 
         private Image grayLedImage;
         private Image greenLedImage;
@@ -303,7 +304,8 @@ namespace RadarProcess
             historyData.AzimuthInit = Config.GetInstance().azimuthInit;
             historyData.PlacementHeight = Config.GetInstance().placementHeight;
             historyData.Flightshot = Config.GetInstance().flightshot;
-            historyData.LocMaxX = Config.GetInstance().locMaxX;
+            historyData.MinMaxValues = Config.GetInstance().minMaxValues;
+            /*historyData.LocMaxX = Config.GetInstance().locMaxX;
             historyData.LocMinX = Config.GetInstance().locMinX;
             historyData.LocMaxY = Config.GetInstance().locMaxY;
             historyData.LocMinY = Config.GetInstance().locMinY;
@@ -314,7 +316,7 @@ namespace RadarProcess
             historyData.SpeedMaxY = Config.GetInstance().speedMaxY;
             historyData.SpeedMinY = Config.GetInstance().speedMinY;
             historyData.SpeedMaxZ = Config.GetInstance().speedMaxZ;
-            historyData.SpeedMinZ = Config.GetInstance().speedMinZ;
+            historyData.SpeedMinZ = Config.GetInstance().speedMinZ;*/
             historyData.ForwardLine = Config.GetInstance().forwardLine;
             historyData.BackwardLine = Config.GetInstance().backwardLine;
             historyData.SideLine = Config.GetInstance().sideLine;
@@ -363,7 +365,7 @@ namespace RadarProcess
                     }
                     catch (Exception) { }
                     
-                    AddDisplayData(CHART_ITEM_INDEX++, sObject.X, sObject.Y, sObject.Z,
+                    AddDisplayData(CHART_ITEM_INDEX++, sObject.time, sObject.X, sObject.Y, sObject.Z,
                         sObject.VX, sObject.VY, sObject.VZ, fallPoint, fallTime, distance);
                     CheckPosition(sObject.X, sObject.Y, sObject.Z);
                     CheckSpeed(sObject.VX, sObject.VY, sObject.VZ);
@@ -375,12 +377,13 @@ namespace RadarProcess
             }
         }
 
-        private void AddDisplayData(int coordinate, double x, double y, double z, double vx, double vy, double vz, 
+        private void AddDisplayData(int coordinate, int time, double x, double y, double z, double vx, double vy, double vz, 
             FallPoint fallPoint, double fallTime, double distance)
         {
             displayDataList.Add(new DisplayData
             {
                 coordinate = coordinate,
+                time = time,
                 x = x,
                 y = y,
                 z = z,

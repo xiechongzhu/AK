@@ -175,9 +175,7 @@ namespace RadarProcess
             settingForm.SetViwMode();
             settingForm.SetParams(historyData.LongitudeInit, historyData.LatitudeInit, historyData.HeightInit,
                 historyData.AzimuthInit, historyData.PlacementHeight, historyData.Flightshot, historyData.ForwardLine,
-                historyData.BackwardLine, historyData.SideLine, historyData.LocMaxX, historyData.LocMaxY, historyData.LocMaxZ,
-                historyData.LocMinX, historyData.LocMinY, historyData.LocMinZ, historyData.SpeedMaxX, historyData.SpeedMaxY, historyData.SpeedMaxZ,
-                historyData.SpeedMinX, historyData.SpeedMinY, historyData.SpeedMinZ, historyData.StrMultiCastIpAddr, historyData.Port);
+                historyData.BackwardLine, historyData.SideLine, historyData.StrMultiCastIpAddr, historyData.Port, historyData.StationId);
             settingForm.ShowDialog();
         }
     }

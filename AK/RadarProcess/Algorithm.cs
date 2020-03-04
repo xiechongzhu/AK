@@ -37,7 +37,7 @@ namespace RadarProcess
 
         public ConstLaunchFsx calc_const_launch_fsx(double B0, double lambda0, double h0, double A0)
         {
-            double[] geo0 = new double[] { B0 / 180 * Math.PI, lambda0 / 180 * Math.PI, 980.2 };
+            double[] geo0 = new double[] { B0 / 180 * Math.PI, lambda0 / 180 * Math.PI, h0 };
             MWArray mwGeo0 = new MWNumericArray(geo0);
             double[] a0 = new double[] { A0 / 180 * Math.PI };
             MWArray mwA0 = new MWNumericArray(a0);

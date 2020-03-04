@@ -36,6 +36,7 @@ namespace RadarProcess
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct S_OBJECT
     {
+        public int time;
         public UInt16 ObjectId;
         public double A;
         public double E;

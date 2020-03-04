@@ -1,9 +1,12 @@
 ﻿using DevExpress.XtraEditors;
+using NPOI.SS.UserModel;
+using NPOI.XSSF.UserModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -14,6 +17,7 @@ namespace RadarProcess
 {
     public partial class SettingForm : Form
     {
+        private XmlDictionary<int, MinMaxValue> minMaxValues = new XmlDictionary<int, MinMaxValue>();
         public SettingForm()
         {
             InitializeComponent();
@@ -30,6 +34,8 @@ namespace RadarProcess
                 }
             }
             layoutControlItem2.HideToCustomization();
+            layoutControlItem4.HideToCustomization();
+            layoutControlItem5.HideToCustomization();
         }
 
         protected void LoadConfig()
@@ -49,20 +55,10 @@ namespace RadarProcess
             editForwardLine.Text = Config.GetInstance().forwardLine.ToString();
             editBackLine.Text = Config.GetInstance().backwardLine.ToString();
             editSideLine.Text = Config.GetInstance().sideLine.ToString();
-            editLocMaxX.Text = Config.GetInstance().locMaxX.ToString();
-            editLocMaxY.Text = Config.GetInstance().locMaxY.ToString();
-            editLocMaxZ.Text = Config.GetInstance().locMaxZ.ToString();
-            editLocMinX.Text = Config.GetInstance().locMinX.ToString();
-            editLocMinY.Text = Config.GetInstance().locMinY.ToString();
-            editLocMinZ.Text = Config.GetInstance().locMinZ.ToString();
-            editSpeedMaxX.Text = Config.GetInstance().speedMaxX.ToString();
-            editSpeedMaxY.Text = Config.GetInstance().speedMaxY.ToString();
-            editSpeedMaxZ.Text = Config.GetInstance().speedMaxZ.ToString();
-            editSpeedMinX.Text = Config.GetInstance().speedMinX.ToString();
-            editSpeedMinY.Text = Config.GetInstance().speedMinY.ToString();
-            editSpeedMinZ.Text = Config.GetInstance().speedMinZ.ToString();
             editMultiCastIp.Text = Config.GetInstance().strMultiCastIpAddr;
             editPort.Text = Config.GetInstance().port.ToString();
+            editStation.Text = Config.GetInstance().stationId.ToString();
+            minMaxValues = Config.GetInstance().minMaxValues;
         }
 
         private void btnOK_Click(object sender, EventArgs e)
@@ -78,20 +74,10 @@ namespace RadarProcess
                 Config.GetInstance().forwardLine = double.Parse(editForwardLine.Text);
                 Config.GetInstance().backwardLine = double.Parse(editBackLine.Text);
                 Config.GetInstance().sideLine = double.Parse(editSideLine.Text);
-                Config.GetInstance().locMaxX = double.Parse(editLocMaxX.Text);
-                Config.GetInstance().locMaxY = double.Parse(editLocMaxY.Text);
-                Config.GetInstance().locMaxZ = double.Parse(editLocMaxZ.Text);
-                Config.GetInstance().locMinX = double.Parse(editLocMinX.Text);
-                Config.GetInstance().locMinY = double.Parse(editLocMinY.Text);
-                Config.GetInstance().locMinZ = double.Parse(editLocMinZ.Text);
-                Config.GetInstance().speedMaxX = double.Parse(editSpeedMaxX.Text);
-                Config.GetInstance().speedMaxY = double.Parse(editSpeedMaxY.Text);
-                Config.GetInstance().speedMaxZ = double.Parse(editSpeedMaxZ.Text);
-                Config.GetInstance().speedMinX = double.Parse(editSpeedMinX.Text);
-                Config.GetInstance().speedMinY = double.Parse(editSpeedMinY.Text);
-                Config.GetInstance().speedMinZ = double.Parse(editSpeedMinZ.Text);
                 Config.GetInstance().strMultiCastIpAddr = editMultiCastIp.Text;
                 Config.GetInstance().port = UInt16.Parse(editPort.Text);
+                Config.GetInstance().stationId = int.Parse(editStation.Text);
+                Config.GetInstance().minMaxValues = minMaxValues;
             }
             catch(Exception ex)
             {
@@ -116,9 +102,7 @@ namespace RadarProcess
 
         public void SetParams(double longitudeInit, double latitudeInit, double heightInit, double azimuthInit,
             double placementHeight, double flightshot, double forwardLine, double backwardLine, double sideLine,
-            double locMaxX, double locMaxY, double locMaxZ, double locMinX, double locMinY, double locMinZ,
-            double speedMaxX, double speedMaxY, double speedMaxZ, double speedMinX, double speedMinY, double speedMinZ,
-            String strMultiCastIpAddr, UInt16 port)
+            String strMultiCastIpAddr, UInt16 port, int stationId)
         {
             editLongitudeInit.Text = longitudeInit.ToString();
             editLatitudeInit.Text = latitudeInit.ToString();
@@ -129,20 +113,84 @@ namespace RadarProcess
             editForwardLine.Text = forwardLine.ToString();
             editBackLine.Text = backwardLine.ToString();
             editSideLine.Text = sideLine.ToString();
-            editLocMaxX.Text = locMaxX.ToString();
-            editLocMaxY.Text = locMaxY.ToString();
-            editLocMaxZ.Text = locMaxZ.ToString();
-            editLocMinX.Text = locMinX.ToString();
-            editLocMinY.Text = locMinY.ToString();
-            editLocMinZ.Text = locMinZ.ToString();
-            editSpeedMaxX.Text = speedMaxX.ToString();
-            editSpeedMaxY.Text = speedMaxY.ToString();
-            editSpeedMaxZ.Text = speedMaxZ.ToString();
-            editSpeedMinX.Text = speedMinX.ToString();
-            editSpeedMinY.Text = speedMinY.ToString();
-            editSpeedMinZ.Text = speedMinZ.ToString();
             editMultiCastIp.Text = strMultiCastIpAddr;
             editPort.Text = port.ToString();
+            editStation.Text = stationId.ToString();
+        }
+
+        private void btnDownload_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "参数模板文件|*.xlsx";
+            if(saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    File.Copy(@"resource/参数模板.xlsx", saveFileDialog.FileName, true);
+                }
+                catch(Exception ex)
+                {
+                    XtraMessageBox.Show("下载模板参数文件失败:" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btnImport_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "参数模板文件|*.xlsx";
+            if(openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                LoadConfigExcelFile(openFileDialog.FileName);
+            }
+        }
+
+        private void LoadConfigExcelFile(String fileName)
+        {
+            try
+            {
+                using (Stream fileStream = File.Open(fileName, FileMode.Open))
+                {
+                    XSSFWorkbook workbook = new XSSFWorkbook(fileStream);
+                    ISheet sheet = workbook.GetSheetAt(0);
+                    editLongitudeInit.Text = sheet.GetRow(0).GetCell(1).ToString();
+                    editLatitudeInit.Text = sheet.GetRow(1).GetCell(1).ToString();
+                    editHeightInit.Text = sheet.GetRow(2).GetCell(1).ToString();
+                    editAzimuthInit.Text = sheet.GetRow(3).GetCell(1).ToString();
+                    editPlacementHeight.Text = sheet.GetRow(4).GetCell(1).ToString();
+                    editFligtShot.Text = sheet.GetRow(5).GetCell(1).ToString();
+                    editForwardLine.Text = sheet.GetRow(6).GetCell(1).ToString();
+                    editBackLine.Text = sheet.GetRow(7).GetCell(1).ToString();
+                    editSideLine.Text = sheet.GetRow(8).GetCell(1).ToString();
+                    editStation.Text = sheet.GetRow(9).GetCell(1).ToString();
+
+                    sheet = workbook.GetSheetAt(1);
+                    for(int i = 1; i <= sheet.LastRowNum; ++i)
+                    {
+                        int time = (int)sheet.GetRow(i).GetCell(0).NumericCellValue;
+                        MinMaxValue minMaxValue = new MinMaxValue
+                        {
+                            MinX = sheet.GetRow(i).GetCell(1).NumericCellValue,
+                            MaxX = sheet.GetRow(i).GetCell(2).NumericCellValue,
+                            MinY = sheet.GetRow(i).GetCell(3).NumericCellValue,
+                            MaxY = sheet.GetRow(i).GetCell(4).NumericCellValue,
+                            MinZ = sheet.GetRow(i).GetCell(5).NumericCellValue,
+                            MaxZ = sheet.GetRow(i).GetCell(6).NumericCellValue,
+                            MinVx = sheet.GetRow(i).GetCell(7).NumericCellValue,
+                            MaxVx = sheet.GetRow(i).GetCell(8).NumericCellValue,
+                            MinVy = sheet.GetRow(i).GetCell(9).NumericCellValue,
+                            MaxVy = sheet.GetRow(i).GetCell(10).NumericCellValue,
+                            MinVz = sheet.GetRow(i).GetCell(11).NumericCellValue,
+                            MaxVz = sheet.GetRow(i).GetCell(12).NumericCellValue
+                        };
+                        minMaxValues[time] = minMaxValue;
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                XtraMessageBox.Show("导入参数文件失败:" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

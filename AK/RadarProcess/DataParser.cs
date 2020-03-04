@@ -58,7 +58,6 @@ namespace RadarProcess
 
         private void ParseData(byte[] buffer)
         {
-            DataComming?.Invoke();
             String errMsg;
             if(!CheckPacket(buffer, out errMsg))
             {
@@ -74,42 +73,55 @@ namespace RadarProcess
                         Station = br.ReadByte(),
                         Type = br.ReadByte()
                     };
-                    S_HEAD sHead = new S_HEAD
+                    if(packHead.Station != 0x20 + Config.GetInstance().stationId)
                     {
-                        Len = br.ReadUInt16(),
-                        Time = br.ReadInt32(),
-                        SrcId = br.ReadByte(),
-                        SrcType = br.ReadByte(),
-                        CS = br.ReadByte(),
-                        CT = br.ReadByte(),
-                        FF = br.ReadByte(),
-                        Num = br.ReadByte(),
-                        C = br.ReadByte(),
-                        S = br.ReadBytes(43)
-                    };
-                    while(stream.Position <  stream.Length - 1)
+                        return;
+                    }
+                    DataComming?.Invoke();
+                    if (packHead.Type == 0x01)
                     {
-                        S_OBJECT sObject = new S_OBJECT
+                        S_HEAD sHead = new S_HEAD
                         {
-                            ObjectId = br.ReadUInt16(),
-                            A = br.ReadDouble(),
-                            E = br.ReadDouble(),
-                            R = br.ReadDouble(),
-                            v = br.ReadDouble(),
-                            X = br.ReadDouble(),
-                            Y = br.ReadDouble(),
-                            Z = br.ReadDouble(),
-                            VX = br.ReadDouble(),
-                            VY = br.ReadDouble(),
-                            VZ = br.ReadDouble(),
-                            BD = br.ReadByte(),
-                            SS = br.ReadByte(),
-                            VF = br.ReadByte(),
-                            Reserve = br.ReadBytes(5)
+                            Len = br.ReadUInt16(),
+                            Time = br.ReadInt32(),
+                            SrcId = br.ReadByte(),
+                            SrcType = br.ReadByte(),
+                            CS = br.ReadByte(),
+                            CT = br.ReadByte(),
+                            FF = br.ReadByte(),
+                            Num = br.ReadByte(),
+                            C = br.ReadByte(),
+                            S = br.ReadBytes(43)
                         };
-                        IntPtr ptr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(S_OBJECT)));
-                        Marshal.StructureToPtr(sObject, ptr, true);
-                        PostMessage(mainFormHandle, MainForm.WM_RADAR_DATA, 0, ptr);
+                        while (stream.Position < stream.Length - 1)
+                        {
+                            S_OBJECT sObject = new S_OBJECT
+                            {
+                                time = sHead.Time,
+                                ObjectId = br.ReadUInt16(),
+                                A = br.ReadDouble(),
+                                E = br.ReadDouble(),
+                                R = br.ReadDouble(),
+                                v = br.ReadDouble(),
+                                X = br.ReadDouble(),
+                                Y = br.ReadDouble(),
+                                Z = br.ReadDouble(),
+                                VX = br.ReadDouble(),
+                                VY = br.ReadDouble(),
+                                VZ = br.ReadDouble(),
+                                BD = br.ReadByte(),
+                                SS = br.ReadByte(),
+                                VF = br.ReadByte(),
+                                Reserve = br.ReadBytes(5)
+                            };
+                            IntPtr ptr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(S_OBJECT)));
+                            Marshal.StructureToPtr(sObject, ptr, true);
+                            PostMessage(mainFormHandle, MainForm.WM_RADAR_DATA, 0, ptr);
+                        }
+                    }
+                    else if(packHead.Type == 0x50)
+                    {
+
                     }
                 }
             }
