@@ -13,7 +13,7 @@ namespace RadarProcess
 {
     [XmlRoot("XmlDictionary")]
     [Serializable]
-    public class XmlDictionary<TKey, TValue> : Dictionary<TKey, TValue>, IXmlSerializable
+    public class XmlDictionary<TKey, TValue> : SortedDictionary<TKey, TValue>, IXmlSerializable
     {
         #region 构造函数
         public XmlDictionary()
@@ -22,16 +22,7 @@ namespace RadarProcess
         public XmlDictionary(IDictionary<TKey, TValue> dictionary) : base(dictionary)
         { }
 
-        public XmlDictionary(IEqualityComparer<TKey> comparer) : base(comparer)
-        { }
-
-        public XmlDictionary(int capacity) : base(capacity)
-        { }
-
-        public XmlDictionary(int capacity, IEqualityComparer<TKey> comparer) : base(capacity, comparer)
-        { }
-
-        protected XmlDictionary(SerializationInfo info, StreamingContext context) : base(info, context)
+        public XmlDictionary(IComparer<TKey> comparer) : base(comparer)
         { }
         #endregion 构造函数
 

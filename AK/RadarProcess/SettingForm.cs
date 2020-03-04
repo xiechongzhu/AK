@@ -58,7 +58,14 @@ namespace RadarProcess
             editMultiCastIp.Text = Config.GetInstance().strMultiCastIpAddr;
             editPort.Text = Config.GetInstance().port.ToString();
             editStation.Text = Config.GetInstance().stationId.ToString();
-            minMaxValues = Config.GetInstance().minMaxValues;
+            if(Config.GetInstance().minMaxValues != null)
+            {
+                minMaxValues = Config.GetInstance().minMaxValues;
+            }
+            else
+            {
+                minMaxValues.Clear();
+            }
         }
 
         private void btnOK_Click(object sender, EventArgs e)
@@ -147,6 +154,7 @@ namespace RadarProcess
 
         private void LoadConfigExcelFile(String fileName)
         {
+            minMaxValues.Clear();
             try
             {
                 using (Stream fileStream = File.Open(fileName, FileMode.Open))
