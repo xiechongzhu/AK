@@ -11,6 +11,8 @@ namespace RadarProcess
         [DllImport("User32.dll", EntryPoint = "PostMessage")]
         private static extern int PostMessage(IntPtr hwnd, int Msg, int wParam, IntPtr lParam);
 
+        public event Action DataComming;
+
         public DataParser(IntPtr mainFormHandle)
         {
             this.mainFormHandle = mainFormHandle;
@@ -56,6 +58,7 @@ namespace RadarProcess
 
         private void ParseData(byte[] buffer)
         {
+            DataComming?.Invoke();
             String errMsg;
             if(!CheckPacket(buffer, out errMsg))
             {

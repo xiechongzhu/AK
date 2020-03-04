@@ -14,7 +14,8 @@ namespace RadarProcess
         {
             LOG_INFO,
             LOG_WARN,
-            LOG_ERROR
+            LOG_ERROR,
+            LOG_SELF_DESTRUCT
         }
 
         protected StreamWriter logWriter;
@@ -57,8 +58,14 @@ namespace RadarProcess
                 case LOG_LEVEL.LOG_INFO:
                     strLevel = "信息";
                     break;
+                case LOG_LEVEL.LOG_WARN:
+                    strLevel = "告警";
+                    break;
                 case LOG_LEVEL.LOG_ERROR:
                     strLevel = "错误";
+                    break;
+                case LOG_LEVEL.LOG_SELF_DESTRUCT:
+                    strLevel = "自毁";
                     break;
                 default:
                     return;

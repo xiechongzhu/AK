@@ -89,11 +89,17 @@ namespace RadarProcess
         private ConstLaunchFsx constLaunchFsx;
         private AlertForm alertForm = new AlertForm();
         List<ListViewItem> logItemList = new List<ListViewItem>();
-        private readonly int MAX_CHART_POINTS = 3000; 
+        private readonly int MAX_CHART_POINTS = 3000;
+
+        private Image grayLedImage;
+        private Image greenLedImage;
+        private Image redLedImage;
+        private DateTime recvNetworkDataTime;
 
         public MainForm()
         {
             dataParser = new DataParser(Handle);
+            dataParser.DataComming += DataParser_DataComming;
             InitializeComponent();
             btnStop.Enabled = false;
             Logger.GetInstance().SetMainForm(this);
@@ -107,6 +113,18 @@ namespace RadarProcess
                 InitChartPoints();
                 InitSpeedMaxMin();
             }
+
+            grayLedImage = Image.FromFile(@"resource/LED_gray.png");
+            greenLedImage = Image.FromFile(@"resource/LED_green.png");
+            redLedImage = Image.FromFile(@"resource/LED_red.png");
+
+            picBoxNetwork.Image = grayLedImage;
+        }
+
+        private void DataParser_DataComming()
+        {
+            recvNetworkDataTime = DateTime.Now;
+            picBoxNetwork.Image = greenLedImage;
         }
 
         private void btnSetting_Click(object sender, EventArgs e)
@@ -173,6 +191,7 @@ namespace RadarProcess
                 Config.GetInstance().azimuthInit);
             chartUpateTimer.Start();
             udpClient.BeginReceive(EndReceive, null);
+            netWorkTimer.Start();
         }
 
         private void EndReceive(IAsyncResult ar)
@@ -205,6 +224,8 @@ namespace RadarProcess
             displayDataList.Clear();
             fallPoints.Clear();
             alertForm.Hide();
+            netWorkTimer.Stop();
+            picBoxNetwork.Image = grayLedImage;
         }
 
         delegate void LogDelegate(DateTime time, Logger.LOG_LEVEL level, String msg);
@@ -230,6 +251,10 @@ namespace RadarProcess
                     case Logger.LOG_LEVEL.LOG_WARN:
                         strLevel = "警告";
                         item.BackColor = Color.Yellow;
+                        break;
+                    case Logger.LOG_LEVEL.LOG_SELF_DESTRUCT:
+                        strLevel = "自毁";
+                        item.BackColor = Color.Red;
                         break;
                     case Logger.LOG_LEVEL.LOG_ERROR:
                         strLevel = "错误";
@@ -384,18 +409,33 @@ namespace RadarProcess
                 ShowAlert();
                 Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "位置X超出范围:" + x.ToString());
                 positionAlertTime = DateTime.Now;
+                chartX.BackColor = Color.Red;
+            }
+            else
+            {
+                chartX.BackColor = Color.White;
             }
             if (y > Config.GetInstance().locMaxY || y < Config.GetInstance().locMinY)
             {
                 ShowAlert();
                 Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "位置Y超出范围:" + y.ToString());
                 positionAlertTime = DateTime.Now;
+                chartY.BackColor = Color.Red;
+            }
+            else
+            {
+                chartY.BackColor = Color.White;
             }
             if (z > Config.GetInstance().locMaxZ || z < Config.GetInstance().locMinZ)
             {
                 ShowAlert();
                 Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "位置Z超出范围:" + z.ToString());
                 positionAlertTime = DateTime.Now;
+                chartZ.BackColor = Color.Red;
+            }
+            else
+            {
+                chartZ.BackColor = Color.White;
             }
         }
 
@@ -443,7 +483,7 @@ namespace RadarProcess
             double distanceHigh = Config.GetInstance().locMaxX - positionXBuffer[positionXBuffer.Count - 1].Values[0];
             double distanceLow = positionXBuffer[positionXBuffer.Count - 1].Values[0] - Config.GetInstance().locMinX;
             chartX.Titles[0].Text = String.Format("上限差值={0:F},下限差值={1:F}", distanceHigh, distanceLow);
-            chartX.Titles[0].TextColor = distanceHigh < 0 || distanceLow < 0 ? Color.Red : Color.Black;
+            //chartX.Titles[0].TextColor = distanceHigh < 0 || distanceLow < 0 ? Color.Red : Color.Black;
             ((TextAnnotation)chartX.Annotations[0]).Text = String.Format("{0:F}", positionXBuffer[positionXBuffer.Count - 1].Values[0]);
             chartX.EndInit();
 
@@ -464,7 +504,7 @@ namespace RadarProcess
             distanceHigh = Config.GetInstance().locMaxY - positionYBuffer[positionYBuffer.Count - 1].Values[0];
             distanceLow = positionYBuffer[positionYBuffer.Count - 1].Values[0] - Config.GetInstance().locMinY;
             chartY.Titles[0].Text = String.Format("上限差值={0:F},下限差值={1:F}", distanceHigh, distanceLow);
-            chartY.Titles[0].TextColor = distanceHigh < 0 || distanceLow < 0 ? Color.Red : Color.Black;
+            //chartY.Titles[0].TextColor = distanceHigh < 0 || distanceLow < 0 ? Color.Red : Color.Black;
             ((TextAnnotation)chartY.Annotations[0]).Text = String.Format("{0:F}", positionYBuffer[positionYBuffer.Count - 1].Values[0]);
             chartY.EndInit();
 
@@ -485,7 +525,7 @@ namespace RadarProcess
             distanceHigh = Config.GetInstance().locMaxZ - positionZBuffer[positionXBuffer.Count - 1].Values[0];
             distanceLow = positionZBuffer[positionZBuffer.Count - 1].Values[0] - Config.GetInstance().locMinZ;
             chartZ.Titles[0].Text = String.Format("上限差值={0:F},下限差值={1:F}", distanceHigh, distanceLow);
-            chartZ.Titles[0].TextColor = distanceHigh < 0 || distanceLow < 0 ? Color.Red : Color.Black;
+            //chartZ.Titles[0].TextColor = distanceHigh < 0 || distanceLow < 0 ? Color.Red : Color.Black;
             ((TextAnnotation)chartZ.Annotations[0]).Text = String.Format("{0:F}", positionZBuffer[positionZBuffer.Count - 1].Values[0]);
             chartZ.EndInit();
 
@@ -506,7 +546,7 @@ namespace RadarProcess
             distanceHigh = Config.GetInstance().speedMaxX - speedVxBuffer[speedVxBuffer.Count - 1].Values[0];
             distanceLow = speedVxBuffer[speedVxBuffer.Count - 1].Values[0] - Config.GetInstance().speedMinX;
             chartVx.Titles[0].Text = String.Format("上限差值={0:F},下限差值={1:F}", distanceHigh, distanceLow);
-            chartVx.Titles[0].TextColor = distanceHigh < 0 || distanceLow < 0 ? Color.Red : Color.Black;
+            //chartVx.Titles[0].TextColor = distanceHigh < 0 || distanceLow < 0 ? Color.Red : Color.Black;
             ((TextAnnotation)chartVx.Annotations[0]).Text = String.Format("{0:F}", speedVxBuffer[speedVxBuffer.Count - 1].Values[0]);
             chartVx.EndInit();
 
@@ -527,7 +567,7 @@ namespace RadarProcess
             distanceHigh = Config.GetInstance().speedMaxY - speedVyBuffer[speedVyBuffer.Count - 1].Values[0];
             distanceLow = speedVyBuffer[speedVyBuffer.Count - 1].Values[0] - Config.GetInstance().speedMinY;
             chartVy.Titles[0].Text = String.Format("上限差值={0:F},下限差值={1:F}", distanceHigh, distanceLow);
-            chartVy.Titles[0].TextColor = distanceHigh < 0 || distanceLow < 0 ? Color.Red : Color.Black;
+            //chartVy.Titles[0].TextColor = distanceHigh < 0 || distanceLow < 0 ? Color.Red : Color.Black;
             ((TextAnnotation)chartVy.Annotations[0]).Text = String.Format("{0:F}", speedVyBuffer[speedVyBuffer.Count - 1].Values[0]);
             chartVy.EndInit();
 
@@ -548,7 +588,7 @@ namespace RadarProcess
             distanceHigh = Config.GetInstance().speedMaxZ - speedVzBuffer[speedVzBuffer.Count - 1].Values[0];
             distanceLow = speedVzBuffer[speedVzBuffer.Count - 1].Values[0] - Config.GetInstance().speedMinZ;
             chartVz.Titles[0].Text = String.Format("上限差值={0:F},下限差值={1:F}", distanceHigh, distanceLow);
-            chartVz.Titles[0].TextColor = distanceHigh < 0 || distanceLow < 0 ? Color.Red : Color.Black;
+            //chartVz.Titles[0].TextColor = distanceHigh < 0 || distanceLow < 0 ? Color.Red : Color.Black;
             ((TextAnnotation)chartVz.Annotations[0]).Text = String.Format("{0:F}", speedVzBuffer[speedVzBuffer.Count - 1].Values[0]);
             chartVz.EndInit();
 
@@ -562,18 +602,33 @@ namespace RadarProcess
                 ShowAlert();
                 Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "速度VX超出范围:" + vx.ToString());
                 speedAlertTime = DateTime.Now;
+                chartVx.BackColor = Color.Red;
+            }
+            else
+            {
+                chartVx.BackColor = Color.White;
             }
             if (vy > Config.GetInstance().speedMaxY || vy < Config.GetInstance().speedMinY)
             {
                 ShowAlert();
                 Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "速度VY超出范围:" + vy.ToString());
                 speedAlertTime = DateTime.Now;
+                chartVy.BackColor = Color.Red;
+            }
+            else
+            {
+                chartVy.BackColor = Color.White;
             }
             if (vz > Config.GetInstance().speedMaxZ || vz < Config.GetInstance().speedMinZ)
             {
                 ShowAlert();
                 Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "速度VZ超出范围:" + vz.ToString());
                 speedAlertTime = DateTime.Now;
+                chartVz.BackColor = Color.Red;
+            }
+            else
+            {
+                chartVz.BackColor = Color.White;
             }
         }
 
@@ -587,10 +642,12 @@ namespace RadarProcess
                 ShowAlert();
                 alertForm.SetAlert(ideaPoint, fallPoint, fallTime);
                 alertForm.Show();
-                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_ERROR, String.Format("落点超出范围:X={0},Y={1}", fallPoint.x, fallPoint.y));
+                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_SELF_DESTRUCT, String.Format("落点超出范围:X={0},Y={1}", fallPoint.x, fallPoint.y));
+                chartPoints.BackColor = Color.Red;
             }
             else
             {
+                chartPoints.BackColor = Color.White;
                 alertForm.Hide();
             }
         }
@@ -620,6 +677,7 @@ namespace RadarProcess
             {
                 textAnnotation.Text = String.Empty;
             }
+            chartControl.BackColor = Color.White;
         }
 
         private void InitChartPoints()
@@ -843,6 +901,14 @@ namespace RadarProcess
                     LogListView.EnsureVisible(LogListView.Items.Count - 1);
                 }
                 LogListView.EndUpdate();
+            }
+        }
+
+        private void netWorkTimer_Tick(object sender, EventArgs e)
+        {
+            if(DateTime.Now - recvNetworkDataTime > new TimeSpan(0, 0, 0, 0, 200))
+            {
+                picBoxNetwork.Image = redLedImage;
             }
         }
 
