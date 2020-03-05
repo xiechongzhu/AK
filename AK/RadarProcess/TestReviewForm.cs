@@ -13,7 +13,6 @@ namespace RadarProcess
     public partial class TestReviewForm : Form
     {
         private long recordId;
-        private int CHART_ITEM_INDEX = 0;
         private HistoryData historyData = null;
         public TestReviewForm(long id)
         {
@@ -50,7 +49,7 @@ namespace RadarProcess
                 editTestDate.Text = testInfo?.Time.ToString("yyyy-MM-dd HH:mm:ss");
                 editComment.Text = testInfo?.Comment;
                 String strDateFile = @".\Log\" + testInfo?.Time.ToString("yyyyMMddHHmmss") + @"\History.dat";
-                
+
                 try
                 {
                     using (FileStream fs = new FileStream(strDateFile, FileMode.Open))
@@ -63,104 +62,94 @@ namespace RadarProcess
                 {
                     XtraMessageBox.Show("读取历史数据失败:" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                if(historyData != null)
+
+                if (historyData == null || historyData.Objects == null || historyData.Objects.Count == 0)
                 {
-                    List<SeriesPoint> positionXBuffer = new List<SeriesPoint>();
-                    List<SeriesPoint> positionYBuffer = new List<SeriesPoint>();
-                    List<SeriesPoint> positionZBuffer = new List<SeriesPoint>();
-                    List<SeriesPoint> speedVxBuffer = new List<SeriesPoint>();
-                    List<SeriesPoint> speedVyBuffer = new List<SeriesPoint>();
-                    List<SeriesPoint> speedVzBuffer = new List<SeriesPoint>();
-                    foreach(S_OBJECT obj in historyData.Objects)
-                    {
-                        positionXBuffer.Add(new SeriesPoint(CHART_ITEM_INDEX, obj.X));
-                        positionYBuffer.Add(new SeriesPoint(CHART_ITEM_INDEX, obj.Y));
-                        positionZBuffer.Add(new SeriesPoint(CHART_ITEM_INDEX, obj.Z));
-                        speedVxBuffer.Add(new SeriesPoint(CHART_ITEM_INDEX, obj.VX));
-                        speedVyBuffer.Add(new SeriesPoint(CHART_ITEM_INDEX, obj.VY));
-                        speedVzBuffer.Add(new SeriesPoint(CHART_ITEM_INDEX, obj.VZ));
-                        CHART_ITEM_INDEX++;
-                    }
-                    if (positionXBuffer.Count > 0)
-                    {
-                        chartX.BeginInit();
-                        chartX.Series["位置X"].Points.AddRange(positionXBuffer.ToArray());
-                        chartX.Series["位置X上限"].Points.AddRange(new SeriesPoint[] {
-                            new SeriesPoint(positionXBuffer[0].Argument, historyData.LocMaxX),
-                            new SeriesPoint(positionXBuffer[positionXBuffer.Count-1].Argument, historyData.LocMaxX) });
-                        chartX.Series["位置X下限"].Points.AddRange(new SeriesPoint[] {
-                         new SeriesPoint(positionXBuffer[0].Argument, historyData.LocMinX),
-                            new SeriesPoint(positionXBuffer[positionXBuffer.Count-1].Argument, historyData.LocMinX) });
-                        chartX.EndInit();
-                    }
-                    if (positionYBuffer.Count > 0)
-                    {
-                        chartY.BeginInit();
-                        chartY.Series["位置Y"].Points.AddRange(positionYBuffer.ToArray());
-                        chartY.Series["位置Y上限"].Points.AddRange(new SeriesPoint[] {
-                            new SeriesPoint(positionYBuffer[0].Argument, historyData.LocMaxY),
-                            new SeriesPoint(positionYBuffer[positionYBuffer.Count-1].Argument, historyData.LocMaxY) });
-                        chartY.Series["位置Y下限"].Points.AddRange(new SeriesPoint[] {
-                            new SeriesPoint(positionYBuffer[0].Argument, historyData.LocMinY),
-                            new SeriesPoint(positionYBuffer[positionYBuffer.Count-1].Argument, historyData.LocMinY) });
-                        chartY.EndInit();
-                    }
-                    if (positionZBuffer.Count > 0)
-                    {
-                        chartZ.BeginInit();
-                        chartZ.Series["位置Z"].Points.AddRange(positionZBuffer.ToArray());
-                        chartZ.Series["位置Z上限"].Points.AddRange(new SeriesPoint[] {
-                            new SeriesPoint(positionZBuffer[0].Argument, historyData.LocMaxZ),
-                            new SeriesPoint(positionZBuffer[positionZBuffer.Count-1].Argument, historyData.LocMaxZ) });
-                        chartZ.Series["位置Z下限"].Points.AddRange(new SeriesPoint[] {
-                            new SeriesPoint(positionZBuffer[0].Argument, historyData.LocMinZ),
-                            new SeriesPoint(positionZBuffer[positionZBuffer.Count-1].Argument, historyData.LocMinZ) });
-                        chartZ.EndInit();
-                    }
-                    if (speedVxBuffer.Count > 0)
-                    {
-                        chartVx.BeginInit();
-                        chartVx.Series["速度VX"].Points.AddRange(speedVxBuffer.ToArray());
-                        chartVx.Series["速度VX上限"].Points.AddRange(new SeriesPoint[] {
-                            new SeriesPoint(speedVxBuffer[0].Argument, historyData.SpeedMaxX),
-                            new SeriesPoint(speedVxBuffer[speedVxBuffer.Count-1].Argument, historyData.SpeedMaxX) });
-                        chartVx.Series["速度VX下限"].Points.AddRange(new SeriesPoint[] {
-                            new SeriesPoint(speedVxBuffer[0].Argument, historyData.SpeedMinX),
-                            new SeriesPoint(speedVxBuffer[speedVxBuffer.Count-1].Argument, historyData.SpeedMinX) });
-                        chartVx.EndInit();
-                    }
-                    if (speedVyBuffer.Count > 0)
-                    {
-                        chartVy.BeginInit();
-                        chartVy.Series["速度VY"].Points.AddRange(speedVyBuffer.ToArray());
-                        chartVy.Series["速度VY上限"].Points.AddRange(new SeriesPoint[] {
-                            new SeriesPoint(speedVyBuffer[0].Argument, historyData.SpeedMaxY),
-                            new SeriesPoint(speedVyBuffer[speedVyBuffer.Count-1].Argument, historyData.SpeedMaxY) });
-                        chartVy.Series["速度VY下限"].Points.AddRange(new SeriesPoint[] {
-                            new SeriesPoint(speedVyBuffer[0].Argument, historyData.SpeedMinY),
-                            new SeriesPoint(speedVyBuffer[speedVyBuffer.Count-1].Argument, historyData.SpeedMinY) });
-                        chartVy.EndInit();
-                    }
-                    if (speedVzBuffer.Count > 0)
-                    {
-                        chartVz.BeginInit();
-                        chartVz.Series["速度VZ"].Points.AddRange(speedVzBuffer.ToArray());
-                        chartVz.Series["速度VZ上限"].Points.AddRange(new SeriesPoint[] {
-                            new SeriesPoint(speedVzBuffer[0].Argument, historyData.SpeedMaxZ),
-                            new SeriesPoint(speedVzBuffer[speedVzBuffer.Count-1].Argument, historyData.SpeedMaxZ) });
-                        chartVz.Series["速度VZ下限"].Points.AddRange(new SeriesPoint[] {
-                            new SeriesPoint(speedVzBuffer[0].Argument, historyData.SpeedMinZ),
-                            new SeriesPoint(speedVzBuffer[speedVzBuffer.Count-1].Argument, historyData.SpeedMinZ) });
-                        chartVz.EndInit();
-                    }
-                    int i = 0;
-                    chartPoints.BeginInit();
-                    FallPoint point = historyData.FallPoint;
-                    chartPoints.Series["预示落点"].Points.Clear();
-                    chartPoints.Series["预示落点"].Points.Add(new SeriesPoint(point.x, point.y));
-                    i++;
-                    chartPoints.EndInit();
+                    return;
                 }
+
+
+                List<SeriesPoint> positionXBuffer = new List<SeriesPoint>();
+                List<SeriesPoint> positionMinXBuffer = new List<SeriesPoint>();
+                List<SeriesPoint> positionMaxXBuffer = new List<SeriesPoint>();
+                List<SeriesPoint> positionYBuffer = new List<SeriesPoint>();
+                List<SeriesPoint> positionMinYBuffer = new List<SeriesPoint>();
+                List<SeriesPoint> positionMaxYBuffer = new List<SeriesPoint>();
+                List<SeriesPoint> positionZBuffer = new List<SeriesPoint>();
+                List<SeriesPoint> positionMinZBuffer = new List<SeriesPoint>();
+                List<SeriesPoint> positionMaxZBuffer = new List<SeriesPoint>();
+                List<SeriesPoint> speedVxBuffer = new List<SeriesPoint>();
+                List<SeriesPoint> speedMinVxBuffer = new List<SeriesPoint>();
+                List<SeriesPoint> speedMaxVxBuffer = new List<SeriesPoint>();
+                List<SeriesPoint> speedVyBuffer = new List<SeriesPoint>();
+                List<SeriesPoint> speedMinVyBuffer = new List<SeriesPoint>();
+                List<SeriesPoint> speedMaxVyBuffer = new List<SeriesPoint>();
+                List<SeriesPoint> speedVzBuffer = new List<SeriesPoint>();
+                List<SeriesPoint> speedMinVzBuffer = new List<SeriesPoint>();
+                List<SeriesPoint> speedMaxVzBuffer = new List<SeriesPoint>();
+                foreach (S_OBJECT obj in historyData.Objects)
+                {
+                    positionXBuffer.Add(new SeriesPoint(obj.time, obj.X));
+                    positionMinXBuffer.Add(new SeriesPoint(obj.time, obj.MinX));
+                    positionMaxXBuffer.Add(new SeriesPoint(obj.time, obj.MaxX));
+                    positionYBuffer.Add(new SeriesPoint(obj.time, obj.Y));
+                    positionMinYBuffer.Add(new SeriesPoint(obj.time, obj.MinY));
+                    positionMaxYBuffer.Add(new SeriesPoint(obj.time, obj.MaxY));
+                    positionZBuffer.Add(new SeriesPoint(obj.time, obj.Z));
+                    positionMinZBuffer.Add(new SeriesPoint(obj.time, obj.MinZ));
+                    positionMaxZBuffer.Add(new SeriesPoint(obj.time, obj.MaxZ));
+                    speedVxBuffer.Add(new SeriesPoint(obj.time, obj.VX));
+                    speedMinVxBuffer.Add(new SeriesPoint(obj.time, obj.MinVx));
+                    speedMaxVxBuffer.Add(new SeriesPoint(obj.time, obj.MaxVx));
+                    speedVyBuffer.Add(new SeriesPoint(obj.time, obj.VY));
+                    speedMinVyBuffer.Add(new SeriesPoint(obj.time, obj.MinVy));
+                    speedMaxVyBuffer.Add(new SeriesPoint(obj.time, obj.MaxVy));
+                    speedVzBuffer.Add(new SeriesPoint(obj.time, obj.VZ));
+                    speedMinVzBuffer.Add(new SeriesPoint(obj.time, obj.MinVz));
+                    speedMaxVzBuffer.Add(new SeriesPoint(obj.time, obj.MaxVz));
+                }
+
+                chartX.BeginInit();
+                chartX.Series["位置X"].Points.AddRange(positionXBuffer.ToArray());
+                chartX.Series["位置X上限"].Points.AddRange(positionMaxXBuffer.ToArray());
+                chartX.Series["位置X下限"].Points.AddRange(positionMinXBuffer.ToArray());
+                chartX.EndInit();
+
+                chartY.BeginInit();
+                chartY.Series["位置Y"].Points.AddRange(positionYBuffer.ToArray());
+                chartY.Series["位置Y上限"].Points.AddRange(positionMaxYBuffer.ToArray());
+                chartY.Series["位置Y下限"].Points.AddRange(positionMinYBuffer.ToArray());
+                chartY.EndInit();
+
+                chartZ.BeginInit();
+                chartZ.Series["位置Z"].Points.AddRange(positionZBuffer.ToArray());
+                chartZ.Series["位置Z上限"].Points.AddRange(positionMaxZBuffer.ToArray());
+                chartZ.Series["位置Z下限"].Points.AddRange(positionMinZBuffer.ToArray());
+                chartZ.EndInit();
+
+                chartVx.BeginInit();
+                chartVx.Series["速度VX"].Points.AddRange(speedVxBuffer.ToArray());
+                chartVx.Series["速度VX上限"].Points.AddRange(speedMaxVxBuffer.ToArray());
+                chartVx.Series["速度VX下限"].Points.AddRange(speedMinVxBuffer.ToArray());
+                chartVx.EndInit();
+
+                chartVy.BeginInit();
+                chartVy.Series["速度VY"].Points.AddRange(speedVyBuffer.ToArray());
+                chartVy.Series["速度VY上限"].Points.AddRange(speedMaxVyBuffer.ToArray());
+                chartVy.Series["速度VY下限"].Points.AddRange(speedMinVyBuffer.ToArray());
+                chartVy.EndInit();
+
+                chartVz.BeginInit();
+                chartVz.Series["速度VZ"].Points.AddRange(speedVzBuffer.ToArray());
+                chartVz.Series["速度VZ上限"].Points.AddRange(speedMaxVzBuffer.ToArray());
+                chartVz.Series["速度VZ下限"].Points.AddRange(speedMinVzBuffer.ToArray());
+                chartVz.EndInit();
+
+                chartPoints.BeginInit();
+                FallPoint point = historyData.FallPoint;
+                chartPoints.Series["预示落点"].Points.Clear();
+                chartPoints.Series["预示落点"].Points.Add(new SeriesPoint(point.x, point.y));
+                chartPoints.EndInit();
             }
         }
 

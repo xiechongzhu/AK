@@ -10,8 +10,11 @@ namespace RadarProcess
     {
         [DllImport("User32.dll", EntryPoint = "PostMessage")]
         private static extern int PostMessage(IntPtr hwnd, int Msg, int wParam, IntPtr lParam);
-
-        public event Action DataComming;
+        private bool isStartGetT0;
+        private int T0StartTime;
+        private int T0Delay;
+        private int T0;
+        private int pos;
 
         public DataParser(IntPtr mainFormHandle)
         {
@@ -28,6 +31,9 @@ namespace RadarProcess
 
         public void Start()
         {
+            T0 = -1;
+            pos = 0;
+            isStartGetT0 = false;
             while (queue.TryDequeue(out byte[] dropBuffer));
             isRuning = true;
             thread = new Thread(new ThreadStart(ThreadFunction));
@@ -58,6 +64,7 @@ namespace RadarProcess
 
         private void ParseData(byte[] buffer)
         {
+            PostMessage(mainFormHandle, MainForm.WM_DATA_COMMING, 0, IntPtr.Zero);
             String errMsg;
             if(!CheckPacket(buffer, out errMsg))
             {
@@ -77,7 +84,7 @@ namespace RadarProcess
                     {
                         return;
                     }
-                    DataComming?.Invoke();
+                    
                     if (packHead.Type == 0x01)
                     {
                         S_HEAD sHead = new S_HEAD
@@ -93,11 +100,24 @@ namespace RadarProcess
                             C = br.ReadByte(),
                             S = br.ReadBytes(43)
                         };
+                        if(T0 == -1)
+                        {
+                            if(isStartGetT0 && (int)DateTime.Now.TimeOfDay.TotalMilliseconds - T0StartTime > T0Delay)
+                            {
+                                T0 = sHead.Time;
+                                isStartGetT0 = false;
+                                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, String.Format("手动计算T0结果:{0}", T0));
+                            }
+                            else
+                            {
+                                return;
+                            }
+                        }
                         while (stream.Position < stream.Length - 1)
                         {
                             S_OBJECT sObject = new S_OBJECT
                             {
-                                time = sHead.Time,
+                                time = sHead.Time - T0,
                                 ObjectId = br.ReadUInt16(),
                                 A = br.ReadDouble(),
                                 E = br.ReadDouble(),
@@ -112,8 +132,21 @@ namespace RadarProcess
                                 BD = br.ReadByte(),
                                 SS = br.ReadByte(),
                                 VF = br.ReadByte(),
-                                Reserve = br.ReadBytes(5)
+                                Reserve = br.ReadBytes(5),
                             };
+                            GetMinMax(ref pos, sObject.time, out MinMaxValue minMaxValue);
+                            sObject.MinX = minMaxValue.MinX;
+                            sObject.MaxX = minMaxValue.MaxX;
+                            sObject.MinY = minMaxValue.MinY;
+                            sObject.MaxY = minMaxValue.MaxY;
+                            sObject.MinZ = minMaxValue.MinZ;
+                            sObject.MaxZ = minMaxValue.MaxZ;
+                            sObject.MinVx = minMaxValue.MinVx;
+                            sObject.MaxVx = minMaxValue.MaxVx;
+                            sObject.MinVy = minMaxValue.MinVy;
+                            sObject.MaxVy = minMaxValue.MaxVy;
+                            sObject.MinVz = minMaxValue.MinVz;
+                            sObject.MaxVz = minMaxValue.MaxVz;
                             IntPtr ptr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(S_OBJECT)));
                             Marshal.StructureToPtr(sObject, ptr, true);
                             PostMessage(mainFormHandle, MainForm.WM_RADAR_DATA, 0, ptr);
@@ -121,7 +154,24 @@ namespace RadarProcess
                     }
                     else if(packHead.Type == 0x50)
                     {
-
+                        S_HEAD sHead = new S_HEAD
+                        {
+                            Len = br.ReadUInt16(),
+                            Time = br.ReadInt32(),
+                            SrcId = br.ReadByte(),
+                            SrcType = br.ReadByte(),
+                            CS = br.ReadByte(),
+                            CT = br.ReadByte(),
+                            FF = br.ReadByte(),
+                            Num = br.ReadByte(),
+                            C = br.ReadByte(),
+                            S = br.ReadBytes(43)
+                        };
+                        if(T0 == -1)
+                        {
+                            T0 = sHead.Time;
+                            Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, String.Format("收到T0帧，T0={0}", T0));
+                        }
                     }
                 }
             }
@@ -136,14 +186,57 @@ namespace RadarProcess
                 return false;
             }
 
-            if((length - Marshal.SizeOf(typeof(PACK_HEAD)) - Marshal.SizeOf(typeof(S_HEAD))) % Marshal.SizeOf(typeof(S_OBJECT)) != 0)
-            {
-                errMsg = "数据包含不完整的S_OBJECT";
-                return false;
-            }
-
             errMsg = String.Empty;
             return true;
+        }
+
+        private void GetMinMax(ref int pos, int time, out MinMaxValue minMaxValue)
+        {
+            if(Config.GetInstance().minMaxValues== null || Config.GetInstance().minMaxValues.Count == 0)
+            {
+                minMaxValue = new MinMaxValue
+                {
+                    MinX = 0,
+                    MaxX = 0,
+                    MinY = 0,
+                    MaxY = 0,
+                    MinZ = 0,
+                    MaxZ = 0,
+                    MinVx = 0,
+                    MaxVx = 0,
+                    MinVy = 0,
+                    MaxVy = 0,
+                    MinVz = 0,
+                    MaxVz = 0
+                };
+                return;
+            }
+            if(time < Config.GetInstance().minMaxValues[pos].Time)
+            {
+                minMaxValue = Config.GetInstance().minMaxValues[pos];
+                return;
+            }
+            int i = pos;
+            for(; i < Config.GetInstance().minMaxValues.Count; ++i)
+            {
+                if(time < Config.GetInstance().minMaxValues[i].Time)
+                {
+                    break;
+                }
+            }
+            pos = i;
+            if(pos >= Config.GetInstance().minMaxValues.Count)
+            {
+                pos = Config.GetInstance().minMaxValues.Count - 1;
+            }
+            minMaxValue = Config.GetInstance().minMaxValues[pos];
+        }
+
+        public void StartGetT0(int delay)
+        {
+            T0Delay = delay;
+            isStartGetT0 = true;
+            T0StartTime = (int)DateTime.Now.TimeOfDay.TotalMilliseconds;
         }
     }
 }

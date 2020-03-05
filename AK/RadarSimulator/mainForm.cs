@@ -114,12 +114,33 @@ namespace RadarSimulator
             }
         }
 
+        private byte[] BuildT0()
+        {
+            PACK_HEAD packHeader = new PACK_HEAD()
+            {
+                Station = 0x21,
+                Type = 0x50
+            };
+            S_HEAD sHead = new S_HEAD()
+            {
+                Len = (ushort)(Marshal.SizeOf(typeof(S_HEAD))),
+                Time = (int)DateTime.Now.TimeOfDay.TotalMilliseconds,
+            };
+            int len = Marshal.SizeOf(typeof(PACK_HEAD)) + sHead.Len;
+            byte[] buffer = new byte[len];
+            MemoryStream memoryStream = new MemoryStream(buffer);
+            BinaryWriter binaryWriter = new BinaryWriter(memoryStream);
+            binaryWriter.Write(StructToBytes(packHeader));
+            binaryWriter.Write(StructToBytes(sHead));
+            return buffer;
+        }
+
         private byte[] BuildPacket(double x, double y, double z, double vx, double vy, double vz)
         {
             PACK_HEAD packHeader = new PACK_HEAD()
             {
-                Station = 0,
-                Type = 0
+                Station = 0x21,
+                Type = 0x01
             };
             S_HEAD sHead = new S_HEAD()
             {
@@ -228,6 +249,12 @@ namespace RadarSimulator
             {
                 return false;
             }
+        }
+
+        private void btnSendT0_Click(object sender, EventArgs e)
+        {
+            byte[] sendBuffer = BuildT0();
+            udpClient?.Send(sendBuffer, sendBuffer.Length, editIp.Text, int.Parse(editPort.Text));
         }
     }
 }

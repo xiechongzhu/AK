@@ -199,7 +199,6 @@
     <Compile Include="TestReviewForm.Designer.cs">
       <DependentUpon>TestReviewForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="XmlDictionary.cs" />
     <EmbeddedResource Include="AlertForm.resx">
       <DependentUpon>AlertForm.cs</DependentUpon>
     </EmbeddedResource>

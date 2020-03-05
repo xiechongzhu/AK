@@ -17,7 +17,7 @@ namespace RadarProcess
 {
     public partial class SettingForm : Form
     {
-        private XmlDictionary<int, MinMaxValue> minMaxValues = new XmlDictionary<int, MinMaxValue>();
+        private List<MinMaxValue> minMaxValues = new List<MinMaxValue>();
         public SettingForm()
         {
             InitializeComponent();
@@ -58,14 +58,7 @@ namespace RadarProcess
             editMultiCastIp.Text = Config.GetInstance().strMultiCastIpAddr;
             editPort.Text = Config.GetInstance().port.ToString();
             editStation.Text = Config.GetInstance().stationId.ToString();
-            if(Config.GetInstance().minMaxValues != null)
-            {
-                minMaxValues = Config.GetInstance().minMaxValues;
-            }
-            else
-            {
-                minMaxValues.Clear();
-            }
+            minMaxValues = Config.GetInstance().minMaxValues;
         }
 
         private void btnOK_Click(object sender, EventArgs e)
@@ -172,12 +165,14 @@ namespace RadarProcess
                     editSideLine.Text = sheet.GetRow(8).GetCell(1).ToString();
                     editStation.Text = sheet.GetRow(9).GetCell(1).ToString();
 
+                    int startTime = 0;
                     sheet = workbook.GetSheetAt(1);
                     for(int i = 1; i <= sheet.LastRowNum; ++i)
                     {
                         int time = (int)sheet.GetRow(i).GetCell(0).NumericCellValue;
                         MinMaxValue minMaxValue = new MinMaxValue
                         {
+                            Time = (int)sheet.GetRow(i).GetCell(0).NumericCellValue,
                             MinX = sheet.GetRow(i).GetCell(1).NumericCellValue,
                             MaxX = sheet.GetRow(i).GetCell(2).NumericCellValue,
                             MinY = sheet.GetRow(i).GetCell(3).NumericCellValue,
@@ -191,14 +186,21 @@ namespace RadarProcess
                             MinVz = sheet.GetRow(i).GetCell(11).NumericCellValue,
                             MaxVz = sheet.GetRow(i).GetCell(12).NumericCellValue
                         };
-                        minMaxValues[time] = minMaxValue;
+                        if(minMaxValue.Time < startTime)
+                        {
+                            throw new Exception(String.Format("第{0}行时间数据不正确", i + 1));
+                        }
+                        startTime = minMaxValue.Time;
+                        minMaxValues.Add(minMaxValue);
                     }
+                    XtraMessageBox.Show(String.Format("读取分量上下限数据成功，共{0}条记录", minMaxValues.Count), "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch(Exception ex)
             {
+                minMaxValues.Clear();
                 XtraMessageBox.Show("导入参数文件失败:" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            } 
         }
     }
 }

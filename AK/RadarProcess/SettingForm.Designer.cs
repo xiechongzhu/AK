@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingForm));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.btnImport = new DevExpress.XtraEditors.SimpleButton();
+            this.btnDownload = new DevExpress.XtraEditors.SimpleButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
@@ -38,6 +40,8 @@
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.editLongitudeInit = new DevExpress.XtraEditors.TextEdit();
             this.editLatitudeInit = new DevExpress.XtraEditors.TextEdit();
@@ -60,10 +64,6 @@
             this.editPort = new DevExpress.XtraEditors.TextEdit();
             this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
             this.editFligtShot = new DevExpress.XtraEditors.TextEdit();
-            this.btnDownload = new DevExpress.XtraEditors.SimpleButton();
-            this.btnImport = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.editStation = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
@@ -73,6 +73,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editLongitudeInit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editLatitudeInit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editAzimuthInit.Properties)).BeginInit();
@@ -84,8 +86,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.editMultiCastIp.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editPort.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editFligtShot.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editStation.Properties)).BeginInit();
             this.SuspendLayout();
             // 
@@ -99,7 +99,7 @@
             this.layoutControl1.Controls.Add(this.btnCancel);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.layoutControl1.Location = new System.Drawing.Point(0, 271);
-            this.layoutControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(4);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsView.RightToLeftMirroringApplied = true;
             this.layoutControl1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -108,20 +108,42 @@
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
+            // btnImport
+            // 
+            this.btnImport.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnImport.ImageOptions.Image")));
+            this.btnImport.Location = new System.Drawing.Point(981, 12);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(222, 44);
+            this.btnImport.StyleController = this.layoutControl1;
+            this.btnImport.TabIndex = 1;
+            this.btnImport.Text = " 导入参数文件";
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
+            // 
+            // btnDownload
+            // 
+            this.btnDownload.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDownload.ImageOptions.Image")));
+            this.btnDownload.Location = new System.Drawing.Point(778, 12);
+            this.btnDownload.Name = "btnDownload";
+            this.btnDownload.Size = new System.Drawing.Size(199, 44);
+            this.btnDownload.StyleController = this.layoutControl1;
+            this.btnDownload.TabIndex = 0;
+            this.btnDownload.Text = "下载参数模板";
+            this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
+            // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(24, 24);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(747, 54);
+            this.panel1.Size = new System.Drawing.Size(762, 76);
             this.panel1.TabIndex = 6;
             // 
             // btnOK
             // 
             this.btnOK.AutoWidthInLayoutControl = true;
             this.btnOK.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnOK.ImageOptions.Image")));
-            this.btnOK.Location = new System.Drawing.Point(1191, 24);
-            this.btnOK.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnOK.Location = new System.Drawing.Point(1207, 12);
+            this.btnOK.Margin = new System.Windows.Forms.Padding(4);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(96, 44);
             this.btnOK.StyleController = this.layoutControl1;
@@ -133,8 +155,8 @@
             // 
             this.btnCancel.AutoWidthInLayoutControl = true;
             this.btnCancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.ImageOptions.Image")));
-            this.btnCancel.Location = new System.Drawing.Point(1295, 24);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Location = new System.Drawing.Point(1307, 12);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(96, 44);
             this.btnCancel.StyleController = this.layoutControl1;
@@ -154,32 +176,32 @@
             this.layoutControlItem4,
             this.layoutControlItem5});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(1415, 102);
+            this.Root.Size = new System.Drawing.Size(1415, 100);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.btnCancel;
-            this.layoutControlItem1.Location = new System.Drawing.Point(1271, 0);
+            this.layoutControlItem1.Location = new System.Drawing.Point(1295, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(104, 52);
+            this.layoutControlItem1.Size = new System.Drawing.Size(100, 48);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(1271, 52);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(1295, 48);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(104, 10);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(100, 32);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.btnOK;
-            this.layoutControlItem2.Location = new System.Drawing.Point(1167, 0);
+            this.layoutControlItem2.Location = new System.Drawing.Point(1195, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(104, 62);
+            this.layoutControlItem2.Size = new System.Drawing.Size(100, 80);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -188,15 +210,33 @@
             this.layoutControlItem3.Control = this.panel1;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(755, 62);
+            this.layoutControlItem3.Size = new System.Drawing.Size(766, 80);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.btnDownload;
+            this.layoutControlItem4.Location = new System.Drawing.Point(766, 0);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(203, 80);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem4.TextVisible = false;
+            // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.Control = this.btnImport;
+            this.layoutControlItem5.Location = new System.Drawing.Point(969, 0);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(226, 80);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem5.TextVisible = false;
             // 
             // labelControl1
             // 
             this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.Location = new System.Drawing.Point(12, 22);
-            this.labelControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(192, 24);
             this.labelControl1.TabIndex = 1;
@@ -205,16 +245,20 @@
             // editLongitudeInit
             // 
             this.editLongitudeInit.Location = new System.Drawing.Point(244, 12);
-            this.editLongitudeInit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.editLongitudeInit.Margin = new System.Windows.Forms.Padding(4);
             this.editLongitudeInit.Name = "editLongitudeInit";
+            this.editLongitudeInit.Properties.Mask.EditMask = "n7";
+            this.editLongitudeInit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.editLongitudeInit.Size = new System.Drawing.Size(202, 38);
             this.editLongitudeInit.TabIndex = 2;
             // 
             // editLatitudeInit
             // 
             this.editLatitudeInit.Location = new System.Drawing.Point(708, 12);
-            this.editLatitudeInit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.editLatitudeInit.Margin = new System.Windows.Forms.Padding(4);
             this.editLatitudeInit.Name = "editLatitudeInit";
+            this.editLatitudeInit.Properties.Mask.EditMask = "n7";
+            this.editLatitudeInit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.editLatitudeInit.Size = new System.Drawing.Size(204, 38);
             this.editLatitudeInit.TabIndex = 4;
             // 
@@ -222,7 +266,7 @@
             // 
             this.labelControl2.Appearance.Options.UseFont = true;
             this.labelControl2.Location = new System.Drawing.Point(476, 22);
-            this.labelControl2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.labelControl2.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(192, 24);
             this.labelControl2.TabIndex = 3;
@@ -232,7 +276,7 @@
             // 
             this.labelControl3.Appearance.Options.UseFont = true;
             this.labelControl3.Location = new System.Drawing.Point(12, 94);
-            this.labelControl3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.labelControl3.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(216, 24);
             this.labelControl3.TabIndex = 5;
@@ -241,16 +285,20 @@
             // editAzimuthInit
             // 
             this.editAzimuthInit.Location = new System.Drawing.Point(244, 86);
-            this.editAzimuthInit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.editAzimuthInit.Margin = new System.Windows.Forms.Padding(4);
             this.editAzimuthInit.Name = "editAzimuthInit";
+            this.editAzimuthInit.Properties.Mask.EditMask = "n7";
+            this.editAzimuthInit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.editAzimuthInit.Size = new System.Drawing.Size(202, 38);
             this.editAzimuthInit.TabIndex = 6;
             // 
             // editHeightInit
             // 
-            this.editHeightInit.Location = new System.Drawing.Point(1184, 12);
-            this.editHeightInit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.editHeightInit.Location = new System.Drawing.Point(1184, 16);
+            this.editHeightInit.Margin = new System.Windows.Forms.Padding(4);
             this.editHeightInit.Name = "editHeightInit";
+            this.editHeightInit.Properties.Mask.EditMask = "n5";
+            this.editHeightInit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.editHeightInit.Size = new System.Drawing.Size(200, 38);
             this.editHeightInit.TabIndex = 8;
             // 
@@ -258,7 +306,7 @@
             // 
             this.labelControl4.Appearance.Options.UseFont = true;
             this.labelControl4.Location = new System.Drawing.Point(952, 22);
-            this.labelControl4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.labelControl4.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(156, 24);
             this.labelControl4.TabIndex = 7;
@@ -267,8 +315,10 @@
             // editPlacementHeight
             // 
             this.editPlacementHeight.Location = new System.Drawing.Point(708, 88);
-            this.editPlacementHeight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.editPlacementHeight.Margin = new System.Windows.Forms.Padding(4);
             this.editPlacementHeight.Name = "editPlacementHeight";
+            this.editPlacementHeight.Properties.Mask.EditMask = "n5";
+            this.editPlacementHeight.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.editPlacementHeight.Size = new System.Drawing.Size(204, 38);
             this.editPlacementHeight.TabIndex = 10;
             // 
@@ -276,7 +326,7 @@
             // 
             this.labelControl5.Appearance.Options.UseFont = true;
             this.labelControl5.Location = new System.Drawing.Point(476, 92);
-            this.labelControl5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.labelControl5.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(204, 24);
             this.labelControl5.TabIndex = 9;
@@ -285,8 +335,10 @@
             // editForwardLine
             // 
             this.editForwardLine.Location = new System.Drawing.Point(244, 160);
-            this.editForwardLine.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.editForwardLine.Margin = new System.Windows.Forms.Padding(4);
             this.editForwardLine.Name = "editForwardLine";
+            this.editForwardLine.Properties.Mask.EditMask = "n5";
+            this.editForwardLine.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.editForwardLine.Size = new System.Drawing.Size(202, 38);
             this.editForwardLine.TabIndex = 12;
             // 
@@ -294,7 +346,7 @@
             // 
             this.labelControl6.Appearance.Options.UseFont = true;
             this.labelControl6.Location = new System.Drawing.Point(12, 168);
-            this.labelControl6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.labelControl6.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(180, 24);
             this.labelControl6.TabIndex = 11;
@@ -303,8 +355,10 @@
             // editBackLine
             // 
             this.editBackLine.Location = new System.Drawing.Point(708, 160);
-            this.editBackLine.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.editBackLine.Margin = new System.Windows.Forms.Padding(4);
             this.editBackLine.Name = "editBackLine";
+            this.editBackLine.Properties.Mask.EditMask = "n5";
+            this.editBackLine.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.editBackLine.Size = new System.Drawing.Size(204, 38);
             this.editBackLine.TabIndex = 14;
             // 
@@ -312,7 +366,7 @@
             // 
             this.labelControl7.Appearance.Options.UseFont = true;
             this.labelControl7.Location = new System.Drawing.Point(476, 168);
-            this.labelControl7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.labelControl7.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(180, 24);
             this.labelControl7.TabIndex = 13;
@@ -321,8 +375,10 @@
             // editSideLine
             // 
             this.editSideLine.Location = new System.Drawing.Point(1184, 160);
-            this.editSideLine.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.editSideLine.Margin = new System.Windows.Forms.Padding(4);
             this.editSideLine.Name = "editSideLine";
+            this.editSideLine.Properties.Mask.EditMask = "n5";
+            this.editSideLine.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.editSideLine.Size = new System.Drawing.Size(200, 38);
             this.editSideLine.TabIndex = 16;
             // 
@@ -330,7 +386,7 @@
             // 
             this.labelControl8.Appearance.Options.UseFont = true;
             this.labelControl8.Location = new System.Drawing.Point(952, 166);
-            this.labelControl8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.labelControl8.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(180, 24);
             this.labelControl8.TabIndex = 15;
@@ -339,8 +395,10 @@
             // editMultiCastIp
             // 
             this.editMultiCastIp.Location = new System.Drawing.Point(244, 223);
-            this.editMultiCastIp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.editMultiCastIp.Margin = new System.Windows.Forms.Padding(4);
             this.editMultiCastIp.Name = "editMultiCastIp";
+            this.editMultiCastIp.Properties.Mask.EditMask = "\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}";
+            this.editMultiCastIp.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.editMultiCastIp.Size = new System.Drawing.Size(202, 38);
             this.editMultiCastIp.TabIndex = 42;
             // 
@@ -348,7 +406,7 @@
             // 
             this.labelControl21.Appearance.Options.UseFont = true;
             this.labelControl21.Location = new System.Drawing.Point(13, 231);
-            this.labelControl21.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.labelControl21.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl21.Name = "labelControl21";
             this.labelControl21.Size = new System.Drawing.Size(120, 24);
             this.labelControl21.TabIndex = 41;
@@ -358,7 +416,7 @@
             // 
             this.labelControl22.Appearance.Options.UseFont = true;
             this.labelControl22.Location = new System.Drawing.Point(476, 231);
-            this.labelControl22.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.labelControl22.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl22.Name = "labelControl22";
             this.labelControl22.Size = new System.Drawing.Size(72, 24);
             this.labelControl22.TabIndex = 43;
@@ -367,8 +425,10 @@
             // editPort
             // 
             this.editPort.Location = new System.Drawing.Point(708, 225);
-            this.editPort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.editPort.Margin = new System.Windows.Forms.Padding(4);
             this.editPort.Name = "editPort";
+            this.editPort.Properties.Mask.EditMask = "\\d{1,5}";
+            this.editPort.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.editPort.Size = new System.Drawing.Size(204, 38);
             this.editPort.TabIndex = 44;
             // 
@@ -376,7 +436,7 @@
             // 
             this.labelControl23.Appearance.Options.UseFont = true;
             this.labelControl23.Location = new System.Drawing.Point(956, 94);
-            this.labelControl23.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.labelControl23.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl23.Name = "labelControl23";
             this.labelControl23.Size = new System.Drawing.Size(156, 24);
             this.labelControl23.TabIndex = 45;
@@ -385,50 +445,12 @@
             // editFligtShot
             // 
             this.editFligtShot.Location = new System.Drawing.Point(1184, 86);
-            this.editFligtShot.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.editFligtShot.Margin = new System.Windows.Forms.Padding(4);
             this.editFligtShot.Name = "editFligtShot";
+            this.editFligtShot.Properties.Mask.EditMask = "n5";
+            this.editFligtShot.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.editFligtShot.Size = new System.Drawing.Size(200, 38);
             this.editFligtShot.TabIndex = 46;
-            // 
-            // btnDownload
-            // 
-            this.btnDownload.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.btnDownload.Location = new System.Drawing.Point(779, 24);
-            this.btnDownload.Name = "btnDownload";
-            this.btnDownload.Size = new System.Drawing.Size(192, 44);
-            this.btnDownload.StyleController = this.layoutControl1;
-            this.btnDownload.TabIndex = 0;
-            this.btnDownload.Text = "下载参数模板";
-            this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
-            // 
-            // btnImport
-            // 
-            this.btnImport.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
-            this.btnImport.Location = new System.Drawing.Point(979, 24);
-            this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(204, 44);
-            this.btnImport.StyleController = this.layoutControl1;
-            this.btnImport.TabIndex = 1;
-            this.btnImport.Text = " 导入参数文件";
-            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
-            // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.btnDownload;
-            this.layoutControlItem4.Location = new System.Drawing.Point(755, 0);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(200, 62);
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem4.TextVisible = false;
-            // 
-            // layoutControlItem5
-            // 
-            this.layoutControlItem5.Control = this.btnImport;
-            this.layoutControlItem5.Location = new System.Drawing.Point(955, 0);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(212, 62);
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem5.TextVisible = false;
             // 
             // labelControl9
             // 
@@ -480,7 +502,7 @@
             this.Controls.Add(this.layoutControl1);
             this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SettingForm";
@@ -493,6 +515,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editLongitudeInit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editLatitudeInit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editAzimuthInit.Properties)).EndInit();
@@ -504,8 +528,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.editMultiCastIp.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editPort.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editFligtShot.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editStation.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

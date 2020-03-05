@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RadarProcess
 {
@@ -53,6 +49,18 @@ namespace RadarProcess
         public byte VF;
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 5)]
         public byte[] Reserve;
+        public double MinX;
+        public double MaxX;
+        public double MinY;
+        public double MaxY;
+        public double MinZ;
+        public double MaxZ;
+        public double MinVx;
+        public double MaxVx;
+        public double MinVy;
+        public double MaxVy;
+        public double MinVz;
+        public double MaxVz;
     }
 
     [Serializable]
