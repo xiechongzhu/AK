@@ -26,8 +26,10 @@ namespace RadarProcess
         public double backwardLine;         //当前点发射系位置x后向必炸线
         public double sideLine;             //侧向必炸线
         public List<MinMaxValue> minMaxValues;
-        public String strMultiCastIpAddr;       //组播地址
-        public UInt16 port;                     //组播端口
+        public String strRadarMultiCastIpAddr;       //雷测组播地址
+        public UInt16 radarPort;                     //雷测组播端口
+        public String strTelemetryMultiCastIpAddr;  //遥测组播地址
+        public UInt16 telemetryPort;                //遥测组播端口
         public int stationId;                   //雷达站编号
         public bool manualT0;
         public int delayT0;

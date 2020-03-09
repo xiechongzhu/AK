@@ -58,14 +58,18 @@
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.editSideLine = new DevExpress.XtraEditors.TextEdit();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
-            this.editMultiCastIp = new DevExpress.XtraEditors.TextEdit();
+            this.editRadarMultiCastIp = new DevExpress.XtraEditors.TextEdit();
             this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl22 = new DevExpress.XtraEditors.LabelControl();
-            this.editPort = new DevExpress.XtraEditors.TextEdit();
+            this.editRadarPort = new DevExpress.XtraEditors.TextEdit();
             this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
             this.editFligtShot = new DevExpress.XtraEditors.TextEdit();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.editStation = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.editTelemetryMultiCastIp = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
+            this.editTelemetryPort = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
@@ -83,10 +87,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.editForwardLine.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editBackLine.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editSideLine.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.editMultiCastIp.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.editPort.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editRadarMultiCastIp.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editRadarPort.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editFligtShot.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editStation.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editTelemetryMultiCastIp.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editTelemetryPort.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -98,7 +104,7 @@
             this.layoutControl1.Controls.Add(this.btnOK);
             this.layoutControl1.Controls.Add(this.btnCancel);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 271);
+            this.layoutControl1.Location = new System.Drawing.Point(0, 348);
             this.layoutControl1.Margin = new System.Windows.Forms.Padding(4);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsView.RightToLeftMirroringApplied = true;
@@ -392,15 +398,15 @@
             this.labelControl8.TabIndex = 15;
             this.labelControl8.Text = "侧向必炸线(m)：";
             // 
-            // editMultiCastIp
+            // editRadarMultiCastIp
             // 
-            this.editMultiCastIp.Location = new System.Drawing.Point(244, 223);
-            this.editMultiCastIp.Margin = new System.Windows.Forms.Padding(4);
-            this.editMultiCastIp.Name = "editMultiCastIp";
-            this.editMultiCastIp.Properties.Mask.EditMask = "\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}";
-            this.editMultiCastIp.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.editMultiCastIp.Size = new System.Drawing.Size(202, 38);
-            this.editMultiCastIp.TabIndex = 42;
+            this.editRadarMultiCastIp.Location = new System.Drawing.Point(244, 223);
+            this.editRadarMultiCastIp.Margin = new System.Windows.Forms.Padding(4);
+            this.editRadarMultiCastIp.Name = "editRadarMultiCastIp";
+            this.editRadarMultiCastIp.Properties.Mask.EditMask = "\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}";
+            this.editRadarMultiCastIp.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.editRadarMultiCastIp.Size = new System.Drawing.Size(202, 38);
+            this.editRadarMultiCastIp.TabIndex = 42;
             // 
             // labelControl21
             // 
@@ -408,9 +414,9 @@
             this.labelControl21.Location = new System.Drawing.Point(13, 231);
             this.labelControl21.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl21.Name = "labelControl21";
-            this.labelControl21.Size = new System.Drawing.Size(120, 24);
+            this.labelControl21.Size = new System.Drawing.Size(168, 24);
             this.labelControl21.TabIndex = 41;
-            this.labelControl21.Text = "组播地址：";
+            this.labelControl21.Text = "雷测组播地址：";
             // 
             // labelControl22
             // 
@@ -418,19 +424,19 @@
             this.labelControl22.Location = new System.Drawing.Point(476, 231);
             this.labelControl22.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl22.Name = "labelControl22";
-            this.labelControl22.Size = new System.Drawing.Size(72, 24);
+            this.labelControl22.Size = new System.Drawing.Size(120, 24);
             this.labelControl22.TabIndex = 43;
-            this.labelControl22.Text = "端口：";
+            this.labelControl22.Text = "雷测端口：";
             // 
-            // editPort
+            // editRadarPort
             // 
-            this.editPort.Location = new System.Drawing.Point(708, 225);
-            this.editPort.Margin = new System.Windows.Forms.Padding(4);
-            this.editPort.Name = "editPort";
-            this.editPort.Properties.Mask.EditMask = "\\d{1,5}";
-            this.editPort.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.editPort.Size = new System.Drawing.Size(204, 38);
-            this.editPort.TabIndex = 44;
+            this.editRadarPort.Location = new System.Drawing.Point(708, 225);
+            this.editRadarPort.Margin = new System.Windows.Forms.Padding(4);
+            this.editRadarPort.Name = "editRadarPort";
+            this.editRadarPort.Properties.Mask.EditMask = "\\d{1,5}";
+            this.editRadarPort.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.editRadarPort.Size = new System.Drawing.Size(204, 38);
+            this.editRadarPort.TabIndex = 44;
             // 
             // labelControl23
             // 
@@ -470,18 +476,62 @@
             this.editStation.Size = new System.Drawing.Size(200, 38);
             this.editStation.TabIndex = 48;
             // 
+            // labelControl10
+            // 
+            this.labelControl10.Appearance.Options.UseFont = true;
+            this.labelControl10.Location = new System.Drawing.Point(13, 292);
+            this.labelControl10.Margin = new System.Windows.Forms.Padding(4);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(168, 24);
+            this.labelControl10.TabIndex = 49;
+            this.labelControl10.Text = "遥测组播地址：";
+            // 
+            // editTelemetryMultiCastIp
+            // 
+            this.editTelemetryMultiCastIp.Location = new System.Drawing.Point(244, 285);
+            this.editTelemetryMultiCastIp.Margin = new System.Windows.Forms.Padding(4);
+            this.editTelemetryMultiCastIp.Name = "editTelemetryMultiCastIp";
+            this.editTelemetryMultiCastIp.Properties.Mask.EditMask = "\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}";
+            this.editTelemetryMultiCastIp.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.editTelemetryMultiCastIp.Size = new System.Drawing.Size(202, 38);
+            this.editTelemetryMultiCastIp.TabIndex = 50;
+            // 
+            // labelControl11
+            // 
+            this.labelControl11.Appearance.Options.UseFont = true;
+            this.labelControl11.Location = new System.Drawing.Point(476, 291);
+            this.labelControl11.Margin = new System.Windows.Forms.Padding(4);
+            this.labelControl11.Name = "labelControl11";
+            this.labelControl11.Size = new System.Drawing.Size(120, 24);
+            this.labelControl11.TabIndex = 51;
+            this.labelControl11.Text = "遥测端口：";
+            // 
+            // editTelemetryPort
+            // 
+            this.editTelemetryPort.Location = new System.Drawing.Point(708, 284);
+            this.editTelemetryPort.Margin = new System.Windows.Forms.Padding(4);
+            this.editTelemetryPort.Name = "editTelemetryPort";
+            this.editTelemetryPort.Properties.Mask.EditMask = "\\d{1,5}";
+            this.editTelemetryPort.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.editTelemetryPort.Size = new System.Drawing.Size(204, 38);
+            this.editTelemetryPort.TabIndex = 52;
+            // 
             // SettingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1415, 371);
+            this.ClientSize = new System.Drawing.Size(1415, 448);
+            this.Controls.Add(this.editTelemetryPort);
+            this.Controls.Add(this.labelControl11);
+            this.Controls.Add(this.editTelemetryMultiCastIp);
+            this.Controls.Add(this.labelControl10);
             this.Controls.Add(this.editStation);
             this.Controls.Add(this.labelControl9);
             this.Controls.Add(this.editFligtShot);
             this.Controls.Add(this.labelControl23);
-            this.Controls.Add(this.editPort);
+            this.Controls.Add(this.editRadarPort);
             this.Controls.Add(this.labelControl22);
-            this.Controls.Add(this.editMultiCastIp);
+            this.Controls.Add(this.editRadarMultiCastIp);
             this.Controls.Add(this.labelControl21);
             this.Controls.Add(this.editSideLine);
             this.Controls.Add(this.labelControl8);
@@ -525,10 +575,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.editForwardLine.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editBackLine.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editSideLine.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.editMultiCastIp.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.editPort.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editRadarMultiCastIp.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editRadarPort.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editFligtShot.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editStation.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editTelemetryMultiCastIp.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editTelemetryPort.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -561,10 +613,10 @@
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.TextEdit editSideLine;
         private DevExpress.XtraEditors.LabelControl labelControl8;
-        private DevExpress.XtraEditors.TextEdit editMultiCastIp;
+        private DevExpress.XtraEditors.TextEdit editRadarMultiCastIp;
         private DevExpress.XtraEditors.LabelControl labelControl21;
         private DevExpress.XtraEditors.LabelControl labelControl22;
-        private DevExpress.XtraEditors.TextEdit editPort;
+        private DevExpress.XtraEditors.TextEdit editRadarPort;
         private DevExpress.XtraEditors.LabelControl labelControl23;
         private DevExpress.XtraEditors.TextEdit editFligtShot;
         private DevExpress.XtraEditors.SimpleButton btnImport;
@@ -573,5 +625,9 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraEditors.LabelControl labelControl9;
         private DevExpress.XtraEditors.TextEdit editStation;
+        private DevExpress.XtraEditors.LabelControl labelControl10;
+        private DevExpress.XtraEditors.TextEdit editTelemetryMultiCastIp;
+        private DevExpress.XtraEditors.LabelControl labelControl11;
+        private DevExpress.XtraEditors.TextEdit editTelemetryPort;
     }
 }

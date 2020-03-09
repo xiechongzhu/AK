@@ -55,8 +55,10 @@ namespace RadarProcess
             editForwardLine.Text = Config.GetInstance().forwardLine.ToString();
             editBackLine.Text = Config.GetInstance().backwardLine.ToString();
             editSideLine.Text = Config.GetInstance().sideLine.ToString();
-            editMultiCastIp.Text = Config.GetInstance().strMultiCastIpAddr;
-            editPort.Text = Config.GetInstance().port.ToString();
+            editRadarMultiCastIp.Text = Config.GetInstance().strRadarMultiCastIpAddr;
+            editRadarPort.Text = Config.GetInstance().radarPort.ToString();
+            editTelemetryMultiCastIp.Text = Config.GetInstance().strTelemetryMultiCastIpAddr;
+            editTelemetryPort.Text = Config.GetInstance().telemetryPort.ToString();
             editStation.Text = Config.GetInstance().stationId.ToString();
             minMaxValues = Config.GetInstance().minMaxValues;
         }
@@ -74,8 +76,10 @@ namespace RadarProcess
                 Config.GetInstance().forwardLine = double.Parse(editForwardLine.Text);
                 Config.GetInstance().backwardLine = double.Parse(editBackLine.Text);
                 Config.GetInstance().sideLine = double.Parse(editSideLine.Text);
-                Config.GetInstance().strMultiCastIpAddr = editMultiCastIp.Text;
-                Config.GetInstance().port = UInt16.Parse(editPort.Text);
+                Config.GetInstance().strRadarMultiCastIpAddr = editRadarMultiCastIp.Text;
+                Config.GetInstance().radarPort = UInt16.Parse(editRadarPort.Text);
+                Config.GetInstance().strTelemetryMultiCastIpAddr = editTelemetryMultiCastIp.Text;
+                Config.GetInstance().telemetryPort = UInt16.Parse(editTelemetryPort.Text);
                 Config.GetInstance().stationId = int.Parse(editStation.Text);
                 Config.GetInstance().minMaxValues = minMaxValues;
             }
@@ -113,8 +117,8 @@ namespace RadarProcess
             editForwardLine.Text = forwardLine.ToString();
             editBackLine.Text = backwardLine.ToString();
             editSideLine.Text = sideLine.ToString();
-            editMultiCastIp.Text = strMultiCastIpAddr;
-            editPort.Text = port.ToString();
+            editRadarMultiCastIp.Text = strMultiCastIpAddr;
+            editRadarPort.Text = port.ToString();
             editStation.Text = stationId.ToString();
         }
 

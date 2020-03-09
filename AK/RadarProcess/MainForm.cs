@@ -11,6 +11,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using DevExpress.XtraCharts;
 using DevExpress.XtraEditors;
+using static RadarProcess.DataParser;
 
 namespace RadarProcess
 {
@@ -85,11 +86,13 @@ namespace RadarProcess
         private bool isAlertPlaying = false;
         private const int WM_USER = 0x400;
         public const int WM_RADAR_DATA = WM_USER + 100;
-        public const int WM_DATA_COMMING = WM_USER + 101;
+        public const int WM_RADAR_DATA_COMMING = WM_USER + 101;
+        public const int WM_TELEMETRY_DATA_COMMING = WM_USER + 102;
         private List<DisplayData> displayDataList = new List<DisplayData>();
         private List<FallPoint> fallPoints = new List<FallPoint>();
 
-        private UdpClient udpClient;
+        private UdpClient udpRadarClient;
+        private UdpClient udpTelemetryClient;
         private DataParser dataParser;
         private DataLogger dataLogger = new DataLogger();
         private HistoryData historyData = new HistoryData();
@@ -104,7 +107,8 @@ namespace RadarProcess
         private Image grayLedImage;
         private Image greenLedImage;
         private Image redLedImage;
-        private DateTime recvNetworkDataTime;
+        private DateTime recvRaderNetworkDataTime;
+        private DateTime recvTelemetryNetworkDataTime;
 
         public MainForm()
         {
@@ -129,7 +133,8 @@ namespace RadarProcess
             greenLedImage = Image.FromFile(@"resource/LED_green.png");
             redLedImage = Image.FromFile(@"resource/LED_red.png");
 
-            picBoxNetwork.Image = grayLedImage;
+            picRadarNetwork.Image = grayLedImage;
+            picTelemetryNetwork.Image = grayLedImage;
         }
 
         private void btnSetting_Click(object sender, EventArgs e)
@@ -166,8 +171,10 @@ namespace RadarProcess
             Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, "加载配置文件成功");
             try
             { 
-                udpClient = new UdpClient(Config.GetInstance().port);
-                udpClient.JoinMulticastGroup(IPAddress.Parse(Config.GetInstance().strMultiCastIpAddr));
+                udpRadarClient = new UdpClient(Config.GetInstance().radarPort);
+                udpRadarClient.JoinMulticastGroup(IPAddress.Parse(Config.GetInstance().strRadarMultiCastIpAddr));
+                udpTelemetryClient = new UdpClient(Config.GetInstance().telemetryPort);
+                udpTelemetryClient.JoinMulticastGroup(IPAddress.Parse(Config.GetInstance().strTelemetryMultiCastIpAddr));
                 dataParser.Start();
                 dataLogger.Start();
                 Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, "加入组播组成功");
@@ -176,7 +183,8 @@ namespace RadarProcess
             {
                 Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_ERROR, "加入组播组失败，" + ex.Message);
                 XtraMessageBox.Show("加入组播组失败，" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                udpClient.Close();
+                udpRadarClient.Close();
+                udpTelemetryClient.Close();
                 dataParser.Stop();
                 dataLogger.Stop();
                 return;
@@ -196,19 +204,33 @@ namespace RadarProcess
                 Config.GetInstance().heightInit,
                 Config.GetInstance().azimuthInit);
             chartUpateTimer.Start();
-            udpClient.BeginReceive(EndReceive, null);
+            udpRadarClient.BeginReceive(EndRadarUdpReceive, null);
+            udpTelemetryClient.BeginReceive(EndTelemetryUdpReceive, null);
             netWorkTimer.Start();
         }
 
-        private void EndReceive(IAsyncResult ar)
+        private void EndRadarUdpReceive(IAsyncResult ar)
         {
             IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, 0);
             try
             {
-                byte[] recvBuffer = udpClient?.EndReceive(ar, ref endPoint);
-                dataParser.Enqueue(recvBuffer);
+                byte[] recvBuffer = udpRadarClient?.EndReceive(ar, ref endPoint);
+                dataParser.Enqueue(DataSourceType.DATA_RADER ,recvBuffer);
                 dataLogger.Enqueue(recvBuffer);
-                udpClient.BeginReceive(EndReceive, null);
+                udpRadarClient.BeginReceive(EndRadarUdpReceive, null);
+            }
+            catch(Exception)
+            { }
+        }
+
+        private void EndTelemetryUdpReceive(IAsyncResult ar)
+        {
+            IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, 0);
+            try
+            {
+                byte[] recvBuffer = udpTelemetryClient?.EndReceive(ar, ref endPoint);
+                dataParser.Enqueue(DataSourceType.DATA_TELEMETRY, recvBuffer);
+                udpTelemetryClient.BeginReceive(EndTelemetryUdpReceive, null);
             }
             catch(Exception)
             { }
@@ -217,7 +239,8 @@ namespace RadarProcess
         private void btnStop_Click(object sender, EventArgs e)
         {
             chartUpateTimer.Stop();
-            udpClient?.Close();
+            udpRadarClient?.Close();
+            udpTelemetryClient?.Close();
             dataParser.Stop();
             dataLogger.Stop();
             Logger.GetInstance().Close();
@@ -234,7 +257,8 @@ namespace RadarProcess
             fallPoints.Clear();
             alertForm.Hide();
             netWorkTimer.Stop();
-            picBoxNetwork.Image = grayLedImage;
+            picRadarNetwork.Image = grayLedImage;
+            picTelemetryNetwork.Image = grayLedImage;
         }
 
         delegate void LogDelegate(DateTime time, Logger.LOG_LEVEL level, String msg);
@@ -315,8 +339,8 @@ namespace RadarProcess
             historyData.ForwardLine = Config.GetInstance().forwardLine;
             historyData.BackwardLine = Config.GetInstance().backwardLine;
             historyData.SideLine = Config.GetInstance().sideLine;
-            historyData.StrMultiCastIpAddr = Config.GetInstance().strMultiCastIpAddr;
-            historyData.Port = Config.GetInstance().port;
+            historyData.StrMultiCastIpAddr = Config.GetInstance().strRadarMultiCastIpAddr;
+            historyData.Port = Config.GetInstance().radarPort;
             historyData.StationId = Config.GetInstance().stationId;
 
             try
@@ -369,9 +393,13 @@ namespace RadarProcess
                     CheckSpeed(sObject.VX, sObject.VY, sObject.VZ, sObject.MinVx, sObject.MaxVx, sObject.MinVy, sObject.MaxVy, sObject.MinVz, sObject.MaxVz);
                     Marshal.FreeHGlobal(ptr);
                     break;
-                case WM_DATA_COMMING:
-                    recvNetworkDataTime = DateTime.Now;
-                    picBoxNetwork.Image = greenLedImage;
+                case WM_RADAR_DATA_COMMING:
+                    recvRaderNetworkDataTime = DateTime.Now;
+                    picRadarNetwork.Image = greenLedImage;
+                    break;
+                case WM_TELEMETRY_DATA_COMMING:
+                    recvTelemetryNetworkDataTime = DateTime.Now;
+                    picTelemetryNetwork.Image = greenLedImage;
                     break;
                 default:
                     base.DefWndProc(ref m);
@@ -846,9 +874,13 @@ namespace RadarProcess
 
         private void netWorkTimer_Tick(object sender, EventArgs e)
         {
-            if(DateTime.Now - recvNetworkDataTime > new TimeSpan(0, 0, 0, 0, 200))
+            if(DateTime.Now - recvRaderNetworkDataTime > new TimeSpan(0, 0, 0, 0, 200))
             {
-                picBoxNetwork.Image = redLedImage;
+                picRadarNetwork.Image = redLedImage;
+            }
+            if(DateTime.Now - recvTelemetryNetworkDataTime > new TimeSpan(0,0,0,0,200))
+            {
+                picTelemetryNetwork.Image = redLedImage;
             }
         }
 
