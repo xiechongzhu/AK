@@ -125,7 +125,6 @@ namespace RadarProcess
             {
                 InitChartPoints();
                 InitPositionSpeedMaxMin();
-                ManualT0.Checked = Config.GetInstance().manualT0;
                 editT0.Text = Config.GetInstance().delayT0.ToString();
             }
 
@@ -195,7 +194,6 @@ namespace RadarProcess
             btnSetting.Enabled = false;
             btnStop.Enabled = true;
             btnStart.Enabled = false;
-            ManualT0.Enabled = true;
             btnStartT0.Enabled = true;
             editT0.Enabled = true;
             constLaunchFsx = algorithm.calc_const_launch_fsx(
@@ -250,7 +248,6 @@ namespace RadarProcess
             btnSetting.Enabled = true;
             btnStop.Enabled = false;
             btnStart.Enabled = true;
-            ManualT0.Enabled = false;
             btnStartT0.Enabled = false;
             editT0.Enabled = false;
             displayDataList.Clear();
@@ -886,11 +883,9 @@ namespace RadarProcess
 
         private void btnStartT0_Click(object sender, EventArgs e)
         {
-            Config.GetInstance().manualT0 = ManualT0.Checked;
             Config.GetInstance().delayT0 = int.Parse(editT0.Text);
             Config.GetInstance().SaveConfig(out String _);
             dataParser.StartGetT0(Config.GetInstance().delayT0);
-            ManualT0.Enabled = false;
             btnStartT0.Enabled = false;
             editT0.Enabled = false;
         }

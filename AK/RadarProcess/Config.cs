@@ -31,7 +31,6 @@ namespace RadarProcess
         public String strTelemetryMultiCastIpAddr;  //遥测组播地址
         public UInt16 telemetryPort;                //遥测组播端口
         public int stationId;                   //雷达站编号
-        public bool manualT0;
         public int delayT0;
 
         public bool LoadConfigFile(out String errMsg)

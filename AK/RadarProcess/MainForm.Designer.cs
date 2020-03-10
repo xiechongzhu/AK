@@ -30,81 +30,81 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DevExpress.XtraCharts.XYDiagram xyDiagram3 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series43 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.PointSeriesView pointSeriesView5 = new DevExpress.XtraCharts.PointSeriesView();
-            DevExpress.XtraCharts.Series series44 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.PointSeriesLabel pointSeriesLabel3 = new DevExpress.XtraCharts.PointSeriesLabel();
-            DevExpress.XtraCharts.PointSeriesView pointSeriesView6 = new DevExpress.XtraCharts.PointSeriesView();
-            DevExpress.XtraCharts.Series series45 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.RangeAreaSeriesView rangeAreaSeriesView3 = new DevExpress.XtraCharts.RangeAreaSeriesView();
-            DevExpress.XtraCharts.ChartTitle chartTitle15 = new DevExpress.XtraCharts.ChartTitle();
-            DevExpress.XtraCharts.TextAnnotation textAnnotation13 = new DevExpress.XtraCharts.TextAnnotation();
-            DevExpress.XtraCharts.ChartAnchorPoint chartAnchorPoint13 = new DevExpress.XtraCharts.ChartAnchorPoint();
-            DevExpress.XtraCharts.FreePosition freePosition13 = new DevExpress.XtraCharts.FreePosition();
-            DevExpress.XtraCharts.SwiftPlotDiagram swiftPlotDiagram13 = new DevExpress.XtraCharts.SwiftPlotDiagram();
-            DevExpress.XtraCharts.Series series46 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView37 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
-            DevExpress.XtraCharts.Series series47 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView38 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
-            DevExpress.XtraCharts.Series series48 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView39 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
-            DevExpress.XtraCharts.ChartTitle chartTitle16 = new DevExpress.XtraCharts.ChartTitle();
-            DevExpress.XtraCharts.TextAnnotation textAnnotation14 = new DevExpress.XtraCharts.TextAnnotation();
-            DevExpress.XtraCharts.ChartAnchorPoint chartAnchorPoint14 = new DevExpress.XtraCharts.ChartAnchorPoint();
-            DevExpress.XtraCharts.FreePosition freePosition14 = new DevExpress.XtraCharts.FreePosition();
-            DevExpress.XtraCharts.SwiftPlotDiagram swiftPlotDiagram14 = new DevExpress.XtraCharts.SwiftPlotDiagram();
-            DevExpress.XtraCharts.Series series49 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView40 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
-            DevExpress.XtraCharts.Series series50 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView41 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
-            DevExpress.XtraCharts.Series series51 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView42 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
-            DevExpress.XtraCharts.ChartTitle chartTitle17 = new DevExpress.XtraCharts.ChartTitle();
-            DevExpress.XtraCharts.TextAnnotation textAnnotation15 = new DevExpress.XtraCharts.TextAnnotation();
-            DevExpress.XtraCharts.ChartAnchorPoint chartAnchorPoint15 = new DevExpress.XtraCharts.ChartAnchorPoint();
-            DevExpress.XtraCharts.FreePosition freePosition15 = new DevExpress.XtraCharts.FreePosition();
-            DevExpress.XtraCharts.SwiftPlotDiagram swiftPlotDiagram15 = new DevExpress.XtraCharts.SwiftPlotDiagram();
-            DevExpress.XtraCharts.Series series52 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView43 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
-            DevExpress.XtraCharts.Series series53 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView44 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
-            DevExpress.XtraCharts.Series series54 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView45 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
-            DevExpress.XtraCharts.ChartTitle chartTitle18 = new DevExpress.XtraCharts.ChartTitle();
-            DevExpress.XtraCharts.TextAnnotation textAnnotation16 = new DevExpress.XtraCharts.TextAnnotation();
-            DevExpress.XtraCharts.ChartAnchorPoint chartAnchorPoint16 = new DevExpress.XtraCharts.ChartAnchorPoint();
-            DevExpress.XtraCharts.FreePosition freePosition16 = new DevExpress.XtraCharts.FreePosition();
-            DevExpress.XtraCharts.SwiftPlotDiagram swiftPlotDiagram16 = new DevExpress.XtraCharts.SwiftPlotDiagram();
-            DevExpress.XtraCharts.Series series55 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView46 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
-            DevExpress.XtraCharts.Series series56 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView47 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
-            DevExpress.XtraCharts.Series series57 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView48 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
-            DevExpress.XtraCharts.ChartTitle chartTitle19 = new DevExpress.XtraCharts.ChartTitle();
-            DevExpress.XtraCharts.TextAnnotation textAnnotation17 = new DevExpress.XtraCharts.TextAnnotation();
-            DevExpress.XtraCharts.ChartAnchorPoint chartAnchorPoint17 = new DevExpress.XtraCharts.ChartAnchorPoint();
-            DevExpress.XtraCharts.FreePosition freePosition17 = new DevExpress.XtraCharts.FreePosition();
-            DevExpress.XtraCharts.SwiftPlotDiagram swiftPlotDiagram17 = new DevExpress.XtraCharts.SwiftPlotDiagram();
-            DevExpress.XtraCharts.Series series58 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView49 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
-            DevExpress.XtraCharts.Series series59 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView50 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
-            DevExpress.XtraCharts.Series series60 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView51 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
-            DevExpress.XtraCharts.ChartTitle chartTitle20 = new DevExpress.XtraCharts.ChartTitle();
-            DevExpress.XtraCharts.TextAnnotation textAnnotation18 = new DevExpress.XtraCharts.TextAnnotation();
-            DevExpress.XtraCharts.ChartAnchorPoint chartAnchorPoint18 = new DevExpress.XtraCharts.ChartAnchorPoint();
-            DevExpress.XtraCharts.FreePosition freePosition18 = new DevExpress.XtraCharts.FreePosition();
-            DevExpress.XtraCharts.SwiftPlotDiagram swiftPlotDiagram18 = new DevExpress.XtraCharts.SwiftPlotDiagram();
-            DevExpress.XtraCharts.Series series61 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView52 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
-            DevExpress.XtraCharts.Series series62 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView53 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
-            DevExpress.XtraCharts.Series series63 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView54 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
-            DevExpress.XtraCharts.ChartTitle chartTitle21 = new DevExpress.XtraCharts.ChartTitle();
+            DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.PointSeriesView pointSeriesView1 = new DevExpress.XtraCharts.PointSeriesView();
+            DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.PointSeriesLabel pointSeriesLabel1 = new DevExpress.XtraCharts.PointSeriesLabel();
+            DevExpress.XtraCharts.PointSeriesView pointSeriesView2 = new DevExpress.XtraCharts.PointSeriesView();
+            DevExpress.XtraCharts.Series series3 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.RangeAreaSeriesView rangeAreaSeriesView1 = new DevExpress.XtraCharts.RangeAreaSeriesView();
+            DevExpress.XtraCharts.ChartTitle chartTitle1 = new DevExpress.XtraCharts.ChartTitle();
+            DevExpress.XtraCharts.TextAnnotation textAnnotation1 = new DevExpress.XtraCharts.TextAnnotation();
+            DevExpress.XtraCharts.ChartAnchorPoint chartAnchorPoint1 = new DevExpress.XtraCharts.ChartAnchorPoint();
+            DevExpress.XtraCharts.FreePosition freePosition1 = new DevExpress.XtraCharts.FreePosition();
+            DevExpress.XtraCharts.SwiftPlotDiagram swiftPlotDiagram1 = new DevExpress.XtraCharts.SwiftPlotDiagram();
+            DevExpress.XtraCharts.Series series4 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView1 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
+            DevExpress.XtraCharts.Series series5 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView2 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
+            DevExpress.XtraCharts.Series series6 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView3 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
+            DevExpress.XtraCharts.ChartTitle chartTitle2 = new DevExpress.XtraCharts.ChartTitle();
+            DevExpress.XtraCharts.TextAnnotation textAnnotation2 = new DevExpress.XtraCharts.TextAnnotation();
+            DevExpress.XtraCharts.ChartAnchorPoint chartAnchorPoint2 = new DevExpress.XtraCharts.ChartAnchorPoint();
+            DevExpress.XtraCharts.FreePosition freePosition2 = new DevExpress.XtraCharts.FreePosition();
+            DevExpress.XtraCharts.SwiftPlotDiagram swiftPlotDiagram2 = new DevExpress.XtraCharts.SwiftPlotDiagram();
+            DevExpress.XtraCharts.Series series7 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView4 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
+            DevExpress.XtraCharts.Series series8 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView5 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
+            DevExpress.XtraCharts.Series series9 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView6 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
+            DevExpress.XtraCharts.ChartTitle chartTitle3 = new DevExpress.XtraCharts.ChartTitle();
+            DevExpress.XtraCharts.TextAnnotation textAnnotation3 = new DevExpress.XtraCharts.TextAnnotation();
+            DevExpress.XtraCharts.ChartAnchorPoint chartAnchorPoint3 = new DevExpress.XtraCharts.ChartAnchorPoint();
+            DevExpress.XtraCharts.FreePosition freePosition3 = new DevExpress.XtraCharts.FreePosition();
+            DevExpress.XtraCharts.SwiftPlotDiagram swiftPlotDiagram3 = new DevExpress.XtraCharts.SwiftPlotDiagram();
+            DevExpress.XtraCharts.Series series10 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView7 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
+            DevExpress.XtraCharts.Series series11 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView8 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
+            DevExpress.XtraCharts.Series series12 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView9 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
+            DevExpress.XtraCharts.ChartTitle chartTitle4 = new DevExpress.XtraCharts.ChartTitle();
+            DevExpress.XtraCharts.TextAnnotation textAnnotation4 = new DevExpress.XtraCharts.TextAnnotation();
+            DevExpress.XtraCharts.ChartAnchorPoint chartAnchorPoint4 = new DevExpress.XtraCharts.ChartAnchorPoint();
+            DevExpress.XtraCharts.FreePosition freePosition4 = new DevExpress.XtraCharts.FreePosition();
+            DevExpress.XtraCharts.SwiftPlotDiagram swiftPlotDiagram4 = new DevExpress.XtraCharts.SwiftPlotDiagram();
+            DevExpress.XtraCharts.Series series13 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView10 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
+            DevExpress.XtraCharts.Series series14 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView11 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
+            DevExpress.XtraCharts.Series series15 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView12 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
+            DevExpress.XtraCharts.ChartTitle chartTitle5 = new DevExpress.XtraCharts.ChartTitle();
+            DevExpress.XtraCharts.TextAnnotation textAnnotation5 = new DevExpress.XtraCharts.TextAnnotation();
+            DevExpress.XtraCharts.ChartAnchorPoint chartAnchorPoint5 = new DevExpress.XtraCharts.ChartAnchorPoint();
+            DevExpress.XtraCharts.FreePosition freePosition5 = new DevExpress.XtraCharts.FreePosition();
+            DevExpress.XtraCharts.SwiftPlotDiagram swiftPlotDiagram5 = new DevExpress.XtraCharts.SwiftPlotDiagram();
+            DevExpress.XtraCharts.Series series16 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView13 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
+            DevExpress.XtraCharts.Series series17 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView14 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
+            DevExpress.XtraCharts.Series series18 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView15 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
+            DevExpress.XtraCharts.ChartTitle chartTitle6 = new DevExpress.XtraCharts.ChartTitle();
+            DevExpress.XtraCharts.TextAnnotation textAnnotation6 = new DevExpress.XtraCharts.TextAnnotation();
+            DevExpress.XtraCharts.ChartAnchorPoint chartAnchorPoint6 = new DevExpress.XtraCharts.ChartAnchorPoint();
+            DevExpress.XtraCharts.FreePosition freePosition6 = new DevExpress.XtraCharts.FreePosition();
+            DevExpress.XtraCharts.SwiftPlotDiagram swiftPlotDiagram6 = new DevExpress.XtraCharts.SwiftPlotDiagram();
+            DevExpress.XtraCharts.Series series19 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView16 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
+            DevExpress.XtraCharts.Series series20 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView17 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
+            DevExpress.XtraCharts.Series series21 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView18 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
+            DevExpress.XtraCharts.ChartTitle chartTitle7 = new DevExpress.XtraCharts.ChartTitle();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.picTelemetryNetwork = new System.Windows.Forms.PictureBox();
             this.picRadarNetwork = new System.Windows.Forms.PictureBox();
@@ -114,14 +114,12 @@
             this.btnSetting = new DevExpress.XtraEditors.SimpleButton();
             this.btnStop = new DevExpress.XtraEditors.SimpleButton();
             this.btnStart = new DevExpress.XtraEditors.SimpleButton();
-            this.ManualT0 = new DevExpress.XtraEditors.CheckEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlItem16 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem17 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -159,19 +157,19 @@
             this.chartUpateTimer = new System.Windows.Forms.Timer(this.components);
             this.logTimer = new System.Windows.Forms.Timer(this.components);
             this.netWorkTimer = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.layoutControlItem16 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picTelemetryNetwork)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRadarNetwork)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editT0.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ManualT0.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).BeginInit();
@@ -186,72 +184,72 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl5)).BeginInit();
             this.layoutControl5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartPoints)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series43)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pointSeriesView5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series44)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pointSeriesLabel3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pointSeriesView6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series45)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(rangeAreaSeriesView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pointSeriesView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pointSeriesLabel1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pointSeriesView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(rangeAreaSeriesView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl4)).BeginInit();
             this.layoutControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartVy)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(textAnnotation13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series46)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView37)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series47)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView38)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series48)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView39)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(textAnnotation1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartVx)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(textAnnotation14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series49)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView40)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series50)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView41)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series51)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView42)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(textAnnotation2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartVz)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(textAnnotation15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series52)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView43)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series53)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView44)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series54)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView45)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(textAnnotation3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartZ)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(textAnnotation16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series55)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView46)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series56)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView47)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series57)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView48)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(textAnnotation4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartY)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(textAnnotation17)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram17)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series58)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView49)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series59)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView50)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series60)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView51)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(textAnnotation5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series18)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartX)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(textAnnotation18)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram18)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series61)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView52)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series62)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView53)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series63)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView54)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(textAnnotation6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series19)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series20)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series21)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView18)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
@@ -262,11 +260,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
             this.layoutControl1.AutoScroll = false;
+            this.layoutControl1.Controls.Add(this.label1);
             this.layoutControl1.Controls.Add(this.picTelemetryNetwork);
             this.layoutControl1.Controls.Add(this.picRadarNetwork);
             this.layoutControl1.Controls.Add(this.btnStartT0);
@@ -275,7 +275,6 @@
             this.layoutControl1.Controls.Add(this.btnSetting);
             this.layoutControl1.Controls.Add(this.btnStop);
             this.layoutControl1.Controls.Add(this.btnStart);
-            this.layoutControl1.Controls.Add(this.ManualT0);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Margin = new System.Windows.Forms.Padding(4);
@@ -310,7 +309,7 @@
             this.btnStartT0.Appearance.Options.UseFont = true;
             this.btnStartT0.Enabled = false;
             this.btnStartT0.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnStartT0.ImageOptions.Image")));
-            this.btnStartT0.Location = new System.Drawing.Point(965, 12);
+            this.btnStartT0.Location = new System.Drawing.Point(781, 12);
             this.btnStartT0.Name = "btnStartT0";
             this.btnStartT0.Size = new System.Drawing.Size(169, 76);
             this.btnStartT0.StyleController = this.layoutControl1;
@@ -321,7 +320,7 @@
             // editT0
             // 
             this.editT0.Enabled = false;
-            this.editT0.Location = new System.Drawing.Point(823, 12);
+            this.editT0.Location = new System.Drawing.Point(639, 12);
             this.editT0.Name = "editT0";
             this.editT0.Properties.Mask.EditMask = "d";
             this.editT0.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
@@ -380,16 +379,6 @@
             this.btnStart.ToolTip = "开始";
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
-            // ManualT0
-            // 
-            this.ManualT0.Enabled = false;
-            this.ManualT0.Location = new System.Drawing.Point(596, 12);
-            this.ManualT0.Name = "ManualT0";
-            this.ManualT0.Properties.Caption = "手动计算T0(ms)";
-            this.ManualT0.Size = new System.Drawing.Size(223, 40);
-            this.ManualT0.StyleController = this.layoutControl1;
-            this.ManualT0.TabIndex = 9;
-            // 
             // Root
             // 
             this.Root.DefaultLayoutType = DevExpress.XtraLayout.Utils.LayoutType.Horizontal;
@@ -401,12 +390,12 @@
             this.layoutControlItem5,
             this.layoutControlItem6,
             this.emptySpaceItem2,
-            this.layoutControlItem16,
             this.layoutControlItem17,
             this.emptySpaceItem1,
             this.layoutControlItem18,
             this.layoutControlItem15,
-            this.layoutControlItem19});
+            this.layoutControlItem19,
+            this.layoutControlItem16});
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(1924, 100);
             this.Root.TextVisible = false;
@@ -464,25 +453,13 @@
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.Location = new System.Drawing.Point(320, 0);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(264, 80);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(263, 80);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // layoutControlItem16
-            // 
-            this.layoutControlItem16.Control = this.ManualT0;
-            this.layoutControlItem16.Location = new System.Drawing.Point(584, 0);
-            this.layoutControlItem16.MaxSize = new System.Drawing.Size(227, 80);
-            this.layoutControlItem16.MinSize = new System.Drawing.Size(227, 80);
-            this.layoutControlItem16.Name = "layoutControlItem16";
-            this.layoutControlItem16.Size = new System.Drawing.Size(227, 80);
-            this.layoutControlItem16.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem16.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem16.TextVisible = false;
             // 
             // layoutControlItem17
             // 
             this.layoutControlItem17.Control = this.editT0;
-            this.layoutControlItem17.Location = new System.Drawing.Point(811, 0);
+            this.layoutControlItem17.Location = new System.Drawing.Point(627, 0);
             this.layoutControlItem17.MaxSize = new System.Drawing.Size(142, 80);
             this.layoutControlItem17.MinSize = new System.Drawing.Size(142, 80);
             this.layoutControlItem17.Name = "layoutControlItem17";
@@ -494,15 +471,15 @@
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(1126, 0);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(942, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(348, 80);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(532, 80);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem18
             // 
             this.layoutControlItem18.Control = this.btnStartT0;
-            this.layoutControlItem18.Location = new System.Drawing.Point(953, 0);
+            this.layoutControlItem18.Location = new System.Drawing.Point(769, 0);
             this.layoutControlItem18.MaxSize = new System.Drawing.Size(173, 80);
             this.layoutControlItem18.MinSize = new System.Drawing.Size(173, 80);
             this.layoutControlItem18.Name = "layoutControlItem18";
@@ -623,55 +600,55 @@
             // 
             // chartPoints
             // 
-            xyDiagram3.AxisX.Title.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            xyDiagram3.AxisX.Title.Text = "侧偏(m)";
-            xyDiagram3.AxisX.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            xyDiagram3.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram3.AxisY.Title.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            xyDiagram3.AxisY.Title.Text = "前向距离(m)";
-            xyDiagram3.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            xyDiagram3.AxisY.VisibleInPanesSerializable = "-1";
-            xyDiagram3.DefaultPane.EnableAxisXScrolling = DevExpress.Utils.DefaultBoolean.True;
-            xyDiagram3.DefaultPane.EnableAxisXZooming = DevExpress.Utils.DefaultBoolean.True;
-            xyDiagram3.DefaultPane.EnableAxisYScrolling = DevExpress.Utils.DefaultBoolean.True;
-            xyDiagram3.DefaultPane.EnableAxisYZooming = DevExpress.Utils.DefaultBoolean.True;
-            xyDiagram3.EnableAxisXScrolling = true;
-            xyDiagram3.EnableAxisXZooming = true;
-            xyDiagram3.EnableAxisYScrolling = true;
-            xyDiagram3.EnableAxisYZooming = true;
-            this.chartPoints.Diagram = xyDiagram3;
+            xyDiagram1.AxisX.Title.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            xyDiagram1.AxisX.Title.Text = "侧偏(m)";
+            xyDiagram1.AxisX.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            xyDiagram1.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram1.AxisY.Title.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            xyDiagram1.AxisY.Title.Text = "前向距离(m)";
+            xyDiagram1.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            xyDiagram1.AxisY.VisibleInPanesSerializable = "-1";
+            xyDiagram1.DefaultPane.EnableAxisXScrolling = DevExpress.Utils.DefaultBoolean.True;
+            xyDiagram1.DefaultPane.EnableAxisXZooming = DevExpress.Utils.DefaultBoolean.True;
+            xyDiagram1.DefaultPane.EnableAxisYScrolling = DevExpress.Utils.DefaultBoolean.True;
+            xyDiagram1.DefaultPane.EnableAxisYZooming = DevExpress.Utils.DefaultBoolean.True;
+            xyDiagram1.EnableAxisXScrolling = true;
+            xyDiagram1.EnableAxisXZooming = true;
+            xyDiagram1.EnableAxisYScrolling = true;
+            xyDiagram1.EnableAxisYZooming = true;
+            this.chartPoints.Diagram = xyDiagram1;
             this.chartPoints.Legend.Name = "Default Legend";
             this.chartPoints.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
             this.chartPoints.Location = new System.Drawing.Point(12, 12);
             this.chartPoints.Margin = new System.Windows.Forms.Padding(6);
             this.chartPoints.Name = "chartPoints";
-            series43.Name = "理想落点";
-            pointSeriesView5.Color = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(187)))), ((int)(((byte)(89)))));
-            series43.View = pointSeriesView5;
-            series44.CrosshairLabelPattern = "{A} {V}";
-            pointSeriesLabel3.TextPattern = "{A:#.00}\n{V:#.00}";
-            series44.Label = pointSeriesLabel3;
-            series44.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
-            series44.Name = "预测落点";
-            series44.ToolTipSeriesPattern = "{A} {V}";
-            pointSeriesView6.Color = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            series44.View = pointSeriesView6;
-            series45.Name = "必炸线";
-            series45.SeriesPointsSorting = DevExpress.XtraCharts.SortingMode.Ascending;
-            rangeAreaSeriesView3.Color = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(198)))), ((int)(((byte)(217)))), ((int)(((byte)(240)))));
-            rangeAreaSeriesView3.Transparency = ((byte)(200));
-            series45.View = rangeAreaSeriesView3;
+            series1.Name = "理想落点";
+            pointSeriesView1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(187)))), ((int)(((byte)(89)))));
+            series1.View = pointSeriesView1;
+            series2.CrosshairLabelPattern = "{A} {V}";
+            pointSeriesLabel1.TextPattern = "{A:#.00}\n{V:#.00}";
+            series2.Label = pointSeriesLabel1;
+            series2.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+            series2.Name = "预测落点";
+            series2.ToolTipSeriesPattern = "{A} {V}";
+            pointSeriesView2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            series2.View = pointSeriesView2;
+            series3.Name = "必炸线";
+            series3.SeriesPointsSorting = DevExpress.XtraCharts.SortingMode.Ascending;
+            rangeAreaSeriesView1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(198)))), ((int)(((byte)(217)))), ((int)(((byte)(240)))));
+            rangeAreaSeriesView1.Transparency = ((byte)(200));
+            series3.View = rangeAreaSeriesView1;
             this.chartPoints.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series43,
-        series44,
-        series45};
+        series1,
+        series2,
+        series3};
             this.chartPoints.Size = new System.Drawing.Size(776, 612);
             this.chartPoints.TabIndex = 4;
-            chartTitle15.Font = new System.Drawing.Font("Tahoma", 9F);
-            chartTitle15.Text = "";
-            chartTitle15.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            chartTitle1.Font = new System.Drawing.Font("Tahoma", 9F);
+            chartTitle1.Text = "";
+            chartTitle1.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.chartPoints.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
-            chartTitle15});
+            chartTitle1});
             // 
             // layoutControlGroup4
             // 
@@ -711,302 +688,302 @@
             // 
             // chartVy
             // 
-            chartAnchorPoint13.Y = 43;
-            textAnnotation13.AnchorPoint = chartAnchorPoint13;
-            textAnnotation13.Border.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            textAnnotation13.ConnectorStyle = DevExpress.XtraCharts.AnnotationConnectorStyle.None;
-            textAnnotation13.Name = "Text Annotation 1";
-            freePosition13.InnerIndents.Left = 0;
-            freePosition13.InnerIndents.Top = 0;
-            textAnnotation13.ShapePosition = freePosition13;
-            textAnnotation13.Text = "";
+            chartAnchorPoint1.Y = 43;
+            textAnnotation1.AnchorPoint = chartAnchorPoint1;
+            textAnnotation1.Border.Visibility = DevExpress.Utils.DefaultBoolean.False;
+            textAnnotation1.ConnectorStyle = DevExpress.XtraCharts.AnnotationConnectorStyle.None;
+            textAnnotation1.Name = "Text Annotation 1";
+            freePosition1.InnerIndents.Left = 0;
+            freePosition1.InnerIndents.Top = 0;
+            textAnnotation1.ShapePosition = freePosition1;
+            textAnnotation1.Text = "";
             this.chartVy.AnnotationRepository.AddRange(new DevExpress.XtraCharts.Annotation[] {
-            textAnnotation13});
-            swiftPlotDiagram13.AxisX.VisibleInPanesSerializable = "-1";
-            swiftPlotDiagram13.AxisY.Title.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            swiftPlotDiagram13.AxisY.Title.Text = "速度VY(m/s)";
-            swiftPlotDiagram13.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            swiftPlotDiagram13.AxisY.VisibleInPanesSerializable = "-1";
-            swiftPlotDiagram13.DefaultPane.EnableAxisXScrolling = DevExpress.Utils.DefaultBoolean.True;
-            swiftPlotDiagram13.DefaultPane.EnableAxisXZooming = DevExpress.Utils.DefaultBoolean.True;
-            swiftPlotDiagram13.EnableAxisXScrolling = true;
-            swiftPlotDiagram13.EnableAxisXZooming = true;
-            this.chartVy.Diagram = swiftPlotDiagram13;
+            textAnnotation1});
+            swiftPlotDiagram1.AxisX.VisibleInPanesSerializable = "-1";
+            swiftPlotDiagram1.AxisY.Title.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            swiftPlotDiagram1.AxisY.Title.Text = "速度VY(m/s)";
+            swiftPlotDiagram1.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            swiftPlotDiagram1.AxisY.VisibleInPanesSerializable = "-1";
+            swiftPlotDiagram1.DefaultPane.EnableAxisXScrolling = DevExpress.Utils.DefaultBoolean.True;
+            swiftPlotDiagram1.DefaultPane.EnableAxisXZooming = DevExpress.Utils.DefaultBoolean.True;
+            swiftPlotDiagram1.EnableAxisXScrolling = true;
+            swiftPlotDiagram1.EnableAxisXZooming = true;
+            this.chartVy.Diagram = swiftPlotDiagram1;
             this.chartVy.Legend.Name = "Default Legend";
             this.chartVy.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
             this.chartVy.Location = new System.Drawing.Point(370, 320);
             this.chartVy.Margin = new System.Windows.Forms.Padding(6);
             this.chartVy.Name = "chartVy";
-            series46.Name = "速度VY";
-            swiftPlotSeriesView37.LineStyle.Thickness = 2;
-            series46.View = swiftPlotSeriesView37;
-            series47.Name = "速度VY上限";
-            swiftPlotSeriesView38.LineStyle.Thickness = 2;
-            series47.View = swiftPlotSeriesView38;
-            series48.Name = "速度VY下限";
-            swiftPlotSeriesView39.LineStyle.Thickness = 2;
-            series48.View = swiftPlotSeriesView39;
+            series4.Name = "速度VY";
+            swiftPlotSeriesView1.LineStyle.Thickness = 2;
+            series4.View = swiftPlotSeriesView1;
+            series5.Name = "速度VY上限";
+            swiftPlotSeriesView2.LineStyle.Thickness = 2;
+            series5.View = swiftPlotSeriesView2;
+            series6.Name = "速度VY下限";
+            swiftPlotSeriesView3.LineStyle.Thickness = 2;
+            series6.View = swiftPlotSeriesView3;
             this.chartVy.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series46,
-        series47,
-        series48};
+        series4,
+        series5,
+        series6};
             this.chartVy.Size = new System.Drawing.Size(354, 304);
             this.chartVy.TabIndex = 9;
-            chartTitle16.Alignment = System.Drawing.StringAlignment.Far;
-            chartTitle16.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartTitle16.Text = "";
-            chartTitle16.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            chartTitle2.Alignment = System.Drawing.StringAlignment.Far;
+            chartTitle2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartTitle2.Text = "";
+            chartTitle2.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.chartVy.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
-            chartTitle16});
+            chartTitle2});
             // 
             // chartVx
             // 
-            chartAnchorPoint14.Y = 43;
-            textAnnotation14.AnchorPoint = chartAnchorPoint14;
-            textAnnotation14.Border.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            textAnnotation14.ConnectorStyle = DevExpress.XtraCharts.AnnotationConnectorStyle.None;
-            textAnnotation14.Name = "Text Annotation 1";
-            freePosition14.InnerIndents.Left = 0;
-            freePosition14.InnerIndents.Top = 0;
-            textAnnotation14.ShapePosition = freePosition14;
-            textAnnotation14.Text = "";
+            chartAnchorPoint2.Y = 43;
+            textAnnotation2.AnchorPoint = chartAnchorPoint2;
+            textAnnotation2.Border.Visibility = DevExpress.Utils.DefaultBoolean.False;
+            textAnnotation2.ConnectorStyle = DevExpress.XtraCharts.AnnotationConnectorStyle.None;
+            textAnnotation2.Name = "Text Annotation 1";
+            freePosition2.InnerIndents.Left = 0;
+            freePosition2.InnerIndents.Top = 0;
+            textAnnotation2.ShapePosition = freePosition2;
+            textAnnotation2.Text = "";
             this.chartVx.AnnotationRepository.AddRange(new DevExpress.XtraCharts.Annotation[] {
-            textAnnotation14});
-            swiftPlotDiagram14.AxisX.VisibleInPanesSerializable = "-1";
-            swiftPlotDiagram14.AxisY.Title.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            swiftPlotDiagram14.AxisY.Title.Text = "速度VX(m/s)";
-            swiftPlotDiagram14.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            swiftPlotDiagram14.AxisY.VisibleInPanesSerializable = "-1";
-            swiftPlotDiagram14.DefaultPane.EnableAxisXScrolling = DevExpress.Utils.DefaultBoolean.True;
-            swiftPlotDiagram14.DefaultPane.EnableAxisXZooming = DevExpress.Utils.DefaultBoolean.True;
-            swiftPlotDiagram14.EnableAxisXScrolling = true;
-            swiftPlotDiagram14.EnableAxisXZooming = true;
-            this.chartVx.Diagram = swiftPlotDiagram14;
+            textAnnotation2});
+            swiftPlotDiagram2.AxisX.VisibleInPanesSerializable = "-1";
+            swiftPlotDiagram2.AxisY.Title.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            swiftPlotDiagram2.AxisY.Title.Text = "速度VX(m/s)";
+            swiftPlotDiagram2.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            swiftPlotDiagram2.AxisY.VisibleInPanesSerializable = "-1";
+            swiftPlotDiagram2.DefaultPane.EnableAxisXScrolling = DevExpress.Utils.DefaultBoolean.True;
+            swiftPlotDiagram2.DefaultPane.EnableAxisXZooming = DevExpress.Utils.DefaultBoolean.True;
+            swiftPlotDiagram2.EnableAxisXScrolling = true;
+            swiftPlotDiagram2.EnableAxisXZooming = true;
+            this.chartVx.Diagram = swiftPlotDiagram2;
             this.chartVx.Legend.Name = "Default Legend";
             this.chartVx.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
             this.chartVx.Location = new System.Drawing.Point(12, 320);
             this.chartVx.Margin = new System.Windows.Forms.Padding(6);
             this.chartVx.Name = "chartVx";
-            series49.Name = "速度VX";
-            swiftPlotSeriesView40.LineStyle.Thickness = 2;
-            series49.View = swiftPlotSeriesView40;
-            series50.Name = "速度VX上限";
-            swiftPlotSeriesView41.LineStyle.Thickness = 2;
-            series50.View = swiftPlotSeriesView41;
-            series51.Name = "速度VX下限";
-            swiftPlotSeriesView42.LineStyle.Thickness = 2;
-            series51.View = swiftPlotSeriesView42;
+            series7.Name = "速度VX";
+            swiftPlotSeriesView4.LineStyle.Thickness = 2;
+            series7.View = swiftPlotSeriesView4;
+            series8.Name = "速度VX上限";
+            swiftPlotSeriesView5.LineStyle.Thickness = 2;
+            series8.View = swiftPlotSeriesView5;
+            series9.Name = "速度VX下限";
+            swiftPlotSeriesView6.LineStyle.Thickness = 2;
+            series9.View = swiftPlotSeriesView6;
             this.chartVx.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series49,
-        series50,
-        series51};
+        series7,
+        series8,
+        series9};
             this.chartVx.Size = new System.Drawing.Size(354, 304);
             this.chartVx.TabIndex = 8;
-            chartTitle17.Alignment = System.Drawing.StringAlignment.Far;
-            chartTitle17.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartTitle17.Text = "";
-            chartTitle17.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            chartTitle3.Alignment = System.Drawing.StringAlignment.Far;
+            chartTitle3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartTitle3.Text = "";
+            chartTitle3.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.chartVx.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
-            chartTitle17});
+            chartTitle3});
             // 
             // chartVz
             // 
-            chartAnchorPoint15.Y = 43;
-            textAnnotation15.AnchorPoint = chartAnchorPoint15;
-            textAnnotation15.Border.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            textAnnotation15.ConnectorStyle = DevExpress.XtraCharts.AnnotationConnectorStyle.None;
-            textAnnotation15.Name = "Text Annotation 1";
-            freePosition15.InnerIndents.Left = 0;
-            freePosition15.InnerIndents.Top = 0;
-            textAnnotation15.ShapePosition = freePosition15;
-            textAnnotation15.Text = "";
+            chartAnchorPoint3.Y = 43;
+            textAnnotation3.AnchorPoint = chartAnchorPoint3;
+            textAnnotation3.Border.Visibility = DevExpress.Utils.DefaultBoolean.False;
+            textAnnotation3.ConnectorStyle = DevExpress.XtraCharts.AnnotationConnectorStyle.None;
+            textAnnotation3.Name = "Text Annotation 1";
+            freePosition3.InnerIndents.Left = 0;
+            freePosition3.InnerIndents.Top = 0;
+            textAnnotation3.ShapePosition = freePosition3;
+            textAnnotation3.Text = "";
             this.chartVz.AnnotationRepository.AddRange(new DevExpress.XtraCharts.Annotation[] {
-            textAnnotation15});
-            swiftPlotDiagram15.AxisX.VisibleInPanesSerializable = "-1";
-            swiftPlotDiagram15.AxisY.Title.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            swiftPlotDiagram15.AxisY.Title.Text = "速度VZ(m/s)";
-            swiftPlotDiagram15.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            swiftPlotDiagram15.AxisY.VisibleInPanesSerializable = "-1";
-            swiftPlotDiagram15.DefaultPane.EnableAxisXScrolling = DevExpress.Utils.DefaultBoolean.True;
-            swiftPlotDiagram15.DefaultPane.EnableAxisXZooming = DevExpress.Utils.DefaultBoolean.True;
-            swiftPlotDiagram15.EnableAxisXScrolling = true;
-            swiftPlotDiagram15.EnableAxisXZooming = true;
-            this.chartVz.Diagram = swiftPlotDiagram15;
+            textAnnotation3});
+            swiftPlotDiagram3.AxisX.VisibleInPanesSerializable = "-1";
+            swiftPlotDiagram3.AxisY.Title.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            swiftPlotDiagram3.AxisY.Title.Text = "速度VZ(m/s)";
+            swiftPlotDiagram3.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            swiftPlotDiagram3.AxisY.VisibleInPanesSerializable = "-1";
+            swiftPlotDiagram3.DefaultPane.EnableAxisXScrolling = DevExpress.Utils.DefaultBoolean.True;
+            swiftPlotDiagram3.DefaultPane.EnableAxisXZooming = DevExpress.Utils.DefaultBoolean.True;
+            swiftPlotDiagram3.EnableAxisXScrolling = true;
+            swiftPlotDiagram3.EnableAxisXZooming = true;
+            this.chartVz.Diagram = swiftPlotDiagram3;
             this.chartVz.Legend.Name = "Default Legend";
             this.chartVz.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
             this.chartVz.Location = new System.Drawing.Point(728, 320);
             this.chartVz.Margin = new System.Windows.Forms.Padding(6);
             this.chartVz.Name = "chartVz";
-            series52.Name = "速度VZ";
-            swiftPlotSeriesView43.LineStyle.Thickness = 2;
-            series52.View = swiftPlotSeriesView43;
-            series53.Name = "速度VZ上限";
-            swiftPlotSeriesView44.LineStyle.Thickness = 2;
-            series53.View = swiftPlotSeriesView44;
-            series54.Name = "速度VZ下限";
-            swiftPlotSeriesView45.LineStyle.Thickness = 2;
-            series54.View = swiftPlotSeriesView45;
+            series10.Name = "速度VZ";
+            swiftPlotSeriesView7.LineStyle.Thickness = 2;
+            series10.View = swiftPlotSeriesView7;
+            series11.Name = "速度VZ上限";
+            swiftPlotSeriesView8.LineStyle.Thickness = 2;
+            series11.View = swiftPlotSeriesView8;
+            series12.Name = "速度VZ下限";
+            swiftPlotSeriesView9.LineStyle.Thickness = 2;
+            series12.View = swiftPlotSeriesView9;
             this.chartVz.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series52,
-        series53,
-        series54};
+        series10,
+        series11,
+        series12};
             this.chartVz.Size = new System.Drawing.Size(356, 304);
             this.chartVz.TabIndex = 7;
-            chartTitle18.Alignment = System.Drawing.StringAlignment.Far;
-            chartTitle18.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartTitle18.Text = "";
+            chartTitle4.Alignment = System.Drawing.StringAlignment.Far;
+            chartTitle4.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartTitle4.Text = "";
             this.chartVz.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
-            chartTitle18});
+            chartTitle4});
             // 
             // chartZ
             // 
-            chartAnchorPoint16.Y = 43;
-            textAnnotation16.AnchorPoint = chartAnchorPoint16;
-            textAnnotation16.Border.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            textAnnotation16.ConnectorStyle = DevExpress.XtraCharts.AnnotationConnectorStyle.None;
-            textAnnotation16.Name = "Text Annotation 1";
-            freePosition16.InnerIndents.Left = 0;
-            freePosition16.InnerIndents.Top = 0;
-            textAnnotation16.ShapePosition = freePosition16;
-            textAnnotation16.Text = "";
+            chartAnchorPoint4.Y = 43;
+            textAnnotation4.AnchorPoint = chartAnchorPoint4;
+            textAnnotation4.Border.Visibility = DevExpress.Utils.DefaultBoolean.False;
+            textAnnotation4.ConnectorStyle = DevExpress.XtraCharts.AnnotationConnectorStyle.None;
+            textAnnotation4.Name = "Text Annotation 1";
+            freePosition4.InnerIndents.Left = 0;
+            freePosition4.InnerIndents.Top = 0;
+            textAnnotation4.ShapePosition = freePosition4;
+            textAnnotation4.Text = "";
             this.chartZ.AnnotationRepository.AddRange(new DevExpress.XtraCharts.Annotation[] {
-            textAnnotation16});
-            swiftPlotDiagram16.AxisX.VisibleInPanesSerializable = "-1";
-            swiftPlotDiagram16.AxisY.Title.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            swiftPlotDiagram16.AxisY.Title.Text = "位置Z(m)";
-            swiftPlotDiagram16.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            swiftPlotDiagram16.AxisY.VisibleInPanesSerializable = "-1";
-            swiftPlotDiagram16.DefaultPane.EnableAxisXScrolling = DevExpress.Utils.DefaultBoolean.True;
-            swiftPlotDiagram16.DefaultPane.EnableAxisXZooming = DevExpress.Utils.DefaultBoolean.True;
-            swiftPlotDiagram16.EnableAxisXScrolling = true;
-            swiftPlotDiagram16.EnableAxisXZooming = true;
-            this.chartZ.Diagram = swiftPlotDiagram16;
+            textAnnotation4});
+            swiftPlotDiagram4.AxisX.VisibleInPanesSerializable = "-1";
+            swiftPlotDiagram4.AxisY.Title.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            swiftPlotDiagram4.AxisY.Title.Text = "位置Z(m)";
+            swiftPlotDiagram4.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            swiftPlotDiagram4.AxisY.VisibleInPanesSerializable = "-1";
+            swiftPlotDiagram4.DefaultPane.EnableAxisXScrolling = DevExpress.Utils.DefaultBoolean.True;
+            swiftPlotDiagram4.DefaultPane.EnableAxisXZooming = DevExpress.Utils.DefaultBoolean.True;
+            swiftPlotDiagram4.EnableAxisXScrolling = true;
+            swiftPlotDiagram4.EnableAxisXZooming = true;
+            this.chartZ.Diagram = swiftPlotDiagram4;
             this.chartZ.Legend.Name = "Default Legend";
             this.chartZ.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
             this.chartZ.Location = new System.Drawing.Point(728, 12);
             this.chartZ.Margin = new System.Windows.Forms.Padding(6);
             this.chartZ.Name = "chartZ";
-            series55.Name = "位置Z";
-            swiftPlotSeriesView46.LineStyle.Thickness = 2;
-            series55.View = swiftPlotSeriesView46;
-            series56.Name = "位置Z上限";
-            swiftPlotSeriesView47.LineStyle.Thickness = 2;
-            series56.View = swiftPlotSeriesView47;
-            series57.Name = "位置Z下限";
-            swiftPlotSeriesView48.LineStyle.Thickness = 2;
-            series57.View = swiftPlotSeriesView48;
+            series13.Name = "位置Z";
+            swiftPlotSeriesView10.LineStyle.Thickness = 2;
+            series13.View = swiftPlotSeriesView10;
+            series14.Name = "位置Z上限";
+            swiftPlotSeriesView11.LineStyle.Thickness = 2;
+            series14.View = swiftPlotSeriesView11;
+            series15.Name = "位置Z下限";
+            swiftPlotSeriesView12.LineStyle.Thickness = 2;
+            series15.View = swiftPlotSeriesView12;
             this.chartZ.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series55,
-        series56,
-        series57};
+        series13,
+        series14,
+        series15};
             this.chartZ.Size = new System.Drawing.Size(356, 304);
             this.chartZ.TabIndex = 6;
-            chartTitle19.Alignment = System.Drawing.StringAlignment.Far;
-            chartTitle19.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartTitle19.Text = "";
-            chartTitle19.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            chartTitle5.Alignment = System.Drawing.StringAlignment.Far;
+            chartTitle5.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartTitle5.Text = "";
+            chartTitle5.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.chartZ.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
-            chartTitle19});
+            chartTitle5});
             // 
             // chartY
             // 
-            chartAnchorPoint17.Y = 43;
-            textAnnotation17.AnchorPoint = chartAnchorPoint17;
-            textAnnotation17.Border.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            textAnnotation17.ConnectorStyle = DevExpress.XtraCharts.AnnotationConnectorStyle.None;
-            textAnnotation17.Name = "Text Annotation 1";
-            freePosition17.InnerIndents.Left = 0;
-            freePosition17.InnerIndents.Top = 0;
-            textAnnotation17.ShapePosition = freePosition17;
-            textAnnotation17.Text = "";
+            chartAnchorPoint5.Y = 43;
+            textAnnotation5.AnchorPoint = chartAnchorPoint5;
+            textAnnotation5.Border.Visibility = DevExpress.Utils.DefaultBoolean.False;
+            textAnnotation5.ConnectorStyle = DevExpress.XtraCharts.AnnotationConnectorStyle.None;
+            textAnnotation5.Name = "Text Annotation 1";
+            freePosition5.InnerIndents.Left = 0;
+            freePosition5.InnerIndents.Top = 0;
+            textAnnotation5.ShapePosition = freePosition5;
+            textAnnotation5.Text = "";
             this.chartY.AnnotationRepository.AddRange(new DevExpress.XtraCharts.Annotation[] {
-            textAnnotation17});
-            swiftPlotDiagram17.AxisX.VisibleInPanesSerializable = "-1";
-            swiftPlotDiagram17.AxisY.Title.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            swiftPlotDiagram17.AxisY.Title.Text = "位置Y(m)";
-            swiftPlotDiagram17.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            swiftPlotDiagram17.AxisY.VisibleInPanesSerializable = "-1";
-            swiftPlotDiagram17.DefaultPane.EnableAxisXScrolling = DevExpress.Utils.DefaultBoolean.True;
-            swiftPlotDiagram17.DefaultPane.EnableAxisXZooming = DevExpress.Utils.DefaultBoolean.True;
-            swiftPlotDiagram17.EnableAxisXScrolling = true;
-            swiftPlotDiagram17.EnableAxisXZooming = true;
-            this.chartY.Diagram = swiftPlotDiagram17;
+            textAnnotation5});
+            swiftPlotDiagram5.AxisX.VisibleInPanesSerializable = "-1";
+            swiftPlotDiagram5.AxisY.Title.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            swiftPlotDiagram5.AxisY.Title.Text = "位置Y(m)";
+            swiftPlotDiagram5.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            swiftPlotDiagram5.AxisY.VisibleInPanesSerializable = "-1";
+            swiftPlotDiagram5.DefaultPane.EnableAxisXScrolling = DevExpress.Utils.DefaultBoolean.True;
+            swiftPlotDiagram5.DefaultPane.EnableAxisXZooming = DevExpress.Utils.DefaultBoolean.True;
+            swiftPlotDiagram5.EnableAxisXScrolling = true;
+            swiftPlotDiagram5.EnableAxisXZooming = true;
+            this.chartY.Diagram = swiftPlotDiagram5;
             this.chartY.Legend.Name = "Default Legend";
             this.chartY.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
             this.chartY.Location = new System.Drawing.Point(370, 12);
             this.chartY.Margin = new System.Windows.Forms.Padding(6);
             this.chartY.Name = "chartY";
-            series58.Name = "位置Y";
-            swiftPlotSeriesView49.LineStyle.Thickness = 2;
-            series58.View = swiftPlotSeriesView49;
-            series59.Name = "位置Y上限";
-            swiftPlotSeriesView50.LineStyle.Thickness = 2;
-            series59.View = swiftPlotSeriesView50;
-            series60.Name = "位置Y下限";
-            swiftPlotSeriesView51.LineStyle.Thickness = 2;
-            series60.View = swiftPlotSeriesView51;
+            series16.Name = "位置Y";
+            swiftPlotSeriesView13.LineStyle.Thickness = 2;
+            series16.View = swiftPlotSeriesView13;
+            series17.Name = "位置Y上限";
+            swiftPlotSeriesView14.LineStyle.Thickness = 2;
+            series17.View = swiftPlotSeriesView14;
+            series18.Name = "位置Y下限";
+            swiftPlotSeriesView15.LineStyle.Thickness = 2;
+            series18.View = swiftPlotSeriesView15;
             this.chartY.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series58,
-        series59,
-        series60};
+        series16,
+        series17,
+        series18};
             this.chartY.Size = new System.Drawing.Size(354, 304);
             this.chartY.TabIndex = 5;
-            chartTitle20.Alignment = System.Drawing.StringAlignment.Far;
-            chartTitle20.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartTitle20.Text = "";
-            chartTitle20.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            chartTitle6.Alignment = System.Drawing.StringAlignment.Far;
+            chartTitle6.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartTitle6.Text = "";
+            chartTitle6.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.chartY.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
-            chartTitle20});
+            chartTitle6});
             // 
             // chartX
             // 
-            chartAnchorPoint18.Y = 43;
-            textAnnotation18.AnchorPoint = chartAnchorPoint18;
-            textAnnotation18.Border.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            textAnnotation18.ConnectorStyle = DevExpress.XtraCharts.AnnotationConnectorStyle.None;
-            textAnnotation18.Name = "Text Annotation 1";
-            freePosition18.InnerIndents.Left = 0;
-            freePosition18.InnerIndents.Top = 0;
-            textAnnotation18.ShapePosition = freePosition18;
-            textAnnotation18.Text = "";
+            chartAnchorPoint6.Y = 43;
+            textAnnotation6.AnchorPoint = chartAnchorPoint6;
+            textAnnotation6.Border.Visibility = DevExpress.Utils.DefaultBoolean.False;
+            textAnnotation6.ConnectorStyle = DevExpress.XtraCharts.AnnotationConnectorStyle.None;
+            textAnnotation6.Name = "Text Annotation 1";
+            freePosition6.InnerIndents.Left = 0;
+            freePosition6.InnerIndents.Top = 0;
+            textAnnotation6.ShapePosition = freePosition6;
+            textAnnotation6.Text = "";
             this.chartX.AnnotationRepository.AddRange(new DevExpress.XtraCharts.Annotation[] {
-            textAnnotation18});
-            swiftPlotDiagram18.AxisX.VisibleInPanesSerializable = "-1";
-            swiftPlotDiagram18.AxisY.Title.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            swiftPlotDiagram18.AxisY.Title.Text = "位置X(m)";
-            swiftPlotDiagram18.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            swiftPlotDiagram18.AxisY.VisibleInPanesSerializable = "-1";
-            swiftPlotDiagram18.DefaultPane.EnableAxisXScrolling = DevExpress.Utils.DefaultBoolean.True;
-            swiftPlotDiagram18.DefaultPane.EnableAxisXZooming = DevExpress.Utils.DefaultBoolean.True;
-            swiftPlotDiagram18.EnableAxisXScrolling = true;
-            swiftPlotDiagram18.EnableAxisXZooming = true;
-            this.chartX.Diagram = swiftPlotDiagram18;
+            textAnnotation6});
+            swiftPlotDiagram6.AxisX.VisibleInPanesSerializable = "-1";
+            swiftPlotDiagram6.AxisY.Title.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            swiftPlotDiagram6.AxisY.Title.Text = "位置X(m)";
+            swiftPlotDiagram6.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            swiftPlotDiagram6.AxisY.VisibleInPanesSerializable = "-1";
+            swiftPlotDiagram6.DefaultPane.EnableAxisXScrolling = DevExpress.Utils.DefaultBoolean.True;
+            swiftPlotDiagram6.DefaultPane.EnableAxisXZooming = DevExpress.Utils.DefaultBoolean.True;
+            swiftPlotDiagram6.EnableAxisXScrolling = true;
+            swiftPlotDiagram6.EnableAxisXZooming = true;
+            this.chartX.Diagram = swiftPlotDiagram6;
             this.chartX.Legend.Name = "Default Legend";
             this.chartX.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
             this.chartX.Location = new System.Drawing.Point(12, 12);
             this.chartX.Margin = new System.Windows.Forms.Padding(6);
             this.chartX.Name = "chartX";
-            series61.Name = "位置X";
-            swiftPlotSeriesView52.LineStyle.Thickness = 2;
-            series61.View = swiftPlotSeriesView52;
-            series62.Name = "位置X上限";
-            swiftPlotSeriesView53.LineStyle.Thickness = 2;
-            series62.View = swiftPlotSeriesView53;
-            series63.Name = "位置X下限";
-            swiftPlotSeriesView54.LineStyle.Thickness = 2;
-            series63.View = swiftPlotSeriesView54;
+            series19.Name = "位置X";
+            swiftPlotSeriesView16.LineStyle.Thickness = 2;
+            series19.View = swiftPlotSeriesView16;
+            series20.Name = "位置X上限";
+            swiftPlotSeriesView17.LineStyle.Thickness = 2;
+            series20.View = swiftPlotSeriesView17;
+            series21.Name = "位置X下限";
+            swiftPlotSeriesView18.LineStyle.Thickness = 2;
+            series21.View = swiftPlotSeriesView18;
             this.chartX.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series61,
-        series62,
-        series63};
+        series19,
+        series20,
+        series21};
             this.chartX.Size = new System.Drawing.Size(354, 304);
             this.chartX.TabIndex = 4;
-            chartTitle21.Alignment = System.Drawing.StringAlignment.Far;
-            chartTitle21.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartTitle21.Text = "";
-            chartTitle21.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            chartTitle7.Alignment = System.Drawing.StringAlignment.Far;
+            chartTitle7.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartTitle7.Text = "";
+            chartTitle7.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.chartX.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
-            chartTitle21});
+            chartTitle7});
             // 
             // layoutControlGroup3
             // 
@@ -1120,6 +1097,23 @@
             // 
             this.netWorkTimer.Tick += new System.EventHandler(this.netWorkTimer_Tick);
             // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(595, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(40, 76);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "手动计算T0(ms)";
+            // 
+            // layoutControlItem16
+            // 
+            this.layoutControlItem16.Control = this.label1;
+            this.layoutControlItem16.Location = new System.Drawing.Point(583, 0);
+            this.layoutControlItem16.Name = "layoutControlItem16";
+            this.layoutControlItem16.Size = new System.Drawing.Size(44, 80);
+            this.layoutControlItem16.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem16.TextVisible = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
@@ -1139,14 +1133,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.picTelemetryNetwork)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRadarNetwork)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editT0.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ManualT0.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).EndInit();
@@ -1160,72 +1152,72 @@
             this.layoutControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl5)).EndInit();
             this.layoutControl5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pointSeriesView5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series43)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pointSeriesLabel3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pointSeriesView6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series44)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(rangeAreaSeriesView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series45)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pointSeriesView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pointSeriesLabel1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pointSeriesView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(rangeAreaSeriesView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartPoints)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl4)).EndInit();
             this.layoutControl4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(textAnnotation13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView37)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series46)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView38)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series47)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView39)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series48)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(textAnnotation1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartVy)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(textAnnotation14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView40)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series49)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView41)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series50)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView42)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series51)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(textAnnotation2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartVx)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(textAnnotation15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView43)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series52)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView44)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series53)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView45)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series54)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(textAnnotation3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartVz)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(textAnnotation16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView46)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series55)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView47)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series56)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView48)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series57)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(textAnnotation4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartZ)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(textAnnotation17)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram17)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView49)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series58)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView50)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series59)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView51)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series60)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(textAnnotation5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series18)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartY)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(textAnnotation18)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram18)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView52)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series61)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView53)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series62)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView54)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series63)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(textAnnotation6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series19)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series20)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView18)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series21)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
@@ -1237,6 +1229,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1285,9 +1278,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
         private System.Windows.Forms.Timer logTimer;
         private System.Windows.Forms.Timer netWorkTimer;
-        private DevExpress.XtraEditors.CheckEdit ManualT0;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem16;
         private DevExpress.XtraEditors.TextEdit editT0;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem17;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
@@ -1297,6 +1288,8 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem15;
         private System.Windows.Forms.PictureBox picTelemetryNetwork;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem19;
+        private System.Windows.Forms.Label label1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem16;
     }
 }
 
