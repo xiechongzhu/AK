@@ -45,7 +45,7 @@
             // labelControl1
             // 
             this.labelControl1.Location = new System.Drawing.Point(12, 12);
-            this.labelControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(120, 24);
             this.labelControl1.TabIndex = 0;
@@ -54,7 +54,7 @@
             // editTestName
             // 
             this.editTestName.Location = new System.Drawing.Point(148, 6);
-            this.editTestName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.editTestName.Margin = new System.Windows.Forms.Padding(4);
             this.editTestName.Name = "editTestName";
             this.editTestName.Size = new System.Drawing.Size(200, 38);
             this.editTestName.TabIndex = 1;
@@ -62,7 +62,7 @@
             // editOperator
             // 
             this.editOperator.Location = new System.Drawing.Point(516, 6);
-            this.editOperator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.editOperator.Margin = new System.Windows.Forms.Padding(4);
             this.editOperator.Name = "editOperator";
             this.editOperator.Size = new System.Drawing.Size(200, 38);
             this.editOperator.TabIndex = 3;
@@ -70,7 +70,7 @@
             // labelControl2
             // 
             this.labelControl2.Location = new System.Drawing.Point(380, 12);
-            this.labelControl2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.labelControl2.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(120, 24);
             this.labelControl2.TabIndex = 2;
@@ -79,7 +79,7 @@
             // labelControl3
             // 
             this.labelControl3.Location = new System.Drawing.Point(12, 64);
-            this.labelControl3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.labelControl3.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(72, 24);
             this.labelControl3.TabIndex = 4;
@@ -88,7 +88,7 @@
             // editComment
             // 
             this.editComment.Location = new System.Drawing.Point(148, 76);
-            this.editComment.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.editComment.Margin = new System.Windows.Forms.Padding(4);
             this.editComment.Name = "editComment";
             this.editComment.Size = new System.Drawing.Size(566, 288);
             this.editComment.TabIndex = 5;
@@ -97,7 +97,7 @@
             // 
             this.btnOK.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnOK.ImageOptions.Image")));
             this.btnOK.Location = new System.Drawing.Point(390, 370);
-            this.btnOK.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnOK.Margin = new System.Windows.Forms.Padding(4);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(150, 68);
             this.btnOK.TabIndex = 6;
@@ -108,7 +108,7 @@
             // 
             this.btnCancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.ImageOptions.Image")));
             this.btnCancel.Location = new System.Drawing.Point(564, 370);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(150, 68);
             this.btnCancel.TabIndex = 7;
@@ -129,7 +129,7 @@
             this.Controls.Add(this.editTestName);
             this.Controls.Add(this.labelControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "TestInfoForm";
