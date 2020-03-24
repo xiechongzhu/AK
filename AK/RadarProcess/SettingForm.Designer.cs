@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingForm));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.btnImport = new DevExpress.XtraEditors.SimpleButton();
@@ -70,6 +71,11 @@
             this.editTelemetryMultiCastIp = new DevExpress.XtraEditors.TextEdit();
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.editTelemetryPort = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
+            this.editSpeedError = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
+            this.editPointError = new DevExpress.XtraEditors.TextEdit();
+            this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
@@ -93,6 +99,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.editStation.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editTelemetryMultiCastIp.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editTelemetryPort.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editSpeedError.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editPointError.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -104,7 +113,7 @@
             this.layoutControl1.Controls.Add(this.btnOK);
             this.layoutControl1.Controls.Add(this.btnCancel);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 348);
+            this.layoutControl1.Location = new System.Drawing.Point(0, 455);
             this.layoutControl1.Margin = new System.Windows.Forms.Padding(4);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsView.RightToLeftMirroringApplied = true;
@@ -516,11 +525,55 @@
             this.editTelemetryPort.Size = new System.Drawing.Size(204, 38);
             this.editTelemetryPort.TabIndex = 52;
             // 
+            // labelControl12
+            // 
+            this.labelControl12.Appearance.Options.UseFont = true;
+            this.labelControl12.Location = new System.Drawing.Point(13, 366);
+            this.labelControl12.Margin = new System.Windows.Forms.Padding(4);
+            this.labelControl12.Name = "labelControl12";
+            this.labelControl12.Size = new System.Drawing.Size(228, 24);
+            this.labelControl12.TabIndex = 53;
+            this.labelControl12.Text = "速度最大误差(m/s)：";
+            // 
+            // editSpeedError
+            // 
+            this.editSpeedError.Location = new System.Drawing.Point(244, 359);
+            this.editSpeedError.Margin = new System.Windows.Forms.Padding(4);
+            this.editSpeedError.Name = "editSpeedError";
+            this.editSpeedError.Properties.Mask.EditMask = "n5";
+            this.editSpeedError.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.editSpeedError.Size = new System.Drawing.Size(202, 38);
+            this.editSpeedError.TabIndex = 54;
+            // 
+            // labelControl13
+            // 
+            this.labelControl13.Appearance.Options.UseFont = true;
+            this.labelControl13.Location = new System.Drawing.Point(476, 365);
+            this.labelControl13.Margin = new System.Windows.Forms.Padding(4);
+            this.labelControl13.Name = "labelControl13";
+            this.labelControl13.Size = new System.Drawing.Size(204, 24);
+            this.labelControl13.TabIndex = 55;
+            this.labelControl13.Text = "落点最大误差(m)：";
+            // 
+            // editPointError
+            // 
+            this.editPointError.Location = new System.Drawing.Point(708, 358);
+            this.editPointError.Margin = new System.Windows.Forms.Padding(4);
+            this.editPointError.Name = "editPointError";
+            this.editPointError.Properties.Mask.EditMask = "n5";
+            this.editPointError.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.editPointError.Size = new System.Drawing.Size(204, 38);
+            this.editPointError.TabIndex = 56;
+            // 
             // SettingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1415, 448);
+            this.ClientSize = new System.Drawing.Size(1415, 555);
+            this.Controls.Add(this.editPointError);
+            this.Controls.Add(this.labelControl13);
+            this.Controls.Add(this.editSpeedError);
+            this.Controls.Add(this.labelControl12);
             this.Controls.Add(this.editTelemetryPort);
             this.Controls.Add(this.labelControl11);
             this.Controls.Add(this.editTelemetryMultiCastIp);
@@ -581,6 +634,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.editStation.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editTelemetryMultiCastIp.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editTelemetryPort.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editSpeedError.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editPointError.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -629,5 +685,10 @@
         private DevExpress.XtraEditors.TextEdit editTelemetryMultiCastIp;
         private DevExpress.XtraEditors.LabelControl labelControl11;
         private DevExpress.XtraEditors.TextEdit editTelemetryPort;
+        private DevExpress.XtraEditors.LabelControl labelControl12;
+        private DevExpress.XtraEditors.TextEdit editSpeedError;
+        private DevExpress.XtraEditors.LabelControl labelControl13;
+        private DevExpress.XtraEditors.TextEdit editPointError;
+        private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
     }
 }

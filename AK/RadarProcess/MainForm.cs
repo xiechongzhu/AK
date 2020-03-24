@@ -339,6 +339,8 @@ namespace RadarProcess
             historyData.StrMultiCastIpAddr = Config.GetInstance().strRadarMultiCastIpAddr;
             historyData.Port = Config.GetInstance().radarPort;
             historyData.StationId = Config.GetInstance().stationId;
+            historyData.SpeedError = Config.GetInstance().speedError;
+            historyData.PointError = Config.GetInstance().pointError;
 
             try
             {
@@ -442,6 +444,11 @@ namespace RadarProcess
             {
                 chartPoints.Series["预测落点"].Points.Clear();
                 chartPoints.Series["预测落点"].Points.Add(new SeriesPoint(fallPoint.x, fallPoint.y));
+                chartPoints.Series["落点误差"].Points.Clear();
+                chartPoints.Series["落点误差"].Points.Add(new SeriesPoint(fallPoint.x - Config.GetInstance().pointError, 
+                    fallPoint.y + Config.GetInstance().pointError, fallPoint.y - Config.GetInstance().pointError));
+                chartPoints.Series["落点误差"].Points.Add(new SeriesPoint(fallPoint.x + Config.GetInstance().pointError,
+                    fallPoint.y + Config.GetInstance().pointError, fallPoint.y - Config.GetInstance().pointError));
             }
         }
 
@@ -620,6 +627,10 @@ namespace RadarProcess
             distanceLow = displayDataList[displayDataList.Count - 1].vx - displayDataList[displayDataList.Count - 1].minVx;
             chartVx.Titles[0].Text = String.Format("上限差值={0:F},下限差值={1:F}", distanceHigh, distanceLow);
             ((TextAnnotation)chartVx.Annotations[0]).Text = String.Format("{0:F}", displayDataList[displayDataList.Count - 1].vx);
+            chartVx.Series["速度VX误差"].Points.Clear();
+            chartVx.Series["速度VX误差"].Points.Add(new SeriesPoint(displayDataList[displayDataList.Count - 1].time, 
+                displayDataList[displayDataList.Count - 1].vx + Config.GetInstance().speedError,
+                displayDataList[displayDataList.Count - 1].vx - Config.GetInstance().speedError));
             chartVx.EndInit();
 
             chartVy.BeginInit();
@@ -642,6 +653,10 @@ namespace RadarProcess
             distanceLow = displayDataList[displayDataList.Count - 1].vy - displayDataList[displayDataList.Count - 1].minVy;
             chartVy.Titles[0].Text = String.Format("上限差值={0:F},下限差值={1:F}", distanceHigh, distanceLow);
             ((TextAnnotation)chartVy.Annotations[0]).Text = String.Format("{0:F}", displayDataList[displayDataList.Count - 1].vy);
+            chartVy.Series["速度VY误差"].Points.Clear();
+            chartVy.Series["速度VY误差"].Points.Add(new SeriesPoint(displayDataList[displayDataList.Count - 1].time,
+                displayDataList[displayDataList.Count - 1].vy + Config.GetInstance().speedError,
+                displayDataList[displayDataList.Count - 1].vy - Config.GetInstance().speedError));
             chartVy.EndInit();
 
             chartVz.BeginInit();
@@ -664,6 +679,10 @@ namespace RadarProcess
             distanceLow = displayDataList[displayDataList.Count - 1].vz - displayDataList[displayDataList.Count - 1].minVz;
             chartVz.Titles[0].Text = String.Format("上限差值={0:F},下限差值={1:F}", distanceHigh, distanceLow);
             ((TextAnnotation)chartVz.Annotations[0]).Text = String.Format("{0:F}", displayDataList[displayDataList.Count - 1].vz);
+            chartVz.Series["速度VZ误差"].Points.Clear();
+            chartVz.Series["速度VZ误差"].Points.Add(new SeriesPoint(displayDataList[displayDataList.Count - 1].time,
+                displayDataList[displayDataList.Count - 1].vz + Config.GetInstance().speedError,
+                displayDataList[displayDataList.Count - 1].vz - Config.GetInstance().speedError));
             chartVz.EndInit();
 
             displayDataList.Clear();

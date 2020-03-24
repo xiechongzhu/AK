@@ -32,6 +32,8 @@ namespace RadarProcess
         public UInt16 telemetryPort;                //遥测组播端口
         public int stationId;                   //雷达站编号
         public int delayT0;
+        public double speedError;               //速度误差
+        public double pointError;               //落点误差
 
         public bool LoadConfigFile(out String errMsg)
         {

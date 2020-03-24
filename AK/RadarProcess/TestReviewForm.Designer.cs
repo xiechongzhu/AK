@@ -75,9 +75,12 @@
             DevExpress.XtraCharts.Series series19 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.PointSeriesView pointSeriesView1 = new DevExpress.XtraCharts.PointSeriesView();
             DevExpress.XtraCharts.Series series20 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.PointSeriesLabel pointSeriesLabel1 = new DevExpress.XtraCharts.PointSeriesLabel();
             DevExpress.XtraCharts.PointSeriesView pointSeriesView2 = new DevExpress.XtraCharts.PointSeriesView();
             DevExpress.XtraCharts.Series series21 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.RangeAreaSeriesView rangeAreaSeriesView1 = new DevExpress.XtraCharts.RangeAreaSeriesView();
+            DevExpress.XtraCharts.Series series22 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.RangeAreaSeriesView rangeAreaSeriesView2 = new DevExpress.XtraCharts.RangeAreaSeriesView();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.editTestDate = new DevExpress.XtraEditors.TextEdit();
             this.editOperator = new DevExpress.XtraEditors.TextEdit();
@@ -199,9 +202,12 @@
             ((System.ComponentModel.ISupportInitialize)(series19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(pointSeriesView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(series20)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pointSeriesLabel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(pointSeriesView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(series21)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(rangeAreaSeriesView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series22)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(rangeAreaSeriesView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
@@ -216,7 +222,7 @@
             this.layoutControl1.Controls.Add(this.editTestName);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(4);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.Root;
             this.layoutControl1.Size = new System.Drawing.Size(2816, 80);
@@ -225,31 +231,31 @@
             // 
             // editTestDate
             // 
-            this.editTestDate.Location = new System.Drawing.Point(1172, 24);
-            this.editTestDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.editTestDate.Location = new System.Drawing.Point(1164, 12);
+            this.editTestDate.Margin = new System.Windows.Forms.Padding(4);
             this.editTestDate.Name = "editTestDate";
             this.editTestDate.Properties.ReadOnly = true;
-            this.editTestDate.Size = new System.Drawing.Size(476, 38);
+            this.editTestDate.Size = new System.Drawing.Size(487, 38);
             this.editTestDate.StyleController = this.layoutControl1;
             this.editTestDate.TabIndex = 7;
             // 
             // editOperator
             // 
-            this.editOperator.Location = new System.Drawing.Point(600, 24);
-            this.editOperator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.editOperator.Location = new System.Drawing.Point(588, 12);
+            this.editOperator.Margin = new System.Windows.Forms.Padding(4);
             this.editOperator.Name = "editOperator";
             this.editOperator.Properties.ReadOnly = true;
-            this.editOperator.Size = new System.Drawing.Size(450, 38);
+            this.editOperator.Size = new System.Drawing.Size(461, 38);
             this.editOperator.StyleController = this.layoutControl1;
             this.editOperator.TabIndex = 6;
             // 
             // editTestName
             // 
-            this.editTestName.Location = new System.Drawing.Point(138, 24);
-            this.editTestName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.editTestName.Location = new System.Drawing.Point(123, 12);
+            this.editTestName.Margin = new System.Windows.Forms.Padding(4);
             this.editTestName.Name = "editTestName";
             this.editTestName.Properties.ReadOnly = true;
-            this.editTestName.Size = new System.Drawing.Size(340, 38);
+            this.editTestName.Size = new System.Drawing.Size(350, 38);
             this.editTestName.StyleController = this.layoutControl1;
             this.editTestName.TabIndex = 5;
             // 
@@ -264,15 +270,15 @@
             this.layoutControlItem1,
             this.layoutControlItem3});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(2816, 86);
+            this.Root.Size = new System.Drawing.Size(2816, 80);
             this.Root.TextVisible = false;
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(1632, 0);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(1643, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(1144, 46);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(1153, 60);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem2
@@ -280,25 +286,25 @@
             this.layoutControlItem2.Control = this.editTestName;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(462, 46);
+            this.layoutControlItem2.Size = new System.Drawing.Size(465, 60);
             this.layoutControlItem2.Text = "试验名称:";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(108, 24);
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.editOperator;
-            this.layoutControlItem1.Location = new System.Drawing.Point(462, 0);
+            this.layoutControlItem1.Location = new System.Drawing.Point(465, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(572, 46);
+            this.layoutControlItem1.Size = new System.Drawing.Size(576, 60);
             this.layoutControlItem1.Text = "试验人员:";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(108, 24);
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.editTestDate;
-            this.layoutControlItem3.Location = new System.Drawing.Point(1034, 0);
+            this.layoutControlItem3.Location = new System.Drawing.Point(1041, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(598, 46);
+            this.layoutControlItem3.Size = new System.Drawing.Size(602, 60);
             this.layoutControlItem3.Text = "试验时间:";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(108, 24);
             // 
@@ -308,7 +314,7 @@
             this.layoutControl2.Controls.Add(this.editComment);
             this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.layoutControl2.Location = new System.Drawing.Point(0, 80);
-            this.layoutControl2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.layoutControl2.Margin = new System.Windows.Forms.Padding(4);
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.Root = this.layoutControlGroup1;
             this.layoutControl2.Size = new System.Drawing.Size(2816, 120);
@@ -318,10 +324,10 @@
             // btnViewConfig
             // 
             this.btnViewConfig.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnViewConfig.ImageOptions.Image")));
-            this.btnViewConfig.Location = new System.Drawing.Point(2622, 24);
-            this.btnViewConfig.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnViewConfig.Location = new System.Drawing.Point(2629, 12);
+            this.btnViewConfig.Margin = new System.Windows.Forms.Padding(6);
             this.btnViewConfig.Name = "btnViewConfig";
-            this.btnViewConfig.Size = new System.Drawing.Size(170, 44);
+            this.btnViewConfig.Size = new System.Drawing.Size(175, 44);
             this.btnViewConfig.StyleController = this.layoutControl2;
             this.btnViewConfig.TabIndex = 5;
             this.btnViewConfig.Text = "查看配置";
@@ -329,11 +335,11 @@
             // 
             // editComment
             // 
-            this.editComment.Location = new System.Drawing.Point(90, 24);
-            this.editComment.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.editComment.Location = new System.Drawing.Point(75, 12);
+            this.editComment.Margin = new System.Windows.Forms.Padding(4);
             this.editComment.Name = "editComment";
             this.editComment.Properties.ReadOnly = true;
-            this.editComment.Size = new System.Drawing.Size(2524, 72);
+            this.editComment.Size = new System.Drawing.Size(2550, 96);
             this.editComment.StyleController = this.layoutControl2;
             this.editComment.TabIndex = 4;
             // 
@@ -353,16 +359,16 @@
             this.layoutControlItem4.Control = this.editComment;
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(2598, 80);
+            this.layoutControlItem4.Size = new System.Drawing.Size(2617, 100);
             this.layoutControlItem4.Text = "备注:";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(60, 24);
             // 
             // layoutControlItem14
             // 
             this.layoutControlItem14.Control = this.btnViewConfig;
-            this.layoutControlItem14.Location = new System.Drawing.Point(2598, 0);
+            this.layoutControlItem14.Location = new System.Drawing.Point(2617, 0);
             this.layoutControlItem14.Name = "layoutControlItem14";
-            this.layoutControlItem14.Size = new System.Drawing.Size(178, 80);
+            this.layoutControlItem14.Size = new System.Drawing.Size(179, 100);
             this.layoutControlItem14.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem14.TextVisible = false;
             // 
@@ -388,7 +394,7 @@
             this.layoutControlItem5.Control = this.layoutControl4;
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(1562, 1514);
+            this.layoutControlItem5.Size = new System.Drawing.Size(1573, 1534);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
@@ -400,12 +406,12 @@
             this.layoutControl4.Controls.Add(this.chartZ);
             this.layoutControl4.Controls.Add(this.chartY);
             this.layoutControl4.Controls.Add(this.chartX);
-            this.layoutControl4.Location = new System.Drawing.Point(24, 24);
-            this.layoutControl4.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.layoutControl4.Location = new System.Drawing.Point(12, 12);
+            this.layoutControl4.Margin = new System.Windows.Forms.Padding(6);
             this.layoutControl4.Name = "layoutControl4";
             this.layoutControl4.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1017, 259, 650, 400);
             this.layoutControl4.Root = this.layoutControlGroup3;
-            this.layoutControl4.Size = new System.Drawing.Size(1554, 1506);
+            this.layoutControl4.Size = new System.Drawing.Size(1569, 1530);
             this.layoutControl4.TabIndex = 4;
             this.layoutControl4.Text = "layoutControl4";
             // 
@@ -421,8 +427,8 @@
             this.chartVz.Diagram = swiftPlotDiagram1;
             this.chartVz.Legend.Name = "Default Legend";
             this.chartVz.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            this.chartVz.Location = new System.Drawing.Point(1032, 756);
-            this.chartVz.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.chartVz.Location = new System.Drawing.Point(1043, 766);
+            this.chartVz.Margin = new System.Windows.Forms.Padding(6);
             this.chartVz.Name = "chartVz";
             series1.Name = "速度VZ";
             swiftPlotSeriesView1.LineStyle.Thickness = 2;
@@ -437,7 +443,7 @@
         series1,
         series2,
         series3};
-            this.chartVz.Size = new System.Drawing.Size(498, 726);
+            this.chartVz.Size = new System.Drawing.Size(514, 752);
             this.chartVz.TabIndex = 9;
             // 
             // chartVx
@@ -454,8 +460,8 @@
             this.chartVx.Diagram = swiftPlotDiagram2;
             this.chartVx.Legend.Name = "Default Legend";
             this.chartVx.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            this.chartVx.Location = new System.Drawing.Point(24, 756);
-            this.chartVx.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.chartVx.Location = new System.Drawing.Point(12, 766);
+            this.chartVx.Margin = new System.Windows.Forms.Padding(6);
             this.chartVx.Name = "chartVx";
             series4.Name = "速度VX";
             swiftPlotSeriesView4.LineStyle.Thickness = 2;
@@ -470,7 +476,7 @@
         series4,
         series5,
         series6};
-            this.chartVx.Size = new System.Drawing.Size(498, 726);
+            this.chartVx.Size = new System.Drawing.Size(514, 752);
             this.chartVx.TabIndex = 8;
             // 
             // chartVy
@@ -485,8 +491,8 @@
             this.chartVy.Diagram = swiftPlotDiagram3;
             this.chartVy.Legend.Name = "Default Legend";
             this.chartVy.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            this.chartVy.Location = new System.Drawing.Point(530, 756);
-            this.chartVy.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.chartVy.Location = new System.Drawing.Point(530, 766);
+            this.chartVy.Margin = new System.Windows.Forms.Padding(6);
             this.chartVy.Name = "chartVy";
             series7.Name = "速度VY";
             swiftPlotSeriesView7.LineStyle.Thickness = 2;
@@ -501,7 +507,7 @@
         series7,
         series8,
         series9};
-            this.chartVy.Size = new System.Drawing.Size(494, 726);
+            this.chartVy.Size = new System.Drawing.Size(509, 752);
             this.chartVy.TabIndex = 7;
             // 
             // chartZ
@@ -516,8 +522,8 @@
             this.chartZ.Diagram = swiftPlotDiagram4;
             this.chartZ.Legend.Name = "Default Legend";
             this.chartZ.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            this.chartZ.Location = new System.Drawing.Point(1032, 24);
-            this.chartZ.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.chartZ.Location = new System.Drawing.Point(1043, 12);
+            this.chartZ.Margin = new System.Windows.Forms.Padding(6);
             this.chartZ.Name = "chartZ";
             series10.Name = "位置Z";
             swiftPlotSeriesView10.LineStyle.Thickness = 2;
@@ -532,7 +538,7 @@
         series10,
         series11,
         series12};
-            this.chartZ.Size = new System.Drawing.Size(498, 724);
+            this.chartZ.Size = new System.Drawing.Size(514, 750);
             this.chartZ.TabIndex = 6;
             // 
             // chartY
@@ -549,8 +555,8 @@
             this.chartY.Diagram = swiftPlotDiagram5;
             this.chartY.Legend.Name = "Default Legend";
             this.chartY.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            this.chartY.Location = new System.Drawing.Point(530, 24);
-            this.chartY.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.chartY.Location = new System.Drawing.Point(530, 12);
+            this.chartY.Margin = new System.Windows.Forms.Padding(6);
             this.chartY.Name = "chartY";
             series13.Name = "位置Y";
             swiftPlotSeriesView13.LineStyle.Thickness = 2;
@@ -565,7 +571,7 @@
         series13,
         series14,
         series15};
-            this.chartY.Size = new System.Drawing.Size(494, 724);
+            this.chartY.Size = new System.Drawing.Size(509, 750);
             this.chartY.TabIndex = 5;
             // 
             // chartX
@@ -580,8 +586,8 @@
             this.chartX.Diagram = swiftPlotDiagram6;
             this.chartX.Legend.Name = "Default Legend";
             this.chartX.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            this.chartX.Location = new System.Drawing.Point(24, 24);
-            this.chartX.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.chartX.Location = new System.Drawing.Point(12, 12);
+            this.chartX.Margin = new System.Windows.Forms.Padding(6);
             this.chartX.Name = "chartX";
             series16.Name = "位置X";
             swiftPlotSeriesView16.LineStyle.Thickness = 2;
@@ -596,7 +602,7 @@
         series16,
         series17,
         series18};
-            this.chartX.Size = new System.Drawing.Size(498, 724);
+            this.chartX.Size = new System.Drawing.Size(514, 750);
             this.chartX.TabIndex = 4;
             // 
             // layoutControlGroup3
@@ -611,7 +617,7 @@
             this.layoutControlItem12,
             this.layoutControlItem13});
             this.layoutControlGroup3.Name = "Root";
-            this.layoutControlGroup3.Size = new System.Drawing.Size(1554, 1506);
+            this.layoutControlGroup3.Size = new System.Drawing.Size(1569, 1530);
             this.layoutControlGroup3.TextVisible = false;
             // 
             // layoutControlItem8
@@ -619,72 +625,72 @@
             this.layoutControlItem8.Control = this.chartX;
             this.layoutControlItem8.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(506, 732);
+            this.layoutControlItem8.Size = new System.Drawing.Size(518, 754);
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
             // 
             // layoutControlItem9
             // 
             this.layoutControlItem9.Control = this.chartY;
-            this.layoutControlItem9.Location = new System.Drawing.Point(506, 0);
+            this.layoutControlItem9.Location = new System.Drawing.Point(518, 0);
             this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(502, 732);
+            this.layoutControlItem9.Size = new System.Drawing.Size(513, 754);
             this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem9.TextVisible = false;
             // 
             // layoutControlItem10
             // 
             this.layoutControlItem10.Control = this.chartZ;
-            this.layoutControlItem10.Location = new System.Drawing.Point(1008, 0);
+            this.layoutControlItem10.Location = new System.Drawing.Point(1031, 0);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(506, 732);
+            this.layoutControlItem10.Size = new System.Drawing.Size(518, 754);
             this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem10.TextVisible = false;
             // 
             // layoutControlItem11
             // 
             this.layoutControlItem11.Control = this.chartVy;
-            this.layoutControlItem11.Location = new System.Drawing.Point(506, 732);
+            this.layoutControlItem11.Location = new System.Drawing.Point(518, 754);
             this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(502, 734);
+            this.layoutControlItem11.Size = new System.Drawing.Size(513, 756);
             this.layoutControlItem11.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem11.TextVisible = false;
             // 
             // layoutControlItem12
             // 
             this.layoutControlItem12.Control = this.chartVx;
-            this.layoutControlItem12.Location = new System.Drawing.Point(0, 732);
+            this.layoutControlItem12.Location = new System.Drawing.Point(0, 754);
             this.layoutControlItem12.Name = "layoutControlItem12";
-            this.layoutControlItem12.Size = new System.Drawing.Size(506, 734);
+            this.layoutControlItem12.Size = new System.Drawing.Size(518, 756);
             this.layoutControlItem12.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem12.TextVisible = false;
             // 
             // layoutControlItem13
             // 
             this.layoutControlItem13.Control = this.chartVz;
-            this.layoutControlItem13.Location = new System.Drawing.Point(1008, 732);
+            this.layoutControlItem13.Location = new System.Drawing.Point(1031, 754);
             this.layoutControlItem13.Name = "layoutControlItem13";
-            this.layoutControlItem13.Size = new System.Drawing.Size(506, 734);
+            this.layoutControlItem13.Size = new System.Drawing.Size(518, 756);
             this.layoutControlItem13.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem13.TextVisible = false;
             // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.layoutControl5;
-            this.layoutControlItem6.Location = new System.Drawing.Point(1562, 0);
+            this.layoutControlItem6.Location = new System.Drawing.Point(1573, 0);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(1214, 1514);
+            this.layoutControlItem6.Size = new System.Drawing.Size(1223, 1534);
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
             // 
             // layoutControl5
             // 
             this.layoutControl5.Controls.Add(this.chartPoints);
-            this.layoutControl5.Location = new System.Drawing.Point(1586, 24);
-            this.layoutControl5.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.layoutControl5.Location = new System.Drawing.Point(1585, 12);
+            this.layoutControl5.Margin = new System.Windows.Forms.Padding(6);
             this.layoutControl5.Name = "layoutControl5";
             this.layoutControl5.Root = this.layoutControlGroup4;
-            this.layoutControl5.Size = new System.Drawing.Size(1206, 1506);
+            this.layoutControl5.Size = new System.Drawing.Size(1219, 1530);
             this.layoutControl5.TabIndex = 5;
             this.layoutControl5.Text = "layoutControl5";
             // 
@@ -709,24 +715,36 @@
             this.chartPoints.Diagram = xyDiagram1;
             this.chartPoints.Legend.Name = "Default Legend";
             this.chartPoints.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            this.chartPoints.Location = new System.Drawing.Point(24, 24);
-            this.chartPoints.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.chartPoints.Location = new System.Drawing.Point(12, 12);
+            this.chartPoints.Margin = new System.Windows.Forms.Padding(6);
             this.chartPoints.Name = "chartPoints";
+            series19.CrosshairHighlightPoints = DevExpress.Utils.DefaultBoolean.False;
             series19.Name = "理想落点";
             pointSeriesView1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(187)))), ((int)(((byte)(89)))));
             series19.View = pointSeriesView1;
+            series20.CrosshairHighlightPoints = DevExpress.Utils.DefaultBoolean.False;
+            pointSeriesLabel1.TextPattern = "{A:#.00}\n{V:#.00}";
+            series20.Label = pointSeriesLabel1;
+            series20.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
             series20.Name = "预示落点";
+            series20.ToolTipEnabled = DevExpress.Utils.DefaultBoolean.True;
+            series20.ToolTipPointPattern = "{A}\n{V}";
+            series20.ToolTipSeriesPattern = "{A}\n{V}";
             pointSeriesView2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             series20.View = pointSeriesView2;
             series21.Name = "必炸线";
             rangeAreaSeriesView1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(198)))), ((int)(((byte)(217)))), ((int)(((byte)(240)))));
             rangeAreaSeriesView1.Transparency = ((byte)(200));
             series21.View = rangeAreaSeriesView1;
+            series22.Name = "落点误差";
+            rangeAreaSeriesView2.Transparency = ((byte)(200));
+            series22.View = rangeAreaSeriesView2;
             this.chartPoints.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series19,
         series20,
-        series21};
-            this.chartPoints.Size = new System.Drawing.Size(1158, 1458);
+        series21,
+        series22};
+            this.chartPoints.Size = new System.Drawing.Size(1195, 1506);
             this.chartPoints.TabIndex = 5;
             // 
             // layoutControlGroup4
@@ -736,7 +754,7 @@
             this.layoutControlGroup4.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem7});
             this.layoutControlGroup4.Name = "layoutControlGroup4";
-            this.layoutControlGroup4.Size = new System.Drawing.Size(1206, 1506);
+            this.layoutControlGroup4.Size = new System.Drawing.Size(1219, 1530);
             this.layoutControlGroup4.TextVisible = false;
             // 
             // layoutControlItem7
@@ -744,7 +762,7 @@
             this.layoutControlItem7.Control = this.chartPoints;
             this.layoutControlItem7.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(1166, 1466);
+            this.layoutControlItem7.Size = new System.Drawing.Size(1199, 1510);
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
             // 
@@ -754,7 +772,7 @@
             this.layoutControl3.Controls.Add(this.layoutControl4);
             this.layoutControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl3.Location = new System.Drawing.Point(0, 200);
-            this.layoutControl3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.layoutControl3.Margin = new System.Windows.Forms.Padding(4);
             this.layoutControl3.Name = "layoutControl3";
             this.layoutControl3.Root = this.layoutControlGroup2;
             this.layoutControl3.Size = new System.Drawing.Size(2816, 1554);
@@ -770,7 +788,7 @@
             this.Controls.Add(this.layoutControl2);
             this.Controls.Add(this.layoutControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TestReviewForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "历史数据查看";
@@ -855,10 +873,13 @@
             ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(pointSeriesView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(series19)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pointSeriesLabel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(pointSeriesView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(series20)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(rangeAreaSeriesView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(series21)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(rangeAreaSeriesView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series22)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartPoints)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();

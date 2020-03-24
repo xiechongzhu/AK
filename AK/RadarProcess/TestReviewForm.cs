@@ -149,6 +149,10 @@ namespace RadarProcess
                 FallPoint point = historyData.FallPoint;
                 chartPoints.Series["预示落点"].Points.Clear();
                 chartPoints.Series["预示落点"].Points.Add(new SeriesPoint(point.x, point.y));
+                chartPoints.Series["落点误差"].Points.Add(new SeriesPoint(point.x - historyData.PointError,
+                    point.y + historyData.PointError, point.y - historyData.PointError));
+                chartPoints.Series["落点误差"].Points.Add(new SeriesPoint(point.x + historyData.PointError,
+                    point.y + historyData.PointError, point.y - historyData.PointError));
                 chartPoints.EndInit();
             }
         }
@@ -164,7 +168,8 @@ namespace RadarProcess
             settingForm.SetViwMode();
             settingForm.SetParams(historyData.LongitudeInit, historyData.LatitudeInit, historyData.HeightInit,
                 historyData.AzimuthInit, historyData.PlacementHeight, historyData.Flightshot, historyData.ForwardLine,
-                historyData.BackwardLine, historyData.SideLine, historyData.StrMultiCastIpAddr, historyData.Port, historyData.StationId);
+                historyData.BackwardLine, historyData.SideLine, historyData.StrMultiCastIpAddr, historyData.Port, historyData.StationId,
+                historyData.SpeedError, historyData.PointError);
             settingForm.ShowDialog();
         }
     }

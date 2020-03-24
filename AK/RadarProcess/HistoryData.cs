@@ -24,6 +24,8 @@ namespace RadarProcess
         private String strMultiCastIpAddr;       //组播地址
         private UInt16 port;                     //组播端口
         private int stationId;                  //雷达站编号
+        private double speedError;              //速度误差
+        private double pointError;              //落点误差
 
         public void Clear()
         {
@@ -68,5 +70,7 @@ namespace RadarProcess
         public string StrMultiCastIpAddr { get => strMultiCastIpAddr; set => strMultiCastIpAddr = value; }
         public ushort Port { get => port; set => port = value; }
         public int StationId { get => stationId; set => stationId = value; }
+        public double SpeedError { get => speedError; set => speedError = value; }
+        public double PointError { get => pointError; set => pointError = value; }
     }
 }

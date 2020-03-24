@@ -3,14 +3,7 @@ using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RadarProcess
@@ -60,6 +53,8 @@ namespace RadarProcess
             editTelemetryMultiCastIp.Text = Config.GetInstance().strTelemetryMultiCastIpAddr;
             editTelemetryPort.Text = Config.GetInstance().telemetryPort.ToString();
             editStation.Text = Config.GetInstance().stationId.ToString();
+            editSpeedError.Text = Config.GetInstance().speedError.ToString();
+            editPointError.Text = Config.GetInstance().pointError.ToString();
             minMaxValues = Config.GetInstance().minMaxValues;
         }
 
@@ -81,6 +76,8 @@ namespace RadarProcess
                 Config.GetInstance().strTelemetryMultiCastIpAddr = editTelemetryMultiCastIp.Text;
                 Config.GetInstance().telemetryPort = UInt16.Parse(editTelemetryPort.Text);
                 Config.GetInstance().stationId = int.Parse(editStation.Text);
+                Config.GetInstance().speedError = double.Parse(editSpeedError.Text);
+                Config.GetInstance().pointError = double.Parse(editPointError.Text);
                 Config.GetInstance().minMaxValues = minMaxValues;
             }
             catch(Exception ex)
@@ -106,7 +103,7 @@ namespace RadarProcess
 
         public void SetParams(double longitudeInit, double latitudeInit, double heightInit, double azimuthInit,
             double placementHeight, double flightshot, double forwardLine, double backwardLine, double sideLine,
-            String strMultiCastIpAddr, UInt16 port, int stationId)
+            String strMultiCastIpAddr, UInt16 port, int stationId, double speedError, double pointError)
         {
             editLongitudeInit.Text = longitudeInit.ToString();
             editLatitudeInit.Text = latitudeInit.ToString();
@@ -120,6 +117,8 @@ namespace RadarProcess
             editRadarMultiCastIp.Text = strMultiCastIpAddr;
             editRadarPort.Text = port.ToString();
             editStation.Text = stationId.ToString();
+            editSpeedError.Text = speedError.ToString();
+            editPointError.Text = pointError.ToString();
         }
 
         private void btnDownload_Click(object sender, EventArgs e)
@@ -168,6 +167,8 @@ namespace RadarProcess
                     editBackLine.Text = sheet.GetRow(7).GetCell(1).ToString();
                     editSideLine.Text = sheet.GetRow(8).GetCell(1).ToString();
                     editStation.Text = sheet.GetRow(9).GetCell(1).ToString();
+                    editSpeedError.Text = sheet.GetRow(10).GetCell(1).ToString();
+                    editPointError.Text = sheet.GetRow(11).GetCell(1).ToString();
 
                     int startTime = 0;
                     sheet = workbook.GetSheetAt(1);
