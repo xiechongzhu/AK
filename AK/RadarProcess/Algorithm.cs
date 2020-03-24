@@ -1,4 +1,5 @@
 ﻿using Algorithm;
+using MathNet.Numerics;
 using MathWorks.MATLAB.NET.Arrays;
 using System;
 using System.Collections.Generic;
@@ -94,6 +95,16 @@ namespace RadarProcess
                 x = 0,
                 y = Config.GetInstance().flightshot
             };
+        }
+
+        public static double[] Polynomial(double[] x, double[] y)
+        {
+            return Fit.Polynomial(x, y, 3);
+        }
+
+        public static double GetSpeed(double[] polynomial, double x)
+        {
+            return 3 * polynomial[3] * Math.Pow(x, 2) + 2 * polynomial[2] * x + polynomial[1];
         }
     }
 }
