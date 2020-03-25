@@ -97,14 +97,10 @@ namespace RadarProcess
             };
         }
 
-        public static double[] Polynomial(double[] x, double[] y)
+        public static double GetSpeed(double[] x, double[] y, double x0)
         {
-            return Fit.Polynomial(x, y, 3);
-        }
-
-        public static double GetSpeed(double[] polynomial, double x)
-        {
-            return 3 * polynomial[3] * Math.Pow(x, 2) + 2 * polynomial[2] * x + polynomial[1];
+            double[] polynomial = Fit.Polynomial(x, y, 3);
+            return 3 * polynomial[3] * Math.Pow(x0, 2) + 2 * polynomial[2] * x0 + polynomial[1];
         }
     }
 }

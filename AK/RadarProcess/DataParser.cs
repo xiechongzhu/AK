@@ -21,6 +21,7 @@ namespace RadarProcess
         private int pos;
         private bool isPrintRaderLog = false;
         private bool isPrintTelemetryLog = false;
+        List<S_OBJECT> sObjectList = new List<S_OBJECT>();
 
         public enum DataSourceType
         { 
@@ -176,9 +177,33 @@ namespace RadarProcess
                             sObject.MaxVy = minMaxValue.MaxVy;
                             sObject.MinVz = minMaxValue.MinVz;
                             sObject.MaxVz = minMaxValue.MaxVz;
-                            IntPtr ptr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(S_OBJECT)));
-                            Marshal.StructureToPtr(sObject, ptr, true);
-                            PostMessage(mainFormHandle, MainForm.WM_RADAR_DATA, 0, ptr);
+
+                            sObjectList.Add(sObject);
+                            if(sObjectList.Count > 25)
+                            {
+                                sObjectList.RemoveAt(0);
+                            }
+                            if(sObjectList.Count == 25)
+                            {
+                                double[] timeArray = new double[25];
+                                double[] xArray = new double[25];
+                                double[] yArray = new double[25];
+                                double[] zArray = new double[25];
+                                for(int i = 0; i < 25; ++i)
+                                {
+                                    timeArray[i] = sObjectList[i].time;
+                                    xArray[i] = sObjectList[i].X;
+                                    yArray[i] = sObjectList[i].Y;
+                                    zArray[i] = sObjectList[i].Z;
+                                }
+                                S_OBJECT obj = sObjectList[12];
+                                obj.VX = Algorithm.GetSpeed(timeArray, xArray, obj.time);
+                                obj.VY = Algorithm.GetSpeed(timeArray, yArray, obj.time);
+                                obj.VZ = Algorithm.GetSpeed(timeArray, zArray, obj.time);
+                                IntPtr ptr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(S_OBJECT)));
+                                Marshal.StructureToPtr(obj, ptr, true);
+                                PostMessage(mainFormHandle, MainForm.WM_RADAR_DATA, 0, ptr);
+                            }
                         }
                     }
                     else if(packHead.Type == 0x50)
