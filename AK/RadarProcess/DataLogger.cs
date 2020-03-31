@@ -11,21 +11,29 @@ namespace RadarProcess
 {
     public class DataLogger
     {
-        private ConcurrentQueue<byte[]> queue = new ConcurrentQueue<byte[]>();
+        public enum DataSourceType
+        {
+            DATA_RADER,
+            DATA_TELEMETRY
+        }
+
+        private ConcurrentQueue<Tuple<DataSourceType, byte[]>> queue = new ConcurrentQueue<Tuple<DataSourceType, byte[]>>();
         private bool isRuning = false;
         Thread thread;
-        protected StreamWriter logWriter;
+        protected StreamWriter logRaderWriter, logTelWriter;
 
-        public void Enqueue(byte[] data)
+        public void Enqueue(DataSourceType dataSourceType, byte[] data)
         {
-            queue.Enqueue(data);
+            queue.Enqueue(new Tuple<DataSourceType, byte[]>(dataSourceType, data));
         }
 
         public void Start()
         {
-            while (queue.TryDequeue(out byte[] dropBuffer)) ;
-            logWriter?.Close();
-            logWriter = new StreamWriter(TestInfo.GetInstance().strDataFile);
+            while (queue.TryDequeue(out _));
+            logRaderWriter?.Close();
+            logRaderWriter = new StreamWriter(TestInfo.GetInstance().strRaderDataFile);
+            logTelWriter?.Close();
+            logTelWriter = new StreamWriter(TestInfo.GetInstance().strTelDataFile);
             isRuning = true;
             thread = new Thread(new ThreadStart(ThreadFunction));
             thread.Start();
@@ -35,17 +43,24 @@ namespace RadarProcess
         {
             isRuning = false;
             thread?.Join();
-            logWriter?.Close();
+            logRaderWriter?.Close();
+            logTelWriter?.Close();
         }
 
         private void ThreadFunction()
         {
             while (isRuning)
             {
-                byte[] dataBuffer;
-                if (queue.TryDequeue(out dataBuffer))
+                if (queue.TryDequeue(out Tuple<DataSourceType, byte[]>  dataBuffer))
                 {
-                    LogData(dataBuffer);
+                    if (dataBuffer.Item1 == DataSourceType.DATA_RADER)
+                    {
+                        LogData(logRaderWriter, dataBuffer.Item2);
+                    }
+                    else
+                    {
+                        LogData(logTelWriter, dataBuffer.Item2);
+                    }
                 }
                 else
                 {
@@ -54,16 +69,17 @@ namespace RadarProcess
             }
         }
 
-        private void LogData(byte[] buffer)
+        private void LogData(StreamWriter streamWriter, byte[] buffer)
         {
-            StringBuilder sb = new StringBuilder(buffer.Length * 3);
+            StringBuilder sb = new StringBuilder(buffer.Length * 3 + 30);
+            sb.Append(String.Format("[{0}]", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:fff")));
             foreach(byte b in buffer)
             {
                 sb.Append(Convert.ToString(b, 16).PadLeft(2, '0') + " ");
             }
             String strData = sb.ToString().ToUpper();
-            logWriter.WriteLine(strData);
-            logWriter.Flush();
+            streamWriter.WriteLine(strData);
+            streamWriter.Flush();
         }
     }
 }

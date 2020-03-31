@@ -26,7 +26,8 @@ namespace RadarProcess
             String strDate = dateTime.ToString("yyyyMMddHHmmss");
             strLogFolder = strLogDir + @"\" + strDate;
             strLogFile = strLogFolder + @"\Log.txt";
-            strDataFile = strLogFolder + @"\Data.txt";
+            strRaderDataFile = strLogFolder + @"\雷测数据.txt";
+            strTelDataFile = strLogFolder + @"\遥测数据.txt";
             strHistoryFile = strLogFolder + @"\History.dat";
             Directory.CreateDirectory(strLogFolder);
         }
@@ -34,7 +35,8 @@ namespace RadarProcess
         public DateTime dateTime;
         public String strLogFolder;
         public String strLogFile;
-        public String strDataFile;
+        public String strRaderDataFile;
+        public String strTelDataFile;
         public String strHistoryFile;
         public String strTestName;
         public String strOperator;

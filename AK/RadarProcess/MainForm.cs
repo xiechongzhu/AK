@@ -214,7 +214,7 @@ namespace RadarProcess
             {
                 byte[] recvBuffer = udpRadarClient?.EndReceive(ar, ref endPoint);
                 dataParser.Enqueue(DataSourceType.DATA_RADER ,recvBuffer);
-                dataLogger.Enqueue(recvBuffer);
+                dataLogger.Enqueue(DataLogger.DataSourceType.DATA_RADER, recvBuffer);
                 udpRadarClient.BeginReceive(EndRadarUdpReceive, null);
             }
             catch(Exception)
@@ -228,6 +228,7 @@ namespace RadarProcess
             {
                 byte[] recvBuffer = udpTelemetryClient?.EndReceive(ar, ref endPoint);
                 dataParser.Enqueue(DataSourceType.DATA_TELEMETRY, recvBuffer);
+                dataLogger.Enqueue(DataLogger.DataSourceType.DATA_TELEMETRY, recvBuffer);
                 udpTelemetryClient.BeginReceive(EndTelemetryUdpReceive, null);
             }
             catch(Exception)
