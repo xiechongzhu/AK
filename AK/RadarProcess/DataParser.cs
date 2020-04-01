@@ -44,6 +44,7 @@ namespace RadarProcess
 
         public void Start()
         {
+            sObjectList.Clear();
             isPrintRaderLog = isPrintTelemetryLog = false;
             T0 = -1;
             telemetryFlyTime = -1;
@@ -137,6 +138,7 @@ namespace RadarProcess
                                 T0 = sHead.Time - T0Delay;
                                 isStartGetT0 = false;
                                 Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, String.Format("手动计算T0结果:{0}", T0));
+                                PostMessage(mainFormHandle, MainForm.WM_T0, 0, IntPtr.Zero);
                             }
                             else
                             {
@@ -233,6 +235,7 @@ namespace RadarProcess
                         {
                             T0 = sHead.Time - (int)(recvRaderT0 - recvTelemetryFlyTime).TotalMilliseconds - telemetryFlyTime;
                             Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, String.Format("收到雷测T0帧，T0={0}ms", T0));
+                            PostMessage(mainFormHandle, MainForm.WM_T0, 0, IntPtr.Zero);
                         }
                     }
                 }

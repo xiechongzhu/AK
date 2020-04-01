@@ -26,8 +26,8 @@ namespace RadarProcess
             String strDate = dateTime.ToString("yyyyMMddHHmmss");
             strLogFolder = strLogDir + @"\" + strDate;
             strLogFile = strLogFolder + @"\Log.txt";
-            strRaderDataFile = strLogFolder + @"\雷测数据.txt";
-            strTelDataFile = strLogFolder + @"\遥测数据.txt";
+            strRaderDataFile = strLogFolder + @"\雷测数据.bin";
+            strTelDataFile = strLogFolder + @"\遥测数据.bin";
             strHistoryFile = strLogFolder + @"\History.dat";
             Directory.CreateDirectory(strLogFolder);
         }

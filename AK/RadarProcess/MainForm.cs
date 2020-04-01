@@ -88,6 +88,7 @@ namespace RadarProcess
         public const int WM_RADAR_DATA = WM_USER + 100;
         public const int WM_RADAR_DATA_COMMING = WM_USER + 101;
         public const int WM_TELEMETRY_DATA_COMMING = WM_USER + 102;
+        public const int WM_T0 = WM_USER + 103;
         private List<DisplayData> displayDataList = new List<DisplayData>();
         private List<FallPoint> fallPoints = new List<FallPoint>();
 
@@ -400,6 +401,9 @@ namespace RadarProcess
                 case WM_TELEMETRY_DATA_COMMING:
                     recvTelemetryNetworkDataTime = DateTime.Now;
                     picTelemetryNetwork.Image = greenLedImage;
+                    break;
+                case WM_T0:
+                    editT0.Enabled = btnStartT0.Enabled = false;
                     break;
                 default:
                     base.DefWndProc(ref m);

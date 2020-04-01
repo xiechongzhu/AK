@@ -21,9 +21,7 @@ namespace RadarSimulator
     {
         private UdpClient udpClient = null;
         private bool isLoopSend = false;
-
-        // 默认打开路径
-        private string InitialDirectory = "D:\\";
+        private List<byte[]> binaryBufferList = new List<byte[]>();
 
         // 创建文件对象
         FileStream fileStream = null;
@@ -75,18 +73,20 @@ namespace RadarSimulator
                         MessageBox.Show(ex.Message);
                         return;
                     }
-                    timer.Interval = int.Parse(editInterval.Text);
-                    timer.Start();
+                    timerExcel.Interval = int.Parse(editInterval.Text);
+                    timerExcel.Start();
                     btnSendLoop.Text = "停止";
                     btnSendOne.Enabled = false;
+                    btnSendRadarFile.Enabled = false;
                     isLoopSend = true;
                 }
             }
             else
             {
-                timer.Stop();
-                btnSendLoop.Text = "发送文件";
+                timerExcel.Stop();
+                btnSendLoop.Text = "发送Excel文件";
                 btnSendOne.Enabled = true;
+                btnSendRadarFile.Enabled = true;
                 isLoopSend = false;
             }
             curReadLine = 1;
@@ -179,13 +179,6 @@ namespace RadarSimulator
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            /*
-            Random random = new Random();
-            byte[] sendBuffer = BuildPacket(random.NextDouble() * 1000, random.NextDouble() * 1000, random.NextDouble() * 1000,
-                random.NextDouble() * 1000, random.NextDouble() * 1000, random.NextDouble() * 1000);
-            udpClient?.Send(sendBuffer, sendBuffer.Length, editIp.Text, int.Parse(editPort.Text));
-            */
-
             if (sheet == null) return;
             // 新建当前工作表行数据
             IRow row;
@@ -208,26 +201,17 @@ namespace RadarSimulator
             }
             else
             {
-                curReadLine = 1;
-            }
-            /*else 
-            {
-                // 释放资源
-                fileStream = null;
-                workbook = null;
-                sheet = null;
-                curReadLine = 1;
-                timer.Stop();
-                btnSendLoop.Text = "发送文件";
+                timerExcel.Stop();
+                btnSendLoop.Text = "发送Excel文件";
                 btnSendOne.Enabled = true;
+                btnSendRadarFile.Enabled = true;
                 isLoopSend = false;
-            }*/
+            }
         }
 
         //统一对话框
         private bool InitialDialog(FileDialog fileDialog, string title)
-        {
-            fileDialog.InitialDirectory = InitialDirectory;                  // 初始化路径
+        {              // 初始化路径
             fileDialog.Filter = "excel files (*.xls,*.xlsx)|*.xls;*.xlsx";   // 过滤选项设置，文本文件，所有文件。
             fileDialog.FilterIndex = 1;                                      // 当前使用第二个过滤字符串
             fileDialog.RestoreDirectory = true;                              // 对话框关闭时恢复原目录
@@ -238,8 +222,6 @@ namespace RadarSimulator
                 {
                     if (fileDialog.FileName.Substring(fileDialog.FileName.Length - i, 1).Equals(@"\"))
                     {
-                        // 更改默认路径为最近打开路径
-                        InitialDirectory = fileDialog.FileName.Substring(0, fileDialog.FileName.Length - i + 1);
                         return true;
                     }
                 }
@@ -255,6 +237,68 @@ namespace RadarSimulator
         {
             byte[] sendBuffer = BuildT0();
             udpClient?.Send(sendBuffer, sendBuffer.Length, editIp.Text, int.Parse(editPort.Text));
+        }
+
+        private void btnSendRadarFile_Click(object sender, EventArgs e)
+        {
+            binaryBufferList.Clear();
+            if (!isLoopSend)
+            {
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "二进制文件|*.bin";
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    String fileName = openFileDialog.FileName;
+                    using (FileStream fileStream = File.Open(fileName, FileMode.Open))
+                    {
+                        BinaryReader reader = new BinaryReader(fileStream);
+                        while(reader.BaseStream.Position < reader.BaseStream.Length)
+                        {
+                            byte[] packHead = reader.ReadBytes(Marshal.SizeOf(typeof(PACK_HEAD)));
+                            byte[] s_head = reader.ReadBytes(Marshal.SizeOf(typeof(S_HEAD)));
+                            int size = Marshal.SizeOf(typeof(S_HEAD));
+                            IntPtr buffer = Marshal.AllocHGlobal(size);
+                            Marshal.Copy(s_head, 0, buffer, size);
+                            S_HEAD sHead = (S_HEAD)Marshal.PtrToStructure(buffer, typeof(S_HEAD));
+                            Marshal.FreeHGlobal(buffer);
+                            int bodyLen = sHead.Len;
+                            byte[] sObjects = reader.ReadBytes(bodyLen - Marshal.SizeOf(typeof(S_HEAD)));
+                            binaryBufferList.Add(packHead.Concat(s_head).Concat(sObjects).ToArray());
+                        }
+                    }
+                    btnSendRadarFile.Text = "停止";
+                    isLoopSend = true;
+                    timerBin.Interval = int.Parse(editInterval.Text);
+                    timerBin.Start();
+                    btnSendOne.Enabled = false;
+                    btnSendLoop.Enabled = false;
+                }
+            }
+            else
+            {
+                timerBin.Stop();
+                btnSendRadarFile .Text= "发送二进制雷测文件";
+                isLoopSend = false;
+                btnSendOne.Enabled = true;
+                btnSendLoop.Enabled = true;
+            }
+        }
+
+        private void timerBin_Tick(object sender, EventArgs e)
+        {
+            if(binaryBufferList.Count > 0)
+            {
+                udpClient?.Send(binaryBufferList[0], binaryBufferList[0].Length, editIp.Text, int.Parse(editPort.Text));
+                binaryBufferList.RemoveAt(0);
+            }
+            else
+            {
+                timerBin.Stop();
+                btnSendRadarFile.Text = "发送二进制雷测文件";
+                isLoopSend = false;
+                btnSendOne.Enabled = true;
+                btnSendLoop.Enabled = true;
+            }
         }
     }
 }

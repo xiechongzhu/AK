@@ -20,7 +20,7 @@ namespace RadarProcess
         private ConcurrentQueue<Tuple<DataSourceType, byte[]>> queue = new ConcurrentQueue<Tuple<DataSourceType, byte[]>>();
         private bool isRuning = false;
         Thread thread;
-        protected StreamWriter logRaderWriter, logTelWriter;
+        protected BinaryWriter logRaderWriter, logTelWriter;
 
         public void Enqueue(DataSourceType dataSourceType, byte[] data)
         {
@@ -31,9 +31,9 @@ namespace RadarProcess
         {
             while (queue.TryDequeue(out _));
             logRaderWriter?.Close();
-            logRaderWriter = new StreamWriter(TestInfo.GetInstance().strRaderDataFile);
+            logRaderWriter = new BinaryWriter(File.Create(TestInfo.GetInstance().strRaderDataFile));
             logTelWriter?.Close();
-            logTelWriter = new StreamWriter(TestInfo.GetInstance().strTelDataFile);
+            logTelWriter = new BinaryWriter(File.Create(TestInfo.GetInstance().strTelDataFile));
             isRuning = true;
             thread = new Thread(new ThreadStart(ThreadFunction));
             thread.Start();
@@ -69,16 +69,9 @@ namespace RadarProcess
             }
         }
 
-        private void LogData(StreamWriter streamWriter, byte[] buffer)
+        private void LogData(BinaryWriter streamWriter, byte[] buffer)
         {
-            StringBuilder sb = new StringBuilder(buffer.Length * 3 + 30);
-            sb.Append(String.Format("[{0}]", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:fff")));
-            foreach(byte b in buffer)
-            {
-                sb.Append(Convert.ToString(b, 16).PadLeft(2, '0') + " ");
-            }
-            String strData = sb.ToString().ToUpper();
-            streamWriter.WriteLine(strData);
+            streamWriter.Write(buffer);
             streamWriter.Flush();
         }
     }
