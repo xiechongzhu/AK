@@ -41,6 +41,11 @@ namespace YaoCeProcess
 
         private void btnOK_Click(object sender, EventArgs e)
         {
+            if(editMultiCastIp.Text.Equals(String.Empty))
+            {
+                MessageBox.Show("IP地址不能为空", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             try
             {
                 Config.GetInstance().strMultiCastIpAddr = editMultiCastIp.Text;

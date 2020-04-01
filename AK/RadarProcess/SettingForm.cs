@@ -60,6 +60,11 @@ namespace RadarProcess
 
         private void btnOK_Click(object sender, EventArgs e)
         {
+            if(editRadarMultiCastIp.Text.Equals(String.Empty) || editTelemetryMultiCastIp.Text.Equals(String.Empty))
+            {
+                MessageBox.Show("IP地址不能为空", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             try
             {
                 Config.GetInstance().longitudeInit = double.Parse(editLongitudeInit.Text);
