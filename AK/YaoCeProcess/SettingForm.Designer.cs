@@ -62,10 +62,11 @@
             this.layoutControl1.Controls.Add(this.editPort);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(870, 192, 812, 500);
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(462, 153);
+            this.layoutControl1.Size = new System.Drawing.Size(693, 245);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -77,19 +78,21 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.Controls.Add(this.btnOK, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnCancel, 2, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 88);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(18, 139);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(438, 53);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(657, 87);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
             // btnOK
             // 
             this.btnOK.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnOK.ImageOptions.Image")));
-            this.btnOK.Location = new System.Drawing.Point(222, 3);
+            this.btnOK.Location = new System.Drawing.Point(332, 5);
+            this.btnOK.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(103, 47);
+            this.btnOK.Size = new System.Drawing.Size(154, 64);
             this.btnOK.TabIndex = 0;
             this.btnOK.Text = "确定";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
@@ -97,28 +100,33 @@
             // btnCancel
             // 
             this.btnCancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.ImageOptions.Image")));
-            this.btnCancel.Location = new System.Drawing.Point(331, 3);
+            this.btnCancel.Location = new System.Drawing.Point(496, 5);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(104, 47);
+            this.btnCancel.Size = new System.Drawing.Size(156, 64);
             this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = "取消";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // editMultiCastIp
             // 
-            this.editMultiCastIp.Location = new System.Drawing.Point(90, 12);
+            this.editMultiCastIp.Location = new System.Drawing.Point(142, 19);
+            this.editMultiCastIp.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.editMultiCastIp.Name = "editMultiCastIp";
             this.editMultiCastIp.Properties.Mask.EditMask = "((([1-9]?|1\\d)\\d|2([0-4]\\d|5[0-5]))\\.){3}(([1-9]?|1\\d)\\d|2([0-4]\\d|5[0-5]))";
             this.editMultiCastIp.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.editMultiCastIp.Size = new System.Drawing.Size(360, 24);
+            this.editMultiCastIp.Size = new System.Drawing.Size(533, 38);
             this.editMultiCastIp.StyleController = this.layoutControl1;
             this.editMultiCastIp.TabIndex = 5;
             // 
             // editPort
             // 
-            this.editPort.Location = new System.Drawing.Point(90, 50);
+            this.editPort.Location = new System.Drawing.Point(142, 79);
+            this.editPort.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.editPort.Name = "editPort";
-            this.editPort.Size = new System.Drawing.Size(360, 24);
+            this.editPort.Properties.Mask.EditMask = "\\d{1,5}";
+            this.editPort.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.editPort.Size = new System.Drawing.Size(533, 38);
             this.editPort.StyleController = this.layoutControl1;
             this.editPort.TabIndex = 6;
             // 
@@ -133,29 +141,29 @@
             this.Root.LayoutMode = DevExpress.XtraLayout.Utils.LayoutMode.Table;
             this.Root.Name = "Root";
             columnDefinition1.SizeType = System.Windows.Forms.SizeType.AutoSize;
-            columnDefinition1.Width = 442D;
+            columnDefinition1.Width = 663D;
             this.Root.OptionsTableLayoutGroup.ColumnDefinitions.AddRange(new DevExpress.XtraLayout.ColumnDefinition[] {
             columnDefinition1});
-            rowDefinition1.Height = 38D;
+            rowDefinition1.Height = 60D;
             rowDefinition1.SizeType = System.Windows.Forms.SizeType.AutoSize;
-            rowDefinition2.Height = 38D;
+            rowDefinition2.Height = 60D;
             rowDefinition2.SizeType = System.Windows.Forms.SizeType.AutoSize;
-            rowDefinition3.Height = 57D;
+            rowDefinition3.Height = 93D;
             rowDefinition3.SizeType = System.Windows.Forms.SizeType.AutoSize;
             this.Root.OptionsTableLayoutGroup.RowDefinitions.AddRange(new DevExpress.XtraLayout.RowDefinition[] {
             rowDefinition1,
             rowDefinition2,
             rowDefinition3});
-            this.Root.Size = new System.Drawing.Size(462, 153);
+            this.Root.Size = new System.Drawing.Size(693, 245);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.tableLayoutPanel1;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 76);
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 120);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.OptionsTableLayoutItem.RowIndex = 2;
-            this.layoutControlItem1.Size = new System.Drawing.Size(442, 57);
+            this.layoutControlItem1.Size = new System.Drawing.Size(663, 93);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -164,33 +172,34 @@
             this.layoutControlItem2.Control = this.editMultiCastIp;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(442, 38);
-            this.layoutControlItem2.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 10);
+            this.layoutControlItem2.Size = new System.Drawing.Size(663, 60);
+            this.layoutControlItem2.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 16);
             this.layoutControlItem2.Text = "组播地址：";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(75, 18);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(120, 24);
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.editPort;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 38);
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 60);
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.OptionsTableLayoutItem.RowIndex = 1;
-            this.layoutControlItem3.Size = new System.Drawing.Size(442, 38);
-            this.layoutControlItem3.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 10);
+            this.layoutControlItem3.Size = new System.Drawing.Size(663, 60);
+            this.layoutControlItem3.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 16);
             this.layoutControlItem3.Text = "端口号：";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(75, 18);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(120, 24);
             // 
             // SettingForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(462, 153);
+            this.ClientSize = new System.Drawing.Size(693, 245);
             this.Controls.Add(this.layoutControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(480, 200);
+            this.MinimumSize = new System.Drawing.Size(707, 277);
             this.Name = "SettingForm";
             this.Text = "参数设置";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
