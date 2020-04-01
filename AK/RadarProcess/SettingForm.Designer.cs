@@ -253,7 +253,7 @@
             this.labelControl1.Location = new System.Drawing.Point(12, 22);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(192, 24);
+            this.labelControl1.Size = new System.Drawing.Size(186, 29);
             this.labelControl1.TabIndex = 1;
             this.labelControl1.Text = "初始经度(角度)：";
             // 
@@ -264,7 +264,7 @@
             this.editLongitudeInit.Name = "editLongitudeInit";
             this.editLongitudeInit.Properties.Mask.EditMask = "n7";
             this.editLongitudeInit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.editLongitudeInit.Size = new System.Drawing.Size(202, 38);
+            this.editLongitudeInit.Size = new System.Drawing.Size(202, 44);
             this.editLongitudeInit.TabIndex = 2;
             // 
             // editLatitudeInit
@@ -274,7 +274,7 @@
             this.editLatitudeInit.Name = "editLatitudeInit";
             this.editLatitudeInit.Properties.Mask.EditMask = "n7";
             this.editLatitudeInit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.editLatitudeInit.Size = new System.Drawing.Size(204, 38);
+            this.editLatitudeInit.Size = new System.Drawing.Size(204, 44);
             this.editLatitudeInit.TabIndex = 4;
             // 
             // labelControl2
@@ -283,7 +283,7 @@
             this.labelControl2.Location = new System.Drawing.Point(476, 22);
             this.labelControl2.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(192, 24);
+            this.labelControl2.Size = new System.Drawing.Size(186, 29);
             this.labelControl2.TabIndex = 3;
             this.labelControl2.Text = "初始纬度(角度)：";
             // 
@@ -293,7 +293,7 @@
             this.labelControl3.Location = new System.Drawing.Point(12, 94);
             this.labelControl3.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(216, 24);
+            this.labelControl3.Size = new System.Drawing.Size(210, 29);
             this.labelControl3.TabIndex = 5;
             this.labelControl3.Text = "初始方位角(角度)：";
             // 
@@ -304,7 +304,7 @@
             this.editAzimuthInit.Name = "editAzimuthInit";
             this.editAzimuthInit.Properties.Mask.EditMask = "n7";
             this.editAzimuthInit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.editAzimuthInit.Size = new System.Drawing.Size(202, 38);
+            this.editAzimuthInit.Size = new System.Drawing.Size(202, 44);
             this.editAzimuthInit.TabIndex = 6;
             // 
             // editHeightInit
@@ -314,7 +314,7 @@
             this.editHeightInit.Name = "editHeightInit";
             this.editHeightInit.Properties.Mask.EditMask = "n5";
             this.editHeightInit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.editHeightInit.Size = new System.Drawing.Size(200, 38);
+            this.editHeightInit.Size = new System.Drawing.Size(200, 44);
             this.editHeightInit.TabIndex = 8;
             // 
             // labelControl4
@@ -323,7 +323,7 @@
             this.labelControl4.Location = new System.Drawing.Point(952, 22);
             this.labelControl4.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(156, 24);
+            this.labelControl4.Size = new System.Drawing.Size(158, 29);
             this.labelControl4.TabIndex = 7;
             this.labelControl4.Text = "初始高度(m)：";
             // 
@@ -334,7 +334,7 @@
             this.editPlacementHeight.Name = "editPlacementHeight";
             this.editPlacementHeight.Properties.Mask.EditMask = "n5";
             this.editPlacementHeight.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.editPlacementHeight.Size = new System.Drawing.Size(204, 38);
+            this.editPlacementHeight.Size = new System.Drawing.Size(204, 44);
             this.editPlacementHeight.TabIndex = 10;
             // 
             // labelControl5
@@ -343,7 +343,7 @@
             this.labelControl5.Location = new System.Drawing.Point(476, 92);
             this.labelControl5.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(204, 24);
+            this.labelControl5.Size = new System.Drawing.Size(206, 29);
             this.labelControl5.TabIndex = 9;
             this.labelControl5.Text = "落点附近高度(m)：";
             // 
@@ -354,7 +354,7 @@
             this.editForwardLine.Name = "editForwardLine";
             this.editForwardLine.Properties.Mask.EditMask = "n5";
             this.editForwardLine.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.editForwardLine.Size = new System.Drawing.Size(202, 38);
+            this.editForwardLine.Size = new System.Drawing.Size(202, 44);
             this.editForwardLine.TabIndex = 12;
             // 
             // labelControl6
@@ -363,7 +363,7 @@
             this.labelControl6.Location = new System.Drawing.Point(12, 168);
             this.labelControl6.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(180, 24);
+            this.labelControl6.Size = new System.Drawing.Size(182, 29);
             this.labelControl6.TabIndex = 11;
             this.labelControl6.Text = "前向必炸线(m)：";
             // 
@@ -374,7 +374,7 @@
             this.editBackLine.Name = "editBackLine";
             this.editBackLine.Properties.Mask.EditMask = "n5";
             this.editBackLine.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.editBackLine.Size = new System.Drawing.Size(204, 38);
+            this.editBackLine.Size = new System.Drawing.Size(204, 44);
             this.editBackLine.TabIndex = 14;
             // 
             // labelControl7
@@ -383,7 +383,7 @@
             this.labelControl7.Location = new System.Drawing.Point(476, 168);
             this.labelControl7.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(180, 24);
+            this.labelControl7.Size = new System.Drawing.Size(182, 29);
             this.labelControl7.TabIndex = 13;
             this.labelControl7.Text = "后向必炸线(m)：";
             // 
@@ -394,7 +394,7 @@
             this.editSideLine.Name = "editSideLine";
             this.editSideLine.Properties.Mask.EditMask = "n5";
             this.editSideLine.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.editSideLine.Size = new System.Drawing.Size(200, 38);
+            this.editSideLine.Size = new System.Drawing.Size(200, 44);
             this.editSideLine.TabIndex = 16;
             // 
             // labelControl8
@@ -403,7 +403,7 @@
             this.labelControl8.Location = new System.Drawing.Point(952, 166);
             this.labelControl8.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(180, 24);
+            this.labelControl8.Size = new System.Drawing.Size(182, 29);
             this.labelControl8.TabIndex = 15;
             this.labelControl8.Text = "侧向必炸线(m)：";
             // 
@@ -414,7 +414,7 @@
             this.editRadarMultiCastIp.Name = "editRadarMultiCastIp";
             this.editRadarMultiCastIp.Properties.Mask.EditMask = "\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}";
             this.editRadarMultiCastIp.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.editRadarMultiCastIp.Size = new System.Drawing.Size(202, 38);
+            this.editRadarMultiCastIp.Size = new System.Drawing.Size(202, 44);
             this.editRadarMultiCastIp.TabIndex = 42;
             // 
             // labelControl21
@@ -423,7 +423,7 @@
             this.labelControl21.Location = new System.Drawing.Point(13, 231);
             this.labelControl21.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl21.Name = "labelControl21";
-            this.labelControl21.Size = new System.Drawing.Size(168, 24);
+            this.labelControl21.Size = new System.Drawing.Size(168, 29);
             this.labelControl21.TabIndex = 41;
             this.labelControl21.Text = "雷测组播地址：";
             // 
@@ -433,7 +433,7 @@
             this.labelControl22.Location = new System.Drawing.Point(476, 231);
             this.labelControl22.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl22.Name = "labelControl22";
-            this.labelControl22.Size = new System.Drawing.Size(120, 24);
+            this.labelControl22.Size = new System.Drawing.Size(120, 29);
             this.labelControl22.TabIndex = 43;
             this.labelControl22.Text = "雷测端口：";
             // 
@@ -444,7 +444,7 @@
             this.editRadarPort.Name = "editRadarPort";
             this.editRadarPort.Properties.Mask.EditMask = "\\d{1,5}";
             this.editRadarPort.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.editRadarPort.Size = new System.Drawing.Size(204, 38);
+            this.editRadarPort.Size = new System.Drawing.Size(204, 44);
             this.editRadarPort.TabIndex = 44;
             // 
             // labelControl23
@@ -453,7 +453,7 @@
             this.labelControl23.Location = new System.Drawing.Point(956, 94);
             this.labelControl23.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl23.Name = "labelControl23";
-            this.labelControl23.Size = new System.Drawing.Size(156, 24);
+            this.labelControl23.Size = new System.Drawing.Size(158, 29);
             this.labelControl23.TabIndex = 45;
             this.labelControl23.Text = "理论射程(m)：";
             // 
@@ -464,7 +464,7 @@
             this.editFligtShot.Name = "editFligtShot";
             this.editFligtShot.Properties.Mask.EditMask = "n5";
             this.editFligtShot.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.editFligtShot.Size = new System.Drawing.Size(200, 38);
+            this.editFligtShot.Size = new System.Drawing.Size(200, 44);
             this.editFligtShot.TabIndex = 46;
             // 
             // labelControl9
@@ -473,7 +473,7 @@
             this.labelControl9.Location = new System.Drawing.Point(952, 237);
             this.labelControl9.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(216, 24);
+            this.labelControl9.Size = new System.Drawing.Size(210, 29);
             this.labelControl9.TabIndex = 47;
             this.labelControl9.Text = "雷达站编号(1-15)：";
             // 
@@ -484,7 +484,7 @@
             this.editStation.Name = "editStation";
             this.editStation.Properties.Mask.EditMask = "d2";
             this.editStation.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.editStation.Size = new System.Drawing.Size(200, 38);
+            this.editStation.Size = new System.Drawing.Size(200, 44);
             this.editStation.TabIndex = 48;
             // 
             // labelControl10
@@ -493,7 +493,7 @@
             this.labelControl10.Location = new System.Drawing.Point(13, 292);
             this.labelControl10.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(168, 24);
+            this.labelControl10.Size = new System.Drawing.Size(168, 29);
             this.labelControl10.TabIndex = 49;
             this.labelControl10.Text = "遥测组播地址：";
             // 
@@ -504,7 +504,7 @@
             this.editTelemetryMultiCastIp.Name = "editTelemetryMultiCastIp";
             this.editTelemetryMultiCastIp.Properties.Mask.EditMask = "\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}";
             this.editTelemetryMultiCastIp.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.editTelemetryMultiCastIp.Size = new System.Drawing.Size(202, 38);
+            this.editTelemetryMultiCastIp.Size = new System.Drawing.Size(202, 44);
             this.editTelemetryMultiCastIp.TabIndex = 50;
             // 
             // labelControl11
@@ -513,7 +513,7 @@
             this.labelControl11.Location = new System.Drawing.Point(476, 291);
             this.labelControl11.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl11.Name = "labelControl11";
-            this.labelControl11.Size = new System.Drawing.Size(120, 24);
+            this.labelControl11.Size = new System.Drawing.Size(120, 29);
             this.labelControl11.TabIndex = 51;
             this.labelControl11.Text = "遥测端口：";
             // 
@@ -524,7 +524,7 @@
             this.editTelemetryPort.Name = "editTelemetryPort";
             this.editTelemetryPort.Properties.Mask.EditMask = "\\d{1,5}";
             this.editTelemetryPort.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.editTelemetryPort.Size = new System.Drawing.Size(204, 38);
+            this.editTelemetryPort.Size = new System.Drawing.Size(204, 44);
             this.editTelemetryPort.TabIndex = 52;
             // 
             // labelControl12
@@ -533,7 +533,7 @@
             this.labelControl12.Location = new System.Drawing.Point(13, 366);
             this.labelControl12.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl12.Name = "labelControl12";
-            this.labelControl12.Size = new System.Drawing.Size(228, 24);
+            this.labelControl12.Size = new System.Drawing.Size(226, 29);
             this.labelControl12.TabIndex = 53;
             this.labelControl12.Text = "速度最大误差(m/s)：";
             // 
@@ -544,7 +544,7 @@
             this.editSpeedError.Name = "editSpeedError";
             this.editSpeedError.Properties.Mask.EditMask = "n5";
             this.editSpeedError.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.editSpeedError.Size = new System.Drawing.Size(202, 38);
+            this.editSpeedError.Size = new System.Drawing.Size(202, 44);
             this.editSpeedError.TabIndex = 54;
             // 
             // labelControl13
@@ -553,7 +553,7 @@
             this.labelControl13.Location = new System.Drawing.Point(476, 365);
             this.labelControl13.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl13.Name = "labelControl13";
-            this.labelControl13.Size = new System.Drawing.Size(204, 24);
+            this.labelControl13.Size = new System.Drawing.Size(206, 29);
             this.labelControl13.TabIndex = 55;
             this.labelControl13.Text = "落点最大误差(m)：";
             // 
@@ -564,7 +564,7 @@
             this.editPointError.Name = "editPointError";
             this.editPointError.Properties.Mask.EditMask = "n5";
             this.editPointError.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.editPointError.Size = new System.Drawing.Size(204, 38);
+            this.editPointError.Size = new System.Drawing.Size(204, 44);
             this.editPointError.TabIndex = 56;
             // 
             // SettingForm
