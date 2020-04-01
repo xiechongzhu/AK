@@ -182,8 +182,8 @@ namespace RadarProcess
             {
                 Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_ERROR, "加入组播组失败，" + ex.Message);
                 XtraMessageBox.Show("加入组播组失败，" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                udpRadarClient.Close();
-                udpTelemetryClient.Close();
+                udpRadarClient?.Close();
+                udpTelemetryClient?.Close();
                 dataParser.Stop();
                 dataLogger.Stop();
                 return;

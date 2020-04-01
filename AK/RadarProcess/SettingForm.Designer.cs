@@ -482,6 +482,8 @@
             this.editStation.Location = new System.Drawing.Point(1184, 231);
             this.editStation.Margin = new System.Windows.Forms.Padding(4);
             this.editStation.Name = "editStation";
+            this.editStation.Properties.Mask.EditMask = "d2";
+            this.editStation.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.editStation.Size = new System.Drawing.Size(200, 38);
             this.editStation.TabIndex = 48;
             // 
