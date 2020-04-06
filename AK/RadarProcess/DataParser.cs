@@ -89,14 +89,14 @@ namespace RadarProcess
 
         private void ParseRadarData(byte[] buffer)
         {
-            PostMessage(mainFormHandle, MainForm.WM_RADAR_DATA_COMMING, 0, IntPtr.Zero);
             String errMsg;
             if(!CheckPacket(buffer, out errMsg))
             {
                 Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_ERROR, "数据包错误:" + errMsg);
                 return;
             }
-            using(MemoryStream stream = new MemoryStream(buffer))
+            PostMessage(mainFormHandle, MainForm.WM_RADAR_DATA_COMMING, 0, IntPtr.Zero);
+            using (MemoryStream stream = new MemoryStream(buffer))
             {
                 using (BinaryReader br = new BinaryReader(stream))
                 {
@@ -393,7 +393,6 @@ namespace RadarProcess
 
         private void ParseTelemetryData(byte[] buffer)
         {
-            PostMessage(mainFormHandle, MainForm.WM_TELEMETRY_DATA_COMMING, 0, IntPtr.Zero);
             if (buffer.Length < UDPLENGTH)
             {
                 return;
@@ -430,7 +429,8 @@ namespace RadarProcess
             // 如果dataLength长度等于0，直接不进行下面数据的处理
             if (dataLength == 0)
                 return;
-
+            PostMessage(mainFormHandle, MainForm.WM_TELEMETRY_DATA_COMMING, 0, IntPtr.Zero);
+            PostMessage(mainFormHandle, MainForm.WM_T0, 0, IntPtr.Zero);
             using (MemoryStream stream = new MemoryStream(buffer))
             {
                 // 位置偏移到CAN数据域
