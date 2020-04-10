@@ -105,7 +105,7 @@ namespace RadarProcess
                         Station = br.ReadByte(),
                         Type = br.ReadByte()
                     };
-                    if(packHead.Station != 0x20 + Config.GetInstance().stationId)
+                    if(!Config.GetInstance().stationId.Equals(String.Empty) && packHead.Station != int.Parse(Config.GetInstance().stationId))
                     {
                         return;
                     }

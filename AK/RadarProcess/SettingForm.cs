@@ -4,6 +4,7 @@ using NPOI.XSSF.UserModel;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace RadarProcess
@@ -80,10 +81,10 @@ namespace RadarProcess
                 Config.GetInstance().radarPort = UInt16.Parse(editRadarPort.Text);
                 Config.GetInstance().strTelemetryMultiCastIpAddr = editTelemetryMultiCastIp.Text;
                 Config.GetInstance().telemetryPort = UInt16.Parse(editTelemetryPort.Text);
-                Config.GetInstance().stationId = int.Parse(editStation.Text);
                 Config.GetInstance().speedError = double.Parse(editSpeedError.Text);
                 Config.GetInstance().pointError = double.Parse(editPointError.Text);
                 Config.GetInstance().minMaxValues = minMaxValues;
+                Config.GetInstance().stationId = editStation.Text;
             }
             catch(Exception ex)
             {
@@ -108,7 +109,7 @@ namespace RadarProcess
 
         public void SetParams(double longitudeInit, double latitudeInit, double heightInit, double azimuthInit,
             double placementHeight, double flightshot, double forwardLine, double backwardLine, double sideLine,
-            String strMultiCastIpAddr, UInt16 port, int stationId, double speedError, double pointError)
+            String strMultiCastIpAddr, UInt16 port, String stationId, double speedError, double pointError)
         {
             editLongitudeInit.Text = longitudeInit.ToString();
             editLatitudeInit.Text = latitudeInit.ToString();

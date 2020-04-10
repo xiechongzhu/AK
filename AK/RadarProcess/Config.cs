@@ -30,7 +30,7 @@ namespace RadarProcess
         public UInt16 radarPort;                     //雷测组播端口
         public String strTelemetryMultiCastIpAddr;  //遥测组播地址
         public UInt16 telemetryPort;                //遥测组播端口
-        public int stationId;                   //雷达站编号
+        public String stationId;                   //雷达站编号
         public int delayT0;
         public double speedError;               //速度误差
         public double pointError;               //落点误差
