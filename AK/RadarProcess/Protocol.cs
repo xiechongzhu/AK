@@ -24,7 +24,7 @@ namespace RadarProcess
         public byte    FF;
         public byte    Num;
         public byte    C;
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 43)]
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 1)]
         public byte[] S;
     }
 

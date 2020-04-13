@@ -40,7 +40,7 @@ namespace RadarSimulator
         private void btnSendOne_Click(object sender, EventArgs e)
         {
             byte[] sendBuffer = BuildPacket(double.Parse(editX.Text), double.Parse(editY.Text), double.Parse(editZ.Text),
-                double.Parse(editVx.Text), double.Parse(editVy.Text), double.Parse(editVz.Text));
+                double.Parse(editVx.Text), double.Parse(editVy.Text), double.Parse(editVz.Text), (int)DateTime.Now.TimeOfDay.TotalMilliseconds);
             udpClient?.Send(sendBuffer, sendBuffer.Length, editIp.Text, int.Parse(editPort.Text));
         }
 
@@ -135,17 +135,17 @@ namespace RadarSimulator
             return buffer;
         }
 
-        private byte[] BuildPacket(double x, double y, double z, double vx, double vy, double vz)
+        private byte[] BuildPacket(double x, double y, double z, double vx, double vy, double vz, int time)
         {
             PACK_HEAD packHeader = new PACK_HEAD()
             {
                 Station = 0x21,
-                Type = 0x01
+                Type = 0x20
             };
             S_HEAD sHead = new S_HEAD()
             {
                 Len = (ushort)(Marshal.SizeOf(typeof(S_HEAD)) + Marshal.SizeOf(typeof(S_OBJECT))),
-                Time = (int)DateTime.Now.TimeOfDay.TotalMilliseconds,
+                Time = time,
             };
             S_OBJECT sObject = new S_OBJECT
             {
@@ -187,6 +187,7 @@ namespace RadarSimulator
                 // row读入第i行数据
                 row = sheet.GetRow(curReadLine++);
                 // 获取每一列的数据,并转换为对应的数据类型.
+                int time = (int)(System.Convert.ToDouble(row.GetCell(0).ToString()) * 1000);
                 double x = System.Convert.ToDouble(row.GetCell(2).ToString());
                 double y = System.Convert.ToDouble(row.GetCell(3).ToString());
                 double z = System.Convert.ToDouble(row.GetCell(4).ToString());
@@ -196,7 +197,7 @@ namespace RadarSimulator
                 double Vz = System.Convert.ToDouble(row.GetCell(7).ToString());
                 // 发送数据
                 byte[] sendBuffer = BuildPacket(x , y, z,
-                Vx, Vy, Vz);
+                Vx, Vy, Vz, time);
                 udpClient?.Send(sendBuffer, sendBuffer.Length, editIp.Text, int.Parse(editPort.Text));
             }
             else

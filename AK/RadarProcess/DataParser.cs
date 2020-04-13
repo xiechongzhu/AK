@@ -110,7 +110,7 @@ namespace RadarProcess
                         return;
                     }
                     
-                    if (packHead.Type == 0x01)
+                    if (packHead.Type == 0x20)
                     {
                         S_HEAD sHead = new S_HEAD
                         {
@@ -123,7 +123,7 @@ namespace RadarProcess
                             FF = br.ReadByte(),
                             Num = br.ReadByte(),
                             C = br.ReadByte(),
-                            S = br.ReadBytes(43)
+                            S = br.ReadBytes(1)
                         };
                         if(isPrintRaderLog == false)
                         {
@@ -145,7 +145,7 @@ namespace RadarProcess
                                 return;
                             }
                         }
-                        while (stream.Position < stream.Length - 1)
+                        while (stream.Position <= stream.Length - 90)
                         {
                             S_OBJECT sObject = new S_OBJECT
                             {
@@ -221,7 +221,7 @@ namespace RadarProcess
                             FF = br.ReadByte(),
                             Num = br.ReadByte(),
                             C = br.ReadByte(),
-                            S = br.ReadBytes(43)
+                            S = br.ReadBytes(1)
                         };
                         if (isPrintRaderLog == false)
                         {
@@ -248,6 +248,12 @@ namespace RadarProcess
             if(length < Marshal.SizeOf(typeof(PACK_HEAD)) + Marshal.SizeOf(typeof(S_HEAD)))
             {
                 errMsg = "数据长度小于报文头";
+                return false;
+            }
+
+            if((length - Marshal.SizeOf(typeof(PACK_HEAD)) - Marshal.SizeOf(typeof(S_HEAD))) % 90 != 0)
+            {
+                errMsg = "数据长度错误";
                 return false;
             }
 

@@ -144,7 +144,7 @@ namespace RadarProcess
             {
                 if (Config.GetInstance().LoadConfigFile(out _))
                 {
-                    ClearChartData(chartPoints);
+                    ClearAllChart();
                     InitChartPoints();
                     InitPositionSpeedMaxMin();
                 }

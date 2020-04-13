@@ -100,7 +100,7 @@ namespace RadarProcess
         public static double GetSpeed(double[] x, double[] y, double x0)
         {
             double[] polynomial = Fit.Polynomial(x, y, 3);
-            return 3 * polynomial[3] * Math.Pow(x0, 2) + 2 * polynomial[2] * x0 + polynomial[1];
+            return (3 * polynomial[3] * Math.Pow(x0, 2) + 2 * polynomial[2] * x0 + polynomial[1])*1000;
         }
     }
 }
