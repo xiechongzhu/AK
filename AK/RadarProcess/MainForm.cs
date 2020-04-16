@@ -103,7 +103,7 @@ namespace RadarProcess
         private ConstLaunchFsx constLaunchFsx;
         private AlertForm alertForm = new AlertForm();
         List<ListViewItem> logItemList = new List<ListViewItem>();
-        private readonly int MAX_CHART_POINTS = 1000;
+        private int MAX_CHART_POINTS = 1000;
 
         private Image grayLedImage;
         private Image greenLedImage;
@@ -168,6 +168,7 @@ namespace RadarProcess
                 XtraMessageBox.Show("加载配置文件失败," + errMsg, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            MAX_CHART_POINTS = Config.GetInstance().maxPointCount;
             Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, "加载配置文件成功");
             try
             { 
@@ -343,6 +344,7 @@ namespace RadarProcess
             historyData.StationId = Config.GetInstance().stationId;
             historyData.SpeedError = Config.GetInstance().speedError;
             historyData.PointError = Config.GetInstance().pointError;
+            historyData.MaxPointCount = Config.GetInstance().maxPointCount;
 
             try
             {

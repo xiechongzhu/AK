@@ -26,6 +26,7 @@ namespace RadarProcess
         private String stationId;                  //雷达站编号
         private double speedError;              //速度误差
         private double pointError;              //落点误差
+        private int maxPointCount;
 
         public void Clear()
         {
@@ -72,5 +73,6 @@ namespace RadarProcess
         public String StationId { get => stationId; set => stationId = value; }
         public double SpeedError { get => speedError; set => speedError = value; }
         public double PointError { get => pointError; set => pointError = value; }
+        public int MaxPointCount { get => maxPointCount; set => maxPointCount = value; }
     }
 }

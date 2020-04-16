@@ -76,6 +76,8 @@
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
             this.editPointError = new DevExpress.XtraEditors.TextEdit();
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
+            this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
+            this.editPoint = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
@@ -102,6 +104,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.editSpeedError.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editPointError.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editPoint.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -567,11 +570,33 @@
             this.editPointError.Size = new System.Drawing.Size(204, 38);
             this.editPointError.TabIndex = 56;
             // 
+            // labelControl14
+            // 
+            this.labelControl14.Appearance.Options.UseFont = true;
+            this.labelControl14.Location = new System.Drawing.Point(951, 291);
+            this.labelControl14.Margin = new System.Windows.Forms.Padding(4);
+            this.labelControl14.Name = "labelControl14";
+            this.labelControl14.Size = new System.Drawing.Size(156, 24);
+            this.labelControl14.TabIndex = 57;
+            this.labelControl14.Text = "曲线最大点数:";
+            // 
+            // editPoint
+            // 
+            this.editPoint.Location = new System.Drawing.Point(1184, 286);
+            this.editPoint.Margin = new System.Windows.Forms.Padding(4);
+            this.editPoint.Name = "editPoint";
+            this.editPoint.Properties.Mask.EditMask = "\\d{1,4}";
+            this.editPoint.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.editPoint.Size = new System.Drawing.Size(200, 38);
+            this.editPoint.TabIndex = 58;
+            // 
             // SettingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1415, 555);
+            this.Controls.Add(this.editPoint);
+            this.Controls.Add(this.labelControl14);
             this.Controls.Add(this.editPointError);
             this.Controls.Add(this.labelControl13);
             this.Controls.Add(this.editSpeedError);
@@ -639,6 +664,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.editSpeedError.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editPointError.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editPoint.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -692,5 +718,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl13;
         private DevExpress.XtraEditors.TextEdit editPointError;
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
+        private DevExpress.XtraEditors.LabelControl labelControl14;
+        private DevExpress.XtraEditors.TextEdit editPoint;
     }
 }

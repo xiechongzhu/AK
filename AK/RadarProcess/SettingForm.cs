@@ -56,6 +56,7 @@ namespace RadarProcess
             editStation.Text = Config.GetInstance().stationId.ToString();
             editSpeedError.Text = Config.GetInstance().speedError.ToString();
             editPointError.Text = Config.GetInstance().pointError.ToString();
+            editPoint.Text = Config.GetInstance().maxPointCount.ToString();
             minMaxValues = Config.GetInstance().minMaxValues;
         }
 
@@ -83,6 +84,14 @@ namespace RadarProcess
                 Config.GetInstance().telemetryPort = UInt16.Parse(editTelemetryPort.Text);
                 Config.GetInstance().speedError = double.Parse(editSpeedError.Text);
                 Config.GetInstance().pointError = double.Parse(editPointError.Text);
+                if(editPoint.Text.Equals(String.Empty))
+                {
+                    Config.GetInstance().maxPointCount = 1000;
+                }
+                else
+                {
+                    Config.GetInstance().maxPointCount = int.Parse(editPoint.Text);
+                }
                 Config.GetInstance().minMaxValues = minMaxValues;
                 Config.GetInstance().stationId = editStation.Text;
             }
@@ -109,7 +118,7 @@ namespace RadarProcess
 
         public void SetParams(double longitudeInit, double latitudeInit, double heightInit, double azimuthInit,
             double placementHeight, double flightshot, double forwardLine, double backwardLine, double sideLine,
-            String strMultiCastIpAddr, UInt16 port, String stationId, double speedError, double pointError)
+            String strMultiCastIpAddr, UInt16 port, String stationId, double speedError, double pointError, int maxPointCount)
         {
             editLongitudeInit.Text = longitudeInit.ToString();
             editLatitudeInit.Text = latitudeInit.ToString();
@@ -125,6 +134,7 @@ namespace RadarProcess
             editStation.Text = stationId.ToString();
             editSpeedError.Text = speedError.ToString();
             editPointError.Text = pointError.ToString();
+            editPoint.Text = maxPointCount.ToString();
         }
 
         private void btnDownload_Click(object sender, EventArgs e)

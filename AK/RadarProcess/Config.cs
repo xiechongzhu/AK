@@ -34,6 +34,7 @@ namespace RadarProcess
         public int delayT0;
         public double speedError;               //速度误差
         public double pointError;               //落点误差
+        public int maxPointCount;
 
         public bool LoadConfigFile(out String errMsg)
         {

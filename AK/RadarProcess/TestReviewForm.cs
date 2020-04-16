@@ -169,7 +169,7 @@ namespace RadarProcess
             settingForm.SetParams(historyData.LongitudeInit, historyData.LatitudeInit, historyData.HeightInit,
                 historyData.AzimuthInit, historyData.PlacementHeight, historyData.Flightshot, historyData.ForwardLine,
                 historyData.BackwardLine, historyData.SideLine, historyData.StrMultiCastIpAddr, historyData.Port, historyData.StationId,
-                historyData.SpeedError, historyData.PointError);
+                historyData.SpeedError, historyData.PointError, historyData.MaxPointCount);
             settingForm.ShowDialog();
         }
     }
