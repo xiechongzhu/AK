@@ -381,4 +381,12 @@ namespace YaoCeProcess
         public byte frameType;              // 帧类型
         public UInt16 frameNo;              // 帧序号
     }
+
+    // UDP包状态
+    [Serializable]
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public struct UDP_PROPERTY
+    {
+        public bool ret;                    // UDP包状态
+    }
 }

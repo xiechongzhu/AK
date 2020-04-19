@@ -43,6 +43,8 @@ namespace YaoCeProcess
         public const int WM_YAOCE_XiTongJiShi_Tou_DATA = WM_USER + 109;
         // 数据帧信息
         public const int WM_YAOCE_FRAMEPROPERTY_DATA = WM_USER + 110;
+        // UDP包状态
+        public const int WM_YAOCE_UDPPROPERTY_DATA = WM_USER + 111;
 
         // 读取完成后休眠时间
         private static readonly TimeSpan Interval = TimeSpan.FromMilliseconds(500);
@@ -101,6 +103,7 @@ namespace YaoCeProcess
         // 是否收到数据
         bool bRecvStatusData_XiTong = false;
         bool bRecvStatusData_HuiLuJianCe = false;
+        bool bRecvStatusData_UDP = false;
         //-----------------------------------------------------//
 
         // UDP
@@ -138,6 +141,7 @@ namespace YaoCeProcess
         public const uint E_STATUSTYPE_DaoHangManSu_Tou = 0x06;
         public const uint E_STATUSTYPE_XiTongJiShi_Ti = 0x07;
         public const uint E_STATUSTYPE_XiTongJiShi_Tou = 0x08;
+        public const uint E_STATUSTYPE_dataConnect = 0x09;
         bool bDaoHangKuaiSuOnLine_Ti = false;
         bool bDaoHangKuaiSuOnLine_Tou = false;
         bool bDaoHangManSuOnLine_Ti = false;
@@ -234,6 +238,17 @@ namespace YaoCeProcess
                         pictureEdit_XiTongJiShi.Image = Image.FromFile(Application.StartupPath + @"\Image\LED_gray.png");
                     }
                     break;
+                // TODO 20200316 新增
+                case E_STATUSTYPE_dataConnect:
+                    if (bOn)
+                    {
+                        pictureEdit_dataConnect.Image = Image.FromFile(Application.StartupPath + @"\Image\LED_green.png");
+                    }
+                    else
+                    {
+                        pictureEdit_dataConnect.Image = Image.FromFile(Application.StartupPath + @"\Image\LED_gray.png");
+                    }
+                    break;
                 default:
                     break;
             }
@@ -290,6 +305,7 @@ namespace YaoCeProcess
             // 离线定时器初始即启动
             timerOffLineXiTongStatus.Start();
             timerOffLineHuiLuJianCe.Start();
+            timerOffLineUDP.Start();
 
             // 初始清空数据
             GenericFunction.reSetAllTextEdit(TabPage_XiTongPanJue);
@@ -302,6 +318,7 @@ namespace YaoCeProcess
             pictureEdit_DHK.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
             pictureEdit_DHM.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
             pictureEdit_XiTongJiShi.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
+            pictureEdit_dataConnect.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
 
             //------------------------------------------------------//
 
@@ -329,6 +346,7 @@ namespace YaoCeProcess
         {
             timerOffLineXiTongStatus.Stop();
             timerOffLineHuiLuJianCe.Stop();
+            timerOffLineUDP.Stop();
         }
 
         public void setRunPic(bool bRun)
@@ -608,6 +626,25 @@ namespace YaoCeProcess
 
                         // 缓存状态数据
                         frameInfoForm.addFrameInfo(ref sObject);
+
+                        Marshal.FreeHGlobal(ptr);
+
+                        //----------------------------------------------------------//
+                    }
+                    break;
+                case WM_YAOCE_UDPPROPERTY_DATA:
+                    {
+                        //----------------------------------------------------------//
+
+                        IntPtr ptr = m.LParam;
+                        UDP_PROPERTY sObject = Marshal.PtrToStructure<UDP_PROPERTY>(ptr);
+
+                        // 重新启动离线定时器
+                        timerOffLineUDP.Stop();
+                        timerOffLineUDP.Start();
+
+                        // 更改状态灯颜色
+                        bRecvStatusData_UDP = true;
 
                         Marshal.FreeHGlobal(ptr);
 
@@ -1565,11 +1602,13 @@ namespace YaoCeProcess
             {
                 timerUpdateXiTongStatus.Start();
                 timerUpdateHuiLuJianCe.Start();
+                timerUpdateUDP.Start();
             }
             else
             {
                 timerUpdateXiTongStatus.Stop();
                 timerUpdateHuiLuJianCe.Stop();
+                timerUpdateUDP.Stop();
             }
 
             dHKSubForm_Ti.setUpdateTimerStatus(bOpen);
@@ -1758,6 +1797,21 @@ namespace YaoCeProcess
 
             // 开启状态刷新定时器
             setUpdateTimerStatus(true);
+        }
+
+        private void timerUpdateUDP_Tick(object sender, EventArgs e)
+        {
+            // 是否收到数据
+            if (bRecvStatusData_UDP)
+            {
+                setStatusOnOffLine(E_STATUSTYPE_dataConnect, true);
+            }
+        }
+
+        private void timerOffLineUDP_Tick(object sender, EventArgs e)
+        {
+            bRecvStatusData_UDP = false;
+            setStatusOnOffLine(E_STATUSTYPE_dataConnect, false);
         }
     }
 
