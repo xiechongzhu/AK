@@ -283,6 +283,17 @@ namespace YaoCeProcess
                 return false;
             }
 
+            //-------------------------------------------------------------------------------------//
+            // TODO 20200316 添加亮灯提示，表示收到数据(长度以及帧头正确)
+            UDP_PROPERTY udpPocket = new UDP_PROPERTY
+            {
+                ret = true
+            };
+            IntPtr ptr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(UDP_PROPERTY)));
+            Marshal.StructureToPtr(udpPocket, ptr, true);
+            PostMessage(mainFormHandle, MainForm.WM_YAOCE_UDPPROPERTY_DATA, 0, ptr);
+            //-------------------------------------------------------------------------------------//
+
             // 20200212更改
             // 数据长度判断（大端）
             dataLength = (UInt16)(((UInt16)buffer[4] << 8) + buffer[5]);
