@@ -791,16 +791,20 @@ namespace YaoCeProcess
             switch (tempValue)
             {
                 case 0:
-                    tempSTR = "时间间隔均正常";
+                    // tempSTR = "时间间隔均正常";
+                    tempSTR = "无输出";
                     break;
                 case 1:
-                    tempSTR = "1号异常，2号正常";
+                    // tempSTR = "1号异常，2号正常";
+                    tempSTR = "1号";
                     break;
                 case 2:
-                    tempSTR = "1号正常，2号异常";
+                    // tempSTR = "1号正常，2号异常";
+                    tempSTR = "2号";
                     break;
                 case 3:
-                    tempSTR = "时间间隔均不正常";
+                    // tempSTR = "时间间隔均不正常";
+                    tempSTR = "1号和2号";
                     break;
                 default:
                     break;
