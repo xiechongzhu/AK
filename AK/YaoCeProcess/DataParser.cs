@@ -116,6 +116,11 @@ namespace YaoCeProcess
         UInt16 frameNO_XiTongJiShi36 = 0;                // 帧编号
         //------------------------------------------------------------------------------------//
 
+        // UDP 缓存buffer
+        byte[] UDPBuffer = null;
+
+        //------------------------------------------------------------------------------------//
+
         public void Enqueue(byte[] data)
         {
             queue.Enqueue(data);
@@ -127,12 +132,18 @@ namespace YaoCeProcess
             isRuning = true;
             thread = new Thread(new ThreadStart(ThreadFunction));
             thread.Start();
+
+            UDPBuffer = null;
+            UDPBuffer = new byte[0];
         }
 
         public void Stop()
         {
             isRuning = false;
             thread?.Join();
+
+            UDPBuffer = null;
+            UDPBuffer = new byte[0];
         }
 
         private void ThreadFunction()
@@ -151,8 +162,96 @@ namespace YaoCeProcess
             }
         }
 
+        /// <summary>
+        /// 报告指定的 System.Byte[] 在此实例中的第一个匹配项的索引。
+        /// </summary>
+        /// <param name="srcBytes">被执行查找的 System.Byte[]。</param>
+        /// <param name="searchBytes">要查找的 System.Byte[]。</param>
+        /// <returns>如果找到该字节数组，则为 searchBytes 的索引位置；如果未找到该字节数组，则为 -1。如果 searchBytes 为 null 或者长度为0，则返回值为 -1。</returns>
+        internal int IndexOf(byte[] srcBytes, byte[] searchBytes)
+        {
+            if (srcBytes == null) { return -1; }
+            if (searchBytes == null) { return -1; }
+            if (srcBytes.Length == 0) { return -1; }
+            if (searchBytes.Length == 0) { return -1; }
+            if (srcBytes.Length < searchBytes.Length) { return -1; }
+            for (int i = 0; i < srcBytes.Length - searchBytes.Length; i++)
+            {
+                if (srcBytes[i] == searchBytes[0])
+                {
+                    if (searchBytes.Length == 1) { return i; }
+                    bool flag = true;
+                    for (int j = 1; j < searchBytes.Length; j++)
+                    {
+                        if (srcBytes[i + j] != searchBytes[j])
+                        {
+                            flag = false;
+                            break;
+                        }
+                    }
+                    if (flag) { return i; }
+                }
+            }
+            return -1;
+        }
+
         private void ParseDatas(byte[] buffer)
         {
+            if (UDPBuffer == null) 
+            {
+                UDPBuffer = new byte[0];
+            }
+
+            // 帧头标识
+            byte[] searchBytes = new byte[4];
+            searchBytes[0] = 0xAA;
+            searchBytes[1] = 0x00;
+            searchBytes[2] = 0x55;
+            searchBytes[3] = 0x77;
+
+            //--------------------------------------------------------------------------------//
+
+            // 拼接上一次剩余的包
+            UDPBuffer = UDPBuffer.Concat(buffer).ToArray();
+
+            //--------------------------------------------------------------------------------//
+
+            while(true)
+            {
+                int findPos = IndexOf(UDPBuffer, searchBytes);
+                if (findPos == -1)
+                {
+                    break;
+                }
+                // 判断数据长度是否足够
+                if (UDPBuffer.Length < findPos + UDPLENGTH)
+                {
+                    break;
+                }
+                byte[] findBuffer = UDPBuffer.Skip(findPos).Take(UDPLENGTH).ToArray();
+                // 二次判断，判断数据帧中是否存在标识，若存在则直接定义为当前帧不完整，第二帧数据补充进来了
+                byte[] findDataBuffer = findBuffer.Skip(searchBytes.Length).Take(UDPLENGTH - searchBytes.Length).ToArray();
+                int findPos2 = IndexOf(findDataBuffer, searchBytes);
+                if (findPos2 != -1)
+                {
+                    int skipLength = findPos + searchBytes.Length + findPos2;
+                    UDPBuffer = UDPBuffer.Skip(skipLength).Take(UDPBuffer.Length - skipLength).ToArray();
+                    continue;
+                }
+
+                // 进行数据解析
+                handleData(findBuffer);
+
+                // 正常的数据偏移
+                int skipLengthNormal = findPos + UDPLENGTH;
+                UDPBuffer = UDPBuffer.Skip(skipLengthNormal).Take(UDPBuffer.Length - skipLengthNormal).ToArray();
+            }
+        }
+
+        private void handleData(byte[] buffer)
+        {
+            //--------------------------------------------------------------------------------//
+
             if (buffer.Length < UDPLENGTH)
             {
                 return;
