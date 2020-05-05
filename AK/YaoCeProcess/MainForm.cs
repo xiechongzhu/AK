@@ -1585,6 +1585,10 @@ namespace YaoCeProcess
             {
                 // 填充实时数据
                 showSystemTimeStatus(ref sObject_XiTong);
+
+                // 更改状态背景颜色
+                GenericFunction.changeAllTextEditColor(TabPage_XiTongPanJue);
+
                 setStatusOnOffLine(E_STATUSTYPE_XiTong, true);
             }
         }
@@ -1655,6 +1659,10 @@ namespace YaoCeProcess
             {
                 // 填充实时数据
                 showHuiLuJianCeStatus(ref sObject_huiLuJianCe);
+
+                // 更改状态背景颜色
+                GenericFunction.changeAllTextEditColor(xtraTabPage_HuiLuJianCe);
+
                 setStatusOnOffLine(E_STATUSTYPE_HuiLuJianCe, true);
             }
         }

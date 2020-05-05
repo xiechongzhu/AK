@@ -319,6 +319,10 @@ namespace YaoCeProcess
             {
                 // 填充实时数据
                 showDHManSuTimeStatus(ref sObject_DHM);
+
+                // 更改状态背景颜色
+                GenericFunction.changeAllTextEditColor(this);
+
                 testFunDelegate(statusType, true);
             }
         }
