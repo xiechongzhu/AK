@@ -73,8 +73,9 @@ namespace YaoCeProcess
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     struct SYSTEMPARSE_STATUS
     {
-        public double jingDu;            // 经度
+        // NOTE 20200506 协议弄反
         public double weiDu;             // 纬度
+        public double jingDu;            // 经度
         public float haiBaGaoDu;         // 海拔高度
 
         public float dongXiangSuDu;      // 东向速度
