@@ -131,24 +131,27 @@ namespace RadarProcess
                             C = br.ReadByte(),
                             S = br.ReadBytes(1)
                         };
-                        if(isPrintRaderLog == false)
+                        if (Config.GetInstance().source == 0)
                         {
-                            Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, String.Format("收到第一帧雷测数据,Type={0}，Time={1}ms",
-                                packHead.Type, sHead.Time));
-                            isPrintRaderLog = true;
-                        }
-                        if(T0 == -1)
-                        {
-                            if(isStartGetT0)
+                            if (isPrintRaderLog == false)
                             {
-                                T0 = sHead.Time - T0Delay;
-                                isStartGetT0 = false;
-                                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, String.Format("手动计算T0结果:{0}", T0));
-                                PostMessage(mainFormHandle, MainForm.WM_T0, 0, IntPtr.Zero);
+                                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, String.Format("收到第一帧雷测数据,Type={0}，Time={1}ms",
+                                    packHead.Type, sHead.Time));
+                                isPrintRaderLog = true;
                             }
-                            else
+                            if (T0 == -1)
                             {
-                                return;
+                                if (isStartGetT0)
+                                {
+                                    T0 = sHead.Time - T0Delay;
+                                    isStartGetT0 = false;
+                                    Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, String.Format("手动计算T0结果:{0}", T0));
+                                    PostMessage(mainFormHandle, MainForm.WM_T0, 0, IntPtr.Zero);
+                                }
+                                else
+                                {
+                                    return;
+                                }
                             }
                         }
                         while (stream.Position <= stream.Length - 90)
@@ -230,19 +233,22 @@ namespace RadarProcess
                             C = br.ReadByte(),
                             S = br.ReadBytes(1)
                         };
-                        if (isPrintRaderLog == false)
+                        if (Config.GetInstance().source == 0)
                         {
-                            Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, String.Format("收到第一帧雷测数据,Type={0}，Time={1}ms",
-                                packHead.Type, sHead.Time));
-                            isPrintRaderLog = true;
-                        }
-                        recvRaderT0 = DateTime.Now;
-                        if (T0 == -1 && telemetryFlyTime != -1 && recvRaderT0 != DateTime.MinValue && recvTelemetryFlyTime != DateTime.MinValue
-                            && recvRaderT0 >= recvTelemetryFlyTime)
-                        {
-                            T0 = sHead.Time - (int)(recvRaderT0 - recvTelemetryFlyTime).TotalMilliseconds - telemetryFlyTime;
-                            Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, String.Format("收到雷测T0帧，T0={0}ms", T0));
-                            PostMessage(mainFormHandle, MainForm.WM_T0, 0, IntPtr.Zero);
+                            if (isPrintRaderLog == false)
+                            {
+                                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, String.Format("收到第一帧雷测数据,Type={0}，Time={1}ms",
+                                    packHead.Type, sHead.Time));
+                                isPrintRaderLog = true;
+                            }
+                            recvRaderT0 = DateTime.Now;
+                            if (T0 == -1 && telemetryFlyTime != -1 && recvRaderT0 != DateTime.MinValue && recvTelemetryFlyTime != DateTime.MinValue
+                                && recvRaderT0 >= recvTelemetryFlyTime)
+                            {
+                                T0 = sHead.Time - (int)(recvRaderT0 - recvTelemetryFlyTime).TotalMilliseconds - telemetryFlyTime;
+                                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, String.Format("收到雷测T0帧，T0={0}ms", T0));
+                                PostMessage(mainFormHandle, MainForm.WM_T0, 0, IntPtr.Zero);
+                            }
                         }
                     }
                 }
@@ -310,8 +316,11 @@ namespace RadarProcess
 
         public void StartGetT0(int delay)
         {
-            T0Delay = delay;
-            isStartGetT0 = true;
+            if (Config.GetInstance().source == 0)
+            {
+                T0Delay = delay;
+                isStartGetT0 = true;
+            }
         }
 
         // 每一个UDP帧固定长度651
@@ -780,14 +789,17 @@ namespace RadarProcess
                         // 一次读取n个字节
                         // Reserve = br.ReadBytes(5)
                     };
-                    if (sObject.feiXingZongShiJian != 0)
+                    if (Config.GetInstance().source == 0)
                     {
-                        telemetryFlyTime = (int)sObject.feiXingZongShiJian * 1000;
-                        recvTelemetryFlyTime = DateTime.Now;
-                        if (isPrintTelemetryLog == false)
+                        if (sObject.feiXingZongShiJian != 0)
                         {
-                            Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, String.Format("收到遥测第一帧系统判据状态数据,飞行总时间={0}ms", telemetryFlyTime));
-                            isPrintTelemetryLog = true;
+                            telemetryFlyTime = (int)sObject.feiXingZongShiJian * 1000;
+                            recvTelemetryFlyTime = DateTime.Now;
+                            if (isPrintTelemetryLog == false)
+                            {
+                                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, String.Format("收到遥测第一帧系统判据状态数据,飞行总时间={0}ms", telemetryFlyTime));
+                                isPrintTelemetryLog = true;
+                            }
                         }
                     }
                 }
