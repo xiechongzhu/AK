@@ -177,8 +177,11 @@ namespace RadarProcess
             btnSetting.Enabled = false;
             btnStop.Enabled = true;
             btnStart.Enabled = false;
-            btnStartT0.Enabled = true;
-            editT0.Enabled = true;
+            if (Config.GetInstance().source == 0)
+            {
+                editT0.Enabled = true;
+                btnStartT0.Enabled = true;
+            }
             constLaunchFsx = algorithm.calc_const_launch_fsx(
                 Config.GetInstance().latitudeInit,
                 Config.GetInstance().longitudeInit,
