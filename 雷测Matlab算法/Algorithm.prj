@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
-  <configuration file="D:\Git\AK\雷测Matlab算法\Algorithm.prj" location="D:\Git\AK\雷测Matlab算法" name="Algorithm" target="target.ezdeploy.library" target-name="Library Compiler">
+  <configuration build-checksum="2967685234" file="D:\Git\AK\雷测Matlab算法\Algorithm.prj" location="D:\Git\AK\雷测Matlab算法" name="Algorithm" preferred-package-location="D:\Git\AK\雷测Matlab算法\Algorithm\for_redistribution" preferred-package-type="package.type.exe" target="target.ezdeploy.library" target-name="Library Compiler">
     <param.appname>Algorithm</param.appname>
     <param.icon />
     <param.icons />
@@ -97,14 +97,16 @@
       <param.cpp.api />
     </unset>
     <fileset.exports>
-      <file>${PROJECT_ROOT}\calc_const_launch_fsx.m</file>
-      <file>${PROJECT_ROOT}\calc_target_fsx.m</file>
+      <file>${PROJECT_ROOT}\calc_const_launch.m</file>
+      <file>${PROJECT_ROOT}\calc_target_ld.m</file>
+      <file>${PROJECT_ROOT}\calc_target_yc.m</file>
     </fileset.exports>
     <fileset.classes>
       <entity.package name="">
         <entity.class name="MatLab">
-          <file>${PROJECT_ROOT}\calc_const_launch_fsx.m</file>
-          <file>${PROJECT_ROOT}\calc_target_fsx.m</file>
+          <file>${PROJECT_ROOT}\calc_const_launch.m</file>
+          <file>${PROJECT_ROOT}\calc_target_ld.m</file>
+          <file>${PROJECT_ROOT}\calc_target_yc.m</file>
         </entity.class>
       </entity.package>
     </fileset.classes>

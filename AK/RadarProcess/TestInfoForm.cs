@@ -16,6 +16,7 @@ namespace RadarProcess
         public TestInfoForm()
         {
             InitializeComponent();
+            cbxSource.SelectedIndex = Config.GetInstance().source;
         }
 
         private void btnOK_Click(object sender, EventArgs e)
@@ -26,6 +27,8 @@ namespace RadarProcess
                 return;
             }
             DialogResult = DialogResult.OK;
+            Config.GetInstance().source = cbxSource.SelectedIndex;
+            Config.GetInstance().SaveConfig(out _);
             Close();
         }
 

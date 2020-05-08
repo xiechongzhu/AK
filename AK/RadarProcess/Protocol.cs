@@ -61,6 +61,7 @@ namespace RadarProcess
         public double MaxVy;
         public double MinVz;
         public double MaxVz;
+        public int suit;
     }
 
     [Serializable]

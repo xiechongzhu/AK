@@ -21,7 +21,8 @@ namespace RadarProcess
         private int pos;
         private bool isPrintRaderLog = false;
         private bool isPrintTelemetryLog = false;
-        List<S_OBJECT> sObjectList = new List<S_OBJECT>();
+        List<S_OBJECT> sObjectListSuit1 = new List<S_OBJECT>();
+        List<S_OBJECT> sObjectListSuit2 = new List<S_OBJECT>();
 
         public enum DataSourceType
         { 
@@ -44,7 +45,8 @@ namespace RadarProcess
 
         public void Start()
         {
-            sObjectList.Clear();
+            sObjectListSuit1.Clear();
+            sObjectListSuit2.Clear();
             isPrintRaderLog = isPrintTelemetryLog = false;
             T0 = -1;
             telemetryFlyTime = -1;
@@ -96,6 +98,10 @@ namespace RadarProcess
                 return;
             }
             PostMessage(mainFormHandle, MainForm.WM_RADAR_DATA_COMMING, 0, IntPtr.Zero);
+            if(Config.GetInstance().source != 0)
+            {
+                return;
+            }
             using (MemoryStream stream = new MemoryStream(buffer))
             {
                 using (BinaryReader br = new BinaryReader(stream))
@@ -179,13 +185,14 @@ namespace RadarProcess
                             sObject.MaxVy = minMaxValue.MaxVy;
                             sObject.MinVz = minMaxValue.MinVz;
                             sObject.MaxVz = minMaxValue.MaxVz;
+                            sObject.suit = 1;
 
-                            sObjectList.Add(sObject);
-                            if(sObjectList.Count > 25)
+                            sObjectListSuit1.Add(sObject);
+                            if(sObjectListSuit1.Count > 25)
                             {
-                                sObjectList.RemoveAt(0);
+                                sObjectListSuit1.RemoveAt(0);
                             }
-                            if(sObjectList.Count == 25)
+                            if(sObjectListSuit1.Count == 25)
                             {
                                 double[] timeArray = new double[25];
                                 double[] xArray = new double[25];
@@ -193,12 +200,12 @@ namespace RadarProcess
                                 double[] zArray = new double[25];
                                 for(int i = 0; i < 25; ++i)
                                 {
-                                    timeArray[i] = sObjectList[i].time;
-                                    xArray[i] = sObjectList[i].X;
-                                    yArray[i] = sObjectList[i].Y;
-                                    zArray[i] = sObjectList[i].Z;
+                                    timeArray[i] = sObjectListSuit1[i].time;
+                                    xArray[i] = sObjectListSuit1[i].X;
+                                    yArray[i] = sObjectListSuit1[i].Y;
+                                    zArray[i] = sObjectListSuit1[i].Z;
                                 }
-                                S_OBJECT obj = sObjectList[12];
+                                S_OBJECT obj = sObjectListSuit1[12];
                                 obj.VX = Algorithm.GetSpeed(timeArray, xArray, obj.time);
                                 obj.VY = Algorithm.GetSpeed(timeArray, yArray, obj.time);
                                 obj.VZ = Algorithm.GetSpeed(timeArray, zArray, obj.time);
@@ -773,12 +780,15 @@ namespace RadarProcess
                         // 一次读取n个字节
                         // Reserve = br.ReadBytes(5)
                     };
-                    telemetryFlyTime = (int)sObject.feiXingZongShiJian * 1000;
-                    recvTelemetryFlyTime = DateTime.Now;
-                    if(isPrintTelemetryLog == false)
+                    if (sObject.feiXingZongShiJian != 0)
                     {
-                        Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, String.Format("收到遥测第一帧系统判据状态数据,飞行总时间={0}ms", telemetryFlyTime));
-                        isPrintTelemetryLog = true;
+                        telemetryFlyTime = (int)sObject.feiXingZongShiJian * 1000;
+                        recvTelemetryFlyTime = DateTime.Now;
+                        if (isPrintTelemetryLog == false)
+                        {
+                            Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, String.Format("收到遥测第一帧系统判据状态数据,飞行总时间={0}ms", telemetryFlyTime));
+                            isPrintTelemetryLog = true;
+                        }
                     }
                 }
             }

@@ -1,11 +1,11 @@
 /*
 * MATLAB Compiler: 7.0.1 (R2019a)
-* Date: Fri May  8 16:55:05 2020
+* Date: Fri May  8 14:30:44 2020
 * Arguments:
-* "-B""macro_default""-W""dotnet:Algorithm,MatLab,4.0,private""-T""link:lib""-d""D:\Git\AK
-* \雷测Matlab算法\Algorithm\for_testing""-v""class{MatLab:D:\Git\AK\雷测Matlab算法\calc_co
-* nst_launch.m,D:\Git\AK\雷测Matlab算法\calc_target_ld.m,D:\Git\AK\雷测Matlab算法\calc_tar
-* get_yc.m}"
+* "-B""macro_default""-W""dotnet:Algorithm,Algorithm,4.0,private""-T""link:lib""-d""D:\Git
+* \AK\雷测Matlab算法\Algorithm\for_testing""-v""class{Algorithm:D:\Git\AK\雷测Matlab算法\c
+* alc_const_launch.m,D:\Git\AK\雷测Matlab算法\calc_target_ld.m,D:\Git\AK\雷测Matlab算法\ca
+* lc_target_yc.m}"
 */
 using System;
 using System.Reflection;
@@ -21,7 +21,7 @@ namespace Algorithm
 {
 
   /// <summary>
-  /// The MatLab class provides a CLS compliant, MWArray interface to the MATLAB
+  /// The Algorithm class provides a CLS compliant, MWArray interface to the MATLAB
   /// functions contained in the files:
   /// <newpara></newpara>
   /// D:\Git\AK\雷测Matlab算法\calc_const_launch.m
@@ -33,14 +33,14 @@ namespace Algorithm
   /// <remarks>
   /// @Version 4.0
   /// </remarks>
-  public class MatLab : IDisposable
+  public class Algorithm : IDisposable
   {
     #region Constructors
 
     /// <summary internal= "true">
     /// The static constructor instantiates and initializes the MATLAB Runtime instance.
     /// </summary>
-    static MatLab()
+    static Algorithm()
     {
       if (MWMCR.MCRAppInitialized)
       {
@@ -84,9 +84,9 @@ namespace Algorithm
 
 
     /// <summary>
-    /// Constructs a new instance of the MatLab class.
+    /// Constructs a new instance of the Algorithm class.
     /// </summary>
-    public MatLab()
+    public Algorithm()
     {
       if(ex_ != null)
       {
@@ -102,7 +102,7 @@ namespace Algorithm
     /// <summary internal= "true">
     /// Class destructor called by the CLR garbage collector.
     /// </summary>
-    ~MatLab()
+    ~Algorithm()
     {
       Dispose(false);
     }
@@ -383,12 +383,12 @@ namespace Algorithm
     /// we_f
     /// h_end, 落点附近海拔
     /// </remarks>
-    /// <param name="lambda0">Input argument #1</param>
+    /// <param name="nav_now">Input argument #1</param>
     /// <returns>An MWArray containing the first output argument.</returns>
     ///
-    public MWArray calc_target_ld(MWArray lambda0)
+    public MWArray calc_target_ld(MWArray nav_now)
     {
-      return mcr.EvaluateFunction("calc_target_ld", lambda0);
+      return mcr.EvaluateFunction("calc_target_ld", nav_now);
     }
 
 
@@ -409,13 +409,13 @@ namespace Algorithm
     /// we_f
     /// h_end, 落点附近海拔
     /// </remarks>
-    /// <param name="lambda0">Input argument #1</param>
-    /// <param name="nav_now">Input argument #2</param>
+    /// <param name="nav_now">Input argument #1</param>
+    /// <param name="R0">Input argument #2</param>
     /// <returns>An MWArray containing the first output argument.</returns>
     ///
-    public MWArray calc_target_ld(MWArray lambda0, MWArray nav_now)
+    public MWArray calc_target_ld(MWArray nav_now, MWArray R0)
     {
-      return mcr.EvaluateFunction("calc_target_ld", lambda0, nav_now);
+      return mcr.EvaluateFunction("calc_target_ld", nav_now, R0);
     }
 
 
@@ -436,14 +436,14 @@ namespace Algorithm
     /// we_f
     /// h_end, 落点附近海拔
     /// </remarks>
-    /// <param name="lambda0">Input argument #1</param>
-    /// <param name="nav_now">Input argument #2</param>
-    /// <param name="R0">Input argument #3</param>
+    /// <param name="nav_now">Input argument #1</param>
+    /// <param name="R0">Input argument #2</param>
+    /// <param name="R0_f">Input argument #3</param>
     /// <returns>An MWArray containing the first output argument.</returns>
     ///
-    public MWArray calc_target_ld(MWArray lambda0, MWArray nav_now, MWArray R0)
+    public MWArray calc_target_ld(MWArray nav_now, MWArray R0, MWArray R0_f)
     {
-      return mcr.EvaluateFunction("calc_target_ld", lambda0, nav_now, R0);
+      return mcr.EvaluateFunction("calc_target_ld", nav_now, R0, R0_f);
     }
 
 
@@ -464,16 +464,16 @@ namespace Algorithm
     /// we_f
     /// h_end, 落点附近海拔
     /// </remarks>
-    /// <param name="lambda0">Input argument #1</param>
-    /// <param name="nav_now">Input argument #2</param>
-    /// <param name="R0">Input argument #3</param>
-    /// <param name="R0_f">Input argument #4</param>
+    /// <param name="nav_now">Input argument #1</param>
+    /// <param name="R0">Input argument #2</param>
+    /// <param name="R0_f">Input argument #3</param>
+    /// <param name="C_e2f">Input argument #4</param>
     /// <returns>An MWArray containing the first output argument.</returns>
     ///
-    public MWArray calc_target_ld(MWArray lambda0, MWArray nav_now, MWArray R0, MWArray 
-                            R0_f)
+    public MWArray calc_target_ld(MWArray nav_now, MWArray R0, MWArray R0_f, MWArray 
+                            C_e2f)
     {
-      return mcr.EvaluateFunction("calc_target_ld", lambda0, nav_now, R0, R0_f);
+      return mcr.EvaluateFunction("calc_target_ld", nav_now, R0, R0_f, C_e2f);
     }
 
 
@@ -494,17 +494,17 @@ namespace Algorithm
     /// we_f
     /// h_end, 落点附近海拔
     /// </remarks>
-    /// <param name="lambda0">Input argument #1</param>
-    /// <param name="nav_now">Input argument #2</param>
-    /// <param name="R0">Input argument #3</param>
-    /// <param name="R0_f">Input argument #4</param>
-    /// <param name="C_e2f">Input argument #5</param>
+    /// <param name="nav_now">Input argument #1</param>
+    /// <param name="R0">Input argument #2</param>
+    /// <param name="R0_f">Input argument #3</param>
+    /// <param name="C_e2f">Input argument #4</param>
+    /// <param name="C_fe2">Input argument #5</param>
     /// <returns>An MWArray containing the first output argument.</returns>
     ///
-    public MWArray calc_target_ld(MWArray lambda0, MWArray nav_now, MWArray R0, MWArray 
-                            R0_f, MWArray C_e2f)
+    public MWArray calc_target_ld(MWArray nav_now, MWArray R0, MWArray R0_f, MWArray 
+                            C_e2f, MWArray C_fe2)
     {
-      return mcr.EvaluateFunction("calc_target_ld", lambda0, nav_now, R0, R0_f, C_e2f);
+      return mcr.EvaluateFunction("calc_target_ld", nav_now, R0, R0_f, C_e2f, C_fe2);
     }
 
 
@@ -525,18 +525,18 @@ namespace Algorithm
     /// we_f
     /// h_end, 落点附近海拔
     /// </remarks>
-    /// <param name="lambda0">Input argument #1</param>
-    /// <param name="nav_now">Input argument #2</param>
-    /// <param name="R0">Input argument #3</param>
-    /// <param name="R0_f">Input argument #4</param>
-    /// <param name="C_e2f">Input argument #5</param>
-    /// <param name="C_fe2">Input argument #6</param>
+    /// <param name="nav_now">Input argument #1</param>
+    /// <param name="R0">Input argument #2</param>
+    /// <param name="R0_f">Input argument #3</param>
+    /// <param name="C_e2f">Input argument #4</param>
+    /// <param name="C_fe2">Input argument #5</param>
+    /// <param name="we_f">Input argument #6</param>
     /// <returns>An MWArray containing the first output argument.</returns>
     ///
-    public MWArray calc_target_ld(MWArray lambda0, MWArray nav_now, MWArray R0, MWArray 
-                            R0_f, MWArray C_e2f, MWArray C_fe2)
+    public MWArray calc_target_ld(MWArray nav_now, MWArray R0, MWArray R0_f, MWArray 
+                            C_e2f, MWArray C_fe2, MWArray we_f)
     {
-      return mcr.EvaluateFunction("calc_target_ld", lambda0, nav_now, R0, R0_f, C_e2f, C_fe2);
+      return mcr.EvaluateFunction("calc_target_ld", nav_now, R0, R0_f, C_e2f, C_fe2, we_f);
     }
 
 
@@ -557,19 +557,19 @@ namespace Algorithm
     /// we_f
     /// h_end, 落点附近海拔
     /// </remarks>
-    /// <param name="lambda0">Input argument #1</param>
-    /// <param name="nav_now">Input argument #2</param>
-    /// <param name="R0">Input argument #3</param>
-    /// <param name="R0_f">Input argument #4</param>
-    /// <param name="C_e2f">Input argument #5</param>
-    /// <param name="C_fe2">Input argument #6</param>
-    /// <param name="we_f">Input argument #7</param>
+    /// <param name="nav_now">Input argument #1</param>
+    /// <param name="R0">Input argument #2</param>
+    /// <param name="R0_f">Input argument #3</param>
+    /// <param name="C_e2f">Input argument #4</param>
+    /// <param name="C_fe2">Input argument #5</param>
+    /// <param name="we_f">Input argument #6</param>
+    /// <param name="xyz_e0">Input argument #7</param>
     /// <returns>An MWArray containing the first output argument.</returns>
     ///
-    public MWArray calc_target_ld(MWArray lambda0, MWArray nav_now, MWArray R0, MWArray 
-                            R0_f, MWArray C_e2f, MWArray C_fe2, MWArray we_f)
+    public MWArray calc_target_ld(MWArray nav_now, MWArray R0, MWArray R0_f, MWArray 
+                            C_e2f, MWArray C_fe2, MWArray we_f, MWArray xyz_e0)
     {
-      return mcr.EvaluateFunction("calc_target_ld", lambda0, nav_now, R0, R0_f, C_e2f, C_fe2, we_f);
+      return mcr.EvaluateFunction("calc_target_ld", nav_now, R0, R0_f, C_e2f, C_fe2, we_f, xyz_e0);
     }
 
 
@@ -590,57 +590,21 @@ namespace Algorithm
     /// we_f
     /// h_end, 落点附近海拔
     /// </remarks>
-    /// <param name="lambda0">Input argument #1</param>
-    /// <param name="nav_now">Input argument #2</param>
-    /// <param name="R0">Input argument #3</param>
-    /// <param name="R0_f">Input argument #4</param>
-    /// <param name="C_e2f">Input argument #5</param>
-    /// <param name="C_fe2">Input argument #6</param>
-    /// <param name="we_f">Input argument #7</param>
-    /// <param name="xyz_e0">Input argument #8</param>
+    /// <param name="nav_now">Input argument #1</param>
+    /// <param name="R0">Input argument #2</param>
+    /// <param name="R0_f">Input argument #3</param>
+    /// <param name="C_e2f">Input argument #4</param>
+    /// <param name="C_fe2">Input argument #5</param>
+    /// <param name="we_f">Input argument #6</param>
+    /// <param name="xyz_e0">Input argument #7</param>
+    /// <param name="h_end">Input argument #8</param>
     /// <returns>An MWArray containing the first output argument.</returns>
     ///
-    public MWArray calc_target_ld(MWArray lambda0, MWArray nav_now, MWArray R0, MWArray 
-                            R0_f, MWArray C_e2f, MWArray C_fe2, MWArray we_f, MWArray 
-                            xyz_e0)
+    public MWArray calc_target_ld(MWArray nav_now, MWArray R0, MWArray R0_f, MWArray 
+                            C_e2f, MWArray C_fe2, MWArray we_f, MWArray xyz_e0, MWArray 
+                            h_end)
     {
-      return mcr.EvaluateFunction("calc_target_ld", lambda0, nav_now, R0, R0_f, C_e2f, C_fe2, we_f, xyz_e0);
-    }
-
-
-    /// <summary>
-    /// Provides a single output, 9-input MWArrayinterface to the calc_target_ld MATLAB
-    /// function.
-    /// </summary>
-    /// <remarks>
-    /// M-Documentation:
-    /// 雷达数据预示落点计算
-    /// 输入
-    /// nav_now,1 x，2 y，3 z,4 速度x(m/s),5 速度y(m/s)，6 速度z(m/s)，7初始经度（°）
-    /// R0_f,
-    /// R0,
-    /// xyz_e0
-    /// C_e2f,
-    /// C_fe2
-    /// we_f
-    /// h_end, 落点附近海拔
-    /// </remarks>
-    /// <param name="lambda0">Input argument #1</param>
-    /// <param name="nav_now">Input argument #2</param>
-    /// <param name="R0">Input argument #3</param>
-    /// <param name="R0_f">Input argument #4</param>
-    /// <param name="C_e2f">Input argument #5</param>
-    /// <param name="C_fe2">Input argument #6</param>
-    /// <param name="we_f">Input argument #7</param>
-    /// <param name="xyz_e0">Input argument #8</param>
-    /// <param name="h_end">Input argument #9</param>
-    /// <returns>An MWArray containing the first output argument.</returns>
-    ///
-    public MWArray calc_target_ld(MWArray lambda0, MWArray nav_now, MWArray R0, MWArray 
-                            R0_f, MWArray C_e2f, MWArray C_fe2, MWArray we_f, MWArray 
-                            xyz_e0, MWArray h_end)
-    {
-      return mcr.EvaluateFunction("calc_target_ld", lambda0, nav_now, R0, R0_f, C_e2f, C_fe2, we_f, xyz_e0, h_end);
+      return mcr.EvaluateFunction("calc_target_ld", nav_now, R0, R0_f, C_e2f, C_fe2, we_f, xyz_e0, h_end);
     }
 
 
@@ -689,13 +653,13 @@ namespace Algorithm
     /// h_end, 落点附近海拔
     /// </remarks>
     /// <param name="numArgsOut">The number of output arguments to return.</param>
-    /// <param name="lambda0">Input argument #1</param>
+    /// <param name="nav_now">Input argument #1</param>
     /// <returns>An Array of length "numArgsOut" containing the output
     /// arguments.</returns>
     ///
-    public MWArray[] calc_target_ld(int numArgsOut, MWArray lambda0)
+    public MWArray[] calc_target_ld(int numArgsOut, MWArray nav_now)
     {
-      return mcr.EvaluateFunction(numArgsOut, "calc_target_ld", lambda0);
+      return mcr.EvaluateFunction(numArgsOut, "calc_target_ld", nav_now);
     }
 
 
@@ -717,14 +681,14 @@ namespace Algorithm
     /// h_end, 落点附近海拔
     /// </remarks>
     /// <param name="numArgsOut">The number of output arguments to return.</param>
-    /// <param name="lambda0">Input argument #1</param>
-    /// <param name="nav_now">Input argument #2</param>
+    /// <param name="nav_now">Input argument #1</param>
+    /// <param name="R0">Input argument #2</param>
     /// <returns>An Array of length "numArgsOut" containing the output
     /// arguments.</returns>
     ///
-    public MWArray[] calc_target_ld(int numArgsOut, MWArray lambda0, MWArray nav_now)
+    public MWArray[] calc_target_ld(int numArgsOut, MWArray nav_now, MWArray R0)
     {
-      return mcr.EvaluateFunction(numArgsOut, "calc_target_ld", lambda0, nav_now);
+      return mcr.EvaluateFunction(numArgsOut, "calc_target_ld", nav_now, R0);
     }
 
 
@@ -746,16 +710,16 @@ namespace Algorithm
     /// h_end, 落点附近海拔
     /// </remarks>
     /// <param name="numArgsOut">The number of output arguments to return.</param>
-    /// <param name="lambda0">Input argument #1</param>
-    /// <param name="nav_now">Input argument #2</param>
-    /// <param name="R0">Input argument #3</param>
+    /// <param name="nav_now">Input argument #1</param>
+    /// <param name="R0">Input argument #2</param>
+    /// <param name="R0_f">Input argument #3</param>
     /// <returns>An Array of length "numArgsOut" containing the output
     /// arguments.</returns>
     ///
-    public MWArray[] calc_target_ld(int numArgsOut, MWArray lambda0, MWArray nav_now, 
-                              MWArray R0)
+    public MWArray[] calc_target_ld(int numArgsOut, MWArray nav_now, MWArray R0, MWArray 
+                              R0_f)
     {
-      return mcr.EvaluateFunction(numArgsOut, "calc_target_ld", lambda0, nav_now, R0);
+      return mcr.EvaluateFunction(numArgsOut, "calc_target_ld", nav_now, R0, R0_f);
     }
 
 
@@ -777,17 +741,17 @@ namespace Algorithm
     /// h_end, 落点附近海拔
     /// </remarks>
     /// <param name="numArgsOut">The number of output arguments to return.</param>
-    /// <param name="lambda0">Input argument #1</param>
-    /// <param name="nav_now">Input argument #2</param>
-    /// <param name="R0">Input argument #3</param>
-    /// <param name="R0_f">Input argument #4</param>
+    /// <param name="nav_now">Input argument #1</param>
+    /// <param name="R0">Input argument #2</param>
+    /// <param name="R0_f">Input argument #3</param>
+    /// <param name="C_e2f">Input argument #4</param>
     /// <returns>An Array of length "numArgsOut" containing the output
     /// arguments.</returns>
     ///
-    public MWArray[] calc_target_ld(int numArgsOut, MWArray lambda0, MWArray nav_now, 
-                              MWArray R0, MWArray R0_f)
+    public MWArray[] calc_target_ld(int numArgsOut, MWArray nav_now, MWArray R0, MWArray 
+                              R0_f, MWArray C_e2f)
     {
-      return mcr.EvaluateFunction(numArgsOut, "calc_target_ld", lambda0, nav_now, R0, R0_f);
+      return mcr.EvaluateFunction(numArgsOut, "calc_target_ld", nav_now, R0, R0_f, C_e2f);
     }
 
 
@@ -809,18 +773,18 @@ namespace Algorithm
     /// h_end, 落点附近海拔
     /// </remarks>
     /// <param name="numArgsOut">The number of output arguments to return.</param>
-    /// <param name="lambda0">Input argument #1</param>
-    /// <param name="nav_now">Input argument #2</param>
-    /// <param name="R0">Input argument #3</param>
-    /// <param name="R0_f">Input argument #4</param>
-    /// <param name="C_e2f">Input argument #5</param>
+    /// <param name="nav_now">Input argument #1</param>
+    /// <param name="R0">Input argument #2</param>
+    /// <param name="R0_f">Input argument #3</param>
+    /// <param name="C_e2f">Input argument #4</param>
+    /// <param name="C_fe2">Input argument #5</param>
     /// <returns>An Array of length "numArgsOut" containing the output
     /// arguments.</returns>
     ///
-    public MWArray[] calc_target_ld(int numArgsOut, MWArray lambda0, MWArray nav_now, 
-                              MWArray R0, MWArray R0_f, MWArray C_e2f)
+    public MWArray[] calc_target_ld(int numArgsOut, MWArray nav_now, MWArray R0, MWArray 
+                              R0_f, MWArray C_e2f, MWArray C_fe2)
     {
-      return mcr.EvaluateFunction(numArgsOut, "calc_target_ld", lambda0, nav_now, R0, R0_f, C_e2f);
+      return mcr.EvaluateFunction(numArgsOut, "calc_target_ld", nav_now, R0, R0_f, C_e2f, C_fe2);
     }
 
 
@@ -842,19 +806,19 @@ namespace Algorithm
     /// h_end, 落点附近海拔
     /// </remarks>
     /// <param name="numArgsOut">The number of output arguments to return.</param>
-    /// <param name="lambda0">Input argument #1</param>
-    /// <param name="nav_now">Input argument #2</param>
-    /// <param name="R0">Input argument #3</param>
-    /// <param name="R0_f">Input argument #4</param>
-    /// <param name="C_e2f">Input argument #5</param>
-    /// <param name="C_fe2">Input argument #6</param>
+    /// <param name="nav_now">Input argument #1</param>
+    /// <param name="R0">Input argument #2</param>
+    /// <param name="R0_f">Input argument #3</param>
+    /// <param name="C_e2f">Input argument #4</param>
+    /// <param name="C_fe2">Input argument #5</param>
+    /// <param name="we_f">Input argument #6</param>
     /// <returns>An Array of length "numArgsOut" containing the output
     /// arguments.</returns>
     ///
-    public MWArray[] calc_target_ld(int numArgsOut, MWArray lambda0, MWArray nav_now, 
-                              MWArray R0, MWArray R0_f, MWArray C_e2f, MWArray C_fe2)
+    public MWArray[] calc_target_ld(int numArgsOut, MWArray nav_now, MWArray R0, MWArray 
+                              R0_f, MWArray C_e2f, MWArray C_fe2, MWArray we_f)
     {
-      return mcr.EvaluateFunction(numArgsOut, "calc_target_ld", lambda0, nav_now, R0, R0_f, C_e2f, C_fe2);
+      return mcr.EvaluateFunction(numArgsOut, "calc_target_ld", nav_now, R0, R0_f, C_e2f, C_fe2, we_f);
     }
 
 
@@ -876,21 +840,21 @@ namespace Algorithm
     /// h_end, 落点附近海拔
     /// </remarks>
     /// <param name="numArgsOut">The number of output arguments to return.</param>
-    /// <param name="lambda0">Input argument #1</param>
-    /// <param name="nav_now">Input argument #2</param>
-    /// <param name="R0">Input argument #3</param>
-    /// <param name="R0_f">Input argument #4</param>
-    /// <param name="C_e2f">Input argument #5</param>
-    /// <param name="C_fe2">Input argument #6</param>
-    /// <param name="we_f">Input argument #7</param>
+    /// <param name="nav_now">Input argument #1</param>
+    /// <param name="R0">Input argument #2</param>
+    /// <param name="R0_f">Input argument #3</param>
+    /// <param name="C_e2f">Input argument #4</param>
+    /// <param name="C_fe2">Input argument #5</param>
+    /// <param name="we_f">Input argument #6</param>
+    /// <param name="xyz_e0">Input argument #7</param>
     /// <returns>An Array of length "numArgsOut" containing the output
     /// arguments.</returns>
     ///
-    public MWArray[] calc_target_ld(int numArgsOut, MWArray lambda0, MWArray nav_now, 
-                              MWArray R0, MWArray R0_f, MWArray C_e2f, MWArray C_fe2, 
-                              MWArray we_f)
+    public MWArray[] calc_target_ld(int numArgsOut, MWArray nav_now, MWArray R0, MWArray 
+                              R0_f, MWArray C_e2f, MWArray C_fe2, MWArray we_f, MWArray 
+                              xyz_e0)
     {
-      return mcr.EvaluateFunction(numArgsOut, "calc_target_ld", lambda0, nav_now, R0, R0_f, C_e2f, C_fe2, we_f);
+      return mcr.EvaluateFunction(numArgsOut, "calc_target_ld", nav_now, R0, R0_f, C_e2f, C_fe2, we_f, xyz_e0);
     }
 
 
@@ -912,60 +876,22 @@ namespace Algorithm
     /// h_end, 落点附近海拔
     /// </remarks>
     /// <param name="numArgsOut">The number of output arguments to return.</param>
-    /// <param name="lambda0">Input argument #1</param>
-    /// <param name="nav_now">Input argument #2</param>
-    /// <param name="R0">Input argument #3</param>
-    /// <param name="R0_f">Input argument #4</param>
-    /// <param name="C_e2f">Input argument #5</param>
-    /// <param name="C_fe2">Input argument #6</param>
-    /// <param name="we_f">Input argument #7</param>
-    /// <param name="xyz_e0">Input argument #8</param>
+    /// <param name="nav_now">Input argument #1</param>
+    /// <param name="R0">Input argument #2</param>
+    /// <param name="R0_f">Input argument #3</param>
+    /// <param name="C_e2f">Input argument #4</param>
+    /// <param name="C_fe2">Input argument #5</param>
+    /// <param name="we_f">Input argument #6</param>
+    /// <param name="xyz_e0">Input argument #7</param>
+    /// <param name="h_end">Input argument #8</param>
     /// <returns>An Array of length "numArgsOut" containing the output
     /// arguments.</returns>
     ///
-    public MWArray[] calc_target_ld(int numArgsOut, MWArray lambda0, MWArray nav_now, 
-                              MWArray R0, MWArray R0_f, MWArray C_e2f, MWArray C_fe2, 
-                              MWArray we_f, MWArray xyz_e0)
+    public MWArray[] calc_target_ld(int numArgsOut, MWArray nav_now, MWArray R0, MWArray 
+                              R0_f, MWArray C_e2f, MWArray C_fe2, MWArray we_f, MWArray 
+                              xyz_e0, MWArray h_end)
     {
-      return mcr.EvaluateFunction(numArgsOut, "calc_target_ld", lambda0, nav_now, R0, R0_f, C_e2f, C_fe2, we_f, xyz_e0);
-    }
-
-
-    /// <summary>
-    /// Provides the standard 9-input MWArray interface to the calc_target_ld MATLAB
-    /// function.
-    /// </summary>
-    /// <remarks>
-    /// M-Documentation:
-    /// 雷达数据预示落点计算
-    /// 输入
-    /// nav_now,1 x，2 y，3 z,4 速度x(m/s),5 速度y(m/s)，6 速度z(m/s)，7初始经度（°）
-    /// R0_f,
-    /// R0,
-    /// xyz_e0
-    /// C_e2f,
-    /// C_fe2
-    /// we_f
-    /// h_end, 落点附近海拔
-    /// </remarks>
-    /// <param name="numArgsOut">The number of output arguments to return.</param>
-    /// <param name="lambda0">Input argument #1</param>
-    /// <param name="nav_now">Input argument #2</param>
-    /// <param name="R0">Input argument #3</param>
-    /// <param name="R0_f">Input argument #4</param>
-    /// <param name="C_e2f">Input argument #5</param>
-    /// <param name="C_fe2">Input argument #6</param>
-    /// <param name="we_f">Input argument #7</param>
-    /// <param name="xyz_e0">Input argument #8</param>
-    /// <param name="h_end">Input argument #9</param>
-    /// <returns>An Array of length "numArgsOut" containing the output
-    /// arguments.</returns>
-    ///
-    public MWArray[] calc_target_ld(int numArgsOut, MWArray lambda0, MWArray nav_now, 
-                              MWArray R0, MWArray R0_f, MWArray C_e2f, MWArray C_fe2, 
-                              MWArray we_f, MWArray xyz_e0, MWArray h_end)
-    {
-      return mcr.EvaluateFunction(numArgsOut, "calc_target_ld", lambda0, nav_now, R0, R0_f, C_e2f, C_fe2, we_f, xyz_e0, h_end);
+      return mcr.EvaluateFunction(numArgsOut, "calc_target_ld", nav_now, R0, R0_f, C_e2f, C_fe2, we_f, xyz_e0, h_end);
     }
 
 
