@@ -64,8 +64,8 @@ namespace RadarProcess
         public const int WM_RADAR_DATA_COMMING = WM_USER + 101;
         public const int WM_TELEMETRY_DATA_COMMING = WM_USER + 102;
         public const int WM_T0 = WM_USER + 103;
-        public const int WM_YC_I = WM_USER + 103;
-        public const int WM_YC_II = WM_USER + 104;
+        public const int WM_YC_I = WM_USER + 104;
+        public const int WM_YC_II = WM_USER + 105;
 
         private UdpClient udpRadarClient;
         private UdpClient udpTelemetryClient;
@@ -397,6 +397,18 @@ namespace RadarProcess
                     break;
                 case WM_T0:
                     editT0.Enabled = btnStartT0.Enabled = false;
+                    break;
+                case WM_YC_I:
+                    if (Config.GetInstance().source == 0)
+                    {
+
+                    }
+                    break;
+                case WM_YC_II:
+                    if (Config.GetInstance().source == 0)
+                    {
+
+                    }
                     break;
                 default:
                     base.DefWndProc(ref m);

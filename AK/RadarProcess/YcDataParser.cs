@@ -605,11 +605,14 @@ namespace RadarProcess
                         // 一次读取n个字节
                         // Reserve = br.ReadBytes(5)
                     };
-                    RadarDataParser.SetYcFlyTime((int)(sObject.feiXingZongShiJian * 1000));
-                    if(FlyTime == 0 && sObject.feiXingZongShiJian != 0)
+                    if (Config.GetInstance().source == 1)
                     {
-                        FlyTime = (int)(sObject.feiXingZongShiJian * 1000);
-                        FLyStartTime = (int)(sObject.GNSSTime * 1000) - FlyTime;
+                        RadarDataParser.SetYcFlyTime((int)(sObject.feiXingZongShiJian * 1000));
+                        if (FlyTime == 0 && sObject.feiXingZongShiJian != 0)
+                        {
+                            FlyTime = (int)(sObject.feiXingZongShiJian * 1000);
+                            FLyStartTime = (int)(sObject.GNSSTime * 1000) - FlyTime;
+                        }
                     }
                 }
             }
@@ -664,55 +667,59 @@ namespace RadarProcess
                         zhuangTaiBiaoZhiWei = br.ReadByte(),        // 状态标志位
                         tuoLuoGuZhangBiaoZhi = br.ReadByte(),       // 陀螺故障标志
                     };
-                    if(canId == frameType_daoHangKuaiSu_Tou || canId == frameType_daoHangKuaiSu_Ti)
+                    if((canId == frameType_daoHangKuaiSu_Tou || canId == frameType_daoHangKuaiSu_Ti) && FlyTime != 0)
                     {
-                        algorithm.CalcResultYc(sObject.jingDu * Math.Pow(10, -7), sObject.weiDu * Math.Pow(10, -7),
-                                sObject.haiBaGaoDu * Math.Pow(10, -2), sObject.dongXiangSuDu * Math.Pow(10, -2), sObject.beiXiangSuDu * Math.Pow(10, -2),
-                                sObject.tianXiangSuDu * Math.Pow(10, -2), mainForm.constLaunchFsx, Config.GetInstance().placementHeight,
-                                out FallPoint fallPoint, out double fallTime, out double distance, out double x, out double y, out double z,
-                                out double vx, out double vy, out double vz);
-                        S_OBJECT obj = new S_OBJECT
+                        try
                         {
-                            time = (int)(sObject.GNSSTime * 1000) - FLyStartTime,
-                            X = x,
-                            Y = y,
-                            Z = z,
-                            VX = vx,
-                            VY = vy,
-                            VZ = vz
-                        };
-                        GetMinMax(ref pos, obj.time, out MinMaxValue minMaxValue);
-                        obj.MinX = minMaxValue.MinX;
-                        obj.MaxX = minMaxValue.MaxX;
-                        obj.MinY = minMaxValue.MinY;
-                        obj.MaxY = minMaxValue.MaxY;
-                        obj.MinZ = minMaxValue.MinZ;
-                        obj.MaxZ = minMaxValue.MaxZ;
-                        obj.MinVx = minMaxValue.MinVx;
-                        obj.MaxVx = minMaxValue.MaxVx;
-                        obj.MinVy = minMaxValue.MinVy;
-                        obj.MaxVy = minMaxValue.MaxVy;
-                        obj.MinVz = minMaxValue.MinVz;
-                        obj.MaxVz = minMaxValue.MaxVz;
-                        
-                        if (canId == frameType_daoHangKuaiSu_Tou)
-                        {
-                            //套1
-                            obj.suit = 1;
-                            Tuple<S_OBJECT, FallPoint, double, double> data = new Tuple<S_OBJECT, FallPoint, double, double>(obj, fallPoint, fallTime, distance);
-                            IntPtr ptr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(Tuple<S_OBJECT, FallPoint, double, double>)));
-                            Marshal.StructureToPtr(obj, ptr, true);
-                            PostMessage(mainForm.Handle, MainForm.WM_YC_I, 0, ptr);
+                            algorithm.CalcResultYc(sObject.jingDu * Math.Pow(10, -7), sObject.weiDu * Math.Pow(10, -7),
+                                    sObject.haiBaGaoDu * Math.Pow(10, -2), sObject.dongXiangSuDu * Math.Pow(10, -2), sObject.beiXiangSuDu * Math.Pow(10, -2),
+                                    sObject.tianXiangSuDu * Math.Pow(10, -2), mainForm.constLaunchFsx, Config.GetInstance().placementHeight,
+                                    out FallPoint fallPoint, out double fallTime, out double distance, out double x, out double y, out double z,
+                                    out double vx, out double vy, out double vz);
+                            S_OBJECT obj = new S_OBJECT
+                            {
+                                time = (int)(sObject.GNSSTime * 1000) - FLyStartTime,
+                                X = x,
+                                Y = y,
+                                Z = z,
+                                VX = vx,
+                                VY = vy,
+                                VZ = vz
+                            };
+                            GetMinMax(ref pos, obj.time, out MinMaxValue minMaxValue);
+                            obj.MinX = minMaxValue.MinX;
+                            obj.MaxX = minMaxValue.MaxX;
+                            obj.MinY = minMaxValue.MinY;
+                            obj.MaxY = minMaxValue.MaxY;
+                            obj.MinZ = minMaxValue.MinZ;
+                            obj.MaxZ = minMaxValue.MaxZ;
+                            obj.MinVx = minMaxValue.MinVx;
+                            obj.MaxVx = minMaxValue.MaxVx;
+                            obj.MinVy = minMaxValue.MinVy;
+                            obj.MaxVy = minMaxValue.MaxVy;
+                            obj.MinVz = minMaxValue.MinVz;
+                            obj.MaxVz = minMaxValue.MaxVz;
+
+                            if (canId == frameType_daoHangKuaiSu_Tou)
+                            {
+                                //套1
+                                obj.suit = 1;
+                                Tuple<S_OBJECT, FallPoint, double, double> data = new Tuple<S_OBJECT, FallPoint, double, double>(obj, fallPoint, fallTime, distance);
+                                IntPtr ptr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(Tuple<S_OBJECT, FallPoint, double, double>)));
+                                Marshal.StructureToPtr(obj, ptr, true);
+                                PostMessage(mainForm.Handle, MainForm.WM_YC_I, 0, ptr);
+                            }
+                            else
+                            {
+                                //套2
+                                obj.suit = 2;
+                                Tuple<S_OBJECT, FallPoint, double, double> data = new Tuple<S_OBJECT, FallPoint, double, double>(obj, fallPoint, fallTime, distance);
+                                IntPtr ptr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(Tuple<S_OBJECT, FallPoint, double, double>)));
+                                Marshal.StructureToPtr(obj, ptr, true);
+                                PostMessage(mainForm.Handle, MainForm.WM_YC_II, 0, ptr);
+                            }
                         }
-                        else
-                        {
-                            //套2
-                            obj.suit = 2;
-                            Tuple<S_OBJECT, FallPoint, double, double> data = new Tuple<S_OBJECT, FallPoint, double, double>(obj, fallPoint, fallTime, distance);
-                            IntPtr ptr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(Tuple<S_OBJECT, FallPoint, double, double>)));
-                            Marshal.StructureToPtr(obj, ptr, true);
-                            PostMessage(mainForm.Handle, MainForm.WM_YC_II, 0, ptr);
-                        }
+                        catch (Exception) { }
                     }
                 }
             }
