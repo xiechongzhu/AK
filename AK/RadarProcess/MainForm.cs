@@ -64,6 +64,8 @@ namespace RadarProcess
         public const int WM_RADAR_DATA_COMMING = WM_USER + 101;
         public const int WM_TELEMETRY_DATA_COMMING = WM_USER + 102;
         public const int WM_T0 = WM_USER + 103;
+        public const int WM_YC_I = WM_USER + 103;
+        public const int WM_YC_II = WM_USER + 104;
 
         private UdpClient udpRadarClient;
         private UdpClient udpTelemetryClient;
@@ -73,7 +75,7 @@ namespace RadarProcess
         private DateTime positionAlertTime, speedAlertTime, fallPointAlertTime;
         private FallPoint ideaPoint;
         Algorithm algorithm = new Algorithm();
-        private ConstLaunch constLaunchFsx;
+        public ConstLaunch constLaunchFsx;
         private AlertForm alertForm = new AlertForm();
         List<ListViewItem> logItemList = new List<ListViewItem>();
         private int MAX_CHART_POINTS = 1000;
@@ -89,7 +91,7 @@ namespace RadarProcess
 
         public MainForm()
         {
-            dataParser = new DataParser(Handle);
+            dataParser = new DataParser(this);
             InitializeComponent();
             myChartControl1.Dock = myChartControl2.Dock = DockStyle.Fill;
             xtraTabPage1.Controls.Add(myChartControl1);

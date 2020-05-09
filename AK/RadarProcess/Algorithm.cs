@@ -114,7 +114,8 @@ namespace RadarProcess
         }
 
         public void CalcResultYc(double latitude, double longitudey, double height, double speedEast, double speedNorth,
-            double speedSky, ConstLaunch launchFsx, double h_end, out FallPoint fallPoint, out double fallTime, out double distance)
+            double speedSky, ConstLaunch launchFsx, double h_end, out FallPoint fallPoint, out double fallTime, out double distance,
+            out double x, out double y, out double z, out double vx, out double vy, out double vz)
         {
             CalculateOutput output = calc_target_yc(latitude, longitudey, height, speedEast, speedNorth, speedSky, launchFsx, h_end);
             fallPoint = new FallPoint
@@ -124,6 +125,12 @@ namespace RadarProcess
             };
             distance = output.t_range;
             fallTime = output.flighttime;
+            x = output.x;
+            y = output.y;
+            z = output.z;
+            vx = output.vx;
+            vy = output.vy;
+            vz = output.vz;
         }
 
         public static FallPoint CalcIdeaPointOfFall()

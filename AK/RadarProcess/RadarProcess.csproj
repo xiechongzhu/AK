@@ -199,6 +199,8 @@
     <Compile Include="TestReviewForm.Designer.cs">
       <DependentUpon>TestReviewForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="YcDataParser.cs" />
+    <Compile Include="YcProtocol.cs" />
     <EmbeddedResource Include="AlertForm.resx">
       <DependentUpon>AlertForm.cs</DependentUpon>
     </EmbeddedResource>
