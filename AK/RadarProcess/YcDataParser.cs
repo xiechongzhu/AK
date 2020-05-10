@@ -611,7 +611,7 @@ namespace RadarProcess
                         if (FlyTime == 0 && sObject.feiXingZongShiJian != 0)
                         {
                             FlyTime = (int)(sObject.feiXingZongShiJian * 1000);
-                            FLyStartTime = (int)(sObject.GNSSTime * 1000) - FlyTime;
+                            FLyStartTime = (int)(sObject.GNSSTime) - FlyTime;
                         }
                     }
                 }
@@ -678,7 +678,7 @@ namespace RadarProcess
                                     out double vx, out double vy, out double vz);
                             S_OBJECT obj = new S_OBJECT
                             {
-                                time = (int)(sObject.GNSSTime * 1000) - FLyStartTime,
+                                time = (int)(sObject.GNSSTime) - FLyStartTime,
                                 X = x,
                                 Y = y,
                                 Z = z,

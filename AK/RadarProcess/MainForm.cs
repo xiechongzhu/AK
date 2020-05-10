@@ -357,10 +357,10 @@ namespace RadarProcess
 
         protected override void DefWndProc(ref Message m)
         {
-            switch(m.Msg)
+            IntPtr ptr = m.LParam;
+            switch (m.Msg)
             {
                 case WM_RADAR_DATA:
-                    IntPtr ptr = m.LParam;
                     if (Config.GetInstance().source == 0)
                     {
                         S_OBJECT sObject = Marshal.PtrToStructure<S_OBJECT>(ptr);
@@ -399,16 +399,44 @@ namespace RadarProcess
                     editT0.Enabled = btnStartT0.Enabled = false;
                     break;
                 case WM_YC_I:
-                    if (Config.GetInstance().source == 0)
+                    if (Config.GetInstance().source == 1)
                     {
-
+                        
+                        Tuple<S_OBJECT, FallPoint, double, double>  tuple = Marshal.PtrToStructure<Tuple<S_OBJECT, FallPoint, double, double>>(ptr);
+                        historyData.AddObject(tuple.Item1);
+                        FallPoint fallPoint = tuple.Item2;
+                        double fallTime = tuple.Item3;
+                        double distance = tuple.Item4;
+                        CheckFallPoint(fallPoint, fallTime, 1);
+                        historyData.AddFallPoint(fallPoint);
+                        AddDisplayData(tuple.Item1.time, tuple.Item1.X, tuple.Item1.Y, tuple.Item1.Z, tuple.Item1.VX, tuple.Item1.VY, tuple.Item1.VZ,
+                            tuple.Item1.MinX, tuple.Item1.MaxX, tuple.Item1.MinY, tuple.Item1.MaxY, tuple.Item1.MinZ, tuple.Item1.MaxZ,
+                            tuple.Item1.MinVx, tuple.Item1.MaxVx, tuple.Item1.MinVy, tuple.Item1.MaxVy, tuple.Item1.MinVz, tuple.Item1.MaxVz,
+                            fallPoint, fallTime, distance, 1);
+                        CheckPosition(tuple.Item1.X, tuple.Item1.Y, tuple.Item1.Z, tuple.Item1.MinX, tuple.Item1.MaxX, tuple.Item1.MinY, tuple.Item1.MaxY, tuple.Item1.MinZ, tuple.Item1.MaxZ, 1);
+                        CheckSpeed(tuple.Item1.VX, tuple.Item1.VY, tuple.Item1.VZ, tuple.Item1.MinVx, tuple.Item1.MaxVx, tuple.Item1.MinVy, tuple.Item1.MaxVy, tuple.Item1.MinVz, tuple.Item1.MaxVz, 1);
                     }
+                    Marshal.FreeHGlobal(ptr);
                     break;
                 case WM_YC_II:
-                    if (Config.GetInstance().source == 0)
+                    if (Config.GetInstance().source == 1)
                     {
 
+                        Tuple<S_OBJECT, FallPoint, double, double> tuple = Marshal.PtrToStructure<Tuple<S_OBJECT, FallPoint, double, double>>(ptr);
+                        historyData.AddObject(tuple.Item1);
+                        FallPoint fallPoint = tuple.Item2;
+                        double fallTime = tuple.Item3;
+                        double distance = tuple.Item4;
+                        CheckFallPoint(fallPoint, fallTime, 2);
+                        historyData.AddFallPoint(fallPoint);
+                        AddDisplayData(tuple.Item1.time, tuple.Item1.X, tuple.Item1.Y, tuple.Item1.Z, tuple.Item1.VX, tuple.Item1.VY, tuple.Item1.VZ,
+                            tuple.Item1.MinX, tuple.Item1.MaxX, tuple.Item1.MinY, tuple.Item1.MaxY, tuple.Item1.MinZ, tuple.Item1.MaxZ,
+                            tuple.Item1.MinVx, tuple.Item1.MaxVx, tuple.Item1.MinVy, tuple.Item1.MaxVy, tuple.Item1.MinVz, tuple.Item1.MaxVz,
+                            fallPoint, fallTime, distance, 2);
+                        CheckPosition(tuple.Item1.X, tuple.Item1.Y, tuple.Item1.Z, tuple.Item1.MinX, tuple.Item1.MaxX, tuple.Item1.MinY, tuple.Item1.MaxY, tuple.Item1.MinZ, tuple.Item1.MaxZ, 2);
+                        CheckSpeed(tuple.Item1.VX, tuple.Item1.VY, tuple.Item1.VZ, tuple.Item1.MinVx, tuple.Item1.MaxVx, tuple.Item1.MinVy, tuple.Item1.MaxVy, tuple.Item1.MinVz, tuple.Item1.MaxVz, 2);
                     }
+                    Marshal.FreeHGlobal(ptr);
                     break;
                 default:
                     base.DefWndProc(ref m);
