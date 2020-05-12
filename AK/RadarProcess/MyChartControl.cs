@@ -295,7 +295,6 @@ namespace RadarProcess
         {
             if (vx > maxVx || vx < minVx)
             {
-                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "速度VX超出范围:" + vx.ToString());
                 chartVx.BackColor = Color.Red;
             }
             else
@@ -304,7 +303,6 @@ namespace RadarProcess
             }
             if (vy > maxVy || vy < minVy)
             {
-                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "速度VY超出范围:" + vy.ToString());
                 chartVy.BackColor = Color.Red;
             }
             else
@@ -329,7 +327,6 @@ namespace RadarProcess
                 fallPoint.y < Config.GetInstance().backwardLine ||
                 fallPoint.y > Config.GetInstance().forwardLine)
             {
-                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_SELF_DESTRUCT, String.Format("落点超出范围:X={0},Y={1}", fallPoint.x, fallPoint.y));
                 chartPoints.BackColor = Color.Red;
             }
             else

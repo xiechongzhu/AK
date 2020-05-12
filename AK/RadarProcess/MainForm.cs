@@ -156,8 +156,10 @@ namespace RadarProcess
             try
             { 
                 udpRadarClient = new UdpClient(Config.GetInstance().radarPort);
+                udpRadarClient.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReceiveBuffer, 1024 * 1024 * 200);
                 udpRadarClient.JoinMulticastGroup(IPAddress.Parse(Config.GetInstance().strRadarMultiCastIpAddr));
                 udpTelemetryClient = new UdpClient(Config.GetInstance().telemetryPort);
+                udpTelemetryClient.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReceiveBuffer, 1024 * 1024 * 200);
                 udpTelemetryClient.JoinMulticastGroup(IPAddress.Parse(Config.GetInstance().strTelemetryMultiCastIpAddr));
                 dataParser.Start();
                 dataLogger.Start();
@@ -401,20 +403,20 @@ namespace RadarProcess
                 case WM_YC_I:
                     if (Config.GetInstance().source == 1)
                     {
-                        
-                        Tuple<S_OBJECT, FallPoint, double, double>  tuple = Marshal.PtrToStructure<Tuple<S_OBJECT, FallPoint, double, double>>(ptr);
-                        historyData.AddObject(tuple.Item1);
-                        FallPoint fallPoint = tuple.Item2;
-                        double fallTime = tuple.Item3;
-                        double distance = tuple.Item4;
-                        CheckFallPoint(fallPoint, fallTime, 1);
+
+                        YcMessage msg = Marshal.PtrToStructure<YcMessage>(ptr);
+                        historyData.AddObject(msg.sObject);
+                        FallPoint fallPoint = msg.fallPoint;
+                        double fallTime = msg.fallTime;
+                        double distance = msg.distance;
                         historyData.AddFallPoint(fallPoint);
-                        AddDisplayData(tuple.Item1.time, tuple.Item1.X, tuple.Item1.Y, tuple.Item1.Z, tuple.Item1.VX, tuple.Item1.VY, tuple.Item1.VZ,
-                            tuple.Item1.MinX, tuple.Item1.MaxX, tuple.Item1.MinY, tuple.Item1.MaxY, tuple.Item1.MinZ, tuple.Item1.MaxZ,
-                            tuple.Item1.MinVx, tuple.Item1.MaxVx, tuple.Item1.MinVy, tuple.Item1.MaxVy, tuple.Item1.MinVz, tuple.Item1.MaxVz,
+                        AddDisplayData(msg.sObject.time, msg.sObject.X, msg.sObject.Y, msg.sObject.Z, msg.sObject.VX, msg.sObject.VY, msg.sObject.VZ,
+                            msg.sObject.MinX, msg.sObject.MaxX, msg.sObject.MinY, msg.sObject.MaxY, msg.sObject.MinZ, msg.sObject.MaxZ,
+                            msg.sObject.MinVx, msg.sObject.MaxVx, msg.sObject.MinVy, msg.sObject.MaxVy, msg.sObject.MinVz, msg.sObject.MaxVz,
                             fallPoint, fallTime, distance, 1);
-                        CheckPosition(tuple.Item1.X, tuple.Item1.Y, tuple.Item1.Z, tuple.Item1.MinX, tuple.Item1.MaxX, tuple.Item1.MinY, tuple.Item1.MaxY, tuple.Item1.MinZ, tuple.Item1.MaxZ, 1);
-                        CheckSpeed(tuple.Item1.VX, tuple.Item1.VY, tuple.Item1.VZ, tuple.Item1.MinVx, tuple.Item1.MaxVx, tuple.Item1.MinVy, tuple.Item1.MaxVy, tuple.Item1.MinVz, tuple.Item1.MaxVz, 1);
+                        CheckFallPoint(fallPoint, fallTime, 1);
+                        CheckPosition(msg.sObject.X, msg.sObject.Y, msg.sObject.Z, msg.sObject.MinX, msg.sObject.MaxX, msg.sObject.MinY, msg.sObject.MaxY, msg.sObject.MinZ, msg.sObject.MaxZ, 1);
+                        CheckSpeed(msg.sObject.VX, msg.sObject.VY, msg.sObject.VZ, msg.sObject.MinVx, msg.sObject.MaxVx, msg.sObject.MinVy, msg.sObject.MaxVy, msg.sObject.MinVz, msg.sObject.MaxVz, 1);
                     }
                     Marshal.FreeHGlobal(ptr);
                     break;
@@ -422,19 +424,19 @@ namespace RadarProcess
                     if (Config.GetInstance().source == 1)
                     {
 
-                        Tuple<S_OBJECT, FallPoint, double, double> tuple = Marshal.PtrToStructure<Tuple<S_OBJECT, FallPoint, double, double>>(ptr);
-                        historyData.AddObject(tuple.Item1);
-                        FallPoint fallPoint = tuple.Item2;
-                        double fallTime = tuple.Item3;
-                        double distance = tuple.Item4;
-                        CheckFallPoint(fallPoint, fallTime, 2);
+                        YcMessage msg = Marshal.PtrToStructure<YcMessage>(ptr);
+                        historyData.AddObject(msg.sObject);
+                        FallPoint fallPoint = msg.fallPoint;
+                        double fallTime = msg.fallTime;
+                        double distance = msg.distance;
                         historyData.AddFallPoint(fallPoint);
-                        AddDisplayData(tuple.Item1.time, tuple.Item1.X, tuple.Item1.Y, tuple.Item1.Z, tuple.Item1.VX, tuple.Item1.VY, tuple.Item1.VZ,
-                            tuple.Item1.MinX, tuple.Item1.MaxX, tuple.Item1.MinY, tuple.Item1.MaxY, tuple.Item1.MinZ, tuple.Item1.MaxZ,
-                            tuple.Item1.MinVx, tuple.Item1.MaxVx, tuple.Item1.MinVy, tuple.Item1.MaxVy, tuple.Item1.MinVz, tuple.Item1.MaxVz,
+                        AddDisplayData(msg.sObject.time, msg.sObject.X, msg.sObject.Y, msg.sObject.Z, msg.sObject.VX, msg.sObject.VY, msg.sObject.VZ,
+                            msg.sObject.MinX, msg.sObject.MaxX, msg.sObject.MinY, msg.sObject.MaxY, msg.sObject.MinZ, msg.sObject.MaxZ,
+                            msg.sObject.MinVx, msg.sObject.MaxVx, msg.sObject.MinVy, msg.sObject.MaxVy, msg.sObject.MinVz, msg.sObject.MaxVz,
                             fallPoint, fallTime, distance, 2);
-                        CheckPosition(tuple.Item1.X, tuple.Item1.Y, tuple.Item1.Z, tuple.Item1.MinX, tuple.Item1.MaxX, tuple.Item1.MinY, tuple.Item1.MaxY, tuple.Item1.MinZ, tuple.Item1.MaxZ, 2);
-                        CheckSpeed(tuple.Item1.VX, tuple.Item1.VY, tuple.Item1.VZ, tuple.Item1.MinVx, tuple.Item1.MaxVx, tuple.Item1.MinVy, tuple.Item1.MaxVy, tuple.Item1.MinVz, tuple.Item1.MaxVz, 2);
+                        CheckFallPoint(fallPoint, fallTime, 2);
+                        CheckPosition(msg.sObject.X, msg.sObject.Y, msg.sObject.Z, msg.sObject.MinX, msg.sObject.MaxX, msg.sObject.MinY, msg.sObject.MaxY, msg.sObject.MinZ, msg.sObject.MaxZ, 2);
+                        CheckSpeed(msg.sObject.VX, msg.sObject.VY, msg.sObject.VZ, msg.sObject.MinVx, msg.sObject.MaxVx, msg.sObject.MinVy, msg.sObject.MaxVy, msg.sObject.MinVz, msg.sObject.MaxVz, 2);
                     }
                     Marshal.FreeHGlobal(ptr);
                     break;
@@ -479,61 +481,67 @@ namespace RadarProcess
 
         private void CheckPosition(double x, double y, double z, double minX, double maxX, double minY, double maxY, double minZ, double maxZ, int suit)
         {
-            if (x > maxX || x < minX)
+            if ((DateTime.Now - positionAlertTime).TotalSeconds > 5)
             {
-                ShowAlert();
-                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "位置X超出范围:" + x.ToString());
-                positionAlertTime = DateTime.Now;
-            }
-            if (y > maxY || y < minY)
-            {
-                ShowAlert();
-                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "位置Y超出范围:" + y.ToString());
-                positionAlertTime = DateTime.Now;
-            }
-            if (z > maxZ || z < minZ)
-            {
-                ShowAlert();
-                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "位置Z超出范围:" + z.ToString());
-                positionAlertTime = DateTime.Now;
-            }
-            if (suit == 1)
-            {
-                myChartControl1.CheckPosition(x, y, z, minX, maxX, minY, maxY, minZ, maxZ);
-            }
-            else
-            {
-                myChartControl2.CheckPosition(x, y, z, minX, maxX, minY, maxY, minZ, maxZ);
+                if (x > maxX || x < minX)
+                {
+                    ShowAlert();
+                    Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "位置X超出范围:" + x.ToString());
+                    positionAlertTime = DateTime.Now;
+                }
+                if (y > maxY || y < minY)
+                {
+                    ShowAlert();
+                    Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "位置Y超出范围:" + y.ToString());
+                    positionAlertTime = DateTime.Now;
+                }
+                if (z > maxZ || z < minZ)
+                {
+                    ShowAlert();
+                    Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "位置Z超出范围:" + z.ToString());
+                    positionAlertTime = DateTime.Now;
+                }
+                if (suit == 1)
+                {
+                    myChartControl1.CheckPosition(x, y, z, minX, maxX, minY, maxY, minZ, maxZ);
+                }
+                else
+                {
+                    myChartControl2.CheckPosition(x, y, z, minX, maxX, minY, maxY, minZ, maxZ);
+                }
             }
         }
 
         private void CheckSpeed(double vx, double vy, double vz, double minVx, double maxVx, double minVy, double maxVy, double minVz, double maxVz, int suit)
         {
-            if (vx > maxVx || vx < minVx)
+            if ((DateTime.Now - speedAlertTime).TotalSeconds > 5)
             {
-                ShowAlert();
-                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "速度VX超出范围:" + vx.ToString());
-                speedAlertTime = DateTime.Now;
-            }
-            if (vy > maxVy || vy < minVy)
-            {
-                ShowAlert();
-                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "速度VY超出范围:" + vy.ToString());
-                speedAlertTime = DateTime.Now;
-            }
-            if (vz > maxVz || vz < minVz)
-            {
-                ShowAlert();
-                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "速度VZ超出范围:" + vz.ToString());
-                speedAlertTime = DateTime.Now;
-            }
-            if (suit == 1)
-            {
-                myChartControl1.CheckSpeed(vx, vy, vz, minVx, maxVx, minVy, maxVy, minVz, maxVz);
-            }
-            else
-            {
-                myChartControl2.CheckSpeed(vx, vy, vz, minVx, maxVx, minVy, maxVy, minVz, maxVz);
+                if (vx > maxVx || vx < minVx)
+                {
+                    ShowAlert();
+                    Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "速度VX超出范围:" + vx.ToString());
+                    speedAlertTime = DateTime.Now;
+                }
+                if (vy > maxVy || vy < minVy)
+                {
+                    ShowAlert();
+                    Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "速度VY超出范围:" + vy.ToString());
+                    speedAlertTime = DateTime.Now;
+                }
+                if (vz > maxVz || vz < minVz)
+                {
+                    ShowAlert();
+                    Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "速度VZ超出范围:" + vz.ToString());
+                    speedAlertTime = DateTime.Now;
+                }
+                if (suit == 1)
+                {
+                    myChartControl1.CheckSpeed(vx, vy, vz, minVx, maxVx, minVy, maxVy, minVz, maxVz);
+                }
+                else
+                {
+                    myChartControl2.CheckSpeed(vx, vy, vz, minVx, maxVx, minVy, maxVy, minVz, maxVz);
+                }
             }
         }
 
@@ -544,10 +552,14 @@ namespace RadarProcess
                 fallPoint.y < Config.GetInstance().backwardLine ||
                 fallPoint.y > Config.GetInstance().forwardLine)
             {
-                ShowAlert();
-                alertForm.SetAlert(ideaPoint, fallPoint, fallTime);
-                alertForm.Show();
-                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_SELF_DESTRUCT, String.Format("落点超出范围:X={0},Y={1}", fallPoint.x, fallPoint.y));
+                if ((DateTime.Now - fallPointAlertTime).TotalSeconds > 5)
+                {
+                    ShowAlert();
+                    alertForm.SetAlert(ideaPoint, fallPoint, fallTime);
+                    alertForm.Show();
+                    Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_SELF_DESTRUCT, String.Format("落点超出范围:X={0},Y={1}", fallPoint.x, fallPoint.y));
+                    fallPointAlertTime = DateTime.Now;
+                }
             }
             else
             {

@@ -19,6 +19,7 @@ namespace RadarProcess
         {
             RadarDataParser = radarParser;
             this.mainForm = mainForm;
+            mainFormHandle = mainForm.Handle;
             Reset();
         }
 
@@ -31,9 +32,10 @@ namespace RadarProcess
         private int pos;
         private Algorithm algorithm = new Algorithm();
         private int FlyTime;
-        private int FLyStartTime;
+        private int FlyStartTime;
         private DataParser RadarDataParser;
         private MainForm mainForm;
+        private IntPtr mainFormHandle;
         // 每一个UDP帧固定长度651
         private const int UDPLENGTH = 651;
         // 每一个状态长帧结尾的校验
@@ -434,6 +436,8 @@ namespace RadarProcess
 
             //---------------------------------------------------------------//
 
+            PostMessage(mainFormHandle, MainForm.WM_TELEMETRY_DATA_COMMING, 0, IntPtr.Zero);
+
             switch (canDataId)
             {
                 // 系统判据状态
@@ -605,13 +609,20 @@ namespace RadarProcess
                         // 一次读取n个字节
                         // Reserve = br.ReadBytes(5)
                     };
-                    if (Config.GetInstance().source == 1)
+                    if (sObject.feiXingZongShiJian != 0)
                     {
-                        RadarDataParser.SetYcFlyTime((int)(sObject.feiXingZongShiJian * 1000));
-                        if (FlyTime == 0 && sObject.feiXingZongShiJian != 0)
+                        if (Config.GetInstance().source == 0)
                         {
-                            FlyTime = (int)(sObject.feiXingZongShiJian * 1000);
-                            FLyStartTime = (int)(sObject.GNSSTime) - FlyTime;
+                            RadarDataParser.SetYcFlyTime((int)(sObject.feiXingZongShiJian * 1000));
+                        }
+                        else
+                        {
+                            if (FlyTime == 0)
+                            {
+                                FlyTime = (int)(sObject.feiXingZongShiJian * 1000);
+                                FlyStartTime = (int)(sObject.GNSSTime) - FlyTime;
+                                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, String.Format("遥测起飞时间:{0}", FlyStartTime));
+                            }
                         }
                     }
                 }
@@ -667,7 +678,7 @@ namespace RadarProcess
                         zhuangTaiBiaoZhiWei = br.ReadByte(),        // 状态标志位
                         tuoLuoGuZhangBiaoZhi = br.ReadByte(),       // 陀螺故障标志
                     };
-                    if((canId == frameType_daoHangKuaiSu_Tou || canId == frameType_daoHangKuaiSu_Ti) && FlyTime != 0)
+                    if((canId == frameType_daoHangKuaiSu_Tou || canId == frameType_daoHangKuaiSu_Ti) && FlyTime != 0 && sObject.GNSSTime != 0)
                     {
                         try
                         {
@@ -678,7 +689,7 @@ namespace RadarProcess
                                     out double vx, out double vy, out double vz);
                             S_OBJECT obj = new S_OBJECT
                             {
-                                time = (int)(sObject.GNSSTime) - FLyStartTime,
+                                time = (int)(sObject.GNSSTime) - FlyStartTime,
                                 X = x,
                                 Y = y,
                                 Z = z,
@@ -704,19 +715,31 @@ namespace RadarProcess
                             {
                                 //套1
                                 obj.suit = 1;
-                                Tuple<S_OBJECT, FallPoint, double, double> data = new Tuple<S_OBJECT, FallPoint, double, double>(obj, fallPoint, fallTime, distance);
-                                IntPtr ptr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(Tuple<S_OBJECT, FallPoint, double, double>)));
-                                Marshal.StructureToPtr(obj, ptr, true);
-                                PostMessage(mainForm.Handle, MainForm.WM_YC_I, 0, ptr);
+                                YcMessage msg = new YcMessage
+                                {
+                                    sObject = obj,
+                                    fallPoint = fallPoint,
+                                    fallTime = fallTime,
+                                    distance = distance
+                                };
+                                IntPtr ptr = Marshal.AllocHGlobal(Marshal.SizeOf<YcMessage>());
+                                Marshal.StructureToPtr(msg, ptr, true);
+                                PostMessage(mainFormHandle, MainForm.WM_YC_I, 0, ptr);
                             }
                             else
                             {
                                 //套2
                                 obj.suit = 2;
-                                Tuple<S_OBJECT, FallPoint, double, double> data = new Tuple<S_OBJECT, FallPoint, double, double>(obj, fallPoint, fallTime, distance);
-                                IntPtr ptr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(Tuple<S_OBJECT, FallPoint, double, double>)));
-                                Marshal.StructureToPtr(obj, ptr, true);
-                                PostMessage(mainForm.Handle, MainForm.WM_YC_II, 0, ptr);
+                                YcMessage msg = new YcMessage
+                                {
+                                    sObject = obj,
+                                    fallPoint = fallPoint,
+                                    fallTime = fallTime,
+                                    distance = distance
+                                };
+                                IntPtr ptr = Marshal.AllocHGlobal(Marshal.SizeOf<YcMessage>());
+                                Marshal.StructureToPtr(msg, ptr, true);
+                                PostMessage(mainFormHandle, MainForm.WM_YC_II, 0, ptr);
                             }
                         }
                         catch (Exception) { }

@@ -21,6 +21,9 @@ function  [XYZ,Vf,t_x,t_y,range,t_range,t_z,flighttime] = calc_target_yc(nav_now
 %   t_y，发射系y
 %   t_z，发射系z
 
+
+flighttime = -1;
+
 % 规整输入
 B        = nav_now(1)*(pi/180);
 lambda   = nav_now(2)*(pi/180);

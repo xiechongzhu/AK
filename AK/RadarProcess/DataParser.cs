@@ -21,8 +21,9 @@ namespace RadarProcess
         private DateTime recvTelemetryFlyTime;
         private int pos;
         private bool isPrintRaderLog = false;
-        List<S_OBJECT> sObjectListSuit1 = new List<S_OBJECT>();
-        List<S_OBJECT> sObjectListSuit2 = new List<S_OBJECT>();
+        private List<S_OBJECT> sObjectListSuit1 = new List<S_OBJECT>();
+        private List<S_OBJECT> sObjectListSuit2 = new List<S_OBJECT>();
+        private IntPtr mainFormHandle;
 
         public enum DataSourceType
         { 
@@ -33,6 +34,7 @@ namespace RadarProcess
         public DataParser(MainForm mainForm)
         {
             this.mainForm = mainForm;
+            mainFormHandle = mainForm.Handle;
             YcDataParser = new YcDataParser(this, mainForm);
         }
 
@@ -109,7 +111,7 @@ namespace RadarProcess
                 Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_ERROR, "数据包错误:" + errMsg);
                 return;
             }
-            PostMessage(mainForm.Handle, MainForm.WM_RADAR_DATA_COMMING, 0, IntPtr.Zero);
+            PostMessage(mainFormHandle, MainForm.WM_RADAR_DATA_COMMING, 0, IntPtr.Zero);
             if(Config.GetInstance().source != 0)
             {
                 return;
@@ -158,7 +160,7 @@ namespace RadarProcess
                                     T0 = sHead.Time - T0Delay;
                                     isStartGetT0 = false;
                                     Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, String.Format("手动计算T0结果:{0}", T0));
-                                    PostMessage(mainForm.Handle, MainForm.WM_T0, 0, IntPtr.Zero);
+                                    PostMessage(mainFormHandle, MainForm.WM_T0, 0, IntPtr.Zero);
                                 }
                                 else
                                 {
@@ -226,7 +228,7 @@ namespace RadarProcess
                                 obj.VZ = Algorithm.GetSpeed(timeArray, zArray, obj.time);
                                 IntPtr ptr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(S_OBJECT)));
                                 Marshal.StructureToPtr(obj, ptr, true);
-                                PostMessage(mainForm.Handle, MainForm.WM_RADAR_DATA, 0, ptr);
+                                PostMessage(mainFormHandle, MainForm.WM_RADAR_DATA, 0, ptr);
                             }
                         }
                     }
@@ -259,7 +261,7 @@ namespace RadarProcess
                             {
                                 T0 = sHead.Time - (int)(recvRaderT0 - recvTelemetryFlyTime).TotalMilliseconds - telemetryFlyTime;
                                 Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, String.Format("收到雷测T0帧，T0={0}ms", T0));
-                                PostMessage(mainForm.Handle, MainForm.WM_T0, 0, IntPtr.Zero);
+                                PostMessage(mainFormHandle, MainForm.WM_T0, 0, IntPtr.Zero);
                             }
                         }
                     }

@@ -62,10 +62,9 @@ namespace RadarProcess
         {
             MWArray mwLambda0 = new MWNumericArray(1, 1, new double[] { lambda0 / 180 * Math.PI });
             MWArray mwNavNow = new MWNumericArray(1, 6, new double[] { x, y, z, vx, vy, vz });
-            MWArray mwHEnd = new MWNumericArray(1, 1, new double[] { h_end });
             MWArray[] argsOut = matlab.calc_target_ld(6, mwLambda0, mwNavNow, new MWNumericArray(launchFsx.R0), new MWNumericArray(launchFsx.R0_f),
                 new MWNumericArray(launchFsx.C_e2f), new MWNumericArray(launchFsx.C_fe2), new MWNumericArray(launchFsx.we_f), 
-                new MWNumericArray(launchFsx.xyz_e0), mwHEnd);
+                new MWNumericArray(launchFsx.xyz_e0), new MWNumericArray(h_end));
 
             return new CalculateOutput
             {
@@ -94,9 +93,9 @@ namespace RadarProcess
             double speedSky, ConstLaunch launchFsx, double h_end)
         {
             MWArray mwNavNow = new MWNumericArray(1, 6, new double[] { latitude, longitudey, height, speedEast, speedNorth, speedSky });
-            MWArray mwHEnd = new MWNumericArray(1, 1, new double[] { h_end });
-            MWArray[] argsOut = matlab.calc_target_yc(8, mwNavNow, launchFsx.R0, new MWNumericArray(launchFsx.xyz_e0),
-                new MWNumericArray(launchFsx.C_e2f), new MWNumericArray(launchFsx.C_fe2), new MWNumericArray(launchFsx.we_f), mwHEnd);
+            MWArray[] argsOut = matlab.calc_target_yc(8, mwNavNow, new MWNumericArray(launchFsx.R0), new MWNumericArray(launchFsx.R0_f), 
+                new MWNumericArray(launchFsx.xyz_e0), new MWNumericArray(launchFsx.C_e2f), new MWNumericArray(launchFsx.C_fe2), 
+                new MWNumericArray(launchFsx.we_f), new MWNumericArray(h_end));
             return new CalculateOutput
             {
                 t_x = ((double[,])(argsOut[2].ToArray()))[0, 0],
@@ -108,8 +107,8 @@ namespace RadarProcess
                 y = ((double[,])(argsOut[0].ToArray()))[0, 1],
                 z = ((double[,])(argsOut[0].ToArray()))[0, 2],
                 vx = ((double[,])(argsOut[1].ToArray()))[0, 0],
-                vy = ((double[,])(argsOut[1].ToArray()))[0, 1],
-                vz = ((double[,])(argsOut[1].ToArray()))[0, 2]
+                vy = ((double[,])(argsOut[1].ToArray()))[1, 0],
+                vz = ((double[,])(argsOut[1].ToArray()))[2, 0]
             };
         }
 
