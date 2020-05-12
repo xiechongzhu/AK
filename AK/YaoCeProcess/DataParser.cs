@@ -624,8 +624,9 @@ namespace YaoCeProcess
                 {
                     SYSTEMPARSE_STATUS sObject = new SYSTEMPARSE_STATUS
                     {
-                        jingDu = br.ReadDouble(),                   // 经度
+                        // NOTE 20200506 协议弄反
                         weiDu = br.ReadDouble(),                    // 纬度
+                        jingDu = br.ReadDouble(),                   // 经度
                         haiBaGaoDu = br.ReadSingle(),               // 海拔高度
 
                         dongXiangSuDu = br.ReadSingle(),            // 东向速度
