@@ -9,9 +9,11 @@
             The MatLab class provides a CLS compliant, MWArray interface to the MATLAB
             functions contained in the files:
             <newpara></newpara>
-            D:\Git\AK\雷测Matlab算法\calc_const_launch_fsx.m
+            D:\Git\AK\雷测Matlab算法\calc_const_launch.m
             <newpara></newpara>
-            D:\Git\AK\雷测Matlab算法\calc_target_fsx.m
+            D:\Git\AK\雷测Matlab算法\calc_target_ld.m
+            <newpara></newpara>
+            D:\Git\AK\雷测Matlab算法\calc_target_yc.m
             </summary>
             <remarks>
             @Version 4.0
@@ -42,9 +44,9 @@
             Internal dispose function
             </summary>
         </member>
-        <member name="M:Algorithm.MatLab.calc_const_launch_fsx">
+        <member name="M:Algorithm.MatLab.calc_const_launch">
              <summary>
-             Provides a single output, 0-input MWArrayinterface to the calc_const_launch_fsx
+             Provides a single output, 0-input MWArrayinterface to the calc_const_launch
              MATLAB function.
              </summary>
              <remarks>
@@ -64,9 +66,9 @@
              <returns>An MWArray containing the first output argument.</returns>
             
         </member>
-        <member name="M:Algorithm.MatLab.calc_const_launch_fsx(MathWorks.MATLAB.NET.Arrays.MWArray)">
+        <member name="M:Algorithm.MatLab.calc_const_launch(MathWorks.MATLAB.NET.Arrays.MWArray)">
              <summary>
-             Provides a single output, 1-input MWArrayinterface to the calc_const_launch_fsx
+             Provides a single output, 1-input MWArrayinterface to the calc_const_launch
              MATLAB function.
              </summary>
              <remarks>
@@ -87,9 +89,9 @@
              <returns>An MWArray containing the first output argument.</returns>
             
         </member>
-        <member name="M:Algorithm.MatLab.calc_const_launch_fsx(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+        <member name="M:Algorithm.MatLab.calc_const_launch(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
              <summary>
-             Provides a single output, 2-input MWArrayinterface to the calc_const_launch_fsx
+             Provides a single output, 2-input MWArrayinterface to the calc_const_launch
              MATLAB function.
              </summary>
              <remarks>
@@ -111,10 +113,10 @@
              <returns>An MWArray containing the first output argument.</returns>
             
         </member>
-        <member name="M:Algorithm.MatLab.calc_const_launch_fsx(System.Int32)">
+        <member name="M:Algorithm.MatLab.calc_const_launch(System.Int32)">
              <summary>
-             Provides the standard 0-input MWArray interface to the calc_const_launch_fsx
-             MATLAB function.
+             Provides the standard 0-input MWArray interface to the calc_const_launch MATLAB
+             function.
              </summary>
              <remarks>
              M-Documentation:
@@ -135,10 +137,10 @@
              arguments.</returns>
             
         </member>
-        <member name="M:Algorithm.MatLab.calc_const_launch_fsx(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray)">
+        <member name="M:Algorithm.MatLab.calc_const_launch(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray)">
              <summary>
-             Provides the standard 1-input MWArray interface to the calc_const_launch_fsx
-             MATLAB function.
+             Provides the standard 1-input MWArray interface to the calc_const_launch MATLAB
+             function.
              </summary>
              <remarks>
              M-Documentation:
@@ -160,10 +162,10 @@
              arguments.</returns>
             
         </member>
-        <member name="M:Algorithm.MatLab.calc_const_launch_fsx(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+        <member name="M:Algorithm.MatLab.calc_const_launch(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
              <summary>
-             Provides the standard 2-input MWArray interface to the calc_const_launch_fsx
-             MATLAB function.
+             Provides the standard 2-input MWArray interface to the calc_const_launch MATLAB
+             function.
              </summary>
              <remarks>
              M-Documentation:
@@ -186,10 +188,10 @@
              arguments.</returns>
             
         </member>
-        <member name="M:Algorithm.MatLab.calc_const_launch_fsx(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray[]@,MathWorks.MATLAB.NET.Arrays.MWArray[])">
+        <member name="M:Algorithm.MatLab.calc_const_launch(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray[]@,MathWorks.MATLAB.NET.Arrays.MWArray[])">
              <summary>
-             Provides an interface for the calc_const_launch_fsx function in which the input
-             and output
+             Provides an interface for the calc_const_launch function in which the input and
+             output
              arguments are specified as an array of MWArrays.
              </summary>
              <remarks>
@@ -213,163 +215,137 @@
              <param name= "argsIn">Array of MWArray input arguments</param>
             
         </member>
-        <member name="M:Algorithm.MatLab.calc_target_fsx">
+        <member name="M:Algorithm.MatLab.calc_target_ld">
              <summary>
-             Provides a single output, 0-input MWArrayinterface to the calc_target_fsx MATLAB
+             Provides a single output, 0-input MWArrayinterface to the calc_target_ld MATLAB
              function.
              </summary>
              <remarks>
              M-Documentation:
-             预示落点计算
+             雷达数据预示落点计算
              输入
-             nav_now,1 x，2 y，3 z,4 速度x(m/s),5 速度y(m/s)，6 速度z(m/s)
+             nav_now,1 x，2 y，3 z,4 速度x(m/s),5 速度y(m/s)，6 速度z(m/s)，7初始经度（°）
              R0_f,
              R0,
-             xyz_e0,发射点的地心系坐标
+             xyz_e0
              C_e2f,
              C_fe2
-             we_f,地球自转角速度在发射系的分量
+             we_f
              h_end, 落点附近海拔
              </remarks>
              <returns>An MWArray containing the first output argument.</returns>
             
         </member>
-        <member name="M:Algorithm.MatLab.calc_target_fsx(MathWorks.MATLAB.NET.Arrays.MWArray)">
+        <member name="M:Algorithm.MatLab.calc_target_ld(MathWorks.MATLAB.NET.Arrays.MWArray)">
              <summary>
-             Provides a single output, 1-input MWArrayinterface to the calc_target_fsx MATLAB
+             Provides a single output, 1-input MWArrayinterface to the calc_target_ld MATLAB
              function.
              </summary>
              <remarks>
              M-Documentation:
-             预示落点计算
+             雷达数据预示落点计算
              输入
-             nav_now,1 x，2 y，3 z,4 速度x(m/s),5 速度y(m/s)，6 速度z(m/s)
+             nav_now,1 x，2 y，3 z,4 速度x(m/s),5 速度y(m/s)，6 速度z(m/s)，7初始经度（°）
              R0_f,
              R0,
-             xyz_e0,发射点的地心系坐标
+             xyz_e0
              C_e2f,
              C_fe2
-             we_f,地球自转角速度在发射系的分量
-             h_end, 落点附近海拔
-             </remarks>
-             <param name="lambda0">Input argument #1</param>
-             <returns>An MWArray containing the first output argument.</returns>
-            
-        </member>
-        <member name="M:Algorithm.MatLab.calc_target_fsx(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
-             <summary>
-             Provides a single output, 2-input MWArrayinterface to the calc_target_fsx MATLAB
-             function.
-             </summary>
-             <remarks>
-             M-Documentation:
-             预示落点计算
-             输入
-             nav_now,1 x，2 y，3 z,4 速度x(m/s),5 速度y(m/s)，6 速度z(m/s)
-             R0_f,
-             R0,
-             xyz_e0,发射点的地心系坐标
-             C_e2f,
-             C_fe2
-             we_f,地球自转角速度在发射系的分量
+             we_f
              h_end, 落点附近海拔
              </remarks>
              <param name="lambda0">Input argument #1</param>
-             <param name="nav_now">Input argument #2</param>
              <returns>An MWArray containing the first output argument.</returns>
             
         </member>
-        <member name="M:Algorithm.MatLab.calc_target_fsx(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+        <member name="M:Algorithm.MatLab.calc_target_ld(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
              <summary>
-             Provides a single output, 3-input MWArrayinterface to the calc_target_fsx MATLAB
+             Provides a single output, 2-input MWArrayinterface to the calc_target_ld MATLAB
              function.
              </summary>
              <remarks>
              M-Documentation:
-             预示落点计算
+             雷达数据预示落点计算
              输入
-             nav_now,1 x，2 y，3 z,4 速度x(m/s),5 速度y(m/s)，6 速度z(m/s)
+             nav_now,1 x，2 y，3 z,4 速度x(m/s),5 速度y(m/s)，6 速度z(m/s)，7初始经度（°）
              R0_f,
              R0,
-             xyz_e0,发射点的地心系坐标
+             xyz_e0
              C_e2f,
              C_fe2
-             we_f,地球自转角速度在发射系的分量
+             we_f
              h_end, 落点附近海拔
              </remarks>
              <param name="lambda0">Input argument #1</param>
              <param name="nav_now">Input argument #2</param>
-             <param name="R0">Input argument #3</param>
              <returns>An MWArray containing the first output argument.</returns>
             
         </member>
-        <member name="M:Algorithm.MatLab.calc_target_fsx(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+        <member name="M:Algorithm.MatLab.calc_target_ld(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
              <summary>
-             Provides a single output, 4-input MWArrayinterface to the calc_target_fsx MATLAB
+             Provides a single output, 3-input MWArrayinterface to the calc_target_ld MATLAB
              function.
              </summary>
              <remarks>
              M-Documentation:
-             预示落点计算
+             雷达数据预示落点计算
              输入
-             nav_now,1 x，2 y，3 z,4 速度x(m/s),5 速度y(m/s)，6 速度z(m/s)
+             nav_now,1 x，2 y，3 z,4 速度x(m/s),5 速度y(m/s)，6 速度z(m/s)，7初始经度（°）
              R0_f,
              R0,
-             xyz_e0,发射点的地心系坐标
+             xyz_e0
              C_e2f,
              C_fe2
-             we_f,地球自转角速度在发射系的分量
+             we_f
              h_end, 落点附近海拔
              </remarks>
              <param name="lambda0">Input argument #1</param>
              <param name="nav_now">Input argument #2</param>
              <param name="R0">Input argument #3</param>
-             <param name="R0_f">Input argument #4</param>
              <returns>An MWArray containing the first output argument.</returns>
             
         </member>
-        <member name="M:Algorithm.MatLab.calc_target_fsx(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+        <member name="M:Algorithm.MatLab.calc_target_ld(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
              <summary>
-             Provides a single output, 5-input MWArrayinterface to the calc_target_fsx MATLAB
+             Provides a single output, 4-input MWArrayinterface to the calc_target_ld MATLAB
              function.
              </summary>
              <remarks>
              M-Documentation:
-             预示落点计算
+             雷达数据预示落点计算
              输入
-             nav_now,1 x，2 y，3 z,4 速度x(m/s),5 速度y(m/s)，6 速度z(m/s)
+             nav_now,1 x，2 y，3 z,4 速度x(m/s),5 速度y(m/s)，6 速度z(m/s)，7初始经度（°）
              R0_f,
              R0,
-             xyz_e0,发射点的地心系坐标
+             xyz_e0
              C_e2f,
              C_fe2
-             we_f,地球自转角速度在发射系的分量
+             we_f
              h_end, 落点附近海拔
              </remarks>
              <param name="lambda0">Input argument #1</param>
              <param name="nav_now">Input argument #2</param>
              <param name="R0">Input argument #3</param>
              <param name="R0_f">Input argument #4</param>
-             <param name="C_e2f">Input argument #5</param>
              <returns>An MWArray containing the first output argument.</returns>
             
         </member>
-        <member name="M:Algorithm.MatLab.calc_target_fsx(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+        <member name="M:Algorithm.MatLab.calc_target_ld(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
              <summary>
-             Provides a single output, 6-input MWArrayinterface to the calc_target_fsx MATLAB
+             Provides a single output, 5-input MWArrayinterface to the calc_target_ld MATLAB
              function.
              </summary>
              <remarks>
              M-Documentation:
-             预示落点计算
+             雷达数据预示落点计算
              输入
-             nav_now,1 x，2 y，3 z,4 速度x(m/s),5 速度y(m/s)，6 速度z(m/s)
+             nav_now,1 x，2 y，3 z,4 速度x(m/s),5 速度y(m/s)，6 速度z(m/s)，7初始经度（°）
              R0_f,
              R0,
-             xyz_e0,发射点的地心系坐标
+             xyz_e0
              C_e2f,
              C_fe2
-             we_f,地球自转角速度在发射系的分量
+             we_f
              h_end, 落点附近海拔
              </remarks>
              <param name="lambda0">Input argument #1</param>
@@ -377,26 +353,25 @@
              <param name="R0">Input argument #3</param>
              <param name="R0_f">Input argument #4</param>
              <param name="C_e2f">Input argument #5</param>
-             <param name="C_fe2">Input argument #6</param>
              <returns>An MWArray containing the first output argument.</returns>
             
         </member>
-        <member name="M:Algorithm.MatLab.calc_target_fsx(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+        <member name="M:Algorithm.MatLab.calc_target_ld(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
              <summary>
-             Provides a single output, 7-input MWArrayinterface to the calc_target_fsx MATLAB
+             Provides a single output, 6-input MWArrayinterface to the calc_target_ld MATLAB
              function.
              </summary>
              <remarks>
              M-Documentation:
-             预示落点计算
+             雷达数据预示落点计算
              输入
-             nav_now,1 x，2 y，3 z,4 速度x(m/s),5 速度y(m/s)，6 速度z(m/s)
+             nav_now,1 x，2 y，3 z,4 速度x(m/s),5 速度y(m/s)，6 速度z(m/s)，7初始经度（°）
              R0_f,
              R0,
-             xyz_e0,发射点的地心系坐标
+             xyz_e0
              C_e2f,
              C_fe2
-             we_f,地球自转角速度在发射系的分量
+             we_f
              h_end, 落点附近海拔
              </remarks>
              <param name="lambda0">Input argument #1</param>
@@ -405,26 +380,25 @@
              <param name="R0_f">Input argument #4</param>
              <param name="C_e2f">Input argument #5</param>
              <param name="C_fe2">Input argument #6</param>
-             <param name="we_f">Input argument #7</param>
              <returns>An MWArray containing the first output argument.</returns>
             
         </member>
-        <member name="M:Algorithm.MatLab.calc_target_fsx(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+        <member name="M:Algorithm.MatLab.calc_target_ld(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
              <summary>
-             Provides a single output, 8-input MWArrayinterface to the calc_target_fsx MATLAB
+             Provides a single output, 7-input MWArrayinterface to the calc_target_ld MATLAB
              function.
              </summary>
              <remarks>
              M-Documentation:
-             预示落点计算
+             雷达数据预示落点计算
              输入
-             nav_now,1 x，2 y，3 z,4 速度x(m/s),5 速度y(m/s)，6 速度z(m/s)
+             nav_now,1 x，2 y，3 z,4 速度x(m/s),5 速度y(m/s)，6 速度z(m/s)，7初始经度（°）
              R0_f,
              R0,
-             xyz_e0,发射点的地心系坐标
+             xyz_e0
              C_e2f,
              C_fe2
-             we_f,地球自转角速度在发射系的分量
+             we_f
              h_end, 落点附近海拔
              </remarks>
              <param name="lambda0">Input argument #1</param>
@@ -434,26 +408,25 @@
              <param name="C_e2f">Input argument #5</param>
              <param name="C_fe2">Input argument #6</param>
              <param name="we_f">Input argument #7</param>
-             <param name="xyz_e0">Input argument #8</param>
              <returns>An MWArray containing the first output argument.</returns>
             
         </member>
-        <member name="M:Algorithm.MatLab.calc_target_fsx(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+        <member name="M:Algorithm.MatLab.calc_target_ld(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
              <summary>
-             Provides a single output, 9-input MWArrayinterface to the calc_target_fsx MATLAB
+             Provides a single output, 8-input MWArrayinterface to the calc_target_ld MATLAB
              function.
              </summary>
              <remarks>
              M-Documentation:
-             预示落点计算
+             雷达数据预示落点计算
              输入
-             nav_now,1 x，2 y，3 z,4 速度x(m/s),5 速度y(m/s)，6 速度z(m/s)
+             nav_now,1 x，2 y，3 z,4 速度x(m/s),5 速度y(m/s)，6 速度z(m/s)，7初始经度（°）
              R0_f,
              R0,
-             xyz_e0,发射点的地心系坐标
+             xyz_e0
              C_e2f,
              C_fe2
-             we_f,地球自转角速度在发射系的分量
+             we_f
              h_end, 落点附近海拔
              </remarks>
              <param name="lambda0">Input argument #1</param>
@@ -464,272 +437,27 @@
              <param name="C_fe2">Input argument #6</param>
              <param name="we_f">Input argument #7</param>
              <param name="xyz_e0">Input argument #8</param>
-             <param name="h_end">Input argument #9</param>
              <returns>An MWArray containing the first output argument.</returns>
             
         </member>
-        <member name="M:Algorithm.MatLab.calc_target_fsx(System.Int32)">
+        <member name="M:Algorithm.MatLab.calc_target_ld(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
              <summary>
-             Provides the standard 0-input MWArray interface to the calc_target_fsx MATLAB
+             Provides a single output, 9-input MWArrayinterface to the calc_target_ld MATLAB
              function.
              </summary>
              <remarks>
              M-Documentation:
-             预示落点计算
+             雷达数据预示落点计算
              输入
-             nav_now,1 x，2 y，3 z,4 速度x(m/s),5 速度y(m/s)，6 速度z(m/s)
+             nav_now,1 x，2 y，3 z,4 速度x(m/s),5 速度y(m/s)，6 速度z(m/s)，7初始经度（°）
              R0_f,
              R0,
-             xyz_e0,发射点的地心系坐标
+             xyz_e0
              C_e2f,
              C_fe2
-             we_f,地球自转角速度在发射系的分量
+             we_f
              h_end, 落点附近海拔
              </remarks>
-             <param name="numArgsOut">The number of output arguments to return.</param>
-             <returns>An Array of length "numArgsOut" containing the output
-             arguments.</returns>
-            
-        </member>
-        <member name="M:Algorithm.MatLab.calc_target_fsx(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray)">
-             <summary>
-             Provides the standard 1-input MWArray interface to the calc_target_fsx MATLAB
-             function.
-             </summary>
-             <remarks>
-             M-Documentation:
-             预示落点计算
-             输入
-             nav_now,1 x，2 y，3 z,4 速度x(m/s),5 速度y(m/s)，6 速度z(m/s)
-             R0_f,
-             R0,
-             xyz_e0,发射点的地心系坐标
-             C_e2f,
-             C_fe2
-             we_f,地球自转角速度在发射系的分量
-             h_end, 落点附近海拔
-             </remarks>
-             <param name="numArgsOut">The number of output arguments to return.</param>
-             <param name="lambda0">Input argument #1</param>
-             <returns>An Array of length "numArgsOut" containing the output
-             arguments.</returns>
-            
-        </member>
-        <member name="M:Algorithm.MatLab.calc_target_fsx(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
-             <summary>
-             Provides the standard 2-input MWArray interface to the calc_target_fsx MATLAB
-             function.
-             </summary>
-             <remarks>
-             M-Documentation:
-             预示落点计算
-             输入
-             nav_now,1 x，2 y，3 z,4 速度x(m/s),5 速度y(m/s)，6 速度z(m/s)
-             R0_f,
-             R0,
-             xyz_e0,发射点的地心系坐标
-             C_e2f,
-             C_fe2
-             we_f,地球自转角速度在发射系的分量
-             h_end, 落点附近海拔
-             </remarks>
-             <param name="numArgsOut">The number of output arguments to return.</param>
-             <param name="lambda0">Input argument #1</param>
-             <param name="nav_now">Input argument #2</param>
-             <returns>An Array of length "numArgsOut" containing the output
-             arguments.</returns>
-            
-        </member>
-        <member name="M:Algorithm.MatLab.calc_target_fsx(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
-             <summary>
-             Provides the standard 3-input MWArray interface to the calc_target_fsx MATLAB
-             function.
-             </summary>
-             <remarks>
-             M-Documentation:
-             预示落点计算
-             输入
-             nav_now,1 x，2 y，3 z,4 速度x(m/s),5 速度y(m/s)，6 速度z(m/s)
-             R0_f,
-             R0,
-             xyz_e0,发射点的地心系坐标
-             C_e2f,
-             C_fe2
-             we_f,地球自转角速度在发射系的分量
-             h_end, 落点附近海拔
-             </remarks>
-             <param name="numArgsOut">The number of output arguments to return.</param>
-             <param name="lambda0">Input argument #1</param>
-             <param name="nav_now">Input argument #2</param>
-             <param name="R0">Input argument #3</param>
-             <returns>An Array of length "numArgsOut" containing the output
-             arguments.</returns>
-            
-        </member>
-        <member name="M:Algorithm.MatLab.calc_target_fsx(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
-             <summary>
-             Provides the standard 4-input MWArray interface to the calc_target_fsx MATLAB
-             function.
-             </summary>
-             <remarks>
-             M-Documentation:
-             预示落点计算
-             输入
-             nav_now,1 x，2 y，3 z,4 速度x(m/s),5 速度y(m/s)，6 速度z(m/s)
-             R0_f,
-             R0,
-             xyz_e0,发射点的地心系坐标
-             C_e2f,
-             C_fe2
-             we_f,地球自转角速度在发射系的分量
-             h_end, 落点附近海拔
-             </remarks>
-             <param name="numArgsOut">The number of output arguments to return.</param>
-             <param name="lambda0">Input argument #1</param>
-             <param name="nav_now">Input argument #2</param>
-             <param name="R0">Input argument #3</param>
-             <param name="R0_f">Input argument #4</param>
-             <returns>An Array of length "numArgsOut" containing the output
-             arguments.</returns>
-            
-        </member>
-        <member name="M:Algorithm.MatLab.calc_target_fsx(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
-             <summary>
-             Provides the standard 5-input MWArray interface to the calc_target_fsx MATLAB
-             function.
-             </summary>
-             <remarks>
-             M-Documentation:
-             预示落点计算
-             输入
-             nav_now,1 x，2 y，3 z,4 速度x(m/s),5 速度y(m/s)，6 速度z(m/s)
-             R0_f,
-             R0,
-             xyz_e0,发射点的地心系坐标
-             C_e2f,
-             C_fe2
-             we_f,地球自转角速度在发射系的分量
-             h_end, 落点附近海拔
-             </remarks>
-             <param name="numArgsOut">The number of output arguments to return.</param>
-             <param name="lambda0">Input argument #1</param>
-             <param name="nav_now">Input argument #2</param>
-             <param name="R0">Input argument #3</param>
-             <param name="R0_f">Input argument #4</param>
-             <param name="C_e2f">Input argument #5</param>
-             <returns>An Array of length "numArgsOut" containing the output
-             arguments.</returns>
-            
-        </member>
-        <member name="M:Algorithm.MatLab.calc_target_fsx(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
-             <summary>
-             Provides the standard 6-input MWArray interface to the calc_target_fsx MATLAB
-             function.
-             </summary>
-             <remarks>
-             M-Documentation:
-             预示落点计算
-             输入
-             nav_now,1 x，2 y，3 z,4 速度x(m/s),5 速度y(m/s)，6 速度z(m/s)
-             R0_f,
-             R0,
-             xyz_e0,发射点的地心系坐标
-             C_e2f,
-             C_fe2
-             we_f,地球自转角速度在发射系的分量
-             h_end, 落点附近海拔
-             </remarks>
-             <param name="numArgsOut">The number of output arguments to return.</param>
-             <param name="lambda0">Input argument #1</param>
-             <param name="nav_now">Input argument #2</param>
-             <param name="R0">Input argument #3</param>
-             <param name="R0_f">Input argument #4</param>
-             <param name="C_e2f">Input argument #5</param>
-             <param name="C_fe2">Input argument #6</param>
-             <returns>An Array of length "numArgsOut" containing the output
-             arguments.</returns>
-            
-        </member>
-        <member name="M:Algorithm.MatLab.calc_target_fsx(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
-             <summary>
-             Provides the standard 7-input MWArray interface to the calc_target_fsx MATLAB
-             function.
-             </summary>
-             <remarks>
-             M-Documentation:
-             预示落点计算
-             输入
-             nav_now,1 x，2 y，3 z,4 速度x(m/s),5 速度y(m/s)，6 速度z(m/s)
-             R0_f,
-             R0,
-             xyz_e0,发射点的地心系坐标
-             C_e2f,
-             C_fe2
-             we_f,地球自转角速度在发射系的分量
-             h_end, 落点附近海拔
-             </remarks>
-             <param name="numArgsOut">The number of output arguments to return.</param>
-             <param name="lambda0">Input argument #1</param>
-             <param name="nav_now">Input argument #2</param>
-             <param name="R0">Input argument #3</param>
-             <param name="R0_f">Input argument #4</param>
-             <param name="C_e2f">Input argument #5</param>
-             <param name="C_fe2">Input argument #6</param>
-             <param name="we_f">Input argument #7</param>
-             <returns>An Array of length "numArgsOut" containing the output
-             arguments.</returns>
-            
-        </member>
-        <member name="M:Algorithm.MatLab.calc_target_fsx(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
-             <summary>
-             Provides the standard 8-input MWArray interface to the calc_target_fsx MATLAB
-             function.
-             </summary>
-             <remarks>
-             M-Documentation:
-             预示落点计算
-             输入
-             nav_now,1 x，2 y，3 z,4 速度x(m/s),5 速度y(m/s)，6 速度z(m/s)
-             R0_f,
-             R0,
-             xyz_e0,发射点的地心系坐标
-             C_e2f,
-             C_fe2
-             we_f,地球自转角速度在发射系的分量
-             h_end, 落点附近海拔
-             </remarks>
-             <param name="numArgsOut">The number of output arguments to return.</param>
-             <param name="lambda0">Input argument #1</param>
-             <param name="nav_now">Input argument #2</param>
-             <param name="R0">Input argument #3</param>
-             <param name="R0_f">Input argument #4</param>
-             <param name="C_e2f">Input argument #5</param>
-             <param name="C_fe2">Input argument #6</param>
-             <param name="we_f">Input argument #7</param>
-             <param name="xyz_e0">Input argument #8</param>
-             <returns>An Array of length "numArgsOut" containing the output
-             arguments.</returns>
-            
-        </member>
-        <member name="M:Algorithm.MatLab.calc_target_fsx(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
-             <summary>
-             Provides the standard 9-input MWArray interface to the calc_target_fsx MATLAB
-             function.
-             </summary>
-             <remarks>
-             M-Documentation:
-             预示落点计算
-             输入
-             nav_now,1 x，2 y，3 z,4 速度x(m/s),5 速度y(m/s)，6 速度z(m/s)
-             R0_f,
-             R0,
-             xyz_e0,发射点的地心系坐标
-             C_e2f,
-             C_fe2
-             we_f,地球自转角速度在发射系的分量
-             h_end, 落点附近海拔
-             </remarks>
-             <param name="numArgsOut">The number of output arguments to return.</param>
              <param name="lambda0">Input argument #1</param>
              <param name="nav_now">Input argument #2</param>
              <param name="R0">Input argument #3</param>
@@ -739,13 +467,287 @@
              <param name="we_f">Input argument #7</param>
              <param name="xyz_e0">Input argument #8</param>
              <param name="h_end">Input argument #9</param>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Algorithm.MatLab.calc_target_ld(System.Int32)">
+             <summary>
+             Provides the standard 0-input MWArray interface to the calc_target_ld MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             雷达数据预示落点计算
+             输入
+             nav_now,1 x，2 y，3 z,4 速度x(m/s),5 速度y(m/s)，6 速度z(m/s)，7初始经度（°）
+             R0_f,
+             R0,
+             xyz_e0
+             C_e2f,
+             C_fe2
+             we_f
+             h_end, 落点附近海拔
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
              <returns>An Array of length "numArgsOut" containing the output
              arguments.</returns>
             
         </member>
-        <member name="M:Algorithm.MatLab.calc_target_fsx(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray[]@,MathWorks.MATLAB.NET.Arrays.MWArray[])">
+        <member name="M:Algorithm.MatLab.calc_target_ld(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray)">
              <summary>
-             Provides an interface for the calc_target_fsx function in which the input and
+             Provides the standard 1-input MWArray interface to the calc_target_ld MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             雷达数据预示落点计算
+             输入
+             nav_now,1 x，2 y，3 z,4 速度x(m/s),5 速度y(m/s)，6 速度z(m/s)，7初始经度（°）
+             R0_f,
+             R0,
+             xyz_e0
+             C_e2f,
+             C_fe2
+             we_f
+             h_end, 落点附近海拔
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="lambda0">Input argument #1</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Algorithm.MatLab.calc_target_ld(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 2-input MWArray interface to the calc_target_ld MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             雷达数据预示落点计算
+             输入
+             nav_now,1 x，2 y，3 z,4 速度x(m/s),5 速度y(m/s)，6 速度z(m/s)，7初始经度（°）
+             R0_f,
+             R0,
+             xyz_e0
+             C_e2f,
+             C_fe2
+             we_f
+             h_end, 落点附近海拔
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="lambda0">Input argument #1</param>
+             <param name="nav_now">Input argument #2</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Algorithm.MatLab.calc_target_ld(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 3-input MWArray interface to the calc_target_ld MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             雷达数据预示落点计算
+             输入
+             nav_now,1 x，2 y，3 z,4 速度x(m/s),5 速度y(m/s)，6 速度z(m/s)，7初始经度（°）
+             R0_f,
+             R0,
+             xyz_e0
+             C_e2f,
+             C_fe2
+             we_f
+             h_end, 落点附近海拔
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="lambda0">Input argument #1</param>
+             <param name="nav_now">Input argument #2</param>
+             <param name="R0">Input argument #3</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Algorithm.MatLab.calc_target_ld(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 4-input MWArray interface to the calc_target_ld MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             雷达数据预示落点计算
+             输入
+             nav_now,1 x，2 y，3 z,4 速度x(m/s),5 速度y(m/s)，6 速度z(m/s)，7初始经度（°）
+             R0_f,
+             R0,
+             xyz_e0
+             C_e2f,
+             C_fe2
+             we_f
+             h_end, 落点附近海拔
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="lambda0">Input argument #1</param>
+             <param name="nav_now">Input argument #2</param>
+             <param name="R0">Input argument #3</param>
+             <param name="R0_f">Input argument #4</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Algorithm.MatLab.calc_target_ld(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 5-input MWArray interface to the calc_target_ld MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             雷达数据预示落点计算
+             输入
+             nav_now,1 x，2 y，3 z,4 速度x(m/s),5 速度y(m/s)，6 速度z(m/s)，7初始经度（°）
+             R0_f,
+             R0,
+             xyz_e0
+             C_e2f,
+             C_fe2
+             we_f
+             h_end, 落点附近海拔
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="lambda0">Input argument #1</param>
+             <param name="nav_now">Input argument #2</param>
+             <param name="R0">Input argument #3</param>
+             <param name="R0_f">Input argument #4</param>
+             <param name="C_e2f">Input argument #5</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Algorithm.MatLab.calc_target_ld(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 6-input MWArray interface to the calc_target_ld MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             雷达数据预示落点计算
+             输入
+             nav_now,1 x，2 y，3 z,4 速度x(m/s),5 速度y(m/s)，6 速度z(m/s)，7初始经度（°）
+             R0_f,
+             R0,
+             xyz_e0
+             C_e2f,
+             C_fe2
+             we_f
+             h_end, 落点附近海拔
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="lambda0">Input argument #1</param>
+             <param name="nav_now">Input argument #2</param>
+             <param name="R0">Input argument #3</param>
+             <param name="R0_f">Input argument #4</param>
+             <param name="C_e2f">Input argument #5</param>
+             <param name="C_fe2">Input argument #6</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Algorithm.MatLab.calc_target_ld(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 7-input MWArray interface to the calc_target_ld MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             雷达数据预示落点计算
+             输入
+             nav_now,1 x，2 y，3 z,4 速度x(m/s),5 速度y(m/s)，6 速度z(m/s)，7初始经度（°）
+             R0_f,
+             R0,
+             xyz_e0
+             C_e2f,
+             C_fe2
+             we_f
+             h_end, 落点附近海拔
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="lambda0">Input argument #1</param>
+             <param name="nav_now">Input argument #2</param>
+             <param name="R0">Input argument #3</param>
+             <param name="R0_f">Input argument #4</param>
+             <param name="C_e2f">Input argument #5</param>
+             <param name="C_fe2">Input argument #6</param>
+             <param name="we_f">Input argument #7</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Algorithm.MatLab.calc_target_ld(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 8-input MWArray interface to the calc_target_ld MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             雷达数据预示落点计算
+             输入
+             nav_now,1 x，2 y，3 z,4 速度x(m/s),5 速度y(m/s)，6 速度z(m/s)，7初始经度（°）
+             R0_f,
+             R0,
+             xyz_e0
+             C_e2f,
+             C_fe2
+             we_f
+             h_end, 落点附近海拔
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="lambda0">Input argument #1</param>
+             <param name="nav_now">Input argument #2</param>
+             <param name="R0">Input argument #3</param>
+             <param name="R0_f">Input argument #4</param>
+             <param name="C_e2f">Input argument #5</param>
+             <param name="C_fe2">Input argument #6</param>
+             <param name="we_f">Input argument #7</param>
+             <param name="xyz_e0">Input argument #8</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Algorithm.MatLab.calc_target_ld(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 9-input MWArray interface to the calc_target_ld MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             雷达数据预示落点计算
+             输入
+             nav_now,1 x，2 y，3 z,4 速度x(m/s),5 速度y(m/s)，6 速度z(m/s)，7初始经度（°）
+             R0_f,
+             R0,
+             xyz_e0
+             C_e2f,
+             C_fe2
+             we_f
+             h_end, 落点附近海拔
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="lambda0">Input argument #1</param>
+             <param name="nav_now">Input argument #2</param>
+             <param name="R0">Input argument #3</param>
+             <param name="R0_f">Input argument #4</param>
+             <param name="C_e2f">Input argument #5</param>
+             <param name="C_fe2">Input argument #6</param>
+             <param name="we_f">Input argument #7</param>
+             <param name="xyz_e0">Input argument #8</param>
+             <param name="h_end">Input argument #9</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Algorithm.MatLab.calc_target_ld(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray[]@,MathWorks.MATLAB.NET.Arrays.MWArray[])">
+             <summary>
+             Provides an interface for the calc_target_ld function in which the input and
              output
              arguments are specified as an array of MWArrays.
              </summary>
@@ -753,15 +755,528 @@
              This method will allocate and return by reference the output argument
              array.<newpara></newpara>
              M-Documentation:
-             预示落点计算
+             雷达数据预示落点计算
              输入
-             nav_now,1 x，2 y，3 z,4 速度x(m/s),5 速度y(m/s)，6 速度z(m/s)
+             nav_now,1 x，2 y，3 z,4 速度x(m/s),5 速度y(m/s)，6 速度z(m/s)，7初始经度（°）
              R0_f,
              R0,
-             xyz_e0,发射点的地心系坐标
+             xyz_e0
              C_e2f,
              C_fe2
-             we_f,地球自转角速度在发射系的分量
+             we_f
+             h_end, 落点附近海拔
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return</param>
+             <param name= "argsOut">Array of MWArray output arguments</param>
+             <param name= "argsIn">Array of MWArray input arguments</param>
+            
+        </member>
+        <member name="M:Algorithm.MatLab.calc_target_yc">
+             <summary>
+             Provides a single output, 0-input MWArrayinterface to the calc_target_yc MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             遥测预示落点计算
+             输入
+             nav_now,1 纬度（°），2 经度（°），3 高度（m）,4 东向速度(m/s),5 北向速度(m/s)，
+             6 天向速度(m/s)
+             R0_f
+             R0
+             xyz_e0
+             C_e2f，转换矩阵
+             C_fe2
+             we_f
+             h_end, 落点附近海拔
+             </remarks>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Algorithm.MatLab.calc_target_yc(MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides a single output, 1-input MWArrayinterface to the calc_target_yc MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             遥测预示落点计算
+             输入
+             nav_now,1 纬度（°），2 经度（°），3 高度（m）,4 东向速度(m/s),5 北向速度(m/s)，
+             6 天向速度(m/s)
+             R0_f
+             R0
+             xyz_e0
+             C_e2f，转换矩阵
+             C_fe2
+             we_f
+             h_end, 落点附近海拔
+             </remarks>
+             <param name="nav_now">Input argument #1</param>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Algorithm.MatLab.calc_target_yc(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides a single output, 2-input MWArrayinterface to the calc_target_yc MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             遥测预示落点计算
+             输入
+             nav_now,1 纬度（°），2 经度（°），3 高度（m）,4 东向速度(m/s),5 北向速度(m/s)，
+             6 天向速度(m/s)
+             R0_f
+             R0
+             xyz_e0
+             C_e2f，转换矩阵
+             C_fe2
+             we_f
+             h_end, 落点附近海拔
+             </remarks>
+             <param name="nav_now">Input argument #1</param>
+             <param name="R0">Input argument #2</param>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Algorithm.MatLab.calc_target_yc(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides a single output, 3-input MWArrayinterface to the calc_target_yc MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             遥测预示落点计算
+             输入
+             nav_now,1 纬度（°），2 经度（°），3 高度（m）,4 东向速度(m/s),5 北向速度(m/s)，
+             6 天向速度(m/s)
+             R0_f
+             R0
+             xyz_e0
+             C_e2f，转换矩阵
+             C_fe2
+             we_f
+             h_end, 落点附近海拔
+             </remarks>
+             <param name="nav_now">Input argument #1</param>
+             <param name="R0">Input argument #2</param>
+             <param name="R0_f">Input argument #3</param>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Algorithm.MatLab.calc_target_yc(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides a single output, 4-input MWArrayinterface to the calc_target_yc MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             遥测预示落点计算
+             输入
+             nav_now,1 纬度（°），2 经度（°），3 高度（m）,4 东向速度(m/s),5 北向速度(m/s)，
+             6 天向速度(m/s)
+             R0_f
+             R0
+             xyz_e0
+             C_e2f，转换矩阵
+             C_fe2
+             we_f
+             h_end, 落点附近海拔
+             </remarks>
+             <param name="nav_now">Input argument #1</param>
+             <param name="R0">Input argument #2</param>
+             <param name="R0_f">Input argument #3</param>
+             <param name="xyz_e0">Input argument #4</param>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Algorithm.MatLab.calc_target_yc(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides a single output, 5-input MWArrayinterface to the calc_target_yc MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             遥测预示落点计算
+             输入
+             nav_now,1 纬度（°），2 经度（°），3 高度（m）,4 东向速度(m/s),5 北向速度(m/s)，
+             6 天向速度(m/s)
+             R0_f
+             R0
+             xyz_e0
+             C_e2f，转换矩阵
+             C_fe2
+             we_f
+             h_end, 落点附近海拔
+             </remarks>
+             <param name="nav_now">Input argument #1</param>
+             <param name="R0">Input argument #2</param>
+             <param name="R0_f">Input argument #3</param>
+             <param name="xyz_e0">Input argument #4</param>
+             <param name="C_e2f">Input argument #5</param>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Algorithm.MatLab.calc_target_yc(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides a single output, 6-input MWArrayinterface to the calc_target_yc MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             遥测预示落点计算
+             输入
+             nav_now,1 纬度（°），2 经度（°），3 高度（m）,4 东向速度(m/s),5 北向速度(m/s)，
+             6 天向速度(m/s)
+             R0_f
+             R0
+             xyz_e0
+             C_e2f，转换矩阵
+             C_fe2
+             we_f
+             h_end, 落点附近海拔
+             </remarks>
+             <param name="nav_now">Input argument #1</param>
+             <param name="R0">Input argument #2</param>
+             <param name="R0_f">Input argument #3</param>
+             <param name="xyz_e0">Input argument #4</param>
+             <param name="C_e2f">Input argument #5</param>
+             <param name="C_fe2">Input argument #6</param>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Algorithm.MatLab.calc_target_yc(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides a single output, 7-input MWArrayinterface to the calc_target_yc MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             遥测预示落点计算
+             输入
+             nav_now,1 纬度（°），2 经度（°），3 高度（m）,4 东向速度(m/s),5 北向速度(m/s)，
+             6 天向速度(m/s)
+             R0_f
+             R0
+             xyz_e0
+             C_e2f，转换矩阵
+             C_fe2
+             we_f
+             h_end, 落点附近海拔
+             </remarks>
+             <param name="nav_now">Input argument #1</param>
+             <param name="R0">Input argument #2</param>
+             <param name="R0_f">Input argument #3</param>
+             <param name="xyz_e0">Input argument #4</param>
+             <param name="C_e2f">Input argument #5</param>
+             <param name="C_fe2">Input argument #6</param>
+             <param name="we_f">Input argument #7</param>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Algorithm.MatLab.calc_target_yc(MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides a single output, 8-input MWArrayinterface to the calc_target_yc MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             遥测预示落点计算
+             输入
+             nav_now,1 纬度（°），2 经度（°），3 高度（m）,4 东向速度(m/s),5 北向速度(m/s)，
+             6 天向速度(m/s)
+             R0_f
+             R0
+             xyz_e0
+             C_e2f，转换矩阵
+             C_fe2
+             we_f
+             h_end, 落点附近海拔
+             </remarks>
+             <param name="nav_now">Input argument #1</param>
+             <param name="R0">Input argument #2</param>
+             <param name="R0_f">Input argument #3</param>
+             <param name="xyz_e0">Input argument #4</param>
+             <param name="C_e2f">Input argument #5</param>
+             <param name="C_fe2">Input argument #6</param>
+             <param name="we_f">Input argument #7</param>
+             <param name="h_end">Input argument #8</param>
+             <returns>An MWArray containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:Algorithm.MatLab.calc_target_yc(System.Int32)">
+             <summary>
+             Provides the standard 0-input MWArray interface to the calc_target_yc MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             遥测预示落点计算
+             输入
+             nav_now,1 纬度（°），2 经度（°），3 高度（m）,4 东向速度(m/s),5 北向速度(m/s)，
+             6 天向速度(m/s)
+             R0_f
+             R0
+             xyz_e0
+             C_e2f，转换矩阵
+             C_fe2
+             we_f
+             h_end, 落点附近海拔
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Algorithm.MatLab.calc_target_yc(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 1-input MWArray interface to the calc_target_yc MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             遥测预示落点计算
+             输入
+             nav_now,1 纬度（°），2 经度（°），3 高度（m）,4 东向速度(m/s),5 北向速度(m/s)，
+             6 天向速度(m/s)
+             R0_f
+             R0
+             xyz_e0
+             C_e2f，转换矩阵
+             C_fe2
+             we_f
+             h_end, 落点附近海拔
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="nav_now">Input argument #1</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Algorithm.MatLab.calc_target_yc(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 2-input MWArray interface to the calc_target_yc MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             遥测预示落点计算
+             输入
+             nav_now,1 纬度（°），2 经度（°），3 高度（m）,4 东向速度(m/s),5 北向速度(m/s)，
+             6 天向速度(m/s)
+             R0_f
+             R0
+             xyz_e0
+             C_e2f，转换矩阵
+             C_fe2
+             we_f
+             h_end, 落点附近海拔
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="nav_now">Input argument #1</param>
+             <param name="R0">Input argument #2</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Algorithm.MatLab.calc_target_yc(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 3-input MWArray interface to the calc_target_yc MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             遥测预示落点计算
+             输入
+             nav_now,1 纬度（°），2 经度（°），3 高度（m）,4 东向速度(m/s),5 北向速度(m/s)，
+             6 天向速度(m/s)
+             R0_f
+             R0
+             xyz_e0
+             C_e2f，转换矩阵
+             C_fe2
+             we_f
+             h_end, 落点附近海拔
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="nav_now">Input argument #1</param>
+             <param name="R0">Input argument #2</param>
+             <param name="R0_f">Input argument #3</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Algorithm.MatLab.calc_target_yc(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 4-input MWArray interface to the calc_target_yc MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             遥测预示落点计算
+             输入
+             nav_now,1 纬度（°），2 经度（°），3 高度（m）,4 东向速度(m/s),5 北向速度(m/s)，
+             6 天向速度(m/s)
+             R0_f
+             R0
+             xyz_e0
+             C_e2f，转换矩阵
+             C_fe2
+             we_f
+             h_end, 落点附近海拔
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="nav_now">Input argument #1</param>
+             <param name="R0">Input argument #2</param>
+             <param name="R0_f">Input argument #3</param>
+             <param name="xyz_e0">Input argument #4</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Algorithm.MatLab.calc_target_yc(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 5-input MWArray interface to the calc_target_yc MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             遥测预示落点计算
+             输入
+             nav_now,1 纬度（°），2 经度（°），3 高度（m）,4 东向速度(m/s),5 北向速度(m/s)，
+             6 天向速度(m/s)
+             R0_f
+             R0
+             xyz_e0
+             C_e2f，转换矩阵
+             C_fe2
+             we_f
+             h_end, 落点附近海拔
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="nav_now">Input argument #1</param>
+             <param name="R0">Input argument #2</param>
+             <param name="R0_f">Input argument #3</param>
+             <param name="xyz_e0">Input argument #4</param>
+             <param name="C_e2f">Input argument #5</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Algorithm.MatLab.calc_target_yc(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 6-input MWArray interface to the calc_target_yc MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             遥测预示落点计算
+             输入
+             nav_now,1 纬度（°），2 经度（°），3 高度（m）,4 东向速度(m/s),5 北向速度(m/s)，
+             6 天向速度(m/s)
+             R0_f
+             R0
+             xyz_e0
+             C_e2f，转换矩阵
+             C_fe2
+             we_f
+             h_end, 落点附近海拔
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="nav_now">Input argument #1</param>
+             <param name="R0">Input argument #2</param>
+             <param name="R0_f">Input argument #3</param>
+             <param name="xyz_e0">Input argument #4</param>
+             <param name="C_e2f">Input argument #5</param>
+             <param name="C_fe2">Input argument #6</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Algorithm.MatLab.calc_target_yc(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 7-input MWArray interface to the calc_target_yc MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             遥测预示落点计算
+             输入
+             nav_now,1 纬度（°），2 经度（°），3 高度（m）,4 东向速度(m/s),5 北向速度(m/s)，
+             6 天向速度(m/s)
+             R0_f
+             R0
+             xyz_e0
+             C_e2f，转换矩阵
+             C_fe2
+             we_f
+             h_end, 落点附近海拔
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="nav_now">Input argument #1</param>
+             <param name="R0">Input argument #2</param>
+             <param name="R0_f">Input argument #3</param>
+             <param name="xyz_e0">Input argument #4</param>
+             <param name="C_e2f">Input argument #5</param>
+             <param name="C_fe2">Input argument #6</param>
+             <param name="we_f">Input argument #7</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Algorithm.MatLab.calc_target_yc(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray,MathWorks.MATLAB.NET.Arrays.MWArray)">
+             <summary>
+             Provides the standard 8-input MWArray interface to the calc_target_yc MATLAB
+             function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             遥测预示落点计算
+             输入
+             nav_now,1 纬度（°），2 经度（°），3 高度（m）,4 东向速度(m/s),5 北向速度(m/s)，
+             6 天向速度(m/s)
+             R0_f
+             R0
+             xyz_e0
+             C_e2f，转换矩阵
+             C_fe2
+             we_f
+             h_end, 落点附近海拔
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="nav_now">Input argument #1</param>
+             <param name="R0">Input argument #2</param>
+             <param name="R0_f">Input argument #3</param>
+             <param name="xyz_e0">Input argument #4</param>
+             <param name="C_e2f">Input argument #5</param>
+             <param name="C_fe2">Input argument #6</param>
+             <param name="we_f">Input argument #7</param>
+             <param name="h_end">Input argument #8</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:Algorithm.MatLab.calc_target_yc(System.Int32,MathWorks.MATLAB.NET.Arrays.MWArray[]@,MathWorks.MATLAB.NET.Arrays.MWArray[])">
+             <summary>
+             Provides an interface for the calc_target_yc function in which the input and
+             output
+             arguments are specified as an array of MWArrays.
+             </summary>
+             <remarks>
+             This method will allocate and return by reference the output argument
+             array.<newpara></newpara>
+             M-Documentation:
+             遥测预示落点计算
+             输入
+             nav_now,1 纬度（°），2 经度（°），3 高度（m）,4 东向速度(m/s),5 北向速度(m/s)，
+             6 天向速度(m/s)
+             R0_f
+             R0
+             xyz_e0
+             C_e2f，转换矩阵
+             C_fe2
+             we_f
              h_end, 落点附近海拔
              </remarks>
              <param name="numArgsOut">The number of output arguments to return</param>

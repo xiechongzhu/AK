@@ -37,9 +37,12 @@
             this.editComment = new DevExpress.XtraEditors.MemoEdit();
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.cbxSource = new DevExpress.XtraEditors.ComboBoxEdit();
             ((System.ComponentModel.ISupportInitialize)(this.editTestName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editOperator.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editComment.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbxSource.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -78,7 +81,7 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(12, 64);
+            this.labelControl3.Location = new System.Drawing.Point(12, 63);
             this.labelControl3.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(72, 24);
@@ -87,16 +90,16 @@
             // 
             // editComment
             // 
-            this.editComment.Location = new System.Drawing.Point(148, 76);
+            this.editComment.Location = new System.Drawing.Point(148, 75);
             this.editComment.Margin = new System.Windows.Forms.Padding(4);
             this.editComment.Name = "editComment";
-            this.editComment.Size = new System.Drawing.Size(566, 288);
+            this.editComment.Size = new System.Drawing.Size(823, 288);
             this.editComment.TabIndex = 5;
             // 
             // btnOK
             // 
             this.btnOK.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnOK.ImageOptions.Image")));
-            this.btnOK.Location = new System.Drawing.Point(390, 370);
+            this.btnOK.Location = new System.Drawing.Point(647, 369);
             this.btnOK.Margin = new System.Windows.Forms.Padding(4);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(150, 68);
@@ -107,7 +110,7 @@
             // btnCancel
             // 
             this.btnCancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.ImageOptions.Image")));
-            this.btnCancel.Location = new System.Drawing.Point(564, 370);
+            this.btnCancel.Location = new System.Drawing.Point(821, 369);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(150, 68);
@@ -115,11 +118,35 @@
             this.btnCancel.Text = "取消";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // labelControl4
+            // 
+            this.labelControl4.Location = new System.Drawing.Point(737, 13);
+            this.labelControl4.Margin = new System.Windows.Forms.Padding(4);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(120, 24);
+            this.labelControl4.TabIndex = 8;
+            this.labelControl4.Text = "数据来源：";
+            // 
+            // cbxSource
+            // 
+            this.cbxSource.Location = new System.Drawing.Point(864, 5);
+            this.cbxSource.Name = "cbxSource";
+            this.cbxSource.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbxSource.Properties.Items.AddRange(new object[] {
+            "雷达",
+            "遥测"});
+            this.cbxSource.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cbxSource.Size = new System.Drawing.Size(107, 38);
+            this.cbxSource.TabIndex = 9;
+            // 
             // TestInfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(744, 450);
+            this.ClientSize = new System.Drawing.Size(994, 450);
+            this.Controls.Add(this.cbxSource);
+            this.Controls.Add(this.labelControl4);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.editComment);
@@ -138,6 +165,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.editTestName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editOperator.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editComment.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbxSource.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -153,5 +181,7 @@
         private DevExpress.XtraEditors.MemoEdit editComment;
         private DevExpress.XtraEditors.SimpleButton btnOK;
         private DevExpress.XtraEditors.SimpleButton btnCancel;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraEditors.ComboBoxEdit cbxSource;
     }
 }
