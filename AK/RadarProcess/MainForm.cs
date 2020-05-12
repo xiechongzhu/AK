@@ -200,30 +200,36 @@ namespace RadarProcess
 
         private void EndRadarUdpReceive(IAsyncResult ar)
         {
-            IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, 0);
-            try
+            if (udpRadarClient != null)
             {
-                byte[] recvBuffer = udpRadarClient?.EndReceive(ar, ref endPoint);
-                dataParser.Enqueue(DataSourceType.DATA_RADER ,recvBuffer);
-                dataLogger.Enqueue(DataLogger.DataSourceType.DATA_RADER, recvBuffer);
-                udpRadarClient.BeginReceive(EndRadarUdpReceive, null);
+                IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, 0);
+                try
+                {
+                    byte[] recvBuffer = udpRadarClient.EndReceive(ar, ref endPoint);
+                    dataParser.Enqueue(DataSourceType.DATA_RADER, recvBuffer);
+                    dataLogger.Enqueue(DataLogger.DataSourceType.DATA_RADER, recvBuffer);
+                    udpRadarClient.BeginReceive(EndRadarUdpReceive, null);
+                }
+                catch (Exception)
+                { }
             }
-            catch(Exception)
-            { }
         }
 
         private void EndTelemetryUdpReceive(IAsyncResult ar)
         {
-            IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, 0);
-            try
+            if (udpTelemetryClient != null)
             {
-                byte[] recvBuffer = udpTelemetryClient?.EndReceive(ar, ref endPoint);
-                dataParser.Enqueue(DataSourceType.DATA_TELEMETRY, recvBuffer);
-                dataLogger.Enqueue(DataLogger.DataSourceType.DATA_TELEMETRY, recvBuffer);
-                udpTelemetryClient.BeginReceive(EndTelemetryUdpReceive, null);
+                IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, 0);
+                try
+                {
+                    byte[] recvBuffer = udpTelemetryClient.EndReceive(ar, ref endPoint);
+                    dataParser.Enqueue(DataSourceType.DATA_TELEMETRY, recvBuffer);
+                    dataLogger.Enqueue(DataLogger.DataSourceType.DATA_TELEMETRY, recvBuffer);
+                    udpTelemetryClient.BeginReceive(EndTelemetryUdpReceive, null);
+                }
+                catch (Exception)
+                { }
             }
-            catch(Exception)
-            { }
         }
 
         private void btnStop_Click(object sender, EventArgs e)

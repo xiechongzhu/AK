@@ -272,20 +272,20 @@ namespace RadarProcess
         public byte jiaJiWenDu_Z;         // Z加计温度
         //----------------------------------------------------//
 
-        public char dianYaZhi_zheng5V;    // +5V电压值     当量0.05
-        public char dianYaZhi_fu5V;       // -5V电压值     当量0.05
+        public sbyte dianYaZhi_zheng5V;    // +5V电压值     当量0.05
+        public sbyte dianYaZhi_fu5V;       // -5V电压值     当量0.05
 
-        public char dianYaZhi_zheng15V;   // +15V电压值    当量0.02
-        public char dianYaZhi_fu15V;      // -15V电压值    当量0.02
+        public sbyte dianYaZhi_zheng15V;   // +15V电压值    当量0.02
+        public sbyte dianYaZhi_fu15V;      // -15V电压值    当量0.02
 
-        public char tuoLuoDianYaZhi_X_zheng5V;    // X陀螺+5V电压值     当量0.05
-        public char tuoLuoDianYaZhi_X_fu5V;       // X陀螺-5V电压值     当量0.05
+        public sbyte tuoLuoDianYaZhi_X_zheng5V;    // X陀螺+5V电压值     当量0.05
+        public sbyte tuoLuoDianYaZhi_X_fu5V;       // X陀螺-5V电压值     当量0.05
 
-        public char tuoLuoDianYaZhi_Y_zheng5V;    // Y陀螺+5V电压值     当量0.05
-        public char tuoLuoDianYaZhi_Y_fu5V;       // Y陀螺-5V电压值     当量0.05
+        public sbyte tuoLuoDianYaZhi_Y_zheng5V;    // Y陀螺+5V电压值     当量0.05
+        public sbyte tuoLuoDianYaZhi_Y_fu5V;       // Y陀螺-5V电压值     当量0.05
 
-        public char tuoLuoDianYaZhi_Z_zheng5V;    // Z陀螺+5V电压值     当量0.05
-        public char tuoLuoDianYaZhi_Z_fu5V;       // Z陀螺-5V电压值     当量0.05
+        public sbyte tuoLuoDianYaZhi_Z_zheng5V;    // Z陀螺+5V电压值     当量0.05
+        public sbyte tuoLuoDianYaZhi_Z_fu5V;       // Z陀螺-5V电压值     当量0.05
 
         public byte yuTuoLuoTongXingCuoWuJiShu_X; // 与X陀螺通信错误计数（一直循环计数）
         public byte yuTuoLuoTongXingCuoWuJiShu_Y; // 与Y陀螺通信错误计数（一直循环计数）
