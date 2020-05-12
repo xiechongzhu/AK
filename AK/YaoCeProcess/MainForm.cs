@@ -1428,6 +1428,12 @@ namespace YaoCeProcess
                     // 停止加载文件进度
                     timerUpdateLoadFileProgress.Stop();
 
+                    //------------------------------------------------------//
+
+                    // 更新进度条
+                    loadFileForm.setProgressBarValue(0, loadFileLength, loadFileLength);
+                    loadFileForm.loadFileFinish();
+
                     // 日志打印
                     Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, "历史数据加载完成！");
                     //MessageBox.Show("文件读取完成！", "提示", MessageBoxButtons.OK);
@@ -1446,12 +1452,6 @@ namespace YaoCeProcess
 
                     // 关闭状态刷新定时器
                     setUpdateTimerStatus(false);
-
-                    //------------------------------------------------------//
-
-                    // 更新进度条
-                    loadFileForm.setProgressBarValue(0, loadFileLength, loadFileLength);
-                    loadFileForm.loadFileFinish();
                 }
             }
         }

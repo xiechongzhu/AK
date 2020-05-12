@@ -782,20 +782,20 @@ namespace YaoCeProcess
                         jiaJiWenDu_Y = br.ReadByte(),                       // Y加计温度
                         jiaJiWenDu_Z = br.ReadByte(),                       // Z加计温度
 
-                        dianYaZhi_zheng5V = br.ReadChar(),                  // +5V电压值     当量0.05
-                        dianYaZhi_fu5V = br.ReadChar(),                     // -5V电压值     当量0.05
+                        dianYaZhi_zheng5V = br.ReadSByte(),                  // +5V电压值     当量0.05
+                        dianYaZhi_fu5V = br.ReadSByte(),                     // -5V电压值     当量0.05
 
-                        dianYaZhi_zheng15V = br.ReadChar(),                 // +15V电压值    当量0.02
-                        dianYaZhi_fu15V = br.ReadChar(),                    // -15V电压值    当量0.02
+                        dianYaZhi_zheng15V = br.ReadSByte(),                 // +15V电压值    当量0.02
+                        dianYaZhi_fu15V = br.ReadSByte(),                    // -15V电压值    当量0.02
 
-                        tuoLuoDianYaZhi_X_zheng5V = br.ReadChar(),          // X陀螺+5V电压值     当量0.05
-                        tuoLuoDianYaZhi_X_fu5V = br.ReadChar(),             // X陀螺-5V电压值     当量0.05
+                        tuoLuoDianYaZhi_X_zheng5V = br.ReadSByte(),          // X陀螺+5V电压值     当量0.05
+                        tuoLuoDianYaZhi_X_fu5V = br.ReadSByte(),             // X陀螺-5V电压值     当量0.05
 
-                        tuoLuoDianYaZhi_Y_zheng5V = br.ReadChar(),          // Y陀螺+5V电压值     当量0.05
-                        tuoLuoDianYaZhi_Y_fu5V = br.ReadChar(),             // Y陀螺-5V电压值     当量0.05
+                        tuoLuoDianYaZhi_Y_zheng5V = br.ReadSByte(),          // Y陀螺+5V电压值     当量0.05
+                        tuoLuoDianYaZhi_Y_fu5V = br.ReadSByte(),             // Y陀螺-5V电压值     当量0.05
 
-                        tuoLuoDianYaZhi_Z_zheng5V = br.ReadChar(),          // Z陀螺+5V电压值     当量0.05
-                        tuoLuoDianYaZhi_Z_fu5V = br.ReadChar(),             // Z陀螺-5V电压值     当量0.05
+                        tuoLuoDianYaZhi_Z_zheng5V = br.ReadSByte(),          // Z陀螺+5V电压值     当量0.05
+                        tuoLuoDianYaZhi_Z_fu5V = br.ReadSByte(),             // Z陀螺-5V电压值     当量0.05
 
                         yuTuoLuoTongXingCuoWuJiShu_X = br.ReadByte(),       // 与X陀螺通信错误计数（一直循环计数）
                         yuTuoLuoTongXingCuoWuJiShu_Y = br.ReadByte(),       // 与Y陀螺通信错误计数（一直循环计数）
