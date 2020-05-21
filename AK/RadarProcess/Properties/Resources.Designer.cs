@@ -59,5 +59,45 @@ namespace RadarProcess.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap LED_gray {
+            get {
+                object obj = ResourceManager.GetObject("LED_gray", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap LED_green {
+            get {
+                object obj = ResourceManager.GetObject("LED_green", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap LED_red {
+            get {
+                object obj = ResourceManager.GetObject("LED_red", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Byte[] 类型的本地化资源。
+        /// </summary>
+        public static byte[] 参数模板 {
+            get {
+                object obj = ResourceManager.GetObject("参数模板", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

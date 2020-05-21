@@ -284,9 +284,7 @@
             series2.CrosshairHighlightPoints = DevExpress.Utils.DefaultBoolean.False;
             pointSeriesLabel1.TextPattern = "{A:#.00}\n{V:#.00}";
             series2.Label = pointSeriesLabel1;
-            series2.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
             series2.Name = "预测落点";
-            series2.ToolTipSeriesPattern = "";
             pointSeriesView2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             series2.View = pointSeriesView2;
             series3.Name = "必炸线";

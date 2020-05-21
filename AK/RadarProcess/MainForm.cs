@@ -13,6 +13,8 @@ using DevExpress.XtraCharts;
 using DevExpress.XtraEditors;
 using static RadarProcess.DataParser;
 using DevExpress.Utils.Extensions;
+using System.Reflection;
+using System.Resources;
 
 namespace RadarProcess
 {
@@ -102,7 +104,7 @@ namespace RadarProcess
             speedAlertTime = DateTime.MinValue;
             fallPointAlertTime = DateTime.MinValue;
             player.MediaEnded += Player_MediaEnded;
-            player.Open(new Uri(AppDomain.CurrentDomain.BaseDirectory + @"\resource\alert.mp3"));
+            player.Open(new Uri(AppDomain.CurrentDomain.BaseDirectory + @"\mp3\alert.mp3"));
             if (Config.GetInstance().LoadConfigFile(out _))
             {
                 InitChartPoints();
@@ -110,9 +112,11 @@ namespace RadarProcess
                 editT0.Text = Config.GetInstance().delayT0.ToString();
             }
 
-            grayLedImage = Image.FromFile(@"resource/LED_gray.png");
-            greenLedImage = Image.FromFile(@"resource/LED_green.png");
-            redLedImage = Image.FromFile(@"resource/LED_red.png");
+            Assembly assembly = Assembly.GetEntryAssembly();
+            ResourceManager resourceManager = new ResourceManager("RadarProcess.Properties.Resources", assembly);
+            grayLedImage = (Image)resourceManager.GetObject("LED_gray");
+            greenLedImage = (Image)resourceManager.GetObject("LED_green");
+            redLedImage = (Image)resourceManager.GetObject("LED_red");
 
             picRadarNetwork.Image = grayLedImage;
             picTelemetryNetwork.Image = grayLedImage;

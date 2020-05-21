@@ -682,7 +682,7 @@ namespace RadarProcess
                     {
                         try
                         {
-                            algorithm.CalcResultYc(sObject.jingDu * Math.Pow(10, -7), sObject.weiDu * Math.Pow(10, -7),
+                            algorithm.CalcResultYc(sObject.weiDu * Math.Pow(10, -7), sObject.jingDu * Math.Pow(10, -7),
                                     sObject.haiBaGaoDu * Math.Pow(10, -2), sObject.dongXiangSuDu * Math.Pow(10, -2), sObject.beiXiangSuDu * Math.Pow(10, -2),
                                     sObject.tianXiangSuDu * Math.Pow(10, -2), mainForm.constLaunchFsx, Config.GetInstance().placementHeight,
                                     out FallPoint fallPoint, out double fallTime, out double distance, out double x, out double y, out double z,
