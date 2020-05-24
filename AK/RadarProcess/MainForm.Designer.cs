@@ -288,6 +288,7 @@
             // 
             // layoutControlItem6
             // 
+            this.layoutControlItem6.ContentVisible = false;
             this.layoutControlItem6.Control = this.btnHistory;
             this.layoutControlItem6.Location = new System.Drawing.Point(240, 0);
             this.layoutControlItem6.MaxSize = new System.Drawing.Size(80, 76);
