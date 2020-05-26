@@ -97,8 +97,8 @@ namespace RadarProcess
             dataParser = new DataParser(this);
             InitializeComponent();
             myChartControl1.Dock = myChartControl2.Dock = DockStyle.Fill;
-            xtraTabPage1.Controls.Add(myChartControl1);
-            xtraTabPage2.Controls.Add(myChartControl2);
+            TabPageHead.Controls.Add(myChartControl1);
+            TabPageBody.Controls.Add(myChartControl2);
             btnStop.Enabled = false;
             Logger.GetInstance().SetMainForm(this);
             positionAlertTimeSuit1 = positionAlertTimeSuit2 = DateTime.MinValue;
@@ -190,6 +190,13 @@ namespace RadarProcess
             {
                 editT0.Enabled = true;
                 btnStartT0.Enabled = true;
+                TabPageBody.PageVisible = false;
+            }
+            else
+            {
+                editT0.Enabled = false;
+                btnStartT0.Enabled = false;
+                TabPageBody.PageVisible = true;
             }
             alertFormSuit1.SetMode(1, Config.GetInstance().source);
             alertFormSuit2.SetMode(2, Config.GetInstance().source);
@@ -490,19 +497,19 @@ namespace RadarProcess
                     if (x > maxX || x < minX)
                     {
                         ShowAlert();
-                        Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "[套1]位置X超出范围:" + x.ToString());
+                        Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "[弹头]位置X超出范围:" + x.ToString());
                         positionAlertTimeSuit1 = DateTime.Now;
                     }
                     if (y > maxY || y < minY)
                     {
                         ShowAlert();
-                        Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "[套1]位置Y超出范围:" + y.ToString());
+                        Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "[弹头]位置Y超出范围:" + y.ToString());
                         positionAlertTimeSuit1 = DateTime.Now;
                     }
                     if (z > maxZ || z < minZ)
                     {
                         ShowAlert();
-                        Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "[套1]位置Z超出范围:" + z.ToString());
+                        Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "[弹头]位置Z超出范围:" + z.ToString());
                         positionAlertTimeSuit1 = DateTime.Now;
                     }
                 }
@@ -515,19 +522,19 @@ namespace RadarProcess
                     if (x > maxX || x < minX)
                     {
                         ShowAlert();
-                        Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "[套2]位置X超出范围:" + x.ToString());
+                        Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "[弹体]位置X超出范围:" + x.ToString());
                         positionAlertTimeSuit2 = DateTime.Now;
                     }
                     if (y > maxY || y < minY)
                     {
                         ShowAlert();
-                        Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "[套2]位置Y超出范围:" + y.ToString());
+                        Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "[弹体]位置Y超出范围:" + y.ToString());
                         positionAlertTimeSuit2 = DateTime.Now;
                     }
                     if (z > maxZ || z < minZ)
                     {
                         ShowAlert();
-                        Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "[套2]位置Z超出范围:" + z.ToString());
+                        Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "[弹体]位置Z超出范围:" + z.ToString());
                         positionAlertTimeSuit2 = DateTime.Now;
                     }
                 }
@@ -545,19 +552,19 @@ namespace RadarProcess
                         if (vx > maxVx || vx < minVx)
                         {
                             ShowAlert();
-                            Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "[套1]速度VX超出范围:" + vx.ToString());
+                            Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "[弹头]速度VX超出范围:" + vx.ToString());
                             speedAlertTimeSuit1 = DateTime.Now;
                         }
                         if (vy > maxVy || vy < minVy)
                         {
                             ShowAlert();
-                            Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "[套1]速度VY超出范围:" + vy.ToString());
+                            Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "[弹头]速度VY超出范围:" + vy.ToString());
                             speedAlertTimeSuit1 = DateTime.Now;
                         }
                         if (vz > maxVz || vz < minVz)
                         {
                             ShowAlert();
-                            Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "[套1]速度VZ超出范围:" + vz.ToString());
+                            Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "[弹头]速度VZ超出范围:" + vz.ToString());
                             speedAlertTimeSuit1 = DateTime.Now;
                         }
                         myChartControl1.CheckSpeed(vx, vy, vz, minVx, maxVx, minVy, maxVy, minVz, maxVz);
@@ -572,19 +579,19 @@ namespace RadarProcess
                         if (vx > maxVx || vx < minVx)
                         {
                             ShowAlert();
-                            Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "[套2]速度VX超出范围:" + vx.ToString());
+                            Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "[弹体]速度VX超出范围:" + vx.ToString());
                             speedAlertTimeSuit2 = DateTime.Now;
                         }
                         if (vy > maxVy || vy < minVy)
                         {
                             ShowAlert();
-                            Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "[套2]速度VY超出范围:" + vy.ToString());
+                            Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "[弹体]速度VY超出范围:" + vy.ToString());
                             speedAlertTimeSuit2 = DateTime.Now;
                         }
                         if (vz > maxVz || vz < minVz)
                         {
                             ShowAlert();
-                            Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "[套2]速度VZ超出范围:" + vz.ToString());
+                            Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "[弹体]速度VZ超出范围:" + vz.ToString());
                             speedAlertTimeSuit2 = DateTime.Now;
                         }
                         myChartControl2.CheckSpeed(vx, vy, vz, minVx, maxVx, minVy, maxVy, minVz, maxVz);

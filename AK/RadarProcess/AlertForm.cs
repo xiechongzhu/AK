@@ -45,21 +45,21 @@ namespace RadarProcess
             sb.Append("建议启动自毁\n");
             if(fallPoint.x < -Config.GetInstance().sideLine)
             {
-                sb.AppendFormat("[套{0}]当前X超出左侧侧向必炸线{1:F}m\n", suit, Math.Abs(fallPoint.x + Config.GetInstance().sideLine));
+                sb.AppendFormat("[{0}]当前X超出左侧侧向必炸线{1:F}m\n", suit == 1 ? "弹头" : "弹体", Math.Abs(fallPoint.x + Config.GetInstance().sideLine));
             }
             if(fallPoint.x > + Config.GetInstance().sideLine)
             {
-                sb.AppendFormat("[套{0}]当前X超出右侧侧向必炸线{1:F}m\n", suit, Math.Abs(fallPoint.x - Config.GetInstance().sideLine));
+                sb.AppendFormat("[{0}]当前X超出右侧侧向必炸线{1:F}m\n", suit == 1 ? "弹头" : "弹体", Math.Abs(fallPoint.x - Config.GetInstance().sideLine));
             }
             if(fallPoint.y < Config.GetInstance().backwardLine)
             {
-                sb.AppendFormat("[套{0}]当前Y超出后向必炸线{1:F}m\n", suit, Math.Abs(Config.GetInstance().backwardLine - fallPoint.y));
+                sb.AppendFormat("[{0}]当前Y超出后向必炸线{1:F}m\n", suit == 1 ? "弹头" : "弹体", Math.Abs(Config.GetInstance().backwardLine - fallPoint.y));
             }
             if(fallPoint.y >  Config.GetInstance().forwardLine)
             {
-                sb.AppendFormat("[套{0}]当前Y超出前向必炸线{1:F}m\n", suit, Math.Abs(fallPoint.y - Config.GetInstance().forwardLine));
+                sb.AppendFormat("[{0}]当前Y超出前向必炸线{1:F}m\n", suit == 1 ? "弹头" : "弹体", Math.Abs(fallPoint.y - Config.GetInstance().forwardLine));
             }
-            sb.AppendFormat("[套{0}]剩余落地时间:{1:F}s", suit, fallTime);
+            sb.AppendFormat("[{0}]剩余落地时间:{1:F}s", suit == 1 ? "弹头" : "弹体", fallTime);
             AlertLabel.Text = sb.ToString();
         }
     }

@@ -713,7 +713,7 @@ namespace RadarProcess
 
                             if (canId == frameType_daoHangKuaiSu_Tou)
                             {
-                                //套1
+                                //弹头
                                 obj.suit = 1;
                                 YcMessage msg = new YcMessage
                                 {
@@ -728,7 +728,7 @@ namespace RadarProcess
                             }
                             else
                             {
-                                //套2
+                                //弹体
                                 obj.suit = 2;
                                 YcMessage msg = new YcMessage
                                 {
