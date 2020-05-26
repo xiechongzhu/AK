@@ -45,13 +45,13 @@
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
+            this.spinEdit_Progress = new DevExpress.XtraEditors.SpinEdit();
+            this.btnSkip = new DevExpress.XtraEditors.SimpleButton();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.LoadFileToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.spinEdit_Progress = new DevExpress.XtraEditors.SpinEdit();
-            this.btnSkip = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -64,10 +64,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
             this.layoutControl2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spinEdit_Progress.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spinEdit_Progress.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -266,6 +266,39 @@
             this.btnClose.Text = "关闭";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // spinEdit_Progress
+            // 
+            this.spinEdit_Progress.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.spinEdit_Progress.Location = new System.Drawing.Point(3, 3);
+            this.spinEdit_Progress.MinimumSize = new System.Drawing.Size(0, 30);
+            this.spinEdit_Progress.Name = "spinEdit_Progress";
+            this.spinEdit_Progress.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.spinEdit_Progress.Properties.IsFloatValue = false;
+            this.spinEdit_Progress.Properties.Mask.EditMask = "N00";
+            this.spinEdit_Progress.Properties.MaxValue = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.spinEdit_Progress.Size = new System.Drawing.Size(93, 30);
+            this.spinEdit_Progress.TabIndex = 2;
+            // 
+            // btnSkip
+            // 
+            this.btnSkip.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSkip.ImageOptions.Image")));
+            this.btnSkip.Location = new System.Drawing.Point(102, 3);
+            this.btnSkip.MinimumSize = new System.Drawing.Size(100, 35);
+            this.btnSkip.Name = "btnSkip";
+            this.btnSkip.Size = new System.Drawing.Size(111, 38);
+            this.btnSkip.TabIndex = 3;
+            this.btnSkip.Text = "跳转";
+            this.btnSkip.Click += new System.EventHandler(this.btnSkip_Click);
+            // 
             // progressBar1
             // 
             this.progressBar1.Location = new System.Drawing.Point(12, 2);
@@ -304,39 +337,6 @@
             this.layoutControlItem5.Text = "进度跳转：";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(75, 18);
             // 
-            // spinEdit_Progress
-            // 
-            this.spinEdit_Progress.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.spinEdit_Progress.Location = new System.Drawing.Point(3, 3);
-            this.spinEdit_Progress.MinimumSize = new System.Drawing.Size(0, 30);
-            this.spinEdit_Progress.Name = "spinEdit_Progress";
-            this.spinEdit_Progress.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.spinEdit_Progress.Properties.IsFloatValue = false;
-            this.spinEdit_Progress.Properties.Mask.EditMask = "N00";
-            this.spinEdit_Progress.Properties.MaxValue = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            this.spinEdit_Progress.Size = new System.Drawing.Size(93, 30);
-            this.spinEdit_Progress.TabIndex = 2;
-            // 
-            // btnSkip
-            // 
-            this.btnSkip.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.btnSkip.Location = new System.Drawing.Point(102, 3);
-            this.btnSkip.MinimumSize = new System.Drawing.Size(100, 35);
-            this.btnSkip.Name = "btnSkip";
-            this.btnSkip.Size = new System.Drawing.Size(111, 38);
-            this.btnSkip.TabIndex = 3;
-            this.btnSkip.Text = "跳转";
-            this.btnSkip.Click += new System.EventHandler(this.btnSkip_Click);
-            // 
             // LoadDataForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -361,10 +361,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
             this.layoutControl2.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.spinEdit_Progress.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spinEdit_Progress.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

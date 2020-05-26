@@ -876,7 +876,7 @@ namespace YaoCeProcess
             // bit6 模拟自毁指令2（1有效）
             XiTong_MoNiZiHui2.Text = (sysyemStatusTip >> 6 & 0x1) == 1 ? "有效" : "无效";
             // bit7 回路检测 ?? 待定
-            XiTong_HuiLuJianCe.Text = (sysyemStatusTip >> 7 & 0x1) == 1 ? "有效" : "无效";
+            XiTong_HuiLuJianCe.Text = (sysyemStatusTip >> 7 & 0x1) == 1 ? "数据可用" : "数据不可用";
 
             //----------------------------------------------------------------------//
 
@@ -979,6 +979,13 @@ namespace YaoCeProcess
                     break;
             }
             XiTong_CanShiZhuangTai.Text = tempSTR;
+
+            // 预示落点Z
+            XiTong_YuShiLuoDianZ.Text = sObject.yuShiLuoDianZ.ToString();
+            // 预示落点射程
+            XiTong_YuShiLuoDianSheCheng.Text = sObject.yuShiLuoDianSheCheng.ToString();
+            // 轴向过载
+            XiTong_ZhouXiangGuoZai.Text = sObject.zhouXiangGuoZai.ToString();
         }
 
         // 添加系统坐标点集
@@ -1809,6 +1816,24 @@ namespace YaoCeProcess
 
             // 开启状态刷新定时器
             setUpdateTimerStatus(true);
+
+            //-----------------------------------------------------//
+
+            // NOTE 20200525 每次重新回放重置数据显示界面
+            GenericFunction.reSetAllTextEdit(TabPage_XiTongPanJue);
+            GenericFunction.reSetAllTextEdit(xtraTabPage_HuiLuJianCe);
+
+            // 导航数据（快速）
+            dHKSubForm_Ti.initUI();
+            dHKSubForm_Tou.initUI();
+
+            // 导航数据（慢速）
+            dHMSubForm_Ti.initUI();
+            dHMSubForm_Tou.initUI();
+
+            // 系统即时状态
+            xiTongJiShiSubForm_Ti.initUI();
+            xiTongJiShiSubForm_Tou.initUI();
         }
 
         private void timerUpdateUDP_Tick(object sender, EventArgs e)

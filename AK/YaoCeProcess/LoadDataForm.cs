@@ -111,12 +111,18 @@ namespace YaoCeProcess
                 setPlayStatus(MainForm.E_LOADFILE_PAUSE);
                 bLoadFileing = false;
                 btnPause.Text = "启动";
+
+                btnSkip.Enabled = false;
+                spinEdit_Progress.Enabled = false;
             }
             else
             {
                 setPlayStatus(MainForm.E_LOADFILE_CONTINUE);
                 bLoadFileing = true;
                 btnPause.Text = "暂停";
+
+                btnSkip.Enabled = true;
+                spinEdit_Progress.Enabled = true;
             }
         }
 

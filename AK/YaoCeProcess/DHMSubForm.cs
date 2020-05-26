@@ -378,5 +378,11 @@ namespace YaoCeProcess
             bRecvStatusData = false;
             testFunDelegate(statusType, false);
         }
+
+        public void initUI()
+        {
+            // 初始清空数据
+            GenericFunction.reSetAllTextEdit(this);
+        }
     }
 }
