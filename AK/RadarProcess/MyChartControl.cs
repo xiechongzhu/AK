@@ -311,7 +311,6 @@ namespace RadarProcess
             }
             if (vz > maxVz || vz < minVz)
             {
-                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "速度VZ超出范围:" + vz.ToString());
                 chartVz.BackColor = Color.Red;
             }
             else

@@ -265,9 +265,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="resource\参数模板.xlsx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <None Include="resource\参数模板.xlsx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -279,16 +277,10 @@
     </Content>
     <Content Include="LinqToDB.Templates\CopyMe.SQLite.tt.txt" />
     <Content Include="radar_32px.ico" />
-    <Content Include="resource\LED_gray.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="resource\LED_green.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="resource\LED_red.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <None Include="resource\alert.mp3">
+    <None Include="resource\LED_gray.png" />
+    <None Include="resource\LED_green.png" />
+    <None Include="resource\LED_red.png" />
+    <None Include="mp3\alert.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

@@ -13,6 +13,8 @@ using DevExpress.XtraCharts;
 using DevExpress.XtraEditors;
 using static RadarProcess.DataParser;
 using DevExpress.Utils.Extensions;
+using System.Reflection;
+using System.Resources;
 
 namespace RadarProcess
 {
@@ -72,11 +74,12 @@ namespace RadarProcess
         private DataParser dataParser;
         private DataLogger dataLogger = new DataLogger();
         private HistoryData historyData = new HistoryData();
-        private DateTime positionAlertTime, speedAlertTime, fallPointAlertTime;
+        private DateTime positionAlertTimeSuit1, positionAlertTimeSuit2, speedAlertTimeSuit1, speedAlertTimeSuit2, fallPointAlertTimeSuit1, fallPointAlertTimeSuit2;
         private FallPoint ideaPoint;
         Algorithm algorithm = new Algorithm();
         public ConstLaunch constLaunchFsx;
-        private AlertForm alertForm = new AlertForm();
+        private AlertForm alertFormSuit1 = new AlertForm();
+        private AlertForm alertFormSuit2 = new AlertForm();
         List<ListViewItem> logItemList = new List<ListViewItem>();
         private int MAX_CHART_POINTS = 1000;
 
@@ -94,15 +97,15 @@ namespace RadarProcess
             dataParser = new DataParser(this);
             InitializeComponent();
             myChartControl1.Dock = myChartControl2.Dock = DockStyle.Fill;
-            xtraTabPage1.Controls.Add(myChartControl1);
-            xtraTabPage2.Controls.Add(myChartControl2);
+            TabPageHead.Controls.Add(myChartControl1);
+            TabPageBody.Controls.Add(myChartControl2);
             btnStop.Enabled = false;
             Logger.GetInstance().SetMainForm(this);
-            positionAlertTime = DateTime.MinValue;
-            speedAlertTime = DateTime.MinValue;
-            fallPointAlertTime = DateTime.MinValue;
+            positionAlertTimeSuit1 = positionAlertTimeSuit2 = DateTime.MinValue;
+            speedAlertTimeSuit1 = speedAlertTimeSuit2 = DateTime.MinValue;
+            fallPointAlertTimeSuit1 = fallPointAlertTimeSuit2 = DateTime.MinValue;
             player.MediaEnded += Player_MediaEnded;
-            player.Open(new Uri(AppDomain.CurrentDomain.BaseDirectory + @"\resource\alert.mp3"));
+            player.Open(new Uri(AppDomain.CurrentDomain.BaseDirectory + @"\mp3\alert.mp3"));
             if (Config.GetInstance().LoadConfigFile(out _))
             {
                 InitChartPoints();
@@ -110,9 +113,11 @@ namespace RadarProcess
                 editT0.Text = Config.GetInstance().delayT0.ToString();
             }
 
-            grayLedImage = Image.FromFile(@"resource/LED_gray.png");
-            greenLedImage = Image.FromFile(@"resource/LED_green.png");
-            redLedImage = Image.FromFile(@"resource/LED_red.png");
+            Assembly assembly = Assembly.GetEntryAssembly();
+            ResourceManager resourceManager = new ResourceManager("RadarProcess.Properties.Resources", assembly);
+            grayLedImage = (Image)resourceManager.GetObject("LED_gray");
+            greenLedImage = (Image)resourceManager.GetObject("LED_green");
+            redLedImage = (Image)resourceManager.GetObject("LED_red");
 
             picRadarNetwork.Image = grayLedImage;
             picTelemetryNetwork.Image = grayLedImage;
@@ -185,7 +190,16 @@ namespace RadarProcess
             {
                 editT0.Enabled = true;
                 btnStartT0.Enabled = true;
+                TabPageBody.PageVisible = false;
             }
+            else
+            {
+                editT0.Enabled = false;
+                btnStartT0.Enabled = false;
+                TabPageBody.PageVisible = true;
+            }
+            alertFormSuit1.SetMode(1, Config.GetInstance().source);
+            alertFormSuit2.SetMode(2, Config.GetInstance().source);
             constLaunchFsx = algorithm.calc_const_launch_fsx(
                 Config.GetInstance().latitudeInit,
                 Config.GetInstance().longitudeInit,
@@ -200,30 +214,36 @@ namespace RadarProcess
 
         private void EndRadarUdpReceive(IAsyncResult ar)
         {
-            IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, 0);
-            try
+            if (udpRadarClient != null)
             {
-                byte[] recvBuffer = udpRadarClient?.EndReceive(ar, ref endPoint);
-                dataParser.Enqueue(DataSourceType.DATA_RADER ,recvBuffer);
-                dataLogger.Enqueue(DataLogger.DataSourceType.DATA_RADER, recvBuffer);
-                udpRadarClient.BeginReceive(EndRadarUdpReceive, null);
+                IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, 0);
+                try
+                {
+                    byte[] recvBuffer = udpRadarClient.EndReceive(ar, ref endPoint);
+                    dataParser.Enqueue(DataSourceType.DATA_RADER, recvBuffer);
+                    dataLogger.Enqueue(DataLogger.DataSourceType.DATA_RADER, recvBuffer);
+                    udpRadarClient.BeginReceive(EndRadarUdpReceive, null);
+                }
+                catch (Exception)
+                { }
             }
-            catch(Exception)
-            { }
         }
 
         private void EndTelemetryUdpReceive(IAsyncResult ar)
         {
-            IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, 0);
-            try
+            if (udpTelemetryClient != null)
             {
-                byte[] recvBuffer = udpTelemetryClient?.EndReceive(ar, ref endPoint);
-                dataParser.Enqueue(DataSourceType.DATA_TELEMETRY, recvBuffer);
-                dataLogger.Enqueue(DataLogger.DataSourceType.DATA_TELEMETRY, recvBuffer);
-                udpTelemetryClient.BeginReceive(EndTelemetryUdpReceive, null);
+                IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, 0);
+                try
+                {
+                    byte[] recvBuffer = udpTelemetryClient.EndReceive(ar, ref endPoint);
+                    dataParser.Enqueue(DataSourceType.DATA_TELEMETRY, recvBuffer);
+                    dataLogger.Enqueue(DataLogger.DataSourceType.DATA_TELEMETRY, recvBuffer);
+                    udpTelemetryClient.BeginReceive(EndTelemetryUdpReceive, null);
+                }
+                catch (Exception)
+                { }
             }
-            catch(Exception)
-            { }
         }
 
         private void btnStop_Click(object sender, EventArgs e)
@@ -245,7 +265,8 @@ namespace RadarProcess
             editT0.Enabled = false;
             myChartControl1.ClearData();
             myChartControl2.ClearData();
-            alertForm.Hide();
+            alertFormSuit1.Hide();
+            alertFormSuit2.Hide();
             netWorkTimer.Stop();
             picRadarNetwork.Image = grayLedImage;
             picTelemetryNetwork.Image = grayLedImage;
@@ -467,110 +488,162 @@ namespace RadarProcess
             }
         }
 
-        private void SetFallPoint(FallPoint fallPoint, int suit)
+        private void CheckPosition(double x, double y, double z, double minX, double maxX, double minY, double maxY, double minZ, double maxZ, int suit)
         {
             if (suit == 1)
             {
-                myChartControl1.SetFallPoint(fallPoint);
+                if ((DateTime.Now - positionAlertTimeSuit1).TotalSeconds > 5)
+                {
+                    if (x > maxX || x < minX)
+                    {
+                        ShowAlert();
+                        Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "[弹头]位置X超出范围:" + x.ToString());
+                        positionAlertTimeSuit1 = DateTime.Now;
+                    }
+                    if (y > maxY || y < minY)
+                    {
+                        ShowAlert();
+                        Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "[弹头]位置Y超出范围:" + y.ToString());
+                        positionAlertTimeSuit1 = DateTime.Now;
+                    }
+                    if (z > maxZ || z < minZ)
+                    {
+                        ShowAlert();
+                        Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "[弹头]位置Z超出范围:" + z.ToString());
+                        positionAlertTimeSuit1 = DateTime.Now;
+                    }
+                }
+                myChartControl1.CheckPosition(x, y, z, minX, maxX, minY, maxY, minZ, maxZ);
             }
             else
             {
-                myChartControl2.SetFallPoint(fallPoint);
-            }
-        }
-
-        private void CheckPosition(double x, double y, double z, double minX, double maxX, double minY, double maxY, double minZ, double maxZ, int suit)
-        {
-            if ((DateTime.Now - positionAlertTime).TotalSeconds > 5)
-            {
-                if (x > maxX || x < minX)
+                if ((DateTime.Now - positionAlertTimeSuit2).TotalSeconds > 5)
                 {
-                    ShowAlert();
-                    Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "位置X超出范围:" + x.ToString());
-                    positionAlertTime = DateTime.Now;
+                    if (x > maxX || x < minX)
+                    {
+                        ShowAlert();
+                        Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "[弹体]位置X超出范围:" + x.ToString());
+                        positionAlertTimeSuit2 = DateTime.Now;
+                    }
+                    if (y > maxY || y < minY)
+                    {
+                        ShowAlert();
+                        Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "[弹体]位置Y超出范围:" + y.ToString());
+                        positionAlertTimeSuit2 = DateTime.Now;
+                    }
+                    if (z > maxZ || z < minZ)
+                    {
+                        ShowAlert();
+                        Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "[弹体]位置Z超出范围:" + z.ToString());
+                        positionAlertTimeSuit2 = DateTime.Now;
+                    }
                 }
-                if (y > maxY || y < minY)
-                {
-                    ShowAlert();
-                    Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "位置Y超出范围:" + y.ToString());
-                    positionAlertTime = DateTime.Now;
-                }
-                if (z > maxZ || z < minZ)
-                {
-                    ShowAlert();
-                    Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "位置Z超出范围:" + z.ToString());
-                    positionAlertTime = DateTime.Now;
-                }
-                if (suit == 1)
-                {
-                    myChartControl1.CheckPosition(x, y, z, minX, maxX, minY, maxY, minZ, maxZ);
-                }
-                else
-                {
-                    myChartControl2.CheckPosition(x, y, z, minX, maxX, minY, maxY, minZ, maxZ);
-                }
+                myChartControl2.CheckPosition(x, y, z, minX, maxX, minY, maxY, minZ, maxZ);
             }
         }
 
         private void CheckSpeed(double vx, double vy, double vz, double minVx, double maxVx, double minVy, double maxVy, double minVz, double maxVz, int suit)
         {
-            if ((DateTime.Now - speedAlertTime).TotalSeconds > 5)
+            if (suit == 1)
             {
-                if (vx > maxVx || vx < minVx)
+                if ((DateTime.Now - speedAlertTimeSuit1).TotalSeconds > 5)
                 {
-                    ShowAlert();
-                    Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "速度VX超出范围:" + vx.ToString());
-                    speedAlertTime = DateTime.Now;
+                    {
+                        if (vx > maxVx || vx < minVx)
+                        {
+                            ShowAlert();
+                            Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "[弹头]速度VX超出范围:" + vx.ToString());
+                            speedAlertTimeSuit1 = DateTime.Now;
+                        }
+                        if (vy > maxVy || vy < minVy)
+                        {
+                            ShowAlert();
+                            Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "[弹头]速度VY超出范围:" + vy.ToString());
+                            speedAlertTimeSuit1 = DateTime.Now;
+                        }
+                        if (vz > maxVz || vz < minVz)
+                        {
+                            ShowAlert();
+                            Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "[弹头]速度VZ超出范围:" + vz.ToString());
+                            speedAlertTimeSuit1 = DateTime.Now;
+                        }
+                        myChartControl1.CheckSpeed(vx, vy, vz, minVx, maxVx, minVy, maxVy, minVz, maxVz);
+                    }
                 }
-                if (vy > maxVy || vy < minVy)
+            }
+            else
+            {
+                if ((DateTime.Now - speedAlertTimeSuit2).TotalSeconds > 5)
                 {
-                    ShowAlert();
-                    Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "速度VY超出范围:" + vy.ToString());
-                    speedAlertTime = DateTime.Now;
-                }
-                if (vz > maxVz || vz < minVz)
-                {
-                    ShowAlert();
-                    Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "速度VZ超出范围:" + vz.ToString());
-                    speedAlertTime = DateTime.Now;
-                }
-                if (suit == 1)
-                {
-                    myChartControl1.CheckSpeed(vx, vy, vz, minVx, maxVx, minVy, maxVy, minVz, maxVz);
-                }
-                else
-                {
-                    myChartControl2.CheckSpeed(vx, vy, vz, minVx, maxVx, minVy, maxVy, minVz, maxVz);
+                    {
+                        if (vx > maxVx || vx < minVx)
+                        {
+                            ShowAlert();
+                            Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "[弹体]速度VX超出范围:" + vx.ToString());
+                            speedAlertTimeSuit2 = DateTime.Now;
+                        }
+                        if (vy > maxVy || vy < minVy)
+                        {
+                            ShowAlert();
+                            Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "[弹体]速度VY超出范围:" + vy.ToString());
+                            speedAlertTimeSuit2 = DateTime.Now;
+                        }
+                        if (vz > maxVz || vz < minVz)
+                        {
+                            ShowAlert();
+                            Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_WARN, "[弹体]速度VZ超出范围:" + vz.ToString());
+                            speedAlertTimeSuit2 = DateTime.Now;
+                        }
+                        myChartControl2.CheckSpeed(vx, vy, vz, minVx, maxVx, minVy, maxVy, minVz, maxVz);
+                    }
                 }
             }
         }
 
         private void CheckFallPoint(FallPoint fallPoint, double fallTime, int suit)
         {
-            if (fallPoint.x < -Config.GetInstance().sideLine ||
-                fallPoint.x > Config.GetInstance().sideLine ||
-                fallPoint.y < Config.GetInstance().backwardLine ||
-                fallPoint.y > Config.GetInstance().forwardLine)
-            {
-                if ((DateTime.Now - fallPointAlertTime).TotalSeconds > 5)
-                {
-                    ShowAlert();
-                    alertForm.SetAlert(ideaPoint, fallPoint, fallTime);
-                    alertForm.Show();
-                    Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_SELF_DESTRUCT, String.Format("落点超出范围:X={0},Y={1}", fallPoint.x, fallPoint.y));
-                    fallPointAlertTime = DateTime.Now;
-                }
-            }
-            else
-            {
-                alertForm.Hide();
-            }
             if (suit == 1)
             {
+                if (fallPoint.x < -Config.GetInstance().sideLine ||
+                    fallPoint.x > Config.GetInstance().sideLine ||
+                    fallPoint.y < Config.GetInstance().backwardLine ||
+                    fallPoint.y > Config.GetInstance().forwardLine)
+                {
+                    if ((DateTime.Now - fallPointAlertTimeSuit1).TotalSeconds > 5)
+                    {
+                        ShowAlert();
+                        alertFormSuit1.SetAlert(fallPoint, fallTime, suit);
+                        alertFormSuit1.Show();
+                        Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_SELF_DESTRUCT, String.Format("落点超出范围:X={0},Y={1}", fallPoint.x, fallPoint.y));
+                        fallPointAlertTimeSuit1 = DateTime.Now;
+                    }
+                }
+                else
+                {
+                    alertFormSuit1.Hide();
+                }
                 myChartControl1.CheckFallPoint(fallPoint, fallTime);
             }
             else
             {
+                if (fallPoint.x < -Config.GetInstance().sideLine ||
+                    fallPoint.x > Config.GetInstance().sideLine ||
+                    fallPoint.y < Config.GetInstance().backwardLine ||
+                    fallPoint.y > Config.GetInstance().forwardLine)
+                {
+                    if ((DateTime.Now - fallPointAlertTimeSuit2).TotalSeconds > 5)
+                    {
+                        ShowAlert();
+                        alertFormSuit2.SetAlert(fallPoint, fallTime, suit);
+                        alertFormSuit2.Show();
+                        Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_SELF_DESTRUCT, String.Format("落点超出范围:X={0},Y={1}", fallPoint.x, fallPoint.y));
+                        fallPointAlertTimeSuit2 = DateTime.Now;
+                    }
+                }
+                else
+                {
+                    alertFormSuit2.Hide();
+                }
                 myChartControl2.CheckFallPoint(fallPoint, fallTime);
             }
         }

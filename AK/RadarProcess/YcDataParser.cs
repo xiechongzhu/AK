@@ -682,7 +682,7 @@ namespace RadarProcess
                     {
                         try
                         {
-                            algorithm.CalcResultYc(sObject.jingDu * Math.Pow(10, -7), sObject.weiDu * Math.Pow(10, -7),
+                            algorithm.CalcResultYc(sObject.weiDu * Math.Pow(10, -7), sObject.jingDu * Math.Pow(10, -7),
                                     sObject.haiBaGaoDu * Math.Pow(10, -2), sObject.dongXiangSuDu * Math.Pow(10, -2), sObject.beiXiangSuDu * Math.Pow(10, -2),
                                     sObject.tianXiangSuDu * Math.Pow(10, -2), mainForm.constLaunchFsx, Config.GetInstance().placementHeight,
                                     out FallPoint fallPoint, out double fallTime, out double distance, out double x, out double y, out double z,
@@ -713,7 +713,7 @@ namespace RadarProcess
 
                             if (canId == frameType_daoHangKuaiSu_Tou)
                             {
-                                //套1
+                                //弹头
                                 obj.suit = 1;
                                 YcMessage msg = new YcMessage
                                 {
@@ -728,7 +728,7 @@ namespace RadarProcess
                             }
                             else
                             {
-                                //套2
+                                //弹体
                                 obj.suit = 2;
                                 YcMessage msg = new YcMessage
                                 {
@@ -826,20 +826,20 @@ namespace RadarProcess
                         jiaJiWenDu_Y = br.ReadByte(),                       // Y加计温度
                         jiaJiWenDu_Z = br.ReadByte(),                       // Z加计温度
 
-                        dianYaZhi_zheng5V = br.ReadChar(),                  // +5V电压值     当量0.05
-                        dianYaZhi_fu5V = br.ReadChar(),                     // -5V电压值     当量0.05
+                        dianYaZhi_zheng5V = br.ReadSByte(),                  // +5V电压值     当量0.05
+                        dianYaZhi_fu5V = br.ReadSByte(),                     // -5V电压值     当量0.05
 
-                        dianYaZhi_zheng15V = br.ReadChar(),                 // +15V电压值    当量0.02
-                        dianYaZhi_fu15V = br.ReadChar(),                    // -15V电压值    当量0.02
+                        dianYaZhi_zheng15V = br.ReadSByte(),                 // +15V电压值    当量0.02
+                        dianYaZhi_fu15V = br.ReadSByte(),                    // -15V电压值    当量0.02
 
-                        tuoLuoDianYaZhi_X_zheng5V = br.ReadChar(),          // X陀螺+5V电压值     当量0.05
-                        tuoLuoDianYaZhi_X_fu5V = br.ReadChar(),             // X陀螺-5V电压值     当量0.05
+                        tuoLuoDianYaZhi_X_zheng5V = br.ReadSByte(),          // X陀螺+5V电压值     当量0.05
+                        tuoLuoDianYaZhi_X_fu5V = br.ReadSByte(),             // X陀螺-5V电压值     当量0.05
 
-                        tuoLuoDianYaZhi_Y_zheng5V = br.ReadChar(),          // Y陀螺+5V电压值     当量0.05
-                        tuoLuoDianYaZhi_Y_fu5V = br.ReadChar(),             // Y陀螺-5V电压值     当量0.05
+                        tuoLuoDianYaZhi_Y_zheng5V = br.ReadSByte(),          // Y陀螺+5V电压值     当量0.05
+                        tuoLuoDianYaZhi_Y_fu5V = br.ReadSByte(),             // Y陀螺-5V电压值     当量0.05
 
-                        tuoLuoDianYaZhi_Z_zheng5V = br.ReadChar(),          // Z陀螺+5V电压值     当量0.05
-                        tuoLuoDianYaZhi_Z_fu5V = br.ReadChar(),             // Z陀螺-5V电压值     当量0.05
+                        tuoLuoDianYaZhi_Z_zheng5V = br.ReadSByte(),          // Z陀螺+5V电压值     当量0.05
+                        tuoLuoDianYaZhi_Z_fu5V = br.ReadSByte(),             // Z陀螺-5V电压值     当量0.05
 
                         yuTuoLuoTongXingCuoWuJiShu_X = br.ReadByte(),       // 与X陀螺通信错误计数（一直循环计数）
                         yuTuoLuoTongXingCuoWuJiShu_Y = br.ReadByte(),       // 与Y陀螺通信错误计数（一直循环计数）

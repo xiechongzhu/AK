@@ -4,6 +4,8 @@ using NPOI.XSSF.UserModel;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
+using System.Resources;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -62,9 +64,15 @@ namespace RadarProcess
 
         private void btnOK_Click(object sender, EventArgs e)
         {
+            String errMsg;
             if(editRadarMultiCastIp.Text.Equals(String.Empty) || editTelemetryMultiCastIp.Text.Equals(String.Empty))
             {
-                MessageBox.Show("IP地址不能为空", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show("IP地址不能为空", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if(!CheckInputParams(out errMsg))
+            {
+                XtraMessageBox.Show(errMsg, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             try
@@ -101,7 +109,6 @@ namespace RadarProcess
 
                 return;
             }
-            String errMsg;
             if(!Config.GetInstance().SaveConfig(out errMsg))
             {
                 MessageBox.Show("保存配置文件失败," + errMsg, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -140,12 +147,19 @@ namespace RadarProcess
         private void btnDownload_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "参数模板文件|*.xlsx";
+            saveFileDialog.Filter = "参数文件|*.xlsx";
             if(saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 try
                 {
-                    File.Copy(@"resource/参数模板.xlsx", saveFileDialog.FileName, true);
+                    Assembly assembly = Assembly.GetEntryAssembly();
+                    ResourceManager resourceManager = new ResourceManager("RadarProcess.Properties.Resources", assembly);
+                    byte[] fileByte = resourceManager.GetObject("参数模板") as byte[];
+                    using (FileStream fileStream = File.Create(saveFileDialog.FileName))
+                    {
+                        fileStream.Write(fileByte, 0, fileByte.Length);
+                    }
+                    XtraMessageBox.Show("下载模板参数文件成功", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch(Exception ex)
                 {
@@ -209,7 +223,31 @@ namespace RadarProcess
                         };
                         if(minMaxValue.Time < startTime)
                         {
-                            throw new Exception(String.Format("第{0}行时间数据不正确", i + 1));
+                            throw new Exception(String.Format("第{0}行数据时间不正确", i));
+                        }
+                        if (minMaxValue.MinX >= minMaxValue.MaxX)
+                        {
+                            throw new Exception(String.Format("第{0}行数据位置X下限大于或等于上限", i));
+                        }
+                        if (minMaxValue.MinY >= minMaxValue.MaxY)
+                        {
+                            throw new Exception(String.Format("第{0}行数据位置Y下限大于或等于上限", i));
+                        }
+                        if (minMaxValue.MinZ >= minMaxValue.MaxZ)
+                        {
+                            throw new Exception(String.Format("第{0}行数据位置Z下限大于或等于上限", i));
+                        }
+                        if (minMaxValue.MinVx >= minMaxValue.MaxVx)
+                        {
+                            throw new Exception(String.Format("第{0}行数据速度Vx下限大于或等于上限", i));
+                        }
+                        if (minMaxValue.MinVy >= minMaxValue.MaxVy)
+                        {
+                            throw new Exception(String.Format("第{0}行数据速度Vy下限大于或等于上限", i));
+                        }
+                        if (minMaxValue.MinVz >= minMaxValue.MaxVz)
+                        {
+                            throw new Exception(String.Format("第{0}行数据速度Vz下限大于或等于上限", i));
                         }
                         startTime = minMaxValue.Time;
                         minMaxValues.Add(minMaxValue);
@@ -222,6 +260,69 @@ namespace RadarProcess
                 minMaxValues.Clear();
                 XtraMessageBox.Show("导入参数文件失败:" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             } 
+        }
+
+        private bool CheckInputParams(out String errMsg)
+        {
+            errMsg = String.Empty;
+            double longitudeInit = double.Parse(editLongitudeInit.Text);
+            if(longitudeInit < 0 || longitudeInit > 180)
+            {
+                errMsg = "经度范围:[0,180]";
+                return false;
+            }
+
+            double latitudeInit = double.Parse(editLatitudeInit.Text);
+            if(latitudeInit <=0 || latitudeInit > 90)
+            {
+                errMsg = "纬度范围:(0.90)";
+                return false;
+            }
+
+            double heightInit = double.Parse(editHeightInit.Text);
+            if(heightInit < -1000 || heightInit > 10000)
+            {
+                errMsg = "初始高度范围:[-1000,10000]";
+                return false;
+            }
+
+            double azimuthInit = double.Parse(editAzimuthInit.Text);
+            if(azimuthInit <= -180 || azimuthInit > 180)
+            {
+                errMsg = "初始方位角范围:(-180,180]";
+                return false;
+            }
+
+            double placementHeight = double.Parse(editPlacementHeight.Text);
+            if(placementHeight < 0)
+            {
+                errMsg = "落点附近高度不能为负数";
+                return false;
+            }
+
+            double fligtShot = double.Parse(editFligtShot.Text);
+            if(fligtShot < 0)
+            {
+                errMsg = "理论射程不能为负数";
+                return false;
+            }
+
+            double forwardLine = double.Parse(editForwardLine.Text);
+            double backLine = double.Parse(editBackLine.Text);
+            if(fligtShot > forwardLine || fligtShot < backLine)
+            {
+                errMsg = "理论射程必须在前向必炸线和后向必炸线范围之间";
+                return false;
+            }
+
+            double sideLine = double.Parse(editSideLine.Text);
+            if(sideLine <=0)
+            {
+                errMsg = "侧向必炸线必须大于0";
+                return false;
+            }
+
+            return true;
         }
     }
 }

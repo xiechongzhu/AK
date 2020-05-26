@@ -40,7 +40,7 @@ namespace RadarProcess
 
         public void SetYcFlyTime(int time)
         {
-            if (telemetryFlyTime == -1)
+            if (telemetryFlyTime == -1 && time >= 0)
             {
                 telemetryFlyTime = time;
                 recvTelemetryFlyTime = DateTime.Now;
@@ -59,6 +59,7 @@ namespace RadarProcess
 
         public void Start()
         {
+            isPrintRaderLog = false;
             sObjectListSuit1.Clear();
             sObjectListSuit2.Clear();
             T0 = -1;
@@ -155,7 +156,7 @@ namespace RadarProcess
                             }
                             if (T0 == -1)
                             {
-                                if (isStartGetT0)
+                                if (isStartGetT0 && sHead.Time >= T0Delay)
                                 {
                                     T0 = sHead.Time - T0Delay;
                                     isStartGetT0 = false;
@@ -259,9 +260,12 @@ namespace RadarProcess
                             if (T0 == -1 && telemetryFlyTime != -1 && recvRaderT0 != DateTime.MinValue && recvTelemetryFlyTime != DateTime.MinValue
                                 && recvRaderT0 >= recvTelemetryFlyTime)
                             {
-                                T0 = sHead.Time - (int)(recvRaderT0 - recvTelemetryFlyTime).TotalMilliseconds - telemetryFlyTime;
-                                Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, String.Format("收到雷测T0帧，T0={0}ms", T0));
-                                PostMessage(mainFormHandle, MainForm.WM_T0, 0, IntPtr.Zero);
+                                if (sHead.Time > (int)(recvRaderT0 - recvTelemetryFlyTime).TotalMilliseconds - telemetryFlyTime)
+                                {
+                                    T0 = sHead.Time - (int)(recvRaderT0 - recvTelemetryFlyTime).TotalMilliseconds - telemetryFlyTime;
+                                    Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, String.Format("收到雷测T0帧，T0={0}ms", T0));
+                                    PostMessage(mainFormHandle, MainForm.WM_T0, 0, IntPtr.Zero);
+                                }
                             }
                         }
                     }

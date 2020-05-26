@@ -63,8 +63,8 @@
             this.netWorkTimer = new System.Windows.Forms.Timer(this.components);
             this.layoutControl4 = new DevExpress.XtraLayout.LayoutControl();
             this.xtraTabControl = new DevExpress.XtraTab.XtraTabControl();
-            this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
-            this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
+            this.TabPageHead = new DevExpress.XtraTab.XtraTabPage();
+            this.TabPageBody = new DevExpress.XtraTab.XtraTabPage();
             this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -288,6 +288,7 @@
             // 
             // layoutControlItem6
             // 
+            this.layoutControlItem6.ContentVisible = false;
             this.layoutControlItem6.Control = this.btnHistory;
             this.layoutControlItem6.Location = new System.Drawing.Point(240, 0);
             this.layoutControlItem6.MaxSize = new System.Drawing.Size(80, 76);
@@ -465,24 +466,24 @@
             // 
             this.xtraTabControl.Location = new System.Drawing.Point(12, 12);
             this.xtraTabControl.Name = "xtraTabControl";
-            this.xtraTabControl.SelectedTabPage = this.xtraTabPage1;
+            this.xtraTabControl.SelectedTabPage = this.TabPageHead;
             this.xtraTabControl.Size = new System.Drawing.Size(1907, 672);
             this.xtraTabControl.TabIndex = 4;
             this.xtraTabControl.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.xtraTabPage1,
-            this.xtraTabPage2});
+            this.TabPageHead,
+            this.TabPageBody});
             // 
-            // xtraTabPage1
+            // TabPageHead
             // 
-            this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(1903, 628);
-            this.xtraTabPage1.Text = "套I";
+            this.TabPageHead.Name = "TabPageHead";
+            this.TabPageHead.Size = new System.Drawing.Size(1903, 628);
+            this.TabPageHead.Text = "弹头";
             // 
-            // xtraTabPage2
+            // TabPageBody
             // 
-            this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(1903, 628);
-            this.xtraTabPage2.Text = "套II";
+            this.TabPageBody.Name = "TabPageBody";
+            this.TabPageBody.Size = new System.Drawing.Size(1903, 628);
+            this.TabPageBody.Text = "弹体";
             // 
             // layoutControlGroup3
             // 
@@ -623,8 +624,8 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.LayoutControl layoutControl3;
         private DevExpress.XtraTab.XtraTabControl xtraTabControl;
-        private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
-        private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
+        private DevExpress.XtraTab.XtraTabPage TabPageHead;
+        private DevExpress.XtraTab.XtraTabPage TabPageBody;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
     }
 }
