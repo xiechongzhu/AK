@@ -81,7 +81,7 @@
   <ItemGroup>
     <Reference Include="Algorithm, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\雷测Matlab算法\Algorithm\for_redistribution_files_only\Algorithm.dll</HintPath>
+      <HintPath>libs\Algorithm.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Charts.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
