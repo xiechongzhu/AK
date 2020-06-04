@@ -416,8 +416,9 @@ namespace RadarProcess
 
                     // 拼接上一次剩余的包
                     // TODO +2添加两个字节的校验
-                    byte[] canData = new byte[lastDataLen + 2];
-                    Array.Copy(buffer, 1, canData, 0, lastDataLen + 2);
+                    int copyLen = Math.Min(lastDataLen + 2, buffer.Length - 1);
+                    byte[] canData = new byte[copyLen];
+                    Array.Copy(buffer, 1, canData, 0, copyLen);
                     statusBuffer = statusBuffer.Concat(canData).ToArray();
 
                     //---------------------------------------------------//
@@ -620,7 +621,7 @@ namespace RadarProcess
                             if (FlyTime == 0)
                             {
                                 FlyTime = (int)(sObject.feiXingZongShiJian * 1000);
-                                FlyStartTime = (int)(sObject.GNSSTime) - FlyTime;
+                                FlyStartTime = (int)(sObject.GNSSTime * 1000) - FlyTime;
                                 Logger.GetInstance().Log(Logger.LOG_LEVEL.LOG_INFO, String.Format("遥测起飞时间:{0}", FlyStartTime));
                             }
                         }

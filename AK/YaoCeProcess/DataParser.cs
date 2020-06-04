@@ -458,8 +458,9 @@ namespace YaoCeProcess
 
                     // 拼接上一次剩余的包
                     // TODO +2添加两个字节的校验
-                    byte[] canData = new byte[lastDataLen + 2];
-                    Array.Copy(buffer, 1, canData, 0, lastDataLen + 2);
+                    int copyLen = Math.Min(lastDataLen + 2, buffer.Length - 1);
+                    byte[] canData = new byte[copyLen];
+                    Array.Copy(buffer, 1, canData, 0, copyLen);
                     statusBuffer = statusBuffer.Concat(canData).ToArray();
 
                     //---------------------------------------------------//

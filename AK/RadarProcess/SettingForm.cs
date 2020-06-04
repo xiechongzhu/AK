@@ -207,7 +207,7 @@ namespace RadarProcess
                         int time = (int)sheet.GetRow(i).GetCell(0).NumericCellValue;
                         MinMaxValue minMaxValue = new MinMaxValue
                         {
-                            Time = (int)(sheet.GetRow(i).GetCell(0).NumericCellValue*1000),
+                            Time = time,
                             MinX = sheet.GetRow(i).GetCell(1).NumericCellValue,
                             MaxX = sheet.GetRow(i).GetCell(2).NumericCellValue,
                             MinY = sheet.GetRow(i).GetCell(3).NumericCellValue,
