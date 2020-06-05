@@ -136,18 +136,18 @@
             // 
             // picTelemetryNetwork
             // 
-            this.picTelemetryNetwork.Location = new System.Drawing.Point(1843, 12);
+            this.picTelemetryNetwork.Location = new System.Drawing.Point(1839, 12);
             this.picTelemetryNetwork.Name = "picTelemetryNetwork";
-            this.picTelemetryNetwork.Size = new System.Drawing.Size(100, 76);
+            this.picTelemetryNetwork.Size = new System.Drawing.Size(104, 76);
             this.picTelemetryNetwork.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picTelemetryNetwork.TabIndex = 13;
             this.picTelemetryNetwork.TabStop = false;
             // 
             // picRadarNetwork
             // 
-            this.picRadarNetwork.Location = new System.Drawing.Point(1628, 12);
+            this.picRadarNetwork.Location = new System.Drawing.Point(1624, 12);
             this.picRadarNetwork.Name = "picRadarNetwork";
-            this.picRadarNetwork.Size = new System.Drawing.Size(100, 76);
+            this.picRadarNetwork.Size = new System.Drawing.Size(104, 76);
             this.picRadarNetwork.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picRadarNetwork.TabIndex = 12;
             this.picRadarNetwork.TabStop = false;
@@ -170,11 +170,11 @@
             // editT0
             // 
             this.editT0.Enabled = false;
-            this.editT0.Location = new System.Drawing.Point(792, 31);
+            this.editT0.Location = new System.Drawing.Point(792, 28);
             this.editT0.Name = "editT0";
             this.editT0.Properties.Mask.EditMask = "d";
             this.editT0.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.editT0.Size = new System.Drawing.Size(138, 38);
+            this.editT0.Size = new System.Drawing.Size(138, 44);
             this.editT0.StyleController = this.layoutControl1;
             this.editT0.TabIndex = 10;
             // 
@@ -354,7 +354,7 @@
             this.layoutControlItem15.Size = new System.Drawing.Size(215, 80);
             this.layoutControlItem15.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem15.Text = "雷测数据:";
-            this.layoutControlItem15.TextSize = new System.Drawing.Size(108, 24);
+            this.layoutControlItem15.TextSize = new System.Drawing.Size(104, 29);
             // 
             // layoutControlItem19
             // 
@@ -366,7 +366,7 @@
             this.layoutControlItem19.Size = new System.Drawing.Size(215, 80);
             this.layoutControlItem19.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem19.Text = "遥测数据:";
-            this.layoutControlItem19.TextSize = new System.Drawing.Size(108, 24);
+            this.layoutControlItem19.TextSize = new System.Drawing.Size(104, 29);
             // 
             // layoutControlItem16
             // 
@@ -476,13 +476,13 @@
             // TabPageHead
             // 
             this.TabPageHead.Name = "TabPageHead";
-            this.TabPageHead.Size = new System.Drawing.Size(1903, 628);
+            this.TabPageHead.Size = new System.Drawing.Size(1903, 619);
             this.TabPageHead.Text = "弹头";
             // 
             // TabPageBody
             // 
             this.TabPageBody.Name = "TabPageBody";
-            this.TabPageBody.Size = new System.Drawing.Size(1903, 628);
+            this.TabPageBody.Size = new System.Drawing.Size(1903, 619);
             this.TabPageBody.Text = "弹体";
             // 
             // layoutControlGroup3
@@ -547,7 +547,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
-            this.Text = "雷测数据显示软件";
+            this.Text = "雷测数据显示软件 V1.1.1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
