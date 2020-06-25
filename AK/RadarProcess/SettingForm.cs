@@ -273,9 +273,9 @@ namespace RadarProcess
             }
 
             double latitudeInit = double.Parse(editLatitudeInit.Text);
-            if(latitudeInit <=0 || latitudeInit > 90)
+            if(latitudeInit <=0 || latitudeInit >= 90)
             {
-                errMsg = "纬度范围:(0.90)";
+                errMsg = "纬度范围:(0,90)";
                 return false;
             }
 
@@ -309,6 +309,11 @@ namespace RadarProcess
 
             double forwardLine = double.Parse(editForwardLine.Text);
             double backLine = double.Parse(editBackLine.Text);
+            if(forwardLine <= backLine)
+            {
+                errMsg = "前向必炸线必须大于后向必炸线";
+                return false;
+            }
             if(fligtShot > forwardLine || fligtShot < backLine)
             {
                 errMsg = "理论射程必须在前向必炸线和后向必炸线范围之间";
