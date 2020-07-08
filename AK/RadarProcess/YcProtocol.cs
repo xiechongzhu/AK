@@ -1,9 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿/******************************************************************* 
+* @brief : 遥测协议 
+* @author : 谢崇竹 
+* @date : 2020/6/27 22:43 
+* @version : ver 1.0 
+* @inparam : 
+* @outparam : 
+*******************************************************************/
+using System;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RadarProcess
 {

@@ -1,7 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿/******************************************************************* 
+* @brief : 程序入口 
+* @author : 谢崇竹 
+* @date : 2020/6/27 22:43 
+* @version : ver 1.0 
+* @inparam : 
+* @outparam : 
+*******************************************************************/
+using System;
 using System.Windows.Forms;
 
 namespace RadarProcess

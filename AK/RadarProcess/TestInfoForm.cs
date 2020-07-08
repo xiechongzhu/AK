@@ -1,24 +1,39 @@
-﻿using DevExpress.XtraEditors;
+﻿/******************************************************************* 
+* @brief : 历史数据窗口 
+* @author : 谢崇竹 
+* @date : 2020/6/27 22:43 
+* @version : ver 1.0 
+* @inparam : 
+* @outparam : 
+*******************************************************************/
+using DevExpress.XtraEditors;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
+/// <summary>
+/// namespace RadarProcess
+/// </summary>
 namespace RadarProcess
 {
+    /// <summary>
+    /// class TestInfoForm
+    /// </summary>
     public partial class TestInfoForm : Form
     {
+        /// <summary>
+        /// 构造函数
+        /// </summary>
         public TestInfoForm()
         {
             InitializeComponent();
             cbxSource.SelectedIndex = Config.GetInstance().source;
         }
 
+        /// <summary>
+        /// btnOK_Click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOK_Click(object sender, EventArgs e)
         {
             if(editTestName.Text.Trim().Length == 0 || editOperator.Text.Trim().Length == 0)
@@ -32,11 +47,22 @@ namespace RadarProcess
             Close();
         }
 
+        /// <summary>
+        /// btnCancel_Click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Close();
         }
 
+        /// <summary>
+        /// GetTestInfo
+        /// </summary>
+        /// <param name="testName"></param>
+        /// <param name="testOperator"></param>
+        /// <param name="testComment"></param>
         public void GetTestInfo(out String testName, out String testOperator, out String testComment)
         {
             testName = editTestName.Text.Trim();

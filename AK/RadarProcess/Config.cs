@@ -1,19 +1,39 @@
-﻿using System;
+﻿/******************************************************************* 
+* @brief : 配置类代码 
+* @author : 谢崇竹 
+* @date : 2020/6/27 22:43 
+* @version : ver 1.0 
+* @inparam : 
+* @outparam : 
+*******************************************************************/
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
 
 namespace RadarProcess
 {
+    /// <summary>
+    /// 配置类
+    /// </summary>
     [Serializable]
     public class Config
     {
-        private static String configFile = "./Config.xml";
+        //配置文件
+        private static readonly String configFile = "./Config.xml";
+        /// <summary>
+        /// 构造函数
+        /// </summary>
         private Config() { }
+        //单例
         private static Config __instance = new Config();
+        /// <summary>
+        /// 获取单例
+        /// </summary>
+        /// <returns></returns>
         public static Config GetInstance()
         {
-            return __instance;
+            return __instance;  //返回单例
         }
 
         public double longitudeInit;        //初始位置经度
@@ -31,33 +51,43 @@ namespace RadarProcess
         public String strTelemetryMultiCastIpAddr;  //遥测组播地址
         public UInt16 telemetryPort;                //遥测组播端口
         public String stationId;                   //雷达站编号
-        public int delayT0;
+        public int delayT0;                     //T0延迟
         public double speedError;               //速度误差
         public double pointError;               //落点误差
-        public int maxPointCount;
-        public int source;
+        public int maxPointCount;               //最大显示点数
+        public int source;                      //数据源
 
+        /// <summary>
+        /// 加载配置文件
+        /// </summary>
+        /// <param name="errMsg"></param>
+        /// <returns></returns>
         public bool LoadConfigFile(out String errMsg)
         {
-            StreamReader file = null;
+            StreamReader file = null;   //读流
             try
             {
-                file = new StreamReader(configFile);
+                file = new StreamReader(configFile);    //创建流
                 XmlSerializer reader = new XmlSerializer(typeof(Config));
-                Config __config = (Config)reader.Deserialize(file);
+                Config __config = (Config)reader.Deserialize(file); //反序列化
                 __instance = __config;
-                file.Close();
+                file.Close(); //关闭文件
             }
-            catch (Exception ex)
+            catch (Exception ex)    //异常
             {
-                errMsg = ex.Message;
-                file?.Close();
+                errMsg = ex.Message;    //异常消息
+                file?.Close(); //关闭文件
                 return false;
             }
             errMsg = String.Empty;
             return true;
         }
 
+        /// <summary>
+        /// 保存配置
+        /// </summary>
+        /// <param name="errMsg"></param>
+        /// <returns></returns>
         public bool SaveConfig(out String errMsg)
         {
             FileStream file = File.Create(configFile);
@@ -68,31 +98,75 @@ namespace RadarProcess
             }
             catch (Exception ex)
             {
+                //关闭文件
                 errMsg = ex.Message;
                 file.Close();
                 return false;
             }
+            //关闭文件
             file.Close();
             errMsg = String.Empty;
             return true;
         }
     }
 
+    /// <summary>
+    /// 上下限
+    /// </summary>
     [Serializable]
     public class MinMaxValue
     {
+        /// <summary>
+        /// 时间
+        /// </summary>
         public int Time;
+        /// <summary>
+        /// X最小值
+        /// </summary>
         public double MinX;
+        /// <summary>
+        /// X最大值
+        /// </summary>
         public double MaxX;
+        /// <summary>
+        /// Y最小值
+        /// </summary>
         public double MinY;
+        /// <summary>
+        /// Y最大值
+        /// </summary>
         public double MaxY;
+        /// <summary>
+        /// Z最小值
+        /// </summary>
         public double MinZ;
+        /// <summary>
+        /// Z最大值
+        /// </summary>
         public double MaxZ;
+        /// <summary>
+        /// Vx最小值
+        /// </summary>
         public double MinVx;
+        /// <summary>
+        /// Vx最大值
+        /// </summary>
         public double MaxVx;
+        /// <summary>
+        /// Vy最小值
+        /// </summary>
         public double MinVy;
+        /// <summary>
+        /// Vy最大值
+        /// </summary>
         public double MaxVy;
+        /// <summary>
+        /// Vz最小值
+        /// </summary>
         public double MinVz;
+        /// <summary>
+        /// Vz最大值
+        /// </summary>
         public double MaxVz;
     }
 }

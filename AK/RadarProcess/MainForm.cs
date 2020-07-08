@@ -1,4 +1,12 @@
-﻿using DataModels;
+﻿/******************************************************************* 
+* @brief : 主窗口代码 
+* @author : 谢崇竹 
+* @date : 2020/6/27 22:43 
+* @version : ver 1.0 
+* @inparam : 
+* @outparam : 
+*******************************************************************/
+using DataModels;
 using System;
 using System.Drawing;
 using System.Net;
@@ -9,17 +17,24 @@ using System.Runtime.InteropServices;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-using DevExpress.XtraCharts;
 using DevExpress.XtraEditors;
 using static RadarProcess.DataParser;
-using DevExpress.Utils.Extensions;
 using System.Reflection;
 using System.Resources;
 
+/// <summary>
+/// namespace
+/// </summary>
 namespace RadarProcess
 {
+    /// <summary>
+    /// 主窗口
+    /// </summary>
     public partial class MainForm : Form
     {
+        /// <summary>
+        /// 闪烁类型
+        /// </summary>
         public enum FlashType : uint
         {
             FLASHW_STOP = 0, //停止闪烁
@@ -32,6 +47,9 @@ namespace RadarProcess
             FLASHW_TIMERNOFG = FLASHW_TRAY | FLASHW_PARAM2 //未激活时闪烁任务栏直到发送停止标志或者窗体被激活，停止后高亮
         }
 
+        /// <summary>
+        /// FLASHWINFO
+        /// </summary>
         public struct FLASHWINFO
         {
             /// <summary>
@@ -56,42 +74,154 @@ namespace RadarProcess
             public uint dwTimeout;
         }
 
+        /// <summary>
+        /// FlashWindowEx
+        /// </summary>
+        /// <param name="pwfi"></param>
+        /// <returns></returns>
         [DllImport("user32.dll")]
         private static extern bool FlashWindowEx(ref FLASHWINFO pwfi);
 
+        /// <summary>
+        /// player
+        /// </summary>
         private System.Windows.Media.MediaPlayer player = new System.Windows.Media.MediaPlayer();
+        /// <summary>
+        /// isAlertPlaying
+        /// </summary>
         private bool isAlertPlaying = false;
+        /// <summary>
+        /// WM_USER
+        /// </summary>
         private const int WM_USER = 0x400;
+        /// <summary>
+        /// WM_RADAR_DATA
+        /// </summary>
         public const int WM_RADAR_DATA = WM_USER + 100;
+        /// <summary>
+        /// WM_RADAR_DATA_COMMING
+        /// </summary>
         public const int WM_RADAR_DATA_COMMING = WM_USER + 101;
+        /// <summary>
+        /// WM_TELEMETRY_DATA_COMMING
+        /// </summary>
         public const int WM_TELEMETRY_DATA_COMMING = WM_USER + 102;
+        /// <summary>
+        /// WM_USER
+        /// </summary>
         public const int WM_T0 = WM_USER + 103;
+        /// <summary>
+        /// WM_YC_I
+        /// </summary>
         public const int WM_YC_I = WM_USER + 104;
+        /// <summary>
+        /// WM_YC_II
+        /// </summary>
         public const int WM_YC_II = WM_USER + 105;
 
+        /// <summary>
+        /// 
+        /// </summary>
         private UdpClient udpRadarClient;
+        /// <summary>
+        /// 
+        /// </summary>
         private UdpClient udpTelemetryClient;
+        /// <summary>
+        /// 
+        /// </summary>
         private DataParser dataParser;
+        /// <summary>
+        /// 
+        /// </summary>
         private DataLogger dataLogger = new DataLogger();
+        /// <summary>
+        /// 
+        /// </summary>
         private HistoryData historyData = new HistoryData();
-        private DateTime positionAlertTimeSuit1, positionAlertTimeSuit2, speedAlertTimeSuit1, speedAlertTimeSuit2, fallPointAlertTimeSuit1, fallPointAlertTimeSuit2;
+        /// <summary>
+        /// 
+        /// </summary>
+        private DateTime positionAlertTimeSuit1;
+        /// <summary>
+        /// 
+        /// </summary>
+        private DateTime positionAlertTimeSuit2;
+        /// <summary>
+        /// 
+        /// </summary>
+        private DateTime speedAlertTimeSuit1;
+        /// <summary>
+        /// 
+        /// </summary>
+        private DateTime speedAlertTimeSuit2;
+        /// <summary>
+        /// 
+        /// </summary>
+        private DateTime fallPointAlertTimeSuit1;
+        /// <summary>
+        /// 
+        /// </summary>
+        private DateTime fallPointAlertTimeSuit2;
+        /// <summary>
+        /// 
+        /// </summary>
         private FallPoint ideaPoint;
+        /// <summary>
+        /// 
+        /// </summary>
         Algorithm algorithm = new Algorithm();
+        /// <summary>
+        /// 
+        /// </summary>
         public ConstLaunch constLaunchFsx;
+        /// <summary>
+        /// 
+        /// </summary>
         private AlertForm alertFormSuit1 = new AlertForm();
+        /// <summary>
+        /// 
+        /// </summary>
         private AlertForm alertFormSuit2 = new AlertForm();
+        /// <summary>
+        /// 
+        /// </summary>
         List<ListViewItem> logItemList = new List<ListViewItem>();
+        /// <summary>
+        /// 
+        /// </summary>
         private int MAX_CHART_POINTS = 1000;
-
+        /// <summary>
+        /// 
+        /// </summary>
         private Image grayLedImage;
+        /// <summary>
+        /// 
+        /// </summary>
         private Image greenLedImage;
+        /// <summary>
+        /// 
+        /// </summary>
         private Image redLedImage;
+        /// <summary>
+        /// 
+        /// </summary>
         private DateTime recvRaderNetworkDataTime;
+        /// <summary>
+        /// 
+        /// </summary>
         private DateTime recvTelemetryNetworkDataTime;
-
+        /// <summary>
+        /// 
+        /// </summary>
         private MyChartControl myChartControl1 = new MyChartControl();
+        /// <summary>
+        /// 
+        /// </summary>
         private MyChartControl myChartControl2 = new MyChartControl();
-
+        /// <summary>
+        /// 构造函数
+        /// </summary>
         public MainForm()
         {
             dataParser = new DataParser(this);
@@ -106,6 +236,7 @@ namespace RadarProcess
             fallPointAlertTimeSuit1 = fallPointAlertTimeSuit2 = DateTime.MinValue;
             player.MediaEnded += Player_MediaEnded;
             player.Open(new Uri(AppDomain.CurrentDomain.BaseDirectory + @"\mp3\alert.mp3"));
+            //加载配置
             if (Config.GetInstance().LoadConfigFile(out _))
             {
                 InitChartPoints();
@@ -115,6 +246,7 @@ namespace RadarProcess
 
             Assembly assembly = Assembly.GetEntryAssembly();
             ResourceManager resourceManager = new ResourceManager("RadarProcess.Properties.Resources", assembly);
+            //状态灯设置为灰色
             grayLedImage = (Image)resourceManager.GetObject("LED_gray");
             greenLedImage = (Image)resourceManager.GetObject("LED_green");
             redLedImage = (Image)resourceManager.GetObject("LED_red");
@@ -123,6 +255,11 @@ namespace RadarProcess
             picTelemetryNetwork.Image = grayLedImage;
         }
 
+        /// <summary>
+        /// btnSetting_Click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSetting_Click(object sender, EventArgs e)
         {
             SettingForm settingForm = new SettingForm();
@@ -137,6 +274,11 @@ namespace RadarProcess
             }
         }
 
+        /// <summary>
+        /// btnStart_Click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnStart_Click(object sender, EventArgs e)
         {
             TestInfoForm testInfoForm = new TestInfoForm();
@@ -212,6 +354,10 @@ namespace RadarProcess
             netWorkTimer.Start();
         }
 
+        /// <summary>
+        /// EndRadarUdpReceive
+        /// </summary>
+        /// <param name="ar"></param>
         private void EndRadarUdpReceive(IAsyncResult ar)
         {
             if (udpRadarClient != null)
@@ -229,6 +375,10 @@ namespace RadarProcess
             }
         }
 
+        /// <summary>
+        /// EndTelemetryUdpReceive
+        /// </summary>
+        /// <param name="ar"></param>
         private void EndTelemetryUdpReceive(IAsyncResult ar)
         {
             if (udpTelemetryClient != null)
@@ -246,6 +396,11 @@ namespace RadarProcess
             }
         }
 
+        /// <summary>
+        /// btnStop_Click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnStop_Click(object sender, EventArgs e)
         {
             myChartControl1.StopTimer();
@@ -272,7 +427,19 @@ namespace RadarProcess
             picTelemetryNetwork.Image = grayLedImage;
         }
 
+        /// <summary>
+        /// LogDelegate
+        /// </summary>
+        /// <param name="time"></param>
+        /// <param name="level"></param>
+        /// <param name="msg"></param>
         delegate void LogDelegate(DateTime time, Logger.LOG_LEVEL level, String msg);
+        /// <summary>
+        /// Log
+        /// </summary>
+        /// <param name="time"></param>
+        /// <param name="level"></param>
+        /// <param name="msg"></param>
         public void Log(DateTime time, Logger.LOG_LEVEL level, String msg)
         {
             if (InvokeRequired)
@@ -313,6 +480,11 @@ namespace RadarProcess
             }
         }
 
+        /// <summary>
+        /// MainForm_FormClosing
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (btnStop.Enabled)
@@ -321,6 +493,9 @@ namespace RadarProcess
             }
         }
 
+        /// <summary>
+        /// SaveTestInfo
+        /// </summary>
         private void SaveTestInfo()
         {
             try
@@ -372,12 +547,21 @@ namespace RadarProcess
             historyData.Clear();
         }
 
+        /// <summary>
+        /// btnHistory_Click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnHistory_Click(object sender, EventArgs e)
         {
             HistoryForm historyForm = new HistoryForm();
             historyForm.ShowDialog();
         }
 
+        /// <summary>
+        /// DefWndProc
+        /// </summary>
+        /// <param name="m"></param>
         protected override void DefWndProc(ref Message m)
         {
             IntPtr ptr = m.LParam;
@@ -467,6 +651,32 @@ namespace RadarProcess
             }
         }
 
+        /// <summary>
+        /// AddDisplayData
+        /// </summary>
+        /// <param name="time"></param>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="z"></param>
+        /// <param name="vx"></param>
+        /// <param name="vy"></param>
+        /// <param name="vz"></param>
+        /// <param name="minX"></param>
+        /// <param name="maxX"></param>
+        /// <param name="minY"></param>
+        /// <param name="maxY"></param>
+        /// <param name="minZ"></param>
+        /// <param name="maxZ"></param>
+        /// <param name="minVx"></param>
+        /// <param name="maxVx"></param>
+        /// <param name="minVy"></param>
+        /// <param name="maxVy"></param>
+        /// <param name="minVz"></param>
+        /// <param name="maxVz"></param>
+        /// <param name="fallPoint"></param>
+        /// <param name="fallTime"></param>
+        /// <param name="distance"></param>
+        /// <param name="suit"></param>
         private void AddDisplayData(int time, double x, double y, double z, double vx, double vy, double vz, 
             double minX, double maxX, double minY, double maxY, double minZ, double maxZ,
             double minVx, double maxVx, double minVy, double maxVy, double minVz, double maxVz,
@@ -488,6 +698,19 @@ namespace RadarProcess
             }
         }
 
+        /// <summary>
+        /// CheckPosition
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="z"></param>
+        /// <param name="minX"></param>
+        /// <param name="maxX"></param>
+        /// <param name="minY"></param>
+        /// <param name="maxY"></param>
+        /// <param name="minZ"></param>
+        /// <param name="maxZ"></param>
+        /// <param name="suit"></param>
         private void CheckPosition(double x, double y, double z, double minX, double maxX, double minY, double maxY, double minZ, double maxZ, int suit)
         {
             if (suit == 1)
@@ -542,6 +765,19 @@ namespace RadarProcess
             }
         }
 
+        /// <summary>
+        /// CheckSpeed
+        /// </summary>
+        /// <param name="vx"></param>
+        /// <param name="vy"></param>
+        /// <param name="vz"></param>
+        /// <param name="minVx"></param>
+        /// <param name="maxVx"></param>
+        /// <param name="minVy"></param>
+        /// <param name="maxVy"></param>
+        /// <param name="minVz"></param>
+        /// <param name="maxVz"></param>
+        /// <param name="suit"></param>
         private void CheckSpeed(double vx, double vy, double vz, double minVx, double maxVx, double minVy, double maxVy, double minVz, double maxVz, int suit)
         {
             if (suit == 1)
@@ -600,9 +836,15 @@ namespace RadarProcess
             }
         }
 
+        /// <summary>
+        /// CheckFallPoint
+        /// </summary>
+        /// <param name="fallPoint"></param>
+        /// <param name="fallTime"></param>
+        /// <param name="suit"></param>
         private void CheckFallPoint(FallPoint fallPoint, double fallTime, int suit)
         {
-            if (suit == 1)
+            if (suit == 1) //弹头
             {
                 if (fallPoint.x < -Config.GetInstance().sideLine ||
                     fallPoint.x > Config.GetInstance().sideLine ||
@@ -624,7 +866,7 @@ namespace RadarProcess
                 }
                 myChartControl1.CheckFallPoint(fallPoint, fallTime);
             }
-            else
+            else //弹体
             {
                 if (fallPoint.x < -Config.GetInstance().sideLine ||
                     fallPoint.x > Config.GetInstance().sideLine ||
@@ -648,12 +890,18 @@ namespace RadarProcess
             }
         }
 
+        /// <summary>
+        /// ClearAllChart
+        /// </summary>
         private void ClearAllChart()
         {
-            myChartControl1.ClearAllChart();
-            myChartControl2.ClearAllChart();
+            myChartControl1.ClearAllChart(); //清空弹头
+            myChartControl2.ClearAllChart(); //清空弹体
         }
 
+        /// <summary>
+        /// InitChartPoints
+        /// </summary>
         private void InitChartPoints()
         {
             ideaPoint = Algorithm.CalcIdeaPointOfFall();
@@ -661,12 +909,18 @@ namespace RadarProcess
             myChartControl2.InitChartPoints(ideaPoint);
         }
 
+        /// <summary>
+        /// InitPositionSpeedMaxMin
+        /// </summary>
         private void InitPositionSpeedMaxMin()
         {
             myChartControl1.InitPositionSpeedMaxMin();
             myChartControl2.InitPositionSpeedMaxMin();
         }
 
+        /// <summary>
+        /// ShowAlert
+        /// </summary>
         private void ShowAlert()
         {
             if (!isAlertPlaying)
@@ -678,6 +932,12 @@ namespace RadarProcess
             FlashWindow(Handle, FlashType.FLASHW_ALL);
         }
 
+        /// <summary>
+        /// FlashWindow
+        /// </summary>
+        /// <param name="hWnd"></param>
+        /// <param name="type"></param>
+        /// <returns></returns>
         public static bool FlashWindow(IntPtr hWnd, FlashType type)
         {
             FLASHWINFO fInfo = new FLASHWINFO();
@@ -689,6 +949,11 @@ namespace RadarProcess
             return FlashWindowEx(ref fInfo);
         }
 
+        /// <summary>
+        /// logTimer_Tick
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void logTimer_Tick(object sender, EventArgs e)
         {
             if (logItemList.Count > 0)
@@ -708,6 +973,11 @@ namespace RadarProcess
             }
         }
 
+        /// <summary>
+        /// netWorkTimer_Tick
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void netWorkTimer_Tick(object sender, EventArgs e)
         {
             if(DateTime.Now - recvRaderNetworkDataTime > new TimeSpan(0, 0, 0, 0, 200))
@@ -720,6 +990,11 @@ namespace RadarProcess
             }
         }
 
+        /// <summary>
+        /// btnStartT0_Click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnStartT0_Click(object sender, EventArgs e)
         {
             Config.GetInstance().delayT0 = int.Parse(editT0.Text);
@@ -729,12 +1004,23 @@ namespace RadarProcess
             editT0.Enabled = false;
         }
 
+        /// <summary>
+        /// Player_MediaEnded
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Player_MediaEnded(object sender, EventArgs e)
         {
             isAlertPlaying = false;
         }
 
-        private void DisplayFallTimeAndDistance(double fallTime, double distance, int suit)
+        /// <summary>
+        /// DisplayFallTimeAndDistance
+        /// </summary>
+        /// <param name="fallTime"></param>
+        /// <param name="distance"></param>
+        /// <param name="suit"></param>
+        /*private void DisplayFallTimeAndDistance(double fallTime, double distance, int suit)
         {
             if (suit == 1)
             {
@@ -744,6 +1030,6 @@ namespace RadarProcess
             {
                 myChartControl2.DisplayFallTimeAndDistance(fallTime, distance);
             }
-        }
+        }*/
     }
 }

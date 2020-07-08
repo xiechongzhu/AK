@@ -1,20 +1,42 @@
-﻿using Algorithm;
-using ICSharpCode.SharpZipLib.Zip.Compression.Streams;
+﻿/******************************************************************* 
+* @brief : 遥测数据解析 
+* @author : 谢崇竹 
+* @date : 2020/6/27 22:43 
+* @version : ver 1.0 
+* @inparam : 
+* @outparam : 
+*******************************************************************/
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 
+/// <summary>
+/// namespace RadarProcess
+/// </summary>
 namespace RadarProcess
 {
+    /// <summary>
+    /// class YcDataParser
+    /// </summary>
     class YcDataParser
     {
+        /// <summary>
+        /// PostMessage
+        /// </summary>
+        /// <param name="hwnd"></param>
+        /// <param name="Msg"></param>
+        /// <param name="wParam"></param>
+        /// <param name="lParam"></param>
+        /// <returns></returns>
         [DllImport("User32.dll", EntryPoint = "PostMessage")]
         private static extern int PostMessage(IntPtr hwnd, int Msg, int wParam, IntPtr lParam);
 
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="radarParser"></param>
+        /// <param name="mainForm"></param>
         public YcDataParser(DataParser radarParser, MainForm mainForm)
         {
             RadarDataParser = radarParser;
@@ -23,17 +45,20 @@ namespace RadarProcess
             Reset();
         }
 
+        /// <summary>
+        /// Reset
+        /// </summary>
         public void Reset()
         {
             FlyTime = 0;
             pos = 0;
         }
 
-        private int pos;
-        private Algorithm algorithm = new Algorithm();
-        private int FlyTime;
-        private int FlyStartTime;
-        private DataParser RadarDataParser;
+        private int pos; //数据位置
+        private Algorithm algorithm = new Algorithm(); //算法实例
+        private int FlyTime; //起飞时间
+        private int FlyStartTime; //飞行时间
+        private DataParser RadarDataParser; //雷测解析类
         private MainForm mainForm;
         private IntPtr mainFormHandle;
         // 每一个UDP帧固定长度651
