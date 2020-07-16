@@ -105,7 +105,7 @@ namespace DataSender
                 DXMessageBox.Show(ex.Message, "错误", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            Timer.Start(10, true);
+            Timer.Start(uint.Parse(EditInterval.Text), true);
         }
 
         private void Timer_Timer(object sender, EventArgs e)
