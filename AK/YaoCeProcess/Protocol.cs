@@ -151,19 +151,19 @@ namespace YaoCeProcess
 // 
         // NOTE 20200506 协议弄反
 // 
-        public double weiDu; //             // 纬度
+        public int weiDu; //             // 纬度
 // 
-        public double jingDu; //            // 经度
+        public int jingDu; //            // 经度
 // 
-        public float haiBaGaoDu; //         // 海拔高度
+        public int haiBaGaoDu; //         // 海拔高度
 // 
 
 // 
-        public float dongXiangSuDu; //      // 东向速度
+        public int dongXiangSuDu; //      // 东向速度
 // 
-        public float beiXiangSuDu; //       // 北向速度
+        public int beiXiangSuDu; //       // 北向速度
 // 
-        public float tianXiangSuDu; //      // 天向速度
+        public int tianXiangSuDu; //      // 天向速度
 // 
 
 // 
@@ -177,7 +177,7 @@ namespace YaoCeProcess
 // 
         public float zhouXiangGuoZai; //    // 轴向过载
 // 
-        public float GNSSTime; //           // GNSS时间
+        public UInt32 GNSSTime; //           // GNSS时间
 // 
 
 // 
@@ -193,13 +193,33 @@ namespace YaoCeProcess
 // 
         public float yuShiLuoDianZ; //      // 预示落点Z
 // 
-        public double feiXingZongShiJian; // // 飞行总时间
+        public float feiXingZongShiJian; // // 飞行总时间
 // 
-
+        public byte canShiZhuangTai;    // 参试状态
 // 
         public byte ceLueJieDuan; //       // 策略阶段(0-准备 1-起飞 2-一级 3-二级 4-结束)
-// 
-        public byte danTouZhuangTai; //    // 弹头状态(0-状态异常 1-产品遥测上电正常 2-初始化正常 3-一级保险解除
+
+        public byte jueCePanJueJieGuo1;    // 策略结果1
+
+        public byte jueCePanJueJieGuo2;    // 策略结果2
+
+        public byte shuRuCaiJi1;    // 输入采集1
+
+        public byte shuRuCaiJi2;    // 输入采集2
+
+        public byte shuRuCaiJi3;    // 输入采集3
+
+        public byte shuRuCaiJi4;    // 输入采集4
+
+        public float danTouJieBaoXinHao;    // 弹头解保信号
+
+        public float qiBaoXinHao;    // 起爆状态遥测信号
+
+        public float neiBuKongZhiDianYa;    // 内部控制电压
+
+        public float gongLvDianDianYa;  // 功率电电压
+        // 
+        // public byte danTouZhuangTai; //    // 弹头状态(0-状态异常 1-产品遥测上电正常 2-初始化正常 3-一级保险解除
 // 
                                         // 4-二级保险解除 5-收到保险解除信号 6-三级保险解除 7-充电 8-起爆)
 // 
@@ -259,7 +279,7 @@ namespace YaoCeProcess
 // 
 
 // 
-        public byte sysyemStatusTip; //    // 系统状态指示
+        // public byte sysyemStatusTip; //    // 系统状态指示
 // 
                                         // bit0 功率输出闭合（1有效）
 // 
@@ -279,7 +299,7 @@ namespace YaoCeProcess
 // 
 
 // 
-        public byte chuDianZhuangTai; //   // 触点状态指示
+        // public byte chuDianZhuangTai; //   // 触点状态指示
 // 
                                         // bit0 起飞分离脱插信号（0有效）
 // 
@@ -299,7 +319,7 @@ namespace YaoCeProcess
 // 
 
 // 
-        public byte jueCePanJueJieGuo1; // // 策略判决结果1
+        // public byte jueCePanJueJieGuo1; // // 策略判决结果1
 // 
                                         // bit0 总飞行时间（1：有效）
 // 
@@ -319,7 +339,7 @@ namespace YaoCeProcess
 // 
 
 // 
-        public byte jueCePanJueJieGuo2; // // 策略判决结果2
+        // public byte jueCePanJueJieGuo2; // // 策略判决结果2
 // 
                                         // bit0 控制区下限（1：有效）
 // 
@@ -327,7 +347,7 @@ namespace YaoCeProcess
 // 
 
 // 
-        public byte shuChuKaiGuanStatus1; // // 输出开关状态1
+        // public byte shuChuKaiGuanStatus1; // // 输出开关状态1
 // 
                                           // bit0 弹头保险（1：闭合）
 // 
@@ -347,7 +367,7 @@ namespace YaoCeProcess
 // 
 
 // 
-        public byte shuChuKaiGuanStatus2; // // 输出开关状态2
+        // public byte shuChuKaiGuanStatus2; // // 输出开关状态2
 // 
                                           // bit0 二级起爆1（1：闭合）
 // 
@@ -421,21 +441,21 @@ namespace YaoCeProcess
 // 
         // 本5ms速度
 // 
-        public float tuoLuoShuJu_X2; //       // 陀螺X数据2
+        //public float tuoLuoShuJu_X2; //       // 陀螺X数据2
 // 
-        public float tuoLuoShuJu_Y2; //       // 陀螺Y数据2
+        //public float tuoLuoShuJu_Y2; //       // 陀螺Y数据2
 // 
-        public float tuoLuoShuJu_Z2; //       // 陀螺Z数据2
+        //public float tuoLuoShuJu_Z2; //       // 陀螺Z数据2
 // 
 
 // 
         // 本5ms加速度
 // 
-        public float jiaSuDuJiShuJu_X2; //    // 加速度计X数据2
+        //public float jiaSuDuJiShuJu_X2; //    // 加速度计X数据2
 // 
-        public float jiaSuDuJiShuJu_Y2; //    // 加速度计Y数据2
+        //public float jiaSuDuJiShuJu_Y2; //    // 加速度计Y数据2
 // 
-        public float jiaSuDuJiShuJu_Z2; //    // 加速度计Z数据2
+        //public float jiaSuDuJiShuJu_Z2; //    // 加速度计Z数据2
 // 
 
 // 
@@ -608,15 +628,56 @@ namespace YaoCeProcess
 
 // 
         public byte biaoZhiWei2; //            // 标志位2
-// 
-                                            // bit0 bit1 工作模式（00：飞行模式 01：仿真模式1 10：仿真模式2 11：调试模式）
-// 
-                                            // bit5 GPS组合标志（0：惯性 1：组合）
-// 
-                                            // bit6 点火标志(0：未点火 1：已点火)
-// 
-                                            // bit7 分离标志（0：已分离 1：未分离）
-// 
+                                 // 
+                                 // bit0 bit1 工作模式（00：飞行模式 01：仿真模式1 10：仿真模式2 11：调试模式）
+                                 // 
+                                 // bit5 GPS组合标志（0：惯性 1：组合）
+                                 // 
+                                 // bit6 点火标志(0：未点火 1：已点火)
+                                 // 
+                                 // bit7 分离标志（0：已分离 1：未分离）
+
+
+        public int jingDu_ZuHe; //               // 经度（GPS测量）当量：1e-7
+                           // 
+        public int weiDu_ZuHe; //                // 纬度（GPS测量）当量：1e-7
+                          // 
+        public int haiBaGaoDu_ZuHe; //           // 海拔高度（GPS测量）当量：1e-2
+                               // 
+
+        // 
+        public int dongXiangSuDu_ZuHe; //        // 东向速度（GPS测量）当量：1e-2
+                                  // 
+        public int beiXiangSuDu_ZuHe; //         // 北向速度（GPS测量）当量：1e-2
+                                 // 
+        public int tianXiangSuDu_ZuHe; //        // 天向速度（GPS测量）当量：1e-2
+                                       // 
+
+        public float fuYangJiao; //           // 俯仰角
+                                 // 
+        public float gunZhuanJiao; //         // 滚转角
+                                   // 
+        public float pianHangJiao; //         // 偏航角
+                                   // 
+
+        // 
+        // 上5ms速度
+        // 
+        public float tuoLuoShuJu_X; //        // 陀螺X数据
+                                    // 
+        public float tuoLuoShuJu_Y; //        // 陀螺Y数据
+                                    // 
+        public float tuoLuoShuJu_Z; //        // 陀螺Z数据
+                                    // 
+
+        // 
+        // 上5ms加速度
+        // 
+        public float jiaSuDuJiShuJu_X; //     // 加速度计X数据
+                                       // 
+        public float jiaSuDuJiShuJu_Y; //     // 加速度计Y数据
+                                       // 
+        public float jiaSuDuJiShuJu_Z; //     // 加速度计Z数据
     }
 // 
 
@@ -744,7 +805,8 @@ namespace YaoCeProcess
         public float WyJiaoSuDu; //            // Wy角速度
 // 
         public float WzJiaoSuDu; //            // Wz角速度
-// 
+                                 // 
+        public byte BD2SV; //        // BD2SV 可用/参与定位
     }
 // 
 
