@@ -1538,25 +1538,24 @@ namespace YaoCeProcess
                         return; //
 // 
                     }
-// 
+                    // 
 
-// 
+                    // 
                     // 拼接上一次剩余的包
-// 
+                    // 
                     // TODO +2添加两个字节的校验
-// 
-                    byte[] canData = new byte[lastDataLen + 2]; //
-// 
-                    Array.Copy(buffer, 1, canData, 0, lastDataLen + 2); //
-// 
-                    statusBuffer = statusBuffer.Concat(canData).ToArray(); //
-// 
+                    // 
+                    int copyLen = Math.Min(lastDataLen + 2, buffer.Length - 1);
+                    byte[] canData = new byte[copyLen];
+                    Array.Copy(buffer, 1, canData, 0, copyLen);
+                    statusBuffer = statusBuffer.Concat(canData).ToArray();
+                    // 
 
-// 
+                    // 
                     //---------------------------------------------------//
-// 
+                    // 
                     // 拼接完成，分类型进行数据的处理
-// 
+                    // 
                     ParseStatusData(statusBuffer, canDataId, frameType, frameNO); //
 // 
                     bRecvHeader = false; //
@@ -3043,4 +3042,3 @@ namespace YaoCeProcess
     }
 // 
 }
-// 
